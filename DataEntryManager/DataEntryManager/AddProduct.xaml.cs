@@ -112,7 +112,7 @@ namespace DataEntryManager
         {
             string sel = category.SelectedItem.ToString();
             Category catselected = p.Find(i => i.CategoryName == sel);
-            //   MessageBox.Show(catselected.categoryID + "   " + catselected.categoryName);
+            //   MessageBox.Show(catselected.CategoryID + "   " + catselected.CategoryName);
             id = catselected.CategoryID;
 
         }

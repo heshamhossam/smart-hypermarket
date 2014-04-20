@@ -39,14 +39,16 @@ namespace DataEntryManager
             List<Product> productsList = new List<Product>();
 
             for (int i = 0; i < categoriesList.Count; i++)
-         {
-
-             foreach (var product in categoriesList[i].Products)
             {
-                productsList.Add(product);
+
+                 foreach (var product in categoriesList[i].Products)
+                {
+                    productsList.Add(product);
+                }
             }
-         }
             productsListGrid.ItemsSource = productsList;
+
+            
         }
     }
 }

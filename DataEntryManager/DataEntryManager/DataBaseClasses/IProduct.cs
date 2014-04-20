@@ -22,5 +22,11 @@ namespace DataEntryManager
         //@price: integer contains the price of the product in the market
         //@barcode: string contains the bar code of product
         //public IProduct(string name, int categoryId, int price, string barcode);
+
+        /// <summary>
+        /// Saves the current fields values into the database
+        /// </summary>
+        void save();
+
     }
 }
