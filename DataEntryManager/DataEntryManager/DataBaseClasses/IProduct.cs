@@ -28,5 +28,10 @@ namespace DataEntryManager
         /// </summary>
         void update();
 
+        /// <summary>
+        /// Delete the whole product from database
+        /// </summary>
+        void delete();
+
     }
 }

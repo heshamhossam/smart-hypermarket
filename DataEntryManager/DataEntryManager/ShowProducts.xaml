@@ -11,5 +11,6 @@
     <Grid Background="White">
         <DataGrid HorizontalAlignment="Left" Margin="70,121,0,0" Name="productsListGrid" VerticalAlignment="Top" SelectionChanged="productsListGrid_SelectionChanged" />
         <Button Content="Edit" Height="38" HorizontalAlignment="Left" Margin="31,52,0,0" Name="buttonEditProduct" VerticalAlignment="Top" Width="98" Click="buttonEditProduct_Click" />
+        <Button Content="Delete" Height="38" HorizontalAlignment="Left" Margin="174,52,0,0" x:Name="buttonDeleteProduct" VerticalAlignment="Top" Width="98" Click="buttonDeleteProduct_Click" />
     </Grid>
 </Page>

@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -23,6 +24,8 @@ namespace DataEntryManager
     /// </summary>
     public partial class ShowProducts : Page
     {
+        private List<Product> _productsList = new List<Product>();
+
         public ShowProducts()
         {
             InitializeComponent();
@@ -36,17 +39,16 @@ namespace DataEntryManager
             string data = streamReader.ReadToEnd();
 
             List<Category> categoriesList = JsonConvert.DeserializeObject<List<Category>>(data);
-            List<Product> productsList = new List<Product>();
 
             for (int i = 0; i < categoriesList.Count; i++)
             {
 
                  foreach (var product in categoriesList[i].Products)
                 {
-                    productsList.Add(product);
+                    _productsList.Add(product);
                 }
             }
-            productsListGrid.ItemsSource = productsList;
+            productsListGrid.ItemsSource = _productsList;
 
             
         }
@@ -59,9 +61,17 @@ namespace DataEntryManager
         private void buttonEditProduct_Click(object sender, RoutedEventArgs e)
         {
             Product product = (Product)productsListGrid.SelectedItem;
-
             EditProduct editProductWindow = new EditProduct(product);
             editProductWindow.Show();
+        }
+
+        private void buttonDeleteProduct_Click(object sender, RoutedEventArgs e)
+        {
+            Product product = (Product)productsListGrid.SelectedItem;
+
+            if (product != null)
+                product.delete();
+            
         }
     }
 }
