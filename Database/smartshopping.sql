@@ -101,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `products` (
 CREATE TABLE IF NOT EXISTS `product_category` (
   `product_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
-  PRIMARY KEY (`product_id`,`category_id`),
+  PRIMARY KEY (`product_id`),
   KEY `category_id` (`category_id`),
   KEY `product_id` (`product_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -115,7 +115,7 @@ CREATE TABLE IF NOT EXISTS `product_category` (
 CREATE TABLE IF NOT EXISTS `product_market` (
   `product_id` int(11) NOT NULL,
   `market_id` int(11) NOT NULL,
-  PRIMARY KEY (`product_id`,`market_id`),
+  PRIMARY KEY (`product_id`),
   KEY `market_id` (`market_id`),
   KEY `product_id` (`product_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
