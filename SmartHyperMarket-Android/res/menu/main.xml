@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/overflow_icon"
+        android:icon="@drawable/ic_action_overflow"
+        android:title="@string/overflow"
+        android:showAsAction="always" />
+    <item
+        android:id="@+id/camera_icon"
+        android:icon="@drawable/ic_action_camera"
+        android:title="@string/camera"
+        android:showAsAction="always" />
+
+</menu>
