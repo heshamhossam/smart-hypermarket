@@ -3,16 +3,10 @@ C:\Users\Hesham\workspace\smart-hypermarket\DataEntryManager\DataEntryManager\bi
 C:\Users\Hesham\workspace\smart-hypermarket\DataEntryManager\DataEntryManager\bin\Debug\DataEntryManager.pdb
 C:\Users\Hesham\workspace\smart-hypermarket\DataEntryManager\DataEntryManager\bin\Debug\FirstFloor.ModernUI.dll
 C:\Users\Hesham\workspace\smart-hypermarket\DataEntryManager\DataEntryManager\bin\Debug\Microsoft.Windows.Shell.dll
-C:\Users\Hesham\workspace\smart-hypermarket\DataEntryManager\DataEntryManager\bin\Debug\mscorlib.dll
 C:\Users\Hesham\workspace\smart-hypermarket\DataEntryManager\DataEntryManager\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Hesham\workspace\smart-hypermarket\DataEntryManager\DataEntryManager\bin\Debug\WpfCap.dll
 C:\Users\Hesham\workspace\smart-hypermarket\DataEntryManager\DataEntryManager\bin\Debug\zxing.dll
 C:\Users\Hesham\workspace\smart-hypermarket\DataEntryManager\DataEntryManager\bin\Debug\zxing.presentation.dll
-C:\Users\Hesham\workspace\smart-hypermarket\DataEntryManager\DataEntryManager\bin\Debug\normidna.nlp
-C:\Users\Hesham\workspace\smart-hypermarket\DataEntryManager\DataEntryManager\bin\Debug\normnfc.nlp
-C:\Users\Hesham\workspace\smart-hypermarket\DataEntryManager\DataEntryManager\bin\Debug\normnfd.nlp
-C:\Users\Hesham\workspace\smart-hypermarket\DataEntryManager\DataEntryManager\bin\Debug\normnfkc.nlp
-C:\Users\Hesham\workspace\smart-hypermarket\DataEntryManager\DataEntryManager\bin\Debug\normnfkd.nlp
 C:\Users\Hesham\workspace\smart-hypermarket\DataEntryManager\DataEntryManager\obj\Debug\DataEntryManager.csprojResolveAssemblyReference.cache
 C:\Users\Hesham\workspace\smart-hypermarket\DataEntryManager\DataEntryManager\obj\Debug\MainWindow.baml
 C:\Users\Hesham\workspace\smart-hypermarket\DataEntryManager\DataEntryManager\obj\Debug\ShowProducts.baml
@@ -51,3 +45,5 @@ C:\Users\Yaser\Desktop\RepoTest\smart-hypermarket\DataEntryManager\DataEntryMana
 C:\Users\Yaser\Desktop\RepoTest\smart-hypermarket\DataEntryManager\DataEntryManager\obj\Debug\DataEntryManager.g.resources
 C:\Users\Yaser\Desktop\RepoTest\smart-hypermarket\DataEntryManager\DataEntryManager\obj\Debug\DataEntryManager.Properties.Resources.resources
 C:\Users\Yaser\Desktop\RepoTest\smart-hypermarket\DataEntryManager\DataEntryManager\obj\Debug\DataEntryManager.csproj.GenerateResource.Cache
+C:\Users\Hesham\workspace\smart-hypermarket\DataEntryManager\DataEntryManager\obj\Debug\EditProduct.baml
+C:\Users\Hesham\workspace\smart-hypermarket\DataEntryManager\DataEntryManager\obj\Debug\EditProduct.g.cs

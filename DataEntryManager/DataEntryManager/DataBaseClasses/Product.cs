@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataEntryManager
 {
-    class Product : IProduct
+    public class Product : IProduct
     {
         private string id;
         private string name;
@@ -102,6 +102,12 @@ namespace DataEntryManager
         }
 
 
-       
+
+
+
+        public void update()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

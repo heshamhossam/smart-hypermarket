@@ -1,0 +1,9 @@
+﻿<Window x:Class="DataEntryManager.EditProduct"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="EditProduct" Height="300" Width="300">
+    <Grid>
+        <Button Content="Update" Name="buttonProductEdit" HorizontalAlignment="Left" Margin="58,192,0,0" VerticalAlignment="Top" Width="117" Height="56" Click="buttonProductEdit_Click"/>
+
+    </Grid>
+</Window>

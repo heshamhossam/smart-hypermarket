@@ -50,5 +50,18 @@ namespace DataEntryManager
 
             
         }
+
+        private void productsListGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
+
+        private void buttonEditProduct_Click(object sender, RoutedEventArgs e)
+        {
+            Product product = (Product)productsListGrid.SelectedItem;
+
+            EditProduct editProductWindow = new EditProduct(product);
+            editProductWindow.Show();
+        }
     }
 }
