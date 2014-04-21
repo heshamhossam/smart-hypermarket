@@ -12,3 +12,17 @@ D:\Year 3 Semester 2\The Project\Tasks\Task 1\DetectBarcode\DetectBarcode\obj\x8
 D:\Year 3 Semester 2\The Project\Tasks\Task 1\DetectBarcode\DetectBarcode\obj\x86\Debug\DetectBarcode.exe
 D:\Year 3 Semester 2\The Project\Tasks\Task 1\DetectBarcode\DetectBarcode\obj\x86\Debug\DetectBarcode.pdb
 D:\Year 3 Semester 2\The Project\Tasks\Task 1\DetectBarcode\DetectBarcode\obj\x86\Debug\DataEntryManager.DetectBarcode.resources
+C:\Users\Yaser\Source\Repos\smart-hypermarket\DetectBarcode.v2\DetectBarcode\obj\x86\Debug\DetectBarcode.exe
+C:\Users\Yaser\Source\Repos\smart-hypermarket\DetectBarcode.v2\DetectBarcode\obj\x86\Debug\DetectBarcode.pdb
+C:\Users\Yaser\Source\Repos\smart-hypermarket\DetectBarcode.v2\DetectBarcode\bin\Debug\DetectBarcode.exe
+C:\Users\Yaser\Source\Repos\smart-hypermarket\DetectBarcode.v2\DetectBarcode\bin\Debug\DetectBarcode.pdb
+C:\Users\Yaser\Source\Repos\smart-hypermarket\DetectBarcode.v2\DetectBarcode\bin\Debug\zxing.dll
+C:\Users\Yaser\Source\Repos\smart-hypermarket\DetectBarcode.v2\DetectBarcode\bin\Debug\zxing.presentation.dll
+C:\Users\Yaser\Source\Repos\smart-hypermarket\DetectBarcode.v2\DetectBarcode\bin\Debug\zxing.pdb
+C:\Users\Yaser\Source\Repos\smart-hypermarket\DetectBarcode.v2\DetectBarcode\bin\Debug\zxing.xml
+C:\Users\Yaser\Source\Repos\smart-hypermarket\DetectBarcode.v2\DetectBarcode\bin\Debug\zxing.presentation.pdb
+C:\Users\Yaser\Source\Repos\smart-hypermarket\DetectBarcode.v2\DetectBarcode\bin\Debug\zxing.presentation.xml
+C:\Users\Yaser\Source\Repos\smart-hypermarket\DetectBarcode.v2\DetectBarcode\obj\x86\Debug\DetectBarcode.csprojResolveAssemblyReference.cache
+C:\Users\Yaser\Source\Repos\smart-hypermarket\DetectBarcode.v2\DetectBarcode\obj\x86\Debug\DataEntryManager.DetectBarcode.resources
+C:\Users\Yaser\Source\Repos\smart-hypermarket\DetectBarcode.v2\DetectBarcode\obj\x86\Debug\DetectBarcode.Properties.Resources.resources
+C:\Users\Yaser\Source\Repos\smart-hypermarket\DetectBarcode.v2\DetectBarcode\obj\x86\Debug\DetectBarcode.csproj.GenerateResource.Cache
