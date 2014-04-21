@@ -94,6 +94,21 @@ class ServiceController extends BaseController {
         );
     }
     
+    public function editProduct()
+    {
+        $product_id = Input::get("id");
+        
+        $product = Product::find($product_id);
+        $product->name = Input::get("name");
+        $product->barcode = Input::get("barcode");
+        $product->save();
+        
+        DB::table('market_product')
+            ->where('product_id', $product_id)
+            ->where('market_id', Input::get("market_id"))
+            ->update(array('price' => Input::get("price")));
+        
+    }
 
     public function getForm()
     {

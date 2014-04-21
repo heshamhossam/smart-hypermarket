@@ -24,6 +24,12 @@ Route::post("/products/create", array(
     
 ));
 
+Route::post("/products/edit", array(
+    "as" => "products-edit-post",
+    "uses" => "ServiceController@editProduct"
+    
+));
+
 Route::get("/categories/retrieve", array(
     "as" => "categories-retrieve",
     "uses" => "ServiceController@retrieveCategories"
