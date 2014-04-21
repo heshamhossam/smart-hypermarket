@@ -5,11 +5,11 @@ class Category extends Eloquent {
 	protected $table = "categories";
 	
 	//array of fields which can be filled
-	protected $fillable = array("name");
+	protected $fillable = array("name", "category_id");
 	
 	//products in this category
 	public function products() {
-		return $this->hasMany("Product");
+		return $this->belongsToMany("Product");
 	}
 	
 		

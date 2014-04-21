@@ -12,6 +12,18 @@ class Market extends Eloquent {
         {
             return $this->hasOne(Location);
         }
+        
+        //products in this market
+	public function products() {
+            return $this->belongsToMany("Product");
+	}
+        
+        //categories in this market
+        public function categories()
+        {
+            return $this->belongsToMany("Category");
+        }
+        
 	
 		
 }

@@ -5,7 +5,7 @@ class Product extends Eloquent {
 	protected $table = "products";
 	
 	//array of fields which can be filled
-	protected $fillable = array("name", "barcode", "price", "category_id");
+	protected $fillable = array("name", "barcode");
         
         
         

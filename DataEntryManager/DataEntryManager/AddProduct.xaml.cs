@@ -88,7 +88,7 @@ namespace DataEntryManager
         }
         private void LoadComboxList()
         {
-            string url = "http://zonlinegamescom.ipage.com/smarthypermarket/public/categories/retrieve";
+            string url = "http://zonlinegamescom.ipage.com/smarthypermarket/public/categories/retrieve?market_id=1";
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
 
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();

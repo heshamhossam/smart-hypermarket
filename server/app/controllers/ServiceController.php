@@ -7,9 +7,20 @@ class ServiceController extends BaseController {
     public function retrieveProduct()
     {
         //@barcode: string contains bar code of the product to be retrieved
-        $barcode = Input::get("barcode");
+        $key = "barcode";
+        $value = 0;
         
-        $products = Product::where("barcode", "=", "$barcode");
+        if (Input::has("barcode"))
+            $key = "barcode";
+        else if (Input::has("id"))
+            $key = "id";
+        
+        $value = Input::get($key);
+        
+        
+        
+        $products = Product::where("$key", "=", "$value");
+        
         
         //return var_dump($products->first()->toArray());
         if ($products->count())
@@ -25,7 +36,7 @@ class ServiceController extends BaseController {
         {
             $response = array(
                 "success" => 0,
-                "message" => "No Product with the given barcode $barcode"
+                "message" => "No Product with the given $key $value"
             );
         }
         
@@ -37,14 +48,18 @@ class ServiceController extends BaseController {
     //retrieve all categories from database
     public function retrieveCategories()
     {   
-        //get all categories as array
-        $categories = Category::all();
+        if (Input::has("market_id"))
+            $marketId = Input::get("market_id");
+        else
+            return Response::json(array("success" => 0, "message" => "No Market with the market id"));
         
+        $market = Market::find($marketId);
         //response json 
         $response = array();
         
-        foreach ($categories as $category)
+        foreach ($market->categories as $category)
         {   
+            
             array_push($response, array(
                 "categoryID" => $category->id,
                 "categoryName" => $category->name,
@@ -62,14 +77,23 @@ class ServiceController extends BaseController {
     {
         
         $product = new Product();
+        
         $product->name = Input::get("name");
         $product->barcode = Input::get("barcode");
-        $product->price = Input::get("price");
-        $product->category_id = Input::get("category_id");
         
         $product->save();
+        
+        //save the product in the category
+        DB::table('category_product')->insert(
+            array('category_id' => Input::get("category_id"), 'product_id' => $product->id)
+        );
+        
+        //save the product in the market
+        DB::table('market_product')->insert(
+            array('market_id' => Input::get("market_id"), 'product_id' => $product->id, "price" => Input::get("price"))
+        );
     }
-
+    
 
     public function getForm()
     {
