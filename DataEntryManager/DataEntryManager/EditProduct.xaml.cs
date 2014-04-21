@@ -38,8 +38,8 @@ namespace DataEntryManager
         private void buttonProductEdit_Click(object sender, RoutedEventArgs e)
         {
             _product.Id = id.Text;
-            _product.Name = id.Text;
-            _product.Barcode = id.Text;
+            _product.Name = name.Text;
+            _product.Barcode = barcode.Text;
             //_product.Market_id = "1";
             _product.Price = price.Text;
             _product.update();

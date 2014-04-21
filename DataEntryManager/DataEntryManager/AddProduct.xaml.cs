@@ -71,6 +71,8 @@ namespace DataEntryManager
 
                 formData["category_id"] = id;
 
+                formData["market_id"] = "1";
+
                 byte[] responseBytes = webClient.UploadValues(URL, "POST", formData);
 
                 string responsefromserver = Encoding.UTF8.GetString(responseBytes);

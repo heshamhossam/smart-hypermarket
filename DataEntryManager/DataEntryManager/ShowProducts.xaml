@@ -6,11 +6,12 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
 	Title="Page1">
-    
-        
-    <Grid Background="White">
-        <DataGrid HorizontalAlignment="Left" Margin="70,121,0,0" Name="productsListGrid" VerticalAlignment="Top" SelectionChanged="productsListGrid_SelectionChanged" />
-        <Button Content="Edit" Height="38" HorizontalAlignment="Left" Margin="31,52,0,0" Name="buttonEditProduct" VerticalAlignment="Top" Width="98" Click="buttonEditProduct_Click" />
-        <Button Content="Delete" Height="38" HorizontalAlignment="Left" Margin="174,52,0,0" x:Name="buttonDeleteProduct" VerticalAlignment="Top" Width="98" Click="buttonDeleteProduct_Click" />
-    </Grid>
+
+    <StackPanel Background="White">
+        <StackPanel Background="White" Orientation="Horizontal">
+            <Button Content="Edit" Height="38" HorizontalAlignment="Left" Name="buttonEditProduct" VerticalAlignment="Top" Width="98" Click="buttonEditProduct_Click" />
+            <Button Content="Delete" Height="38" HorizontalAlignment="Left" Name="buttonDeleteProduct" VerticalAlignment="Top" Width="98" Click="buttonDeleteProduct_Click" />
+        </StackPanel>
+        <DataGrid HorizontalAlignment="Left" Name="productsListGrid" VerticalAlignment="Top" SelectionChanged="productsListGrid_SelectionChanged" />
+    </StackPanel>
 </Page>
