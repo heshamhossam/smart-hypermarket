@@ -57,8 +57,19 @@ class ServiceController extends BaseController {
         //response json 
         $response = array();
         
+        
+        
         foreach ($market->categories as $category)
         {   
+            foreach($category->products as $product)
+            {
+                $p = DB::table('market_product')
+                    ->where('market_id', "=", Input::get("market_id"))
+                    ->where('product_id', "=", $product->id)
+                    ->first();
+                    
+                $product->price = $p->price;
+            }
             
             array_push($response, array(
                 "categoryID" => $category->id,
@@ -96,6 +107,9 @@ class ServiceController extends BaseController {
     
     public function editProduct()
     {
+        if (!Input::has("id"))
+            return "Please Enter Valid input ID to edit";
+        
         $product_id = Input::get("id");
         
         $product = Product::find($product_id);
