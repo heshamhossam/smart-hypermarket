@@ -3,6 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+using System.Net;
+using System.IO;
+using Newtonsoft.Json;
+using System.Collections.Specialized;
 
 namespace DataEntryManager
 {
@@ -107,7 +121,37 @@ namespace DataEntryManager
 
         public void update()
         {
-            throw new NotImplementedException();
+            try
+            {
+
+                string URL = "http://zonlinegamescom.ipage.com/smarthypermarket/public/products/edit";
+
+                WebClient webClient = new WebClient();
+
+                NameValueCollection formData = new NameValueCollection();
+
+                formData["id"] = id;
+
+                formData["name"] = name;
+
+                formData["barcode"] = barcode;
+
+                formData["market_id"] = "1";
+
+                formData["price"] = price;
+
+                byte[] responseBytes = webClient.UploadValues(URL, "POST", formData);
+
+                string responsefromserver = Encoding.UTF8.GetString(responseBytes);
+
+                webClient.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+            //  Console.WriteLine(responsefromserver);
         }
 
         string IProduct.Id
@@ -201,7 +245,7 @@ namespace DataEntryManager
 
         public void delete()
         {
-            //throw new NotImplementedException();
+            throw new NotImplementedException();
         }
 
 

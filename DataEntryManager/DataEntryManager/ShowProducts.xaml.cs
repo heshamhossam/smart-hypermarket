@@ -42,14 +42,13 @@ namespace DataEntryManager
 
             for (int i = 0; i < categoriesList.Count; i++)
             {
-
                  foreach (var product in categoriesList[i].Products)
                 {
                     _productsList.Add(product);
                 }
             }
-            productsListGrid.ItemsSource = _productsList;
 
+            productsListGrid.ItemsSource = _productsList;
             
         }
 
