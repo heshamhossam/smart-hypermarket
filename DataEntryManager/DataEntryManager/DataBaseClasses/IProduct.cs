@@ -39,5 +39,12 @@ namespace DataEntryManager
         /// <param name="market">Market who are performing the saving</param>
         void save(Market market);
 
+
+        // <summary>
+        /// Delete the whole product in database related to the market
+        /// </summary>
+        /// <param name="market">Market to delete product from</param>
+        void delete(Market market);
+
     }
 }
