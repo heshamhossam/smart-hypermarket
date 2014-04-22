@@ -42,7 +42,11 @@ namespace DataEntryManager
             _product.Barcode = barcode.Text;
             //_product.Market_id = "1";
             _product.Price = float.Parse(price.Text);
+
             _product.update();
+
+            MessageBox.Show("Product edited successfully.", "Confirmation message", MessageBoxButton.OK);
+            this.Close();
         }
 
         /// <summary>
