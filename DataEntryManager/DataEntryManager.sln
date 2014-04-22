@@ -1,7 +1,11 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataEntryManager", "DataEntryManager\DataEntryManager.csproj", "{A9D30ABA-57BF-40E4-AABF-AD151B84FB50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataEntryManagerTests", "DataEntryManagerTests\DataEntryManagerTests.csproj", "{6EBF5BE3-9AD5-4E0E-A450-740E0446104B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +17,10 @@ Global
 		{A9D30ABA-57BF-40E4-AABF-AD151B84FB50}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9D30ABA-57BF-40E4-AABF-AD151B84FB50}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9D30ABA-57BF-40E4-AABF-AD151B84FB50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EBF5BE3-9AD5-4E0E-A450-740E0446104B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EBF5BE3-9AD5-4E0E-A450-740E0446104B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EBF5BE3-9AD5-4E0E-A450-740E0446104B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EBF5BE3-9AD5-4E0E-A450-740E0446104B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
