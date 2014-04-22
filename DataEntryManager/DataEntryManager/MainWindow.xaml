@@ -8,9 +8,9 @@
     <mui:ModernWindow.MenuLinkGroups>
         <mui:LinkGroup DisplayName="Data Entry" >
             <mui:LinkGroup.Links>
-                <mui:Link DisplayName="Add Product" Source="AddProduct.xaml" />
+                <mui:Link DisplayName="Add Product" Source="AddProduct.xaml" PropertyChanged="Link_PropertyChanged_1"/>
                 <mui:Link DisplayName="Add Offer"/>
-                <mui:Link DisplayName="Show Products" Source="ShowProducts.xaml"/>
+                <mui:Link DisplayName="Show Products" Source="ShowProducts.xaml" PropertyChanged="Link_PropertyChanged"/>
                 <mui:Link DisplayName="Show Offers"/>
             </mui:LinkGroup.Links>
         </mui:LinkGroup>

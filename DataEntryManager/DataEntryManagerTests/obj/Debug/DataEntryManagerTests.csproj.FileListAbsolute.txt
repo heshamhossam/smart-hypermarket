@@ -1,0 +1,1 @@
+C:\Users\eslam\Documents\GitHub\smart-hypermarket\DataEntryManager\DataEntryManagerTests\obj\Debug\DataEntryManagerTests.csprojResolveAssemblyReference.cache

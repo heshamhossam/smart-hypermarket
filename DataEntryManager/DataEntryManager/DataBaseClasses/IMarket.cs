@@ -9,16 +9,12 @@ namespace DataEntryManager
     interface IMarket
     {
 
-        List<Product> Products { get; set; }
+        List<Product> Products { get; }
 
-        List<Product> Categories { get; set; }
 
-        int Id { get; set; }
+        List<Category> Categories { get; }
 
-        
-
-        
-
+        int Id { get; }
 
     }
 }

@@ -251,18 +251,7 @@ namespace DataEntryManager
 
         public void delete()
         {
-            try
-            {
-                WebClient wb = new WebClient();
-                string url = "http://zonlinegamescom.ipage.com/smarthypermarket/public/products/delete";
-                var data = new NameValueCollection();
-                data["id"] = id;
-
-
-                var response = wb.UploadValues(url, "POST", data);
-            }
-            catch { MessageBox.Show("deleting error!"); }
-            
+            throw new NotImplementedException();
         }
 
 
@@ -300,12 +289,6 @@ namespace DataEntryManager
             {
                 MessageBox.Show(ex.ToString());
             }
-        }
-
-
-        public void delete(Market market)
-        {
-            throw new NotImplementedException();
         }
     }
 }

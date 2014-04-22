@@ -25,5 +25,15 @@ namespace DataEntryManager
         {
             InitializeComponent();
         }
+
+        private void Link_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            Application.Current.MainWindow.Activate();
+        }
+
+        private void Link_PropertyChanged_1(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            Application.Current.MainWindow.Activate();
+        }
     }
 }
