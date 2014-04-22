@@ -301,5 +301,11 @@ namespace DataEntryManager
                 MessageBox.Show(ex.ToString());
             }
         }
+
+
+        public void delete(Market market)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
