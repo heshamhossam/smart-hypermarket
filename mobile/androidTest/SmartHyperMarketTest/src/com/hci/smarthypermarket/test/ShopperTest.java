@@ -9,6 +9,7 @@ import android.test.AndroidTestCase;
 
 public class ShopperTest extends AndroidTestCase {
 	
+	//Test Scanned Product
 	public void TestScannedProduct()
 	{
 		Shopper shopper = new Shopper();
@@ -23,6 +24,7 @@ public class ShopperTest extends AndroidTestCase {
 		assertEquals(expected, actual);
 	}
 	
+	//Test Order Object with Shopper
 	public void TestOrder()
 	{
 		Shopper shopper = new Shopper();
@@ -33,6 +35,18 @@ public class ShopperTest extends AndroidTestCase {
 		
 		assertNotNull(shopper);
 	
+	}
+	
+	//Test Market
+	public void TestMarket()
+	{
+		Shopper shopper = new Shopper();
+		shopper.setMarketId("1");
+		
+		String expected = "1";
+		String actual = shopper.getMarketId();
+		
+		assertEquals(expected, actual);
 	}
 
 }
