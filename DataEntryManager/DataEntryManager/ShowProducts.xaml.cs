@@ -24,20 +24,37 @@ namespace DataEntryManager
     /// </summary>
     public partial class ShowProducts : Page
     {
-        //  private List<Product> _productsList = new List<Product>();
-        Market market;
+        private List<Product> _productsList = new List<Product>();
 
         public ShowProducts()
         {
             InitializeComponent();
-            market = Market.getInstance();
-            productsListGrid.ItemsSource = market.Products;
+            string url = "http://zonlinegamescom.ipage.com/smarthypermarket/public/categories/retrieve?market_id=1";
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
 
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+            StreamReader streamReader = new StreamReader(response.GetResponseStream());
+
+            string data = streamReader.ReadToEnd();
+
+            List<Category> categoriesList = JsonConvert.DeserializeObject<List<Category>>(data);
+
+            for (int i = 0; i < categoriesList.Count; i++)
+            {
+                 foreach (var product in categoriesList[i].Products)
+                {
+                    _productsList.Add(product);
+                }
+            }
+
+            productsListGrid.ItemsSource = _productsList;
+            
         }
 
         private void productsListGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            
         }
 
         private void buttonEditProduct_Click(object sender, RoutedEventArgs e)
@@ -53,7 +70,7 @@ namespace DataEntryManager
 
             if (product != null)
                 product.delete();
-
+            
         }
     }
 }
