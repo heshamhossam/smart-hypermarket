@@ -31,68 +31,55 @@ namespace DataEntryManager
     /// </summary>
     public partial class AddProduct : Page
     {
-        List<Category> p;
+
         string id;
+        Market market;
         private Market _market;
         public AddProduct()
         {
             InitializeComponent();
+            market = Market.getInstance();
 
             #region Bardetecting Example
             OnBarcodeDetectedDelegate testD = testDelegateFunction; //Testing variable for OnBarcodeDetectedDelegate
-            BarcodeReading.BarcodeReader bcr = new BarcodeReading.BarcodeReader(ref barcode,ref player); //Testing variable for BarcodeReader class ( see constructor documentation )
+            BarcodeReading.BarcodeReader bcr = new BarcodeReading.BarcodeReader(ref barcode, ref player); //Testing variable for BarcodeReader class ( see constructor documentation )
             bcr.onBarcodeDetected += testD; //Adding the delegate function to onBarcodeDetected variable at bcr to fire it after detecting barcode emplicitily
             //If camera opened successfully read barcode and fire onBarcodeDetected delegate
             //if (bcr.openCamera() == true)
-                bcr.readBarcodes();
+            bcr.readBarcodes();
             #endregion
             LoadComboxList();
-
-            _market = Market.getInstance();
-            _market.Id = 1;
 
         }
         public void testDelegateFunction()
         {
-            
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
             Product p = new Product(name.Text, barcode.Text, float.Parse(price.Text), id);
-            p.save(_market);
-            
+            p.save(market);
+
             //  Console.WriteLine(responsefromserver);
 
-          
+
         }
         private void LoadComboxList()
         {
-            string url = "http://zonlinegamescom.ipage.com/smarthypermarket/public/categories/retrieve?market_id=1";
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
-            StreamReader sr = new StreamReader(response.GetResponseStream());
-
-            string data = sr.ReadToEnd();
-
-            p = JsonConvert.DeserializeObject<List<Category>>(data);
-
-
             //add in the box
-            foreach (Category cat in p)
+            foreach (Category cat in market.Categories)
             {
                 category.Items.Add(cat.CategoryName);
             }
         }
 
-       
+
         private void category_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string sel = category.SelectedItem.ToString();
-            Category catselected = p.Find(i => i.CategoryName == sel);
+            Category catselected = market.Categories.Find(i => i.CategoryName == sel);
             //   MessageBox.Show(catselected.CategoryID + "   " + catselected.CategoryName);
             id = catselected.CategoryID;
 

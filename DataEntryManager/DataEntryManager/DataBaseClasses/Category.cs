@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataEntryManager
 {
-    class Category : ICategory
+    public class Category : ICategory
     {
         private string categoryID;
         private string categoryName;
