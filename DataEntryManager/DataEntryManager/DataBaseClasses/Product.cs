@@ -25,7 +25,7 @@ namespace DataEntryManager
         private string id;
         private string name;
         private string barcode;
-        private string price;
+        private float price;
         private string created_at;
         private string updated_at;
         private string category_id;
@@ -67,7 +67,7 @@ namespace DataEntryManager
             }
         }
 
-        public string Price
+        public float Price
         {
             get
             {
@@ -116,7 +116,13 @@ namespace DataEntryManager
         }
 
 
-
+        public Product(string name, string barcode, float price, string categoryId)
+        {
+            this.Name = name;
+            this.Barcode = barcode;
+            this.Price = price;
+            this.Category_id = categoryId;
+        }
 
 
         public void update()
@@ -138,7 +144,7 @@ namespace DataEntryManager
 
                 formData["market_id"] = "1";
 
-                formData["price"] = price;
+                formData["price"] = price.ToString();
 
                 byte[] responseBytes = webClient.UploadValues(URL, "POST", formData);
 
@@ -190,7 +196,7 @@ namespace DataEntryManager
             }
         }
 
-        string IProduct.Price
+        float IProduct.Price
         {
             get
             {
@@ -249,6 +255,40 @@ namespace DataEntryManager
         }
 
 
-        
+
+
+
+        public void save(Market market)
+        {
+            try
+            {
+
+                string URL = "http://zonlinegamescom.ipage.com/smarthypermarket/public/products/create";
+
+                WebClient webClient = new WebClient();
+
+                NameValueCollection formData = new NameValueCollection();
+
+                formData["name"] = name;
+
+                formData["barcode"] = barcode;
+
+                formData["price"] = price.ToString();
+
+                formData["category_id"] = Category_id;
+
+                formData["market_id"] = market.Id.ToString();
+
+                byte[] responseBytes = webClient.UploadValues(URL, "POST", formData);
+
+                string responsefromserver = Encoding.UTF8.GetString(responseBytes);
+
+                webClient.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
     }
 }

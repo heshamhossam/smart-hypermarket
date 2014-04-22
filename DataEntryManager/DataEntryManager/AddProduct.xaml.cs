@@ -33,6 +33,7 @@ namespace DataEntryManager
     {
         List<Category> p;
         string id;
+        private Market _market;
         public AddProduct()
         {
             InitializeComponent();
@@ -45,7 +46,11 @@ namespace DataEntryManager
             //if (bcr.openCamera() == true)
                 bcr.readBarcodes();
             #endregion
-                LoadComboxList();
+            LoadComboxList();
+
+            _market = Market.getInstance();
+            _market.Id = 1;
+
         }
         public void testDelegateFunction()
         {
@@ -54,36 +59,10 @@ namespace DataEntryManager
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
 
-                string URL = "http://zonlinegamescom.ipage.com/smarthypermarket/public/products/create";
-
-                WebClient webClient = new WebClient();
-
-                NameValueCollection formData = new NameValueCollection();
-
-                formData["name"] = name.Text;
-
-                formData["barcode"] = barcode.Text;
-
-                formData["price"] = price.Text;
-
-                formData["category_id"] = id;
-
-                formData["market_id"] = "1";
-
-                byte[] responseBytes = webClient.UploadValues(URL, "POST", formData);
-
-                string responsefromserver = Encoding.UTF8.GetString(responseBytes);
-
-                webClient.Dispose();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-
+            Product p = new Product(name.Text, barcode.Text, float.Parse(price.Text), id);
+            p.save(_market);
+            
             //  Console.WriteLine(responsefromserver);
 
           

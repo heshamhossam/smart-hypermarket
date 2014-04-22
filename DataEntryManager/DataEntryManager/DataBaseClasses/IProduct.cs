@@ -11,7 +11,7 @@ namespace DataEntryManager
         string Id { get; set; }
         string Name { get; set; }
         string Barcode { get; set; }
-        string Price { get; set; }
+        float Price { get; set; }
         string Created_at { get; set; }
         string Updated_at { get; set; }
         string Category_id { get; set; }
@@ -32,6 +32,12 @@ namespace DataEntryManager
         /// Delete the whole product from database
         /// </summary>
         void delete();
+
+        /// <summary>
+        /// Save new Product to the database
+        /// </summary>
+        /// <param name="market">Market who are performing the saving</param>
+        void save(Market market);
 
     }
 }

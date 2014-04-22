@@ -41,7 +41,7 @@ namespace DataEntryManager
             _product.Name = name.Text;
             _product.Barcode = barcode.Text;
             //_product.Market_id = "1";
-            _product.Price = price.Text;
+            _product.Price = float.Parse(price.Text);
             _product.update();
         }
 
@@ -55,7 +55,7 @@ namespace DataEntryManager
             name.Text = product.Name;
             barcode.Text = product.Barcode;
             //market_id.Text = product.Market_id;
-            price.Text = product.Price;
+            price.Text = product.Price.ToString();
         }
     }
 }
