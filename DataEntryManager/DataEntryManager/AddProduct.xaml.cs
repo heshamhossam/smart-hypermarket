@@ -49,6 +49,7 @@ namespace DataEntryManager
             //if (bcr.openCamera() == true)
             bcr.readBarcodes();
             #endregion
+            
             LoadComboxList();
 
         }
@@ -89,6 +90,7 @@ namespace DataEntryManager
       
         private void LoadComboxList()
         {
+            
             //add in the box
             foreach (Category cat in market.Categories)
             {
