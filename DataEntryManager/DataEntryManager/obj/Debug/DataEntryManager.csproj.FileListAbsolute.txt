@@ -138,3 +138,6 @@ C:\Users\eslam\Documents\GitHub\smart-hypermarket\DataEntryManager\DataEntryMana
 C:\Users\eslam\Documents\GitHub\smart-hypermarket\DataEntryManager\DataEntryManager\obj\Debug\DataEntryManager.g.resources
 C:\Users\eslam\Documents\GitHub\smart-hypermarket\DataEntryManager\DataEntryManager\obj\Debug\DataEntryManager.Properties.Resources.resources
 C:\Users\eslam\Documents\GitHub\smart-hypermarket\DataEntryManager\DataEntryManager\obj\Debug\DataEntryManager.csproj.GenerateResource.Cache
+C:\Users\eslam\Documents\GitHub\New-Edit\smart-hypermarket\DataEntryManager\DataEntryManager\bin\Debug\DataEntryManager.exe.config
+C:\Users\eslam\Documents\GitHub\New-Edit\smart-hypermarket\DataEntryManager\DataEntryManager\obj\Debug\DataEntryManager.exe
+C:\Users\eslam\Documents\GitHub\New-Edit\smart-hypermarket\DataEntryManager\DataEntryManager\obj\Debug\DataEntryManager.pdb

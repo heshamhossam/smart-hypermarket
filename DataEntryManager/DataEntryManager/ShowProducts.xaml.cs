@@ -26,13 +26,16 @@ namespace DataEntryManager
     {
         //  private List<Product> _productsList = new List<Product>();
         Market market;
+        int LNum, NNum;
 
         public ShowProducts()
         {
-            
+
             InitializeComponent();
+            Application.Current.MainWindow.Activate();
             market = Market.getInstance();
             productsListGrid.ItemsSource = market.Products;
+
 
         }
 
@@ -55,6 +58,26 @@ namespace DataEntryManager
             if (product != null)
                 product.delete();
 
+        }
+
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            // productsListGrid.Items.Refresh();
+            LNum = market.Products.Count;
+            market = Market.getInstance();
+            NNum = market.Products.Count;
+            if (NNum > LNum)
+            {
+                LNum = NNum - LNum;
+                MessageBox.Show(string.Format("There are {0} New Products", LNum));
+            }
+            else
+            {
+                MessageBox.Show("There Is Not Any New Products");
+            }
+
+            productsListGrid.ItemsSource = market.Products;
         }
     }
 }
