@@ -2,15 +2,15 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mui="http://firstfloorsoftware.com/ModernUI"
-        ContentSource="/ShowProducts.xaml"
-        
-        Title="MainWindow" Height="655" Width="652">
+        ContentSource="ShowProducts.xaml"
+        Title="Data Entry" Height="655" Width="652">
+    
     <mui:ModernWindow.MenuLinkGroups>
         <mui:LinkGroup DisplayName="Data Entry" >
             <mui:LinkGroup.Links>
+                <mui:Link DisplayName="Show Products" Source="ShowProducts.xaml" PropertyChanged="Link_PropertyChanged"/>
                 <mui:Link DisplayName="Add Product" Source="AddProduct.xaml" PropertyChanged="Link_PropertyChanged_1"/>
                 <mui:Link DisplayName="Add Offer"/>
-                <mui:Link DisplayName="Show Products" Source="ShowProducts.xaml" PropertyChanged="Link_PropertyChanged"/>
                 <mui:Link DisplayName="Show Offers"/>
             </mui:LinkGroup.Links>
         </mui:LinkGroup>

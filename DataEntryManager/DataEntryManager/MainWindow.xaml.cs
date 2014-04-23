@@ -24,6 +24,7 @@ namespace DataEntryManager
         public MainWindow()
         {
             InitializeComponent();
+            
         }
 
         private void Link_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
