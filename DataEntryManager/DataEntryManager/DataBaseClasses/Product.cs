@@ -20,6 +20,7 @@ using System.Collections.Specialized;
 
 namespace DataEntryManager
 {
+
     public class Product : IProduct
     {
         private string id;
@@ -289,9 +290,10 @@ namespace DataEntryManager
 
 
 
-        public bool save(Market market)
+        public Product save(Market market)
         {
-                string URL = "http://zonlinegamescom.ipage.com/smarthypermarket/public/products/create";
+
+              string URL = "http://zonlinegamescom.ipage.com/smarthypermarket/public/products/create";
 
                 WebClient webClient = new WebClient();
 
@@ -310,14 +312,14 @@ namespace DataEntryManager
                 byte[] responseBytes = webClient.UploadValues(URL, "POST", formData);
 
                 string responsefromserver = Encoding.UTF8.GetString(responseBytes);
-
+                Product p = JsonConvert.DeserializeObject<Product>(responsefromserver);
                 webClient.Dispose();
                 if(responsefromserver!=null)
                 {
-                    return true;
+                    return p;
                 }
                 else 
-                    return false;
+                    return null;
                 }
            
            
