@@ -125,7 +125,7 @@ namespace DataEntryManager
         }
 
 
-        public void update()
+        public bool update()
         {
             try
             {
@@ -151,13 +151,18 @@ namespace DataEntryManager
                 string responsefromserver = Encoding.UTF8.GetString(responseBytes);
 
                 webClient.Dispose();
+
+                if(responsefromserver == null)
+                    return false;
+                else 
+                    return true;
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                return false;
             }
 
-            //  Console.WriteLine(responsefromserver);
         }
 
         string IProduct.Id
@@ -244,11 +249,6 @@ namespace DataEntryManager
             }
         }
 
-        void IProduct.update()
-        {
-            throw new NotImplementedException();
-        }
-
         public void delete()
         {
             try
@@ -312,13 +312,13 @@ namespace DataEntryManager
                 string responsefromserver = Encoding.UTF8.GetString(responseBytes);
 
                 webClient.Dispose();
-            if(responsefromserver!=null)
-            {
-                return true;
-            }
-            else 
-                return false;
-            }
+                if(responsefromserver!=null)
+                {
+                    return true;
+                }
+                else 
+                    return false;
+                }
            
            
         }

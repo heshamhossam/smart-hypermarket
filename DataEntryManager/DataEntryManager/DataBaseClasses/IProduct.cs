@@ -26,7 +26,7 @@ namespace DataEntryManager
         /// <summary>
         /// Saves the current fields values into the database
         /// </summary>
-        void update();
+        bool update();
 
         /// <summary>
         /// Delete the whole product from database
