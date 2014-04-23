@@ -47,16 +47,25 @@ namespace DataEntryManager
         private void buttonEditProduct_Click(object sender, RoutedEventArgs e)
         {
             Product product = (Product)productsListGrid.SelectedItem;
-            EditProduct editProductWindow = new EditProduct(product);
-            editProductWindow.Show();
+
+            if (product != null)
+            {
+                EditProduct editProductWindow = new EditProduct(product);
+                editProductWindow.Show();
+            }
+            else
+                MessageBox.Show("Please select a product first to edit");
         }
 
         private void buttonDeleteProduct_Click(object sender, RoutedEventArgs e)
         {
+
             Product product = (Product)productsListGrid.SelectedItem;
 
             if (product != null)
                 product.delete();
+            else
+                MessageBox.Show("Please select a product first to delete");
 
         }
 
