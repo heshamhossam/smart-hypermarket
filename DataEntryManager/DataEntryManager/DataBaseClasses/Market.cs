@@ -79,21 +79,12 @@ namespace DataEntryManager
         }
         private void LoadProducts()
         {
-            string url = "http://zonlinegamescom.ipage.com/smarthypermarket/public/categories/retrieve?market_id=1";
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
-            StreamReader streamReader = new StreamReader(response.GetResponseStream());
-
-            string data = streamReader.ReadToEnd();
-
-            List<Category> categoriesList = JsonConvert.DeserializeObject<List<Category>>(data);
-
-            for (int i = 0; i < categoriesList.Count; i++)
+            
+            for (int i = 0; i < Categories.Count; i++)
             {
-                foreach (var product in categoriesList[i].Products)
+                foreach (var product in Categories[i].Products)
                 {
+                    product.Category_id = Categories[i].CategoryID;
                     ProductList.Add(product);
                 }
             }
