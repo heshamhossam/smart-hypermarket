@@ -60,7 +60,6 @@ namespace DataEntryManager
 
         }
 
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             // productsListGrid.Items.Refresh();
