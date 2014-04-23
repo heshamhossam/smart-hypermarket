@@ -289,11 +289,8 @@ namespace DataEntryManager
 
 
 
-        public void save(Market market)
+        public bool save(Market market)
         {
-            try
-            {
-
                 string URL = "http://zonlinegamescom.ipage.com/smarthypermarket/public/products/create";
 
                 WebClient webClient = new WebClient();
@@ -315,11 +312,15 @@ namespace DataEntryManager
                 string responsefromserver = Encoding.UTF8.GetString(responseBytes);
 
                 webClient.Dispose();
-            }
-            catch (Exception ex)
+            if(responsefromserver!=null)
             {
-                MessageBox.Show(ex.ToString());
+                return true;
             }
+            else 
+                return false;
+            }
+           
+           
         }
     }
-}
+

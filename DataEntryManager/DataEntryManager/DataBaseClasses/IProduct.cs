@@ -37,7 +37,7 @@ namespace DataEntryManager
         /// Save new Product to the database
         /// </summary>
         /// <param name="market">Market who are performing the saving</param>
-        void save(Market market);
+        bool save(Market market);
 
 
         // <summary>

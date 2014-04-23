@@ -59,14 +59,34 @@ namespace DataEntryManager
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            if (CheckFields())
+            {
+                Product p = new Product(name.Text, barcode.Text, float.Parse(price.Text), id);
+                bool result = p.save(market);
+                if (result)
+                {
+                    MessageBox.Show("Product Added Successfully");
 
-            Product p = new Product(name.Text, barcode.Text, float.Parse(price.Text), id);
-            p.save(market);
+                }
+                else
+                {
+                    MessageBox.Show("Problem Happen While Adding the Product");
+                }
+                name.Text = "";
+                barcode.Text = "";
+                category.SelectedIndex = -1;
+                price.Text = "";
 
-            //  Console.WriteLine(responsefromserver);
-
-
+                //  Console.WriteLine(responsefromserver);
+            }
+            else
+            {
+                MessageBox.Show("You Mush Fill All Fields");
+            }
+           
         }
+
+      
         private void LoadComboxList()
         {
             //add in the box
@@ -76,13 +96,29 @@ namespace DataEntryManager
             }
         }
 
+      private  bool CheckFields()
+        {
+            if (name.Text == "" || barcode.Text == "" || price.Text == "" || category.SelectedItem == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
 
+        }
         private void category_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string sel = category.SelectedItem.ToString();
-            Category catselected = market.Categories.Find(i => i.CategoryName == sel);
-            //   MessageBox.Show(catselected.CategoryID + "   " + catselected.CategoryName);
-            id = catselected.CategoryID;
+            if (category.SelectedIndex == -1)
+            { }
+            else
+            {
+                string sel = category.SelectedItem.ToString();
+                Category catselected = market.Categories.Find(i => i.CategoryName == sel);
+                //   MessageBox.Show(catselected.CategoryID + "   " + catselected.CategoryName);
+                id = catselected.CategoryID;
+            }
 
         }
 
