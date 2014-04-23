@@ -31,6 +31,10 @@ namespace DataEntryManager
         private string updated_at;
         private string category_id;
 
+        public Product()
+        {
+
+        }
 
         public string Id
         {
@@ -313,14 +317,15 @@ namespace DataEntryManager
 
                 string responsefromserver = Encoding.UTF8.GetString(responseBytes);
                 Product p = JsonConvert.DeserializeObject<Product>(responsefromserver);
+
+                id = p.Id;
+                
                 webClient.Dispose();
                 if(responsefromserver!=null)
-                {
-                    return p;
-                }
+                    return this;
                 else 
                     return null;
-                }
+            }
            
            
         }
