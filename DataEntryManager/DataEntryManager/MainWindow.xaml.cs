@@ -24,6 +24,7 @@ namespace DataEntryManager
         public MainWindow()
         {
             InitializeComponent();
+            
         }
 
        

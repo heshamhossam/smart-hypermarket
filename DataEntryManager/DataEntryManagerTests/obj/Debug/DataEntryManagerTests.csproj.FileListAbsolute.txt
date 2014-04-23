@@ -10,3 +10,6 @@ C:\Users\Yaser\Source\Repos\smart-hypermarket2\DataEntryManager\DataEntryManager
 C:\Users\Yaser\Source\Repos\smart-hypermarket2\DataEntryManager\DataEntryManagerTests\obj\Debug\DataEntryManagerTests.csprojResolveAssemblyReference.cache
 C:\Users\Yaser\Source\Repos\smart-hypermarket2\DataEntryManager\DataEntryManagerTests\obj\Debug\DataEntryManagerTests.dll
 C:\Users\Yaser\Source\Repos\smart-hypermarket2\DataEntryManager\DataEntryManagerTests\obj\Debug\DataEntryManagerTests.pdb
+C:\Users\eslam\Documents\GitHub\smart-hypermarket\DataEntryManager\DataEntryManagerTests\obj\Debug\DataEntryManagerTests.csprojResolveAssemblyReference.cache
+C:\Users\eslam\Documents\GitHub\smart-hypermarket\DataEntryManager\DataEntryManagerTests\obj\Debug\DataEntryManagerTests.dll
+C:\Users\eslam\Documents\GitHub\smart-hypermarket\DataEntryManager\DataEntryManagerTests\obj\Debug\DataEntryManagerTests.pdb

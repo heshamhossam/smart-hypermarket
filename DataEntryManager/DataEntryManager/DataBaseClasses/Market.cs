@@ -12,11 +12,12 @@ namespace DataEntryManager
     public class Market : IMarket
     {
         private static Market MyMarket;
-        private List<Product> ProductList;
-        private List<Category> CategoryList;
+        private List<Product> ProductList = new List<Product>();
+        private List<Category> CategoryList = new List<Category>();
         private Market()
         {
-
+            LoadCategories();
+            LoadProducts();
         }
 
         /// <summary>
@@ -31,14 +32,7 @@ namespace DataEntryManager
             {
                 MyMarket = new Market();
             }
-            else
-            {
-                MyMarket.ProductList = new List<Product>();
-                MyMarket.CategoryList = new List<Category>();
 
-                MyMarket.LoadCategories();
-                MyMarket.LoadProducts();
-            }
             return MyMarket;
         }
         public List<Category> Categories
