@@ -43,10 +43,19 @@ namespace DataEntryManager
             //_product.Market_id = "1";
             _product.Price = float.Parse(price.Text);
 
-            _product.update();
+            bool updated = _product.update();
 
-            MessageBox.Show("Product edited successfully.", "Confirmation message", MessageBoxButton.OK);
-            this.Close();
+            if (updated)
+            {
+                MessageBox.Show("Product edited successfully.", "Confirmation message", MessageBoxButton.OK);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Error Happened while Editing your product, please try again later!!.", "Confirmation message", MessageBoxButton.OK);
+            }
+
+            
         }
 
         /// <summary>

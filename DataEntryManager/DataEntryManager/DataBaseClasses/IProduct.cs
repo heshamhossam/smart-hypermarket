@@ -26,7 +26,7 @@ namespace DataEntryManager
         /// <summary>
         /// Saves the current fields values into the database
         /// </summary>
-        void update();
+        bool update();
 
         /// <summary>
         /// Delete the whole product from database
@@ -37,7 +37,7 @@ namespace DataEntryManager
         /// Save new Product to the database
         /// </summary>
         /// <param name="market">Market who are performing the saving</param>
-        void save(Market market);
+        bool save(Market market);
 
 
         // <summary>
