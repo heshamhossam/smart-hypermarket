@@ -61,9 +61,13 @@ namespace DataEntryManager
             if (CheckFields())
             {
                 Product p = new Product(name.Text, barcode.Text, float.Parse(price.Text), id);
-                p = p.save(market);
+                Product product = p.save(market);
+
                 if (p != null)
                 {
+                    market.Products.Add(product);
+                    market.onProductsChangeHandler();
+
                     MessageBox.Show("Product Added Successfully");
 
                 }

@@ -9,8 +9,11 @@ using System.Threading.Tasks;
 
 namespace DataEntryManager
 {
+    public delegate void OnProductsChange();
+
     public class Market : IMarket
     {
+        public OnProductsChange onProductsChangeHandler;
         private static Market MyMarket;
         private List<Product> ProductList = new List<Product>();
         private List<Category> CategoryList = new List<Category>();

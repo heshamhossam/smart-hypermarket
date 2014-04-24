@@ -11,8 +11,7 @@
         <StackPanel Background="White" Orientation="Horizontal">
             <Button Content="Edit" Height="38" HorizontalAlignment="Left" Name="buttonEditProduct" VerticalAlignment="Top" Width="98" Click="buttonEditProduct_Click" />
             <Button Content="Delete" Height="38" HorizontalAlignment="Left" Name="buttonDeleteProduct" VerticalAlignment="Top" Width="98" Click="buttonDeleteProduct_Click" />
-            <Button Content="Refresh" Height="38" HorizontalAlignment="Left" VerticalAlignment="Top" Width="98" Click="Button_Click"/>
         </StackPanel>
-        <DataGrid HorizontalAlignment="Left" Name="productsListGrid" VerticalAlignment="Top" SelectionChanged="productsListGrid_SelectionChanged" />
+        <DataGrid HorizontalAlignment="Left" Name="productsListGrid" VerticalAlignment="Top" />
     </StackPanel>
 </Page>

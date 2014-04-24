@@ -272,21 +272,28 @@ namespace DataEntryManager
 
 
 
-        public void delete(Market market)
+        public bool delete(Market market)
         {
             try
             {
                 WebClient wb = new WebClient();
                 string url = "http://zonlinegamescom.ipage.com/smarthypermarket/public/products/delete";
                 var data = new NameValueCollection();
-                string myString = market.Id.ToString();
-                data["marekt"] = myString;
+                
+                data["market_id"] = market.Id.ToString();
+                data["id"] = id;
 
+                byte[] responseBytes = wb.UploadValues(url, "POST", data);
 
-                var response = wb.UploadValues(url, "POST", data);
+                string responsefromserver = Encoding.UTF8.GetString(responseBytes);
+
+                if (responsefromserver != null)
+                    return true;
+
+                return false;
                 
             }
-            catch { MessageBox.Show("deleting error!"); }
+            catch { return false; }
 
         }
 
@@ -320,6 +327,8 @@ namespace DataEntryManager
                 Product p = JsonConvert.DeserializeObject<Product>(responsefromserver);
 
                 id = p.Id;
+                created_at = p.created_at;
+                updated_at = p.updated_at;
                 
                 webClient.Dispose();
                 if(responsefromserver!=null)

@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Data;
 using System.IO;
 using System.Linq;
@@ -26,7 +27,6 @@ namespace DataEntryManager
     {
         //  private List<Product> _productsList = new List<Product>();
         Market market;
-        int LNum, NNum;
 
         public ShowProducts()
         {
@@ -34,14 +34,14 @@ namespace DataEntryManager
             InitializeComponent();
             Application.Current.MainWindow.Activate();
             market = Market.getInstance();
+            market.onProductsChangeHandler = productlist_onUpdate;
             productsListGrid.ItemsSource = market.Products;
-
-
         }
-
-        private void productsListGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        
+        
+        public void productlist_onUpdate()
         {
-
+            productsListGrid.Items.Refresh();
         }
 
         private void buttonEditProduct_Click(object sender, RoutedEventArgs e)
@@ -51,6 +51,8 @@ namespace DataEntryManager
             if (product != null)
             {
                 EditProduct editProductWindow = new EditProduct(product);
+                editProductWindow.OnProductChangeHandler = productlist_onUpdate;
+
                 editProductWindow.Show();
             }
             else
@@ -63,29 +65,22 @@ namespace DataEntryManager
             Product product = (Product)productsListGrid.SelectedItem;
 
             if (product != null)
-                product.delete();
+            {
+                if (product.delete(market))
+                {
+                    market.Products.Remove(product);
+                    ((List<Product>)productsListGrid.ItemsSource).Remove(product);
+                    productsListGrid.Items.Refresh();
+
+                    MessageBox.Show("Product deleted successfully");
+                }
+                else
+                    MessageBox.Show("Can't Delete product at this time...");
+            }
             else
                 MessageBox.Show("Please select a product first to delete");
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            // productsListGrid.Items.Refresh();
-            LNum = market.Products.Count;
-            market = Market.getInstance();
-            NNum = market.Products.Count;
-            if (NNum > LNum)
-            {
-                LNum = NNum - LNum;
-                MessageBox.Show(string.Format("There are {0} New Products", LNum));
-            }
-            else
-            {
-                MessageBox.Show("There Is Not Any New Products");
-            }
-
-            productsListGrid.ItemsSource = market.Products;
-        }
     }
 }

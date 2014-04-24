@@ -44,7 +44,7 @@ namespace DataEntryManager
         /// Delete the whole product in database related to the market
         /// </summary>
         /// <param name="market">Market to delete product from</param>
-        void delete(Market market);
+        bool delete(Market market);
 
     }
 }

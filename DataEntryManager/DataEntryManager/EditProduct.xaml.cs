@@ -14,12 +14,17 @@ using System.Windows.Shapes;
 
 namespace DataEntryManager
 {
+    public delegate void OnProductUpdate();
+
     /// <summary>
     /// Interaction logic for EditProduct.xaml
     /// </summary>
     public partial class EditProduct : Window
     {
         private Product _product;
+
+        public OnProductUpdate OnProductChangeHandler = null;
+
         /// <summary>
         /// Constructor of edit product page
         /// </summary>
@@ -47,6 +52,9 @@ namespace DataEntryManager
             if (updated)
             {
                 MessageBox.Show("Product edited successfully.", "Confirmation message", MessageBoxButton.OK);
+                
+                OnProductChangeHandler();
+
                 this.Close();
             }
             else

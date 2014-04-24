@@ -10,8 +10,6 @@
             <mui:LinkGroup.Links>
                 <mui:Link DisplayName="Show Products" Source="ShowProducts.xaml" />
                 <mui:Link DisplayName="Add Product" Source="AddProduct.xaml" />
-                <mui:Link DisplayName="Add Offer"/>
-                <mui:Link DisplayName="Show Offers"/>
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
     </mui:ModernWindow.MenuLinkGroups>
