@@ -27,15 +27,5 @@ namespace DataEntryManager.Tests
             Assert.AreNotEqual(Size, 0);
                            
         }
-
-
-
-=======
-        [TestMethod()]
-        public void LoadCategoriesTest()
-        {
-            Assert.Fail();
-        }
->>>>>>> eef45d079a3e3a62dc3612658845cb2135eccd54
     }
 }
