@@ -33,7 +33,7 @@ public class Product {
 				name = product.getName();
 				barcode = product.getBarcode();
 				price = product.getPrice();
-				categoryId = product.getCategoryId();
+		//		categoryId = product.getCategoryId();
 				
 				onProductRetrieved();
 				
@@ -56,12 +56,12 @@ public class Product {
 		return categoryId;
 	}
 
-	public Product(String id, String name, String barcode, float price, String categoryID) {
+	public Product(String id, String name, String barcode, float price) {
 		this.id = id;
 		this.name = name;
 		this.barcode = barcode;
 		this.price = price;
-		this.categoryId = categoryID;
+		//this.categoryId = categoryID;
 	}
 	
 	public String getName() {

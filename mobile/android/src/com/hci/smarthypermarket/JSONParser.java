@@ -92,6 +92,7 @@ public class JSONParser {
 	        }
 	 
 	        // return JSON String
+	        Log.d("msg",jObj.toString());
 	        return jObj;
 	 
 	    }

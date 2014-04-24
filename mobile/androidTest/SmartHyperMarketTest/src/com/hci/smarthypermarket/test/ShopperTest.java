@@ -10,7 +10,7 @@ import android.test.AndroidTestCase;
 public class ShopperTest extends AndroidTestCase {
 	
 	//Test Scanned Product
-	public void TestScannedProduct()
+	public void testScannedProduct()
 	{
 		Shopper shopper = new Shopper();
 		Product product = new Product();
@@ -25,7 +25,7 @@ public class ShopperTest extends AndroidTestCase {
 	}
 	
 	//Test Order Object with Shopper
-	public void TestOrder()
+	public void testOrder()
 	{
 		Shopper shopper = new Shopper();
 		Order order = new Order();
@@ -38,7 +38,7 @@ public class ShopperTest extends AndroidTestCase {
 	}
 	
 	//Test Market
-	public void TestMarket()
+	public void testMarket()
 	{
 		Shopper shopper = new Shopper();
 		shopper.setMarketId("1");

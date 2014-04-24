@@ -12,7 +12,10 @@ public class Order {
 	
 	private ArrayList<Product> products = new ArrayList<Product>();
 	
+	public Order()
+	{
 	
+	}
 
 	public void showProductsItems(Activity activity, ListView listProducts) {
 		ArrayAdapter<Product> adapter = new CartListAdapter(activity, products);

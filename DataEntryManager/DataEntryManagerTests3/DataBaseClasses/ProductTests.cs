@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,16 +13,18 @@ namespace DataEntryManager.Tests
         [TestMethod()]
         public void saveTest()
         {
-<<<<<<< HEAD
+////<<<<<<< HEAD
             //Arrange
-            Product Test_Prod = new Product("pepsi test", "123456789", 6, "1");
+            Market m = Market.getInstance();
+           // next test you should change the entry prameter
+            Product p = new Product("last test", "9684113119846196", (float)71.23, "1");
+            p = p.save( m );
             int CatList_Size = 0;
-            Market market = Market.getInstance();
-            Test_Prod.save(market);              
-
+            
             //Act
             List<Category> List_Cat = Category.LoadCategories(1); //retrive categroies from market 1
             List<Product> List_Prod = new List<Product>();
+            Product test_pro = new Product();
 
             foreach (Category cat in List_Cat)
             {
@@ -31,32 +33,37 @@ namespace DataEntryManager.Tests
                     List_Prod = cat.Products;
                     CatList_Size = cat.Products.Count;
                 }
+            }
+
+            foreach (Product pro in List_Prod)
+            {
+                if (pro.Id == p.Id)
+                {
+                   Assert.AreSame(pro,p);
+                }
             };
 
             //Assert
-
-
-            Assert.AreEqual(List_Prod, Test_Prod);
+                       
             Assert.AreNotEqual(CatList_Size, 0);
           
-=======
-            Assert.Fail();
->>>>>>> eef45d079a3e3a62dc3612658845cb2135eccd54
+//=======
+//>>>>>>> eef45d079a3e3a62dc3612658845cb2135eccd54
         }
 
         [TestMethod()]
         public void updateTest()
         {
-<<<<<<< HEAD
+//<<<<<< HEAD
             //Arrange
             Product Test_Prod = new Product("pepsi test", "123456789", 6, "1");
-            Test_Prod.update();
+          bool x= Test_Prod.update();
+          Assert.IsTrue(x);
+
+
+//=======
             
-
-
-=======
-            Assert.Fail();
->>>>>>> eef45d079a3e3a62dc3612658845cb2135eccd54
+//>>>>>>> eef45d079a3e3a62dc3612658845cb2135eccd54
         }
     }
 }
