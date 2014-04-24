@@ -15,14 +15,12 @@ namespace DataEntryManager.Tests
         {
 ////<<<<<<< HEAD
             //Arrange
-           Market m = Market.getInstance
+            Market m = Market.getInstance();
            // next test you should change the entry prameter
-            Product p = new Product("last test", "96841131119846196", (float)71.23, "1");
+            Product p = new Product("last test", "9684113119846196", (float)71.23, "1");
             p = p.save( m );
             int CatList_Size = 0;
             
-          
-
             //Act
             List<Category> List_Cat = Category.LoadCategories(1); //retrive categroies from market 1
             List<Product> List_Prod = new List<Product>();
