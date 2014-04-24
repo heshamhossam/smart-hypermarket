@@ -45,6 +45,17 @@ and open the template in the editor.
                     </label>
                 </p>
                 
+                <p>
+                    <label>
+                        Market: 
+                        <select name="market_id">
+                            @foreach(Market::all() as $market)
+                            <option value="{{$market->id}}">{{$market->name}}</option>
+                            @endforeach
+                        </select>
+                    </label>
+                </p>
+                
                 <input type="submit" />
             </form>
         </div>

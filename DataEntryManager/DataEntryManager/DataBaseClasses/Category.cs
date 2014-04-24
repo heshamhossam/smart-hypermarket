@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -45,6 +48,22 @@ namespace DataEntryManager
             {
                 products = value;
             }
+        }
+
+        public static List<Category> LoadCategories(int marketId)
+        {
+            string url = "http://zonlinegamescom.ipage.com/smarthypermarket/public/categories/retrieve?market_id=" + marketId;
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+            StreamReader sr = new StreamReader(response.GetResponseStream());
+
+            string data = sr.ReadToEnd();
+
+            List<Category> list = JsonConvert.DeserializeObject<List<Category>>(data);
+
+            return list;
         }
     }
 }
