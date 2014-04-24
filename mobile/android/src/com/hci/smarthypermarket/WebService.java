@@ -42,9 +42,11 @@ abstract class RetrieveProductTask extends AsyncTask<String, Integer, Product> {
 
 			List<NameValuePair> CParams = new ArrayList<NameValuePair>();
 			CParams.add(new BasicNameValuePair("barcode", params[0]));
+			CParams.add(new BasicNameValuePair("market_id","1"));
 
 			JSONObject json = jsonParser.makeHttpRequest(url_product_detials,
 					"GET", CParams);
+			  Log.d("ay7aga", json.toString());
 
 			success = json.getInt(TAG_SUCCESS);
 			if (success == 1) {
@@ -54,10 +56,10 @@ abstract class RetrieveProductTask extends AsyncTask<String, Integer, Product> {
 				String name = productObj.getString(TAG_NAME);
 				String barcode = productObj.getString(TAG_BARCODE);
 				float price = Float.parseFloat(productObj.getString(TAG_PRICE));
-				String categoryId = productObj.getString(TAG_CATID);
+			//	String categoryId = productObj.getString(TAG_CATID);
 				
-				p = new Product(id, name, barcode, price, categoryId);
-
+				p = new Product(id, name, barcode, price);
+                Log.d("ay7aga", p.toString());
 				return p;
 			} else {
 			}
@@ -99,6 +101,8 @@ abstract class RetrieveLocationTask extends AsyncTask<Location, Integer, Market>
 				
 				
 				CParams.add(new BasicNameValuePair("latitude",Double.toString(params[0].getLatitude())));
+				Log.d("lat", Double.toString(params[0].getLatitude()));
+				Log.d("long", Double.toString(params[0].getLongitude()));
 				CParams.add(new BasicNameValuePair("longitude",Double.toString(params[0].getLongitude())));
 
 				JSONObject json = jsonParser.makeHttpRequest(url_market_detials,

@@ -9,7 +9,7 @@ public class ProductTest extends AndroidTestCase {
 	//Test Product Constructor and its objects
 	public void testConstructor()
 	{
-		Product product = new Product("1", "ahmed", "12345", 10, "1");
+		Product product = new Product("1", "ahmed", "12345", 10);
 		assertNotNull(product);
 	}
 	
