@@ -37,7 +37,6 @@ namespace DataEntryManager
 
         private void buttonProductEdit_Click(object sender, RoutedEventArgs e)
         {
-            _product.Id = id.Text;
             _product.Name = name.Text;
             _product.Barcode = barcode.Text;
             //_product.Market_id = "1";
@@ -64,7 +63,7 @@ namespace DataEntryManager
         /// <param name="product">product to show</param>
         private void showProduct(Product product)
         {
-            id.Text = product.Id;
+            _product.Id = product.Id;
             name.Text = product.Name;
             barcode.Text = product.Barcode;
             //market_id.Text = product.Market_id;

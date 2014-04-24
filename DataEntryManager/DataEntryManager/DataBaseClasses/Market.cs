@@ -14,6 +14,7 @@ namespace DataEntryManager
         private static Market MyMarket;
         private List<Product> ProductList = new List<Product>();
         private List<Category> CategoryList = new List<Category>();
+
         private Market()
         {
             CategoryList = Category.LoadCategories(1);

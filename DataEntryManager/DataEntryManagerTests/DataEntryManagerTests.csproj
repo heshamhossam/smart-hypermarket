@@ -63,18 +63,15 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="BarcodeReading\BarcodeReaderTests.cs" />
+    <Compile Include="DataBaseClasses\CategoryTests.cs" />
+    <Compile Include="DataBaseClasses\ProductTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ShowProductsTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataEntryManager\DataEntryManager.csproj">
       <Project>{A9D30ABA-57BF-40E4-AABF-AD151B84FB50}</Project>
       <Name>DataEntryManager</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

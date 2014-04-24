@@ -14,6 +14,7 @@ namespace DataEntryManager
         private string categoryID;
         private string categoryName;
         private List<Product> products;
+
         public string CategoryID
         {
             get
