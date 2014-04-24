@@ -13,6 +13,7 @@ namespace DataEntryManager.Tests
         [TestMethod()]
         public void saveTest()
         {
+<<<<<<< HEAD
             //Arrange
             Product Test_Prod = new Product("pepsi test", "123456789", 6, "1");
             int CatList_Size = 0;
@@ -38,17 +39,24 @@ namespace DataEntryManager.Tests
             Assert.AreEqual(List_Prod, Test_Prod);
             Assert.AreNotEqual(CatList_Size, 0);
           
+=======
+            Assert.Fail();
+>>>>>>> eef45d079a3e3a62dc3612658845cb2135eccd54
         }
 
         [TestMethod()]
         public void updateTest()
         {
+<<<<<<< HEAD
             //Arrange
             Product Test_Prod = new Product("pepsi test", "123456789", 6, "1");
             Test_Prod.update();
             
 
 
+=======
+            Assert.Fail();
+>>>>>>> eef45d079a3e3a62dc3612658845cb2135eccd54
         }
     }
 }

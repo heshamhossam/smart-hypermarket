@@ -10,6 +10,7 @@ namespace DataEntryManager.Tests
     [TestClass()]
     public class CategoryTests
     {
+<<<<<<< HEAD
             
 
          [TestMethod()]
@@ -29,5 +30,12 @@ namespace DataEntryManager.Tests
 
 
 
+=======
+        [TestMethod()]
+        public void LoadCategoriesTest()
+        {
+            Assert.Fail();
+        }
+>>>>>>> eef45d079a3e3a62dc3612658845cb2135eccd54
     }
 }
