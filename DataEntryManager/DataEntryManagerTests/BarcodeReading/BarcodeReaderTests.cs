@@ -36,7 +36,7 @@ namespace BarcodeReading.Tests
         [TestMethod()]
         public void readBarcodesTest()
         {
-            
+            Assert.AreEqual()
             //BarcodeReader target = new BarcodeReader(;
         }
 

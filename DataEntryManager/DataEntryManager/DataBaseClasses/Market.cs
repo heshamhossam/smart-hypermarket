@@ -54,8 +54,6 @@ namespace DataEntryManager
 
         }
 
-
-
         public int Id
         {
             get { return 1; }
@@ -77,9 +75,9 @@ namespace DataEntryManager
             CategoryList = list;
             //add in the box
         }
+
         private void LoadProducts()
         {
-            
             for (int i = 0; i < Categories.Count; i++)
             {
                 foreach (var product in Categories[i].Products)
@@ -88,7 +86,6 @@ namespace DataEntryManager
                     ProductList.Add(product);
                 }
             }
-
         }
     }
 }

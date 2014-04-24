@@ -40,7 +40,6 @@ namespace DataEntryManager
             InitializeComponent();
             market = Market.getInstance();
 
-
             #region Bardetecting Example
             OnBarcodeDetectedDelegate testD = testDelegateFunction; //Testing variable for OnBarcodeDetectedDelegate
             BarcodeReading.BarcodeReader bcr = new BarcodeReading.BarcodeReader(ref barcode, ref player); //Testing variable for BarcodeReader class ( see constructor documentation )
@@ -51,7 +50,6 @@ namespace DataEntryManager
             #endregion
             
             LoadComboxList();
-
         }
         public void testDelegateFunction()
         {
