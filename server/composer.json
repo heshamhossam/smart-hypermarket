@@ -6,6 +6,9 @@
 	"require": {
 		"laravel/framework": "4.1.*"
 	},
+        "require-dev": {
+            "phpunit/phpunit": "3.7.*"
+        },
 	"autoload": {
 		"classmap": [
 			"app/commands",
@@ -33,4 +36,5 @@
 		"preferred-install": "dist"
 	},
 	"minimum-stability": "stable"
+        
 }

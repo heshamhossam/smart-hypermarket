@@ -45,6 +45,17 @@ and open the template in the editor.
                     </label>
                 </p>
                 
+                <p>
+                    <label>
+                        Market: 
+                        <select name="market_id">
+                            <?php foreach(Market::all() as $market): ?>
+                            <option value="<?php echo $market->id; ?>"><?php echo $market->name; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </label>
+                </p>
+                
                 <input type="submit" />
             </form>
         </div>

@@ -30,10 +30,39 @@ class Market extends Eloquent {
             return Product::retrieve($this, $uniqueKeyValueArray);
         }
         
-        public function deleteProduct($productId)
+        public function deleteProduct($product)
         {
-            return Product::deleteMe($productId, $this);
+            return Product::deleteMe($product->id, $this);
+        }
+        
+        public function addProduct($product, $category, $price)
+        {
+            //search if category exists in the market
+            //$categories = $this->categories()->where("id", "=", $category->id);
+            
+            //if exist
+            $productCreated = $category->addProduct($product);
+                
+            if ($productCreated)
+            {
+                //save the product in the market
+                $productCreated = DB::table('market_product')->insert(
+                        array('market_id' => $this->id, 'product_id' => $product->id, "price" => $price)
+                    );
+            }
+            
+            return $productCreated;
+            
         }
 	
-		
+	public function editProduct($product, $newKeyValue)
+        {
+            
+            $updated = DB::table('market_product')
+                        ->where('product_id', $product->id)
+                        ->where('market_id', $this->id)
+                        ->update($newKeyValue);
+            
+            return $updated;
+        }
 }

@@ -61,11 +61,12 @@ class ProductController extends BaseController {
         //get the product id
         $product_id = Input::has("id")? Input::get("id") : false;
         
+        $product = Product::find($product_id);
         
         $deleted = null;
         
-        if ($market && $product_id)
-            $deleted = $market->deleteProduct($product_id);
+        if ($market && $product)
+            $deleted = $market->deleteProduct($product);
         else if ($product_id)
             $deleted = Product::deleteMe($product_id);
         
@@ -83,6 +84,7 @@ class ProductController extends BaseController {
     //create new product
     public function create()
     {   
+        //create the product
         $product = new Product();
         
         $product->name = Input::get("name");
@@ -90,24 +92,18 @@ class ProductController extends BaseController {
         
         $product->save();
         
-        //save the product in the category
-        DB::table('category_product')->insert(
-            array('category_id' => Input::get("category_id"), 'product_id' => $product->id)
-        );
+        $market = Market::find(Input::get("market_id"));
+        $category = Category::find(Input::get("category_id"));
         
-        //save the product in the market
-        DB::table('market_product')->insert(
-            array('market_id' => Input::get("market_id"), 'product_id' => $product->id, "price" => Input::get("price"))
-        );
         
-        if ($product)
+        if ($market && $category)
+            $created = $market->addProduct($product, $category, Input::get("price"));
+        
+        
+        if ($created)
         {
-            $p = $product->toArray();
-            
-            $response = array(
-                "success" => 1,
-                "product" => $p
-            );
+            $product = $market->findProduct(array("id" => $product->id));
+            return $product;
         }
         else
         {
@@ -134,10 +130,12 @@ class ProductController extends BaseController {
         $product->barcode = Input::get("barcode");
         $product->save();
         
-        DB::table('market_product')
-            ->where('product_id', $product_id)
-            ->where('market_id', Input::get("market_id"))
-            ->update(array('price' => Input::get("price")));
+        $market = Market::find(Input::get("market_id"));
+        
+        if ($market)
+        {
+            $market->editProduct($product, array("price" => Input::get("price")));
+        }
         
     }
 }

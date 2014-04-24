@@ -1,0 +1,5 @@
+Test Cases exist in app/tests/MarketTest
+to run the phpunit
+	1)open the server folder
+	2)open the cmd in server folder
+	3)type in the cmd : vendor\bin\phpunit

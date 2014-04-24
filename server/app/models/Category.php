@@ -11,6 +11,14 @@ class Category extends Eloquent {
 	public function products() {
 		return $this->belongsToMany("Product");
 	}
+        
+        public function addProduct($product)
+        {
+            //save the product in the category
+            return DB::table('category_product')->insert(
+                    array('category_id' => $this->id, 'product_id' => $product->id)
+                );
+        }
 	
 		
 }
