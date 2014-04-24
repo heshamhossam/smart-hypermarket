@@ -14,9 +14,10 @@ namespace DataEntryManager
         private static Market MyMarket;
         private List<Product> ProductList = new List<Product>();
         private List<Category> CategoryList = new List<Category>();
+
         private Market()
         {
-            LoadCategories();
+            CategoryList = Category.LoadCategories(1);
             LoadProducts();
         }
 
@@ -62,21 +63,7 @@ namespace DataEntryManager
 
         }
 
-        public void LoadCategories()
-        {
-            string url = "http://zonlinegamescom.ipage.com/smarthypermarket/public/categories/retrieve?market_id=1";
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
-            StreamReader sr = new StreamReader(response.GetResponseStream());
-
-            string data = sr.ReadToEnd();
-
-            List<Category> list = JsonConvert.DeserializeObject<List<Category>>(data);
-            CategoryList = list;
-            //add in the box
-        }
+        
         private void LoadProducts()
         {
             
