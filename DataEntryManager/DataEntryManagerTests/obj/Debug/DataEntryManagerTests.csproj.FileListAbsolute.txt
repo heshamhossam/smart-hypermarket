@@ -13,3 +13,7 @@ C:\Users\Yaser\Source\Repos\smart-hypermarket2\DataEntryManager\DataEntryManager
 C:\Users\eslam\Documents\GitHub\smart-hypermarket\DataEntryManager\DataEntryManagerTests\obj\Debug\DataEntryManagerTests.csprojResolveAssemblyReference.cache
 C:\Users\eslam\Documents\GitHub\smart-hypermarket\DataEntryManager\DataEntryManagerTests\obj\Debug\DataEntryManagerTests.dll
 C:\Users\eslam\Documents\GitHub\smart-hypermarket\DataEntryManager\DataEntryManagerTests\obj\Debug\DataEntryManagerTests.pdb
+C:\Users\Yaser\Source\Repos\smart-hypermarket2\DataEntryManager\DataEntryManagerTests\bin\Debug\Castle.Core.dll
+C:\Users\Yaser\Source\Repos\smart-hypermarket2\DataEntryManager\DataEntryManagerTests\bin\Debug\TestStack.White.dll
+C:\Users\Yaser\Source\Repos\smart-hypermarket2\DataEntryManager\DataEntryManagerTests\bin\Debug\Castle.Core.xml
+C:\Users\Yaser\Source\Repos\smart-hypermarket2\DataEntryManager\DataEntryManagerTests\bin\Debug\TestStack.White.pdb
