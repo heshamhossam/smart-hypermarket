@@ -23,26 +23,14 @@ class ProductController extends BaseController {
         
         $value = Input::get($key);
         
+        $market = Market::find($market_id);
+        $product = NULL;
         
+        if ($market)
+            $product = $market->findProduct(array("$key" => $value));
         
-        $products = Product::where("$key", "=", "$value");
-        
-        
-        //return var_dump($products->first()->toArray());
-        if ($products->count())
+        if ($product)
         {
-            $product = $products->first();
-            
-            $p = DB::table('market_product')
-                        ->where('market_id', "=", $market_id)
-                        ->where('product_id', "=", $product->id);
-                
-            if ($p->count())
-                $product->price = $p->first()->price;
-            else
-                $product->price = 0;
-            
-            
             $response = array(
                 "success" => 1,
                 "product" => $product->toArray()
@@ -66,23 +54,25 @@ class ProductController extends BaseController {
     {
         //get the market id if exist
         $market_id = Input::has("market_id")? Input::get("market_id") : false;
+        
+        $market = Market::find($market_id);
+
+        
         //get the product id
         $product_id = Input::has("id")? Input::get("id") : false;
         
-        if ($market_id && $product_id)
-        {
-            $market = Market::find($market_id);
-            $products = $market->products()->where("product_id", "=", "$product_id");
-            if ($products->count())
-            {
-                $products->first()->forceDelete();
-            }
-        }
+        
+        $deleted = null;
+        
+        if ($market && $product_id)
+            $deleted = $market->deleteProduct($product_id);
         else if ($product_id)
-        {
-            $product = Product::find($product_id);
-            $product->forceDelete();
-        }
+            $deleted = Product::deleteMe($product_id);
+        
+        if (!$deleted)
+            return "Delete Faaaails";
+        
+        
     }
     
     public function formCreate()

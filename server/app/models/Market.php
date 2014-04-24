@@ -24,6 +24,16 @@ class Market extends Eloquent {
             return $this->belongsToMany("Category");
         }
         
+        
+        public function findProduct($uniqueKeyValueArray)
+        {
+            return Product::retrieve($this, $uniqueKeyValueArray);
+        }
+        
+        public function deleteProduct($productId)
+        {
+            return Product::deleteMe($productId, $this);
+        }
 	
 		
 }
