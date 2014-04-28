@@ -54,8 +54,21 @@ public class ProductActivity extends Activity implements IProductActivity {
 		
 		if (shopper != null)
 		{
+			
 			//show the product in the UI
 			showProductDetails(shopper.getScannedProduct());
+			
+			shopper.setScannedProduct(new Product(shopper.getScannedProduct().getBarcode().toString())
+			{
+				@Override
+				protected void onProductRetrieved(){
+					super.onProductRetrieved();
+					shopper.setScannedProduct(this);
+					showProductDetails(shopper.getScannedProduct());
+				}
+			});
+			
+			
 			
 			//when add product to cart button is clicked
 			buttonAddToOrder = (Button) findViewById(R.id.addButton);
