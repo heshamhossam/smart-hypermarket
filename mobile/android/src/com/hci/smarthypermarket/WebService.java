@@ -113,6 +113,7 @@ abstract class RetrieveLocationTask extends AsyncTask<Location, Integer, Market>
 					
 					
 					market = new Market(id, name);
+					
 
 					return market;
 				} else {

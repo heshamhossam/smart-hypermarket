@@ -8,7 +8,11 @@ public interface IWebService {
 	//@barcode: string contains the bar code to request data from server by it
 	void getProduct(String barcode);
 	
+	//get Market object
+	//@location: location to search the market at
 	void getMarket(Location location);
+	
+	
 	
 	
 
