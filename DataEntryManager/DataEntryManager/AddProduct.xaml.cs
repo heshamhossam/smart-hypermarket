@@ -96,7 +96,7 @@ namespace DataEntryManager
             //add in the box
             foreach (Category cat in market.Categories)
             {
-                category.Items.Add(cat.CategoryName);
+                category.Items.Add(cat.Name);
             }
         }
 
@@ -119,9 +119,9 @@ namespace DataEntryManager
             else
             {
                 string sel = category.SelectedItem.ToString();
-                Category catselected = market.Categories.Find(i => i.CategoryName == sel);
+                Category catselected = market.Categories.Find(i => i.Name == sel);
                 //   MessageBox.Show(catselected.CategoryID + "   " + catselected.CategoryName);
-                id = catselected.CategoryID;
+                id = catselected.Id;
             }
 
         }

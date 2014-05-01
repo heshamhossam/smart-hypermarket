@@ -8,8 +8,11 @@ namespace DataEntryManager
 {
     interface ICategory
     {
-        string CategoryID { get; set; }
-        string CategoryName { get; set; }
+        string Id { get; set; }
+        string Name { get; set; }
+        string Created_at { get; set; }
+        string Updated_at { get; set; }
+        int? Category_id { get; set; }
         List<Product> Products { get; set; }
     }
 }

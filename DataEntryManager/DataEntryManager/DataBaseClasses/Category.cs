@@ -11,31 +11,68 @@ namespace DataEntryManager
 {
     public class Category : ICategory
     {
-        private string categoryID;
-        private string categoryName;
-        private List<Product> products;
+        private string _id;
+        private string _name;
+        private string _created_at;
+        private string _updated_at;
+        private int? _category_id;
+        private List<Product> _products;
 
-        public string CategoryID
+        public string Id 
         {
             get
             {
-                return categoryID;
+                return _id;
             }
             set
             {
-                categoryID = value;
+                _id = value;
+            }
+        }
+        public string Name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                _name = value;
+            }
+        }
+        public string Created_at
+        {
+            get
+            {
+                return _created_at;
+            }
+            set
+            {
+                _created_at = value;
             }
         }
 
-        public string CategoryName
+        public string Updated_at
         {
             get
             {
-                return categoryName;
+                return _updated_at;
             }
             set
             {
-                categoryName = value;
+                _updated_at = value;
+            }
+        }
+
+        public int? Category_id
+        {
+            get
+            {
+                return _category_id;
+            }
+            set
+            {
+                _category_id = value;
             }
         }
 
@@ -43,17 +80,18 @@ namespace DataEntryManager
         {
             get
             {
-                return products;
+                return _products;
             }
             set
             {
-                products = value;
+                _products = value;
             }
         }
 
         public static List<Category> LoadCategories(int marketId)
         {
-            string url = "http://zonlinegamescom.ipage.com/smarthypermarket/public/categories/retrieve?market_id=" + marketId;
+            string url = "http://zonlinegamescom.ipage.com/smarthypermarket/public/categories/retrieve?market_id=" + marketId.ToString();
+            
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
 
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
