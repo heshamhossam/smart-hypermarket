@@ -19,6 +19,26 @@ class Category extends Eloquent {
                     array('category_id' => $this->id, 'product_id' => $product->id)
                 );
         }
+        
+        public function getProducts($market)
+        {
+            $categoryProducts = $this->products;
+
+            $marketProducts = array();
+            
+            foreach ($categoryProducts as $categoryProduct)
+            {
+                $p = DB::table('market_product')
+                        ->where('market_id', "=", $market->id)
+                        ->where('product_id', "=", $categoryProduct->id);
+                
+                if ($p->count())
+                    $marketProducts[] = $market->findProduct(array("id" => $p->first()->product_id))->toArray();
+            }
+
+            return $marketProducts;
+
+        }
 	
 		
 }

@@ -7,6 +7,128 @@
  */
 class MarketController extends BaseController {
     
+    //retrieve a product from database
+    
+    public function retrieveProduct()
+    {
+        //@barcode: string contains bar code of the product to be retrieved
+        $key = "barcode";
+        $value = 0;
+        $market_id = Input::get("market_id");
+        
+        if (Input::has("barcode"))
+            $key = "barcode";
+        else if (Input::has("id"))
+            $key = "id";
+        
+        $value = Input::get($key);
+        
+        $market = Market::find($market_id);
+        $product = NULL;
+        
+        if ($market)
+            $product = $market->findProduct(array("$key" => $value));
+        
+        if ($product)
+        {
+            $response = array(
+                "success" => 1,
+                "product" => $product->toArray()
+            );
+        }
+        else
+        {
+            $response = array(
+                "success" => 0,
+                "message" => "No Product with the given $key $value"
+            );
+        }
+        
+        return Response::json($response);
+        
+        
+    }
+    
+    //get products by market id and category id
+    public function getProducts()
+    {
+        $marketId = Input::has("market_id")? Input::get("market_id") : null;
+        $categoryId = Input::has("category_id")? Input::get("category_id") : null;
+        
+        $market = Market::find($marketId);
+        $category = Category::find($categoryId);
+            
+        if ($market && $category)
+        {
+            $products = $category->getProducts($market);
+            
+            return Response::json($products);
+        }
+    }
+    
+    //delete product from database
+    public function deleteProduct()
+    {
+        //get the market id if exist
+        $market_id = Input::has("market_id")? Input::get("market_id") : false;
+        
+        $market = Market::find($market_id);
+
+        
+        //get the product id
+        $product_id = Input::has("id")? Input::get("id") : false;
+        
+        $product = Product::find($product_id);
+        
+        $deleted = null;
+        
+        if ($market && $product)
+            $deleted = $market->deleteProduct($product);
+        else if ($product_id)
+            $deleted = Product::deleteMe($product_id);
+        
+        if (!$deleted)
+            return "Delete Faaaails";
+        
+        
+    }
+    
+    //create new product
+    public function createProduct()
+    {   
+        //create the product
+        $product = new Product();
+        
+        $product->name = Input::get("name");
+        $product->barcode = Input::get("barcode");
+        
+        $product->save();
+        
+        $market = Market::find(Input::get("market_id"));
+        $category = Category::find(Input::get("category_id"));
+        
+        
+        if ($market && $category)
+            $created = $market->addProduct($product, $category, Input::get("price"));
+        
+        
+        if ($created)
+        {
+            $product = $market->findProduct(array("id" => $product->id));
+            return $product;
+        }
+        else
+        {
+            $response = array(
+                "success" => 0,
+                "message" => "No Product with the given created"
+            );
+        }
+        
+        return Response::json($response);
+        
+    }
+    
     public function retrieve()
     {
         $latitude = Input::has("latitude") ? Input::get("latitude") : 0;
@@ -67,26 +189,78 @@ class MarketController extends BaseController {
         
         foreach ($market->categories as $category)
         {   
-            foreach($category->products as $product)
-            {
-                $p = DB::table('market_product')
-                    ->where('market_id', "=", Input::get("market_id"))
-                    ->where('product_id', "=", $product->id);
-                
-                if ($p->count())
-                    $product->price = $p->first()->price;
+            $productIndex = 0;
+            foreach ($category->products as $product) {
+                $products[$productIndex] = $market->findProduct(array("id" => $product->id));
+                $product->price = $products[$productIndex]->price;
+                $productIndex++;
             }
-            
-            array_push($response, array(
-                "categoryID" => $category->id,
-                "categoryName" => $category->name,
-                "products" => $category->products->toArray()
-            ));
-            
         }
+        return $market->categories;
         
         return Response::json($response);
         
     }
     
+    
+    public function retrieveCategoriesOnly()
+    {
+        $marketId = Input::has("market_id") ? Input::get("market_id") : null;
+        
+        if ($marketId)
+        {
+            $market = Market::find($marketId);
+            
+            return $market->categories;
+        }
+        
+    }
+    
+    public function editProduct()
+    {
+        if (!Input::has("id"))
+            return "Please Enter Valid input ID to edit";
+        
+        $product_id = Input::get("id");
+        
+        $product = Product::find($product_id);
+        $product->name = Input::has("name")? Input::get("name") : $product->name;
+        $product->barcode = Input::has("barcode")? Input::get("barcode") : $product->barcode;
+        $product->save();
+        
+        $market = Market::find(Input::get("market_id"));
+        
+        if ($market)
+        {
+            $market->editProduct($product, array("price" => Input::get("price")));
+        }
+        
+    }
+    
+    public function getOrders()
+    {
+        $marketId = Input::has("market_id") ? Input::get("market_id") : null;
+        $ordersFilter = Input::has("filter") ? Input::get("filter") : null;
+        
+        $market = Market::find($marketId);
+        
+        if ($market && $ordersFilter)
+        {
+            $orders = $market->getOrders($ordersFilter);
+            return Response::json($orders);
+        }
+    }
+    
+    public function editOrder()
+    {
+        $orderId = Input::has("order_id") ? Input::get("order_id") : null;
+        
+        $order = Order::find($orderId);
+        
+        if ($order)
+        {
+            $order->state = Input::has("state") ? Input::get("state") : $order->state;
+            $order->update();
+        }
+    }
 }

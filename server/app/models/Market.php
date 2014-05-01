@@ -65,4 +65,41 @@ class Market extends Eloquent {
             
             return $updated;
         }
+        
+        public function getOrders($filter)
+        {
+            switch($filter)
+            {
+                case Order::ALL:
+                    $orders = Order::all();
+                    break;
+                
+                case Order::DONE:
+                    $orders = Order::where("state", "=", Order::DONE);
+                    break;
+                    
+                case Order::PREPARING:
+                    $orders = Order::where("state", "=", Order::PREPARING);
+                    break;
+                
+                case Order::READY:
+                    $orders = Order::where("state", "=", Order::READY);
+                    break;
+                
+                case Order::WAITING:
+                    $orders = Order::where("state", "=", Order::WAITING);
+                    break;
+                
+                default:
+                    $orders = null;
+                    break;
+                
+            }
+            
+            if ($orders && $orders->count())
+                return $orders->where("market_id", "=", $this->id)->get();
+            
+            return null;
+            
+        }
 }
