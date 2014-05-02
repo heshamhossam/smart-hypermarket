@@ -6,8 +6,14 @@ import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.view.Menu;
+import android.widget.Button;
 
 public class DashBoardActivity extends Activity {
+	
+	Button StartScan;
+	Button StartCard;
+	Button StartBrowse;
+	Button StartOrders;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +31,22 @@ public class DashBoardActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.dash_board, menu);
 		return true;
+	}
+	
+	private void startBarCodeActivity(){
+		
+	}
+	
+	private void startCartActivity(){
+		
+	}
+	
+	private void startBrowseActivity(){
+		
+	}
+	
+	private void startOrdersActivity(){
+		
 	}
 
 }
