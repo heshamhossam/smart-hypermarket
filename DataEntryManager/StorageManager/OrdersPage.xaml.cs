@@ -16,6 +16,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Threading;
+using System.Windows.Threading;
 
 namespace StorageManager
 {
@@ -26,6 +28,23 @@ namespace StorageManager
     {
         private LinkCollection links = new LinkCollection();
         private List<Order> _ordersWaiting;
+
+
+
+        void Refresh()
+        {
+            for (; true; )
+            {
+                int timer = 3000;
+                Thread.Sleep(timer);
+                Market.getInstance().refreshOrders();
+                _ordersWaiting = Market.getInstance().Orders.FindAll((Order order) => order.State == Order.WAITING);
+                Dispatcher.BeginInvoke(DispatcherPriority.Input, new ThreadStart(() => { changeLinks(_ordersWaiting); }));
+
+            }
+        }
+
+
 
         public OrdersPage()
         {
@@ -45,8 +64,8 @@ namespace StorageManager
         private void changeLinks(List<Order> orders)
         {
             links = new LinkCollection();
-            
-            foreach(var order in orders)
+
+            foreach (var order in orders)
             {
                 links.Add(new Link() { DisplayName = order.Id, Source = new Uri("OrderControl.xaml#" + order.Id, UriKind.Relative) });
             }
@@ -56,6 +75,13 @@ namespace StorageManager
         private void startOrdersCheckingThread()
         {
 
+            Thread T = new Thread(Refresh);
+            T.Start();
+
+
         }
+
+
+
     }
 }
