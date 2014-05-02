@@ -25,14 +25,19 @@ namespace StorageManager
     public partial class OrdersPage : Page
     {
         private LinkCollection links = new LinkCollection();
+        private List<Order> _ordersWaiting;
 
         public OrdersPage()
         {
             InitializeComponent();
             tabOrders.Links = links;
 
+            //load the _ordersWaiting
+            Market.getInstance();
+
             //start threading to check any new orders
             startOrdersCheckingThread();
+            
         }
 
         private void changeLinks(List<Order> orders)

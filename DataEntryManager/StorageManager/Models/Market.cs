@@ -23,6 +23,7 @@ namespace DataEntryManager
         private Market()
         {
             CategoryList = Category.LoadCategories(1);
+            orders = Order.LoadOrders(this, Order.ALL);
             LoadProducts();
         }
 
@@ -94,7 +95,7 @@ namespace DataEntryManager
 
         public void refreshOrders()
         {
-            ;
+            orders = Order.LoadOrders(MyMarket, Order.ALL);
         }
     }
 }

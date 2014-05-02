@@ -34,9 +34,7 @@ namespace StorageManager
         {
             string id = e.Fragment;
             Market market = Market.getInstance();
-            //search market orders for the required order with the prev id
-            List<Order> ordersList = Order.LoadOrders(market, id);
-            order = ordersList.Find(i => i.Id == id);
+            order = market.Orders.Find(i => i.Id == id);
             show(order);
         }
 

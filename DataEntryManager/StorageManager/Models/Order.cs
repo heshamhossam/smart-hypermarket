@@ -81,7 +81,7 @@ namespace StorageManager.Models
 
         public static List<Order> LoadOrders (Market market, string filter)
         {
-            string url = "http://zonlinegamescom.ipage.com/smarthypermarket/public/orders/retrieve?market_id=" + market.Id.ToString() + "&filter=" + filter.ToString();
+            string url = "http://zonlinegamescom.ipage.com/smarthypermarket/public/orders/retrieve?market_id=" + market.Id + "&filter=" + filter;
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
 
