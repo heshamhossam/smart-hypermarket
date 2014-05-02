@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/db1_root"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:padding="6dip">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+        <Button android:id="@+id/home_scan"
+            style="@style/HomeButton"
+            android:onClick="onClickFeature"
+            android:text="@string/title_scan"
+            android:drawableTop="@drawable/ic_scan"/>
+        <Button android:id="@+id/home_mycard"
+            style="@style/HomeButton"
+            android:onClick="onClickFeature"
+            android:text="@string/title_card"
+            android:drawableTop="@drawable/ic_cart"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+        <Button android:id="@+id/home_browse"
+            style="@style/HomeButton"
+            android:onClick="onClickFeature"
+            android:text="@string/title_browse"
+            android:drawableTop="@drawable/ic_browse"/>
+        <Button android:id="@+id/home_orders"
+            style="@style/HomeButton"
+            android:onClick="onClickFeature"
+            android:text="@string/title_orders"
+            android:drawableTop="@drawable/ic_order"/>
+    </LinearLayout>
+
+
+</LinearLayout>
+
+</LinearLayout>

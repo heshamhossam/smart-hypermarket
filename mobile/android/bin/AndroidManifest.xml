@@ -1,27 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	package="com.hci.smarthypermarket" android:versionCode="1"
-	android:versionName="1.0">
+    package="com.hci.smarthypermarket"
+    android:versionCode="1"
+    android:versionName="1.0" >
 
-	<uses-sdk android:minSdkVersion="8" android:targetSdkVersion="18" />
-	<uses-permission android:maxSdkVersion="19" android:name="android.permission.INTERNET"/> 
-	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-sdk
+        android:minSdkVersion="13"
+        android:targetSdkVersion="18" />
 
-	<application android:allowBackup="true" android:icon="@drawable/ic_launcher"
-		android:label="@string/app_name" android:theme="@style/AppTheme">
-		<activity android:name="com.hci.smarthypermarket.LauncherActivity"
-			android:label="@string/app_name">
-			<intent-filter>
-				<action android:name="android.intent.action.MAIN" />
-				<category android:name="android.intent.category.LAUNCHER" />
-			</intent-filter>
-		</activity>
-		
-		<activity android:name=".ProductActivity"
-		    android:label="@string/title_activity_product"></activity>
-		<activity android:name=".BarCodeActivity"></activity>
-		<activity android:name=".CartActivity"></activity>
-		
-	</application>
+    <uses-permission
+        android:name="android.permission.INTERNET"
+        android:maxSdkVersion="19" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.hci.smarthypermarket.LauncherActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.hci.smarthypermarket.ProductActivity"
+            android:label="@string/title_activity_product" >
+        </activity>
+        <activity android:name="com.hci.smarthypermarket.BarCodeActivity" >
+        </activity>
+        <activity android:name="com.hci.smarthypermarket.CartActivity" >
+        </activity>
+        <activity
+            android:name="com.hci.smarthypermarket.DashBoardActivity"
+            android:label="@string/title_activity_dash_board" >
+        </activity>
+    </application>
 
 </manifest>
