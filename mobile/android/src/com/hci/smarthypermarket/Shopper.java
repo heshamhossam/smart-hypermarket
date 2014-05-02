@@ -39,6 +39,18 @@ public class Shopper {
 	private Order order = new Order();
 	private Location location = null;
 	private String marketId;
+	private String mobile;
+	private static Shopper MainShopper;
+	
+	public Shopper() { }
+	
+	public Shopper getInstance()
+	{
+		if (MainShopper == null)
+			MainShopper = new Shopper();
+		
+		return MainShopper;
+	}
 	
 	protected void onLocationChange()
 	{
@@ -87,6 +99,10 @@ public class Shopper {
 
 	public void setMarketId(String marketId) {
 		this.marketId = marketId;
+	}
+
+	public String getMobile() {
+		return mobile;
 	}
 	
 	

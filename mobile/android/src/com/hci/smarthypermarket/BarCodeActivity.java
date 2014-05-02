@@ -25,15 +25,18 @@ public class BarCodeActivity extends Activity {
 			String barcode;
 			barcode = scanResult.getContents();
 			
-			Product tmpProduct = new Product();
+			shopper.setScannedProduct(new Product(barcode)
+			{
+
+				@Override
+				protected void onProductRetrieved() {
+					startProductActivity();
+					super.onProductRetrieved();
+				}
+				
+			});
 			
-			tmpProduct.setName("Loading...");
-			tmpProduct.setPrice(0);
-			tmpProduct.setBarcode(barcode);
 			
-			shopper.setScannedProduct(tmpProduct);
-			
-			startProductActivity();
 		}
 	}
 	

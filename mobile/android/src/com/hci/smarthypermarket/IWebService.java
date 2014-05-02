@@ -12,7 +12,8 @@ public interface IWebService {
 	//@location: location to search the market at
 	void getMarket(Location location);
 	
-	
+	//post a new order
+	void postOrder(Shopper shopper);
 	
 	
 
