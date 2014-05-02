@@ -33,11 +33,13 @@ namespace StorageManager
             tabOrders.Links = links;
 
             //load the _ordersWaiting
-            Market.getInstance();
+            _ordersWaiting = Market.getInstance().Orders.FindAll((Order order) => order.State == Order.WAITING);
+            changeLinks(_ordersWaiting);
+
 
             //start threading to check any new orders
             startOrdersCheckingThread();
-            
+
         }
 
         private void changeLinks(List<Order> orders)
