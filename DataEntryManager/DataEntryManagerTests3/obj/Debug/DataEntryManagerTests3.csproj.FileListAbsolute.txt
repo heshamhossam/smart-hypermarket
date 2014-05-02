@@ -22,3 +22,15 @@ C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\DataEntryManager
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\DataEntryManagerTests3\bin\Debug\zxing.dll
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\DataEntryManagerTests3\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\DataEntryManagerTests3\bin\Debug\DataEntryManager.pdb
+C:\Users\Hesham\Documents\Visual Studio 2013\Projects\DataEntryManager\DataEntryManagerTests3\obj\Debug\DataEntryManagerTests3.csprojResolveAssemblyReference.cache
+C:\Users\Hesham\Documents\Visual Studio 2013\Projects\DataEntryManager\DataEntryManagerTests3\obj\Debug\DataEntryManagerTests3.dll
+C:\Users\Hesham\Documents\Visual Studio 2013\Projects\DataEntryManager\DataEntryManagerTests3\bin\Debug\DataEntryManagerTests3.dll
+C:\Users\Hesham\Documents\Visual Studio 2013\Projects\DataEntryManager\DataEntryManagerTests3\bin\Debug\DataEntryManagerTests3.pdb
+C:\Users\Hesham\Documents\Visual Studio 2013\Projects\DataEntryManager\DataEntryManagerTests3\bin\Debug\DataEntryManager.exe
+C:\Users\Hesham\Documents\Visual Studio 2013\Projects\DataEntryManager\DataEntryManagerTests3\bin\Debug\FirstFloor.ModernUI.dll
+C:\Users\Hesham\Documents\Visual Studio 2013\Projects\DataEntryManager\DataEntryManagerTests3\bin\Debug\WpfCap.dll
+C:\Users\Hesham\Documents\Visual Studio 2013\Projects\DataEntryManager\DataEntryManagerTests3\bin\Debug\zxing.presentation.dll
+C:\Users\Hesham\Documents\Visual Studio 2013\Projects\DataEntryManager\DataEntryManagerTests3\bin\Debug\zxing.dll
+C:\Users\Hesham\Documents\Visual Studio 2013\Projects\DataEntryManager\DataEntryManagerTests3\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Hesham\Documents\Visual Studio 2013\Projects\DataEntryManager\DataEntryManagerTests3\bin\Debug\DataEntryManager.pdb
+C:\Users\Hesham\Documents\Visual Studio 2013\Projects\DataEntryManager\DataEntryManagerTests3\obj\Debug\DataEntryManagerTests3.pdb

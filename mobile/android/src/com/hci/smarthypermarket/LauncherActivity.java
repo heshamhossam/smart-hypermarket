@@ -50,7 +50,7 @@ public class LauncherActivity extends Activity {
 	}
 	
 	private void startCartActivity() {
-		Intent intent = new Intent(LauncherActivity.this, CartActivity.class);
+		Intent intent = new Intent(LauncherActivity.this, DashBoardActivity.class);
 		startActivity(intent);
 		
 	}

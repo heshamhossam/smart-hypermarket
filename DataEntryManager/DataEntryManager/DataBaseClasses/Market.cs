@@ -74,7 +74,7 @@ namespace DataEntryManager
             {
                 foreach (var product in Categories[i].Products)
                 {
-                    product.Category_id = Categories[i].CategoryID;
+                    product.Category_id = Categories[i].Id;
                     ProductList.Add(product);
                 }
             }

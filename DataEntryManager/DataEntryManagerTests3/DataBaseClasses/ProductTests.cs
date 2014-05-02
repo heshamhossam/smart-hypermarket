@@ -28,7 +28,7 @@ namespace DataEntryManager.Tests
 
             foreach (Category cat in List_Cat)
             {
-                if (cat.CategoryID == "1")
+                if (cat.Id == "1")
                 {
                     List_Prod = cat.Products;
                     CatList_Size = cat.Products.Count;

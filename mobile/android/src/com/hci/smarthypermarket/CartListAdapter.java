@@ -37,7 +37,8 @@ public class CartListAdapter extends ArrayAdapter<Product> {
 		
 		// PRICE:
 		TextView condionText = (TextView) itemView.findViewById(R.id.textViewProductPrice);
-		condionText.setText(Double.toString(currentProduct.getTotalPrice()) + "$");
+		//condionText.setText(Double.toString(currentProduct.getTotalPrice()) + "$");
+		condionText.setText(String.valueOf(currentProduct.getTotalPrice() + "$"));
 		
 		// Countity:
 		TextView Countity = (TextView) itemView.findViewById(R.id.textViewCountity);

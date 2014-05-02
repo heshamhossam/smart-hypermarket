@@ -26,7 +26,11 @@ class Product extends Eloquent {
                         ->where('product_id', "=", $product->id);
                 
             if ($p->count())
-                $product->price = $p->first()->price;
+            {
+                $price = $p->first()->price;
+                $price = round($price, 2);
+                $product->price = $price;
+            }
             else
                 $product->price = 0;
             
