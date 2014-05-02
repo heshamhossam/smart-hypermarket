@@ -4,11 +4,74 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataEntryManager;
+using System.Net;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace StorageManager.Models
 {
     public class Order : IOrder
     {
+
+        private string _Id;
+        public string Id 
+        {
+            get{return _Id;}
+            set{_Id = value;}
+        }
+        private string _State;
+        public string State
+        { 
+            get {return _State;}
+            set { _State = value; }
+        }
+
+        private string _Market_id;
+
+        public string Market_id
+        {
+            get {  return _Market_id; }
+            set { _Market_id = value; }
+
+        }
+
+        private string _User_id;
+        public string User_id
+        {
+            get { return _User_id; }
+            set { _User_id = value; }        
+        }
+
+        private string _Confirmation_code;
+        public string Confirmation_code
+        {
+            get { return _Confirmation_code; }
+            set { _Confirmation_code = value; }
+       }
+        private string _Created_at;
+        public string Created_at
+        {
+            get { return _Created_at; }
+            set { _Created_at = value; }
+        }
+
+        private string _Updated_at;
+        public string Updated_at
+        {
+            get { return _Updated_at; }
+            set { _Updated_at = value; }
+        }
+
+
+        private List<Product> _Products;
+        public List<Product> Products 
+        {
+            get { return _Products; }
+            set { _Products = value; }
+        }
+
+
+
         public const string WAITING = "WAITING";
         public const string PREPARING = "PREPARING";
         public const string READY = "READY";
@@ -16,113 +79,22 @@ namespace StorageManager.Models
         public const string ALL = "ALL";
 
 
-        
-
-        public string Id
+        public static List<Order> LoadOrders (Market market, string filter)
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+            string url = "http://zonlinegamescom.ipage.com/smarthypermarket/public/orders/retrieve?market_id=" + market.Id.ToString() + "&filter=" + filter.ToString();
 
-        public string State
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
 
-        public string Market_id
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
-        public string User_id
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+            StreamReader sr = new StreamReader(response.GetResponseStream());
 
-        public string Confirmation_code
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+            string data = sr.ReadToEnd();
 
-        public string Created_at
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public string Updated_at
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public List<Product> Products
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public void update()
-        {
-            throw new NotImplementedException();
-        }
-
-        static List<Order> LoadOrders(Market market, string filter)
-        {
-            List<Order> orders = new List<Order>();
-            return orders;
+            List<Order> list = JsonConvert.DeserializeObject<List<Order>>(data);
+            
+            
+            return list;
         }
     }
 

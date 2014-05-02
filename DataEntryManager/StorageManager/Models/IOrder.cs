@@ -20,7 +20,7 @@ namespace StorageManager.Models
         string Updated_at { get; set; }
         List<Product> Products { get; set; }
 
-        void update();
+      //  void update();
 
 
 
