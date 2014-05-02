@@ -91,5 +91,10 @@ namespace DataEntryManager
             }
 
         }
+
+        public void refreshOrders()
+        {
+            ;
+        }
     }
 }
