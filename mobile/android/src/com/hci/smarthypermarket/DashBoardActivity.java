@@ -41,7 +41,7 @@ public class DashBoardActivity extends Activity {
 		});
         
         // Start Cart activity when clicks on Cart Button
-        StartCard = (Button) findViewById(R.id.home_mycard);
+        StartCard = (Button) findViewById(R.id.home_mycart);
         StartCard.setOnClickListener(new OnClickListener() {
 			
 			@Override

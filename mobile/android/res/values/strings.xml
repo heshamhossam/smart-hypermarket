@@ -19,7 +19,7 @@
     
     <!-- DashBoard -->
     <string name="title_scan">Scan</string>
-    <string name="title_card">My Card</string>
+    <string name="title_cart">My Cart</string>
     <string name="title_browse">Browse</string>
     <string name="title_orders">Orders</string>
 

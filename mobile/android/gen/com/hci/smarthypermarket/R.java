@@ -41,7 +41,7 @@ public final class R {
         public static final int camera_icon=0x7f080014;
         public static final int db1_root=0x7f080002;
         public static final int home_browse=0x7f080005;
-        public static final int home_mycard=0x7f080004;
+        public static final int home_mycart=0x7f080004;
         public static final int home_orders=0x7f080006;
         public static final int home_scan=0x7f080003;
         public static final int imageView1=0x7f080001;
@@ -86,7 +86,7 @@ public final class R {
         public static final int title_activity_dash_board=0x7f05000e;
         public static final int title_activity_product=0x7f050003;
         public static final int title_browse=0x7f050011;
-        public static final int title_card=0x7f050010;
+        public static final int title_cart=0x7f050010;
         public static final int title_orders=0x7f050012;
         /**  DashBoard 
          */
