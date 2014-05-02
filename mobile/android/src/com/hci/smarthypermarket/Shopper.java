@@ -40,17 +40,11 @@ public class Shopper {
 	private Location location = null;
 	private String marketId;
 	private String mobile;
+	private String firstName;
+	private String LastName;
 	private static Shopper MainShopper;
 	
 	public Shopper() { }
-	
-	public Shopper getInstance()
-	{
-		if (MainShopper == null)
-			MainShopper = new Shopper();
-		
-		return MainShopper;
-	}
 	
 	protected void onLocationChange()
 	{
@@ -103,6 +97,34 @@ public class Shopper {
 
 	public String getMobile() {
 		return mobile;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return LastName;
+	}
+
+	public void setLastName(String lastName) {
+		LastName = lastName;
+	}
+
+	public static Shopper getMainShopper() {
+		
+		if (MainShopper == null)
+			MainShopper = new Shopper();
+		
+		return MainShopper;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
 	}
 	
 	

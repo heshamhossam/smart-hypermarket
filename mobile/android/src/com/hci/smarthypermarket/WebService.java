@@ -168,6 +168,12 @@ public abstract class WebService implements IWebService {
 		
 		retrieveLocationTask.execute(location);
 	}
+
+	@Override
+	public void postOrder(Shopper shopper) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 
