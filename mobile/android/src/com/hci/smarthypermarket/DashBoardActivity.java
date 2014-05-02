@@ -28,12 +28,25 @@ public class DashBoardActivity extends Activity {
         ab.setBackgroundDrawable(colorDrawable);
         ab.setDisplayShowHomeEnabled(false);
         
+        
+        // Start BarCode activity when clicks on Scan Button
         StartScan = (Button) findViewById(R.id.home_scan);
         StartScan.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				startBarCodeActivity();
+				
+			}
+		});
+        
+        // Start Cart activity when clicks on Cart Button
+        StartCard = (Button) findViewById(R.id.home_mycard);
+        StartCard.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				startCartActivity();
 				
 			}
 		});
@@ -52,7 +65,8 @@ public class DashBoardActivity extends Activity {
 	}
 	
 	private void startCartActivity(){
-		
+		Intent intent = new Intent(DashBoardActivity.this, CartActivity.class);
+		startActivity(intent);
 	}
 	
 	private void startBrowseActivity(){
