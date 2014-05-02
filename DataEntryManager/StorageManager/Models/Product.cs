@@ -30,6 +30,7 @@ namespace DataEntryManager
         private string created_at;
         private string updated_at;
         private string category_id;
+        private int quantity;
 
         public Product()
         {
@@ -120,6 +121,17 @@ namespace DataEntryManager
             }
         }
 
+        public int Quantity 
+        {
+            get
+            {
+                return quantity;
+            }
+            set
+            {
+                quantity = value;
+            }
+        }
 
         public Product(string name, string barcode, float price, string categoryId)
         {

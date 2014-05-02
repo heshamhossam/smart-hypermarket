@@ -7,24 +7,19 @@ using DataEntryManager;
 
 namespace StorageManager.Models
 {
-    public class Order
+    public class Order : IOrder
     {
-        const string WAITING = "WAITING";
-        const string PREPARING = "PREPARING";
-        const string READY = "READY";
-        const string DONE = "DONE";
-        const string ALL = "ALL";
+        public const string WAITING = "WAITING";
+        public const string PREPARING = "PREPARING";
+        public const string READY = "READY";
+        public const string DONE = "DONE";
+        public const string ALL = "ALL";
 
 
-        public string State { get; set; }
-        public string Id { get; set; }
-        public string ConfirmationCode { get; set; }
-        public List<Product> Products { get; set; }
-
-        static List<Order> LoadOrders(string state)
-        {
+        //static List<Order> LoadOrders(Market market, string filter)
+        //{
             
-        }
+        //}
     }
 
     

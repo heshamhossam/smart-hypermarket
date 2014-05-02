@@ -11,9 +11,13 @@ namespace StorageManager.Models
 
     interface IOrder
     {
-        string State { get; set; }
         string Id { get; set; }
-        string ConfirmationCode { get; set; }
+        string State { get; set; }
+        string Market_id { get; set; }
+        string User_id { get; set; }
+        string Confirmation_code { get; set; }
+        string Created_at { get; set; }
+        string Updated_at { get; set; }
         List<Product> Products { get; set; }
 
         void update();
