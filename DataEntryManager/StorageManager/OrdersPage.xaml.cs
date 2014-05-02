@@ -33,14 +33,12 @@ namespace StorageManager
 
             //start threading to check any new orders
             startOrdersCheckingThread();
-
-
-            
         }
 
         private void changeLinks(List<Order> orders)
         {
             links = new LinkCollection();
+            
             foreach(var order in orders)
             {
                 links.Add(new Link() { DisplayName = order.Id, Source = new Uri("OrderControl.xaml#" + order.Id, UriKind.Relative) });

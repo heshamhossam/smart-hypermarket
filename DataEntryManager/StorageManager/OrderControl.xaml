@@ -6,7 +6,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid Name="gridOrder">
+        
+        <DataGrid Name="productsList"/>
         <Button Content="Served" Name="buttonServed" HorizontalAlignment="Left" Margin="215,264,0,0" VerticalAlignment="Top" Width="75" Click="buttonServed_Click"/>
-
+        
     </Grid>
 </UserControl>

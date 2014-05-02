@@ -14,7 +14,7 @@ namespace StorageManager.Models
     {
 
         private string _Id;
-        public string Id 
+        public string Id
         {
             get{return _Id;}
             set{_Id = value;}
@@ -92,7 +92,6 @@ namespace StorageManager.Models
             string data = sr.ReadToEnd();
 
             List<Order> list = JsonConvert.DeserializeObject<List<Order>>(data);
-            
             
             return list;
         }

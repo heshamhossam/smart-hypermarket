@@ -19,3 +19,23 @@ C:\Users\Hesham\Documents\Visual Studio 2013\Projects\DataEntryManager\StorageMa
 C:\Users\Hesham\Documents\Visual Studio 2013\Projects\DataEntryManager\StorageManager\obj\Debug\OrderControl.baml
 C:\Users\Hesham\Documents\Visual Studio 2013\Projects\DataEntryManager\StorageManager\obj\Debug\OrderControl.g.cs
 C:\Users\Hesham\Documents\Visual Studio 2013\Projects\DataEntryManager\StorageManager\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\StorageManager\bin\Debug\StorageManager.exe.config
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\StorageManager\bin\Debug\StorageManager.exe
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\StorageManager\bin\Debug\StorageManager.pdb
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\StorageManager\bin\Debug\FirstFloor.ModernUI.dll
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\StorageManager\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\StorageManager\bin\Debug\FirstFloor.ModernUI.xml
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\StorageManager\obj\Debug\MainWindow.baml
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\StorageManager\obj\Debug\OrderControl.baml
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\StorageManager\obj\Debug\OrdersPage.baml
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\StorageManager\obj\Debug\App.baml
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\StorageManager\obj\Debug\MainWindow.g.cs
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\StorageManager\obj\Debug\OrderControl.g.cs
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\StorageManager\obj\Debug\OrdersPage.g.cs
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\StorageManager\obj\Debug\App.g.cs
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\StorageManager\obj\Debug\StorageManager_MarkupCompile.cache
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\StorageManager\obj\Debug\StorageManager.g.resources
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\StorageManager\obj\Debug\StorageManager.Properties.Resources.resources
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\StorageManager\obj\Debug\StorageManager.csproj.GenerateResource.Cache
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\StorageManager\obj\Debug\StorageManager.exe
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\StorageManager\obj\Debug\StorageManager.pdb
