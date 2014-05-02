@@ -24,6 +24,31 @@ class Order extends Eloquent {
         return $this->belongsToMany("Product");
     }
     
+    public function getProducts(Market $market)
+    {
+        $fullProducts = array();
+        $i = 0;
+        foreach($this->products as $product)
+        {
+            $marketProduct = $market->findProduct(array("id" => $product->id));
+            
+            $orderProduct = DB::table('order_product')
+                        ->where('order_id', "=", $this->id)
+                        ->where('product_id', "=", $product->id);
+            
+            
+            if ($orderProduct->count())
+                $marketProduct->quantity = $orderProduct->first()->quantity;
+            else
+                $marketProduct->quantity = 0;
+            
+            $fullProducts[$i] = $marketProduct->toArray();
+            $i++;
+        }
+        
+        return $fullProducts;
+    }
+    
     public function user()
     {
         return $this->hasOne("User");

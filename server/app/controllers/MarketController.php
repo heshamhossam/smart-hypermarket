@@ -198,8 +198,6 @@ class MarketController extends BaseController {
         }
         return $market->categories;
         
-        return Response::json($response);
-        
     }
     
     
@@ -247,6 +245,7 @@ class MarketController extends BaseController {
         if ($market && $ordersFilter)
         {
             $orders = $market->getOrders($ordersFilter);
+            
             return Response::json($orders);
         }
     }

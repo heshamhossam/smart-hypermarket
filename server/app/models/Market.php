@@ -71,7 +71,8 @@ class Market extends Eloquent {
             switch($filter)
             {
                 case Order::ALL:
-                    $orders = Order::all();
+                    $orders = $orders->where("market_id", "=", $this->id)->get();
+                    return $orders;
                     break;
                 
                 case Order::DONE:
@@ -97,7 +98,21 @@ class Market extends Eloquent {
             }
             
             if ($orders && $orders->count())
-                return $orders->where("market_id", "=", $this->id)->get();
+            {
+                $marketOrders = $orders->where("market_id", "=", $this->id)->get();
+                
+                $length = $marketOrders->count();
+                $ordersArray = $marketOrders->toArray();
+
+                $i = 0;
+                foreach($marketOrders as $order)
+                {
+                    $ordersArray[$i] = array_add($ordersArray[$i], "products", $order->getProducts($this));
+                    $i++;
+                }
+
+                return $ordersArray;
+            }
             
             return null;
             
