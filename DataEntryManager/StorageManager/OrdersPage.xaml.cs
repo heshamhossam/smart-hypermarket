@@ -29,20 +29,28 @@ namespace StorageManager
         public OrdersPage()
         {
             InitializeComponent();
-            var market = Market.getInstance();
-            
             tabOrders.Links = links;
+
+            //start threading to check any new orders
+            startOrdersCheckingThread();
+
+
+            
         }
 
         private void changeLinks(List<Order> orders)
         {
-            LinkCollection newLinks = new LinkCollection();
+            links = new LinkCollection();
             foreach(var order in orders)
             {
-                newLinks.Add(new Link() { DisplayName = order.Id, Source = new Uri("OrderControl.xaml#" + order.Id, UriKind.Relative) });
+                links.Add(new Link() { DisplayName = order.Id, Source = new Uri("OrderControl.xaml#" + order.Id, UriKind.Relative) });
             }
-            links = newLinks;
+            tabOrders.Links = links;
         }
 
+        private void startOrdersCheckingThread()
+        {
+
+        }
     }
 }
