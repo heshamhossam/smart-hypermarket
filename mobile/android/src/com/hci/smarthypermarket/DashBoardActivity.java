@@ -3,9 +3,12 @@ package com.hci.smarthypermarket;
 import android.os.Bundle;
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 
 public class DashBoardActivity extends Activity {
@@ -24,6 +27,16 @@ public class DashBoardActivity extends Activity {
         ColorDrawable colorDrawable = new ColorDrawable(Color.rgb(10, 73, 88));     
         ab.setBackgroundDrawable(colorDrawable);
         ab.setDisplayShowHomeEnabled(false);
+        
+        StartScan = (Button) findViewById(R.id.home_scan);
+        StartScan.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				startBarCodeActivity();
+				
+			}
+		});
 	}
 
 	@Override
@@ -34,7 +47,8 @@ public class DashBoardActivity extends Activity {
 	}
 	
 	private void startBarCodeActivity(){
-		
+		Intent intent = new Intent(DashBoardActivity.this, BarCodeActivity.class);
+		startActivity(intent);
 	}
 	
 	private void startCartActivity(){
