@@ -39,3 +39,4 @@ C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\StorageManager\o
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\StorageManager\obj\Debug\StorageManager.csproj.GenerateResource.Cache
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\StorageManager\obj\Debug\StorageManager.exe
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\StorageManager\obj\Debug\StorageManager.pdb
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\StorageManager\obj\Debug\StorageManager.csprojResolveAssemblyReference.cache

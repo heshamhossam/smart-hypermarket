@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Hesham\Documents\Visual Studio 2013\Projects\DataEntryManager\DataEntryManager\obj\Debug\
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\DataEntryManager\obj\Debug\
 DataEntryManager
 none
 false
 DEBUG;TRACE
-C:\Users\Hesham\Documents\Visual Studio 2013\Projects\DataEntryManager\DataEntryManager\App.xaml
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\DataEntryManager\App.xaml
 4229345782
 
-20-724037822
-20-693651256
+20-1047634026
+20-1344705211
 AddProduct.xaml;EditProduct.xaml;MainWindow.xaml;ShowProducts.xaml;
 
-False
+True
 
