@@ -8,6 +8,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.R.integer;
 import android.R.string;
 import android.animation.ValueAnimator;
 import android.location.Location;
@@ -69,8 +70,49 @@ abstract class RetrieveProductTask extends AsyncTask<String, Integer, Product> {
 	}
 
 }
+abstract class  SendOrderTask extends AsyncTask<Shopper,Integer, String>
+{
+	final String TAG_UFName="first_name";
+	final String TAG_ULName="last_name";
+	final String TAG_MNum ="mobile";
+	final String TAG_MID="market_id";
+	final String TAG_PID="product_ids[]";
+	final String TAG_PQUN="product_quantities[]";
+	private static final String url_order_details="http://zonlinegamescom.ipage.com/smarthypermarket/public/orders/create";
+	JSONParser jsonParser = new JSONParser();
+	@Override
+	protected String doInBackground(Shopper... params) {
+		try {
+			List<NameValuePair> CParams = new ArrayList<NameValuePair>();
+			CParams.add(new BasicNameValuePair(TAG_UFName,params[0].getFirstName()));
+			CParams.add(new BasicNameValuePair(TAG_ULName, params[0].getLastName()));
+			CParams.add(new BasicNameValuePair(TAG_MNum,params[0].getMobile()));
+			CParams.add(new BasicNameValuePair(TAG_MID, params[0].getMarketId()));
+			for(int i =0;i<params[0].getOrder().getProducts().size();i++)
+			{
+		    CParams.add(new BasicNameValuePair(TAG_PID, params[0].getOrder().getProducts().get(i).getId()));
+			}
+			for(int i =0;i<params[0].getOrder().getProducts().size();i++)
+			{
+		    CParams.add(new BasicNameValuePair(TAG_PQUN,Integer.toString(params[0].getOrder().getProducts().get(i).getPurchasedQuantity())));
+			}
+			
+			JSONObject json = jsonParser.makeHttpRequest(url_order_details,
+					"POST", CParams);
+			
+				params[0].getOrder().setId(json.getString("id"));
+				params[0].getOrder().setConfirmationCode(json.getString("confirmation_code"));
+				params[0].getOrder().setState(json.getString("state"));
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return null;
+	}
+	
+	
+}
 abstract class RetrieveLocationTask extends AsyncTask<Location, Integer, Market> {
-
 	// ////////////////////////////
 	final String TAG_MID = "id";
 	final String TAG_MNAME = "name";
@@ -95,8 +137,6 @@ abstract class RetrieveLocationTask extends AsyncTask<Location, Integer, Market>
 				int success;
                       
 				List<NameValuePair> CParams = new ArrayList<NameValuePair>();
-				
-				
 				
 				CParams.add(new BasicNameValuePair("latitude",Double.toString(params[0].getLatitude())));
 				CParams.add(new BasicNameValuePair("longitude",Double.toString(params[0].getLongitude())));
