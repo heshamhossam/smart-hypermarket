@@ -31,6 +31,15 @@ namespace StorageManager
         private void buttonOpenOrder_Click(object sender, RoutedEventArgs e)
         {
             Order order = Market.getInstance().Orders.Find((Order order2) => order2.Id == id.Text);
+            if (order.Confirmation_code == confirmationCode.Text)
+            {
+                OrderWindow orderPopup = new OrderWindow(order);
+                orderPopup.Show();
+
+            }
+
+            else MessageBox.Show("Invaild Confirmation Code!");
+            
             
             
         }
