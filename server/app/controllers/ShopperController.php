@@ -19,8 +19,8 @@ class ShopperController extends BaseController {
         $firstName = Input::has("first_name")? Input::get("first_name") : null;
         $lastName = Input::has("last_name")? Input::get("last_name") : null;
         $marketId = Input::has("market_id")? Input::get("market_id") : null;
-        $productIds = Input::has("product_ids")? Input::get("product_ids") : null;
-        $productQuantities = Input::has("product_quantities")? Input::get("product_quantities") : null;
+//        $productIds = Input::has("product_id1")? Input::get("product_ids") : null;
+//        $productQuantities = Input::has("product_quantitie1")? Input::get("product_quantities") : null;
         
         //search for the user
         $shoppers = User::where("mobile", "=", $shopperMobile);
@@ -41,18 +41,23 @@ class ShopperController extends BaseController {
         if ($market && $shopper)
         {
             $i = 0;
-            foreach ($productIds as $productId) {
+            $products = array();
+            $productIdKey = "product_id";
+            $productQunaityKey = "product_quantity";
+            while (Input::has($productIdKey . $i) && Input::has($productQunaityKey . $i))
+            {
+                $productId = Input::get($productIdKey . $i);
+                $productQuantity = Input::get($productQunaityKey . $i);
                 $products[$i] = Product::find($productId);
-                $products[$i]->quantity = $productQuantities[$i];
+                $products[$i]->quantity = $productQuantity;
                 $i++;
             }
-            
             $order = $shopper->createOrder($market, $products);
             
             return $order;
         }
         
-        
+        return "fail";
         
     }
     

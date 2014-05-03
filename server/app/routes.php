@@ -86,7 +86,7 @@ Route::get("/orders/retrieve", array(
     "uses" => "MarketController@getOrders"
 ));
 
-Route::post("/orders/create", array(
+Route::get("/orders/create", array(
     "as" => "orders-create-post",
     "uses" => "ShopperController@createOrder"
 ));
@@ -96,8 +96,8 @@ Route::get("/orders/edit", array(
     "uses" => "MarketController@editOrder"
 ));
 
-Route::get("/orders/create", function()
-{
-    return View::make("createOrder");
-});
+//Route::get("/orders/create", function()
+//{
+//    return View::make("createOrder");
+//});
 

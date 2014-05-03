@@ -71,8 +71,7 @@ class Market extends Eloquent {
             switch($filter)
             {
                 case Order::ALL:
-                    $orders = $orders->where("market_id", "=", $this->id)->get();
-                    return $orders;
+                    $orders = Order::where("market_id", "=", $this->id);
                     break;
                 
                 case Order::DONE:
