@@ -178,9 +178,9 @@ namespace DataEntryManager
 
                 formData["price"] = price.ToString();
 
-                //formData["weight"] = weight;
+                formData["weight"] = weight;
 
-               //formData["description"] = description;
+                formData["description"] = description;
 
                 byte[] responseBytes = webClient.UploadValues(URL, "POST", formData);
 

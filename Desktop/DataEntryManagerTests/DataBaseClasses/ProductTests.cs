@@ -17,7 +17,7 @@ namespace DataEntryManager.Tests
             //Arrange
             Market m = Market.getInstance();
            // next test you should change the entry prameter
-            Product p = new Product("last test", "9684113119846196", (float)71.23, "1");
+            Product p = new Product("last test", "9684113119846196", (float)71.23, "1", "750", "this is description");
             p = p.save( m );
             int CatList_Size = 0;
             
@@ -56,7 +56,7 @@ namespace DataEntryManager.Tests
         {
 //<<<<<< HEAD
             //Arrange
-            Product Test_Prod = new Product("pepsi test", "123456789", 6, "1");
+            Product Test_Prod = new Product("pepsi test", "123456789", 6, "1", "860", "this is discription again");
           bool x= Test_Prod.update();
           Assert.IsTrue(x);
 
