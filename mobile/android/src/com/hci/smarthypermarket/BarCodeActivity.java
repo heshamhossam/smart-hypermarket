@@ -14,18 +14,18 @@ public class BarCodeActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		BarCodeIntentIntegrator Integrator = new BarCodeIntentIntegrator(this);
-		Integrator.initiateScan();
-//		shopper.setScannedProduct(new Product("3607214116")
-//		{
-//
-//			@Override
-//			protected void onProductRetrieved() {
-//				startProductActivity();
-//				super.onProductRetrieved();
-//			}
-//			
-//		});
+//		BarCodeIntentIntegrator Integrator = new BarCodeIntentIntegrator(this);
+//		Integrator.initiateScan();
+		shopper.setScannedProduct(new Product("3607214116")
+		{
+
+			@Override
+			protected void onProductRetrieved() {
+				startProductActivity();
+				super.onProductRetrieved();
+			}
+			
+		});
 	}
 	
 	

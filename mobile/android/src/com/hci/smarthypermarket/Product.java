@@ -13,7 +13,7 @@ public class Product {
 	protected float price;
 	protected String categoryId;
 	protected int purchasedQuantity;
-	private String discription;
+	private String description;
 	private String weight;
 	
 	public Product()
@@ -35,6 +35,8 @@ public class Product {
 				name = product.getName();
 				barcode = product.getBarcode();
 				price = product.getPrice();
+				description = product.getDescription();
+				weight = product.getWeight();
 		//		categoryId = product.getCategoryId();
 				
 				onProductRetrieved();
@@ -63,7 +65,7 @@ public class Product {
 		this.name = name;
 		this.barcode = barcode;
 		this.price = price;
-		this.discription= discription;
+		this.description= discription;
 		this.weight = weight;
 		//this.categoryId = categoryID;
 	}
@@ -98,15 +100,15 @@ public class Product {
 		return purchasedQuantity * price;
 	}
 
-	public String getDiscription() {
-		return discription;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setDiscription(String discription) {
-		this.discription = discription;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
-	public String getWight() {
+	public String getWeight() {
 		return weight;
 	}
 

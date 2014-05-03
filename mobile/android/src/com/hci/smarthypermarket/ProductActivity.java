@@ -1,5 +1,7 @@
 package com.hci.smarthypermarket;
 
+import org.w3c.dom.Text;
+
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.ActionBar;
@@ -28,6 +30,9 @@ public class ProductActivity extends Activity implements IProductActivity {
 	
 	private TextView textViewProductName = null;
 	private TextView textViewProductPrice = null;
+	private TextView textViewProductWeight = null;
+	private TextView textVieewProductDescription = null;
+	private TextView textViewProductBrand = null;
 	private Button buttonAddToOrder = null;
 	
 	private Shopper shopper = LauncherActivity.shopper;
@@ -49,7 +54,9 @@ public class ProductActivity extends Activity implements IProductActivity {
 		
 		textViewProductName = (TextView) findViewById(R.id.itemName);
 		textViewProductPrice = (TextView) findViewById(R.id.itemPrice);
-		
+		textVieewProductDescription = (TextView) findViewById(R.id.itemDescription);
+		textViewProductBrand = (TextView) findViewById(R.id.itemBrand);
+		textViewProductWeight = (TextView) findViewById(R.id.itemWeight);
 		//set the layout
 		
 		if (shopper != null)
@@ -101,6 +108,9 @@ public class ProductActivity extends Activity implements IProductActivity {
 		
 		  textViewProductName.setText(String.valueOf(product.getName()));
 		  textViewProductPrice.setText(String.valueOf(product.getPrice()));
+		  textVieewProductDescription.setText(String.valueOf(product.getDescription()));
+		  textViewProductBrand.setText(String.valueOf("Drinks"));
+		  textViewProductWeight.setText(String.valueOf(product.getWeight()));
 	 }
 
 	@Override
