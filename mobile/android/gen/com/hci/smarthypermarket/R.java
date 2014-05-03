@@ -37,7 +37,7 @@ public final class R {
         public static final int action_settings=0x7f080012;
         public static final int addButton=0x7f08000e;
         public static final int back_icon=0x7f080015;
-        public static final int buttonScanProduct=0x7f08000b;
+        public static final int buttonFireOrder=0x7f08000b;
         public static final int camera_icon=0x7f080014;
         public static final int db1_root=0x7f080002;
         public static final int home_browse=0x7f080005;

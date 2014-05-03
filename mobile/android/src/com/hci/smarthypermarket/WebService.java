@@ -3,6 +3,7 @@ package com.hci.smarthypermarket;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.http.NameValuePair;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.impl.entity.LaxContentLengthStrategy;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
@@ -90,12 +91,11 @@ abstract class  SendOrderTask extends AsyncTask<Shopper,Integer, String>
 			CParams.add(new BasicNameValuePair(TAG_MID, params[0].getMarketId()));
 			for(int i =0;i<params[0].getOrder().getProducts().size();i++)
 			{
-		    CParams.add(new BasicNameValuePair(TAG_PID, params[0].getOrder().getProducts().get(i).getId()));
+				CParams.add(new BasicNameValuePair(TAG_PID, params[0].getOrder().getProducts().get(i).getId()));
+				CParams.add(new BasicNameValuePair(TAG_PQUN, Integer.toString(params[0].getOrder().getProducts().get(i).getPurchasedQuantity())));
 			}
-			for(int i =0;i<params[0].getOrder().getProducts().size();i++)
-			{
-		    CParams.add(new BasicNameValuePair(TAG_PQUN,Integer.toString(params[0].getOrder().getProducts().get(i).getPurchasedQuantity())));
-			}
+			
+			Log.d("hesham", CParams.toString());
 			
 			JSONObject json = jsonParser.makeHttpRequest(url_order_details,
 					"POST", CParams);
@@ -211,7 +211,9 @@ public abstract class WebService implements IWebService {
 
 	@Override
 	public void postOrder(Shopper shopper) {
-		// TODO Auto-generated method stub
+		SendOrderTask sendOrderTask = new SendOrderTask() {
+		};
+		sendOrderTask.execute(shopper);
 		
 	}
 	

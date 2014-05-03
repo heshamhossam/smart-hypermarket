@@ -20,7 +20,7 @@ public class LauncherActivity extends Activity {
 		
 		
 		
-		shopper = new Shopper() {
+		shopper = new Shopper(this) {
 
 			@Override
 			protected void onLocationChange() {

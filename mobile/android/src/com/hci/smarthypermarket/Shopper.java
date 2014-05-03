@@ -8,6 +8,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.telephony.TelephonyManager;
 
 abstract class PersonlocationListener implements LocationListener
 {
@@ -44,7 +45,11 @@ public class Shopper {
 	private String LastName;
 	private static Shopper MainShopper;
 	
-	public Shopper() { }
+	public Shopper(Activity context) 
+	{
+		TelephonyManager tMgr = (TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE);
+		mobile = tMgr.getLine1Number();
+	}
 	
 	protected void onLocationChange()
 	{
@@ -116,10 +121,6 @@ public class Shopper {
 	}
 
 	public static Shopper getMainShopper() {
-		
-		if (MainShopper == null)
-			MainShopper = new Shopper();
-		
 		return MainShopper;
 	}
 
@@ -127,7 +128,14 @@ public class Shopper {
 		this.mobile = mobile;
 	}
 	
-	
+	public void submitOrder()
+	{
+		WebService webservice = new WebService() {
+		};
+		
+		webservice.postOrder(this);
+		
+	}
 	
 
 }

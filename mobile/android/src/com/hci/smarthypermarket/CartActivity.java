@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -13,7 +15,13 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Toast;
 
 @SuppressLint("NewApi")
 public class CartActivity extends Activity implements ICartActivity {
@@ -47,8 +55,9 @@ public class CartActivity extends Activity implements ICartActivity {
 		fireOrder = (Button) findViewById(R.id.buttonFireOrder);
 		fireOrder.setOnClickListener(new OnClickListener() {
 			@Override
-			public void onClick(View v){
+			public void onClick(View arg0) {
 				getUsersPaymentsDetails();
+				
 			}
 		});
 		
@@ -111,7 +120,11 @@ public class CartActivity extends Activity implements ICartActivity {
 			
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				// TODO Auto-generated method stub
+				shopper.setFirstName(fname.getText().toString());
+				shopper.setLastName(lname.getText().toString());
+				shopper.submitOrder();
+				Toast.makeText(getApplicationContext(), "Order Sent", Toast.LENGTH_LONG).show();
+			    finish();
 				
 			}
 		});
