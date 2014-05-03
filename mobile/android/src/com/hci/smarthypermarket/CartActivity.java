@@ -75,8 +75,8 @@ public class CartActivity extends Activity implements ICartActivity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item){
 		switch(item.getItemId()){
-		case R.id.camera_icon:
-			startBarCodeActivity();
+		case R.id.home_icon:
+			startDashBoardActivity();
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);
@@ -84,9 +84,9 @@ public class CartActivity extends Activity implements ICartActivity {
 	}
 
 	@Override
-	public void startBarCodeActivity() {
+	public void startDashBoardActivity() {
 		// TODO Auto-generated method stub
-		Intent intent = new Intent(CartActivity.this, BarCodeActivity.class);
+		Intent intent = new Intent(CartActivity.this, DashBoardActivity.class);
 		startActivity(intent);
 		
 	}

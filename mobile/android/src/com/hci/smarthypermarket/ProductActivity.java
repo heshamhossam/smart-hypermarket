@@ -86,13 +86,15 @@ public class ProductActivity extends Activity implements IProductActivity {
 	public boolean onOptionsItemSelected(MenuItem item){
 		switch(item.getItemId()){
 		case R.id.back_icon:
-			Intent intent = new Intent(ProductActivity.this, CartActivity.class);
-			startActivity(intent);
+			startCartActivity();
 			return true;
+		case R.id.home_icon:
+			startDashBoardActivity();
 		default:
 			return super.onOptionsItemSelected(item);
 		}
 	}
+	
 	
 	@Override
 	public void showProductDetails(Product product) {
@@ -105,7 +107,12 @@ public class ProductActivity extends Activity implements IProductActivity {
 	public void startCartActivity() {
 		Intent intent = new Intent(ProductActivity.this, CartActivity.class);
 		startActivity(intent);
-		
+	}
+	
+	@Override
+	public void startDashBoardActivity(){
+		Intent intent = new Intent(ProductActivity.this, DashBoardActivity.class);
+		startActivity(intent);
 	}
 
 	public void showInputNumberPopup() {
