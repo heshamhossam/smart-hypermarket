@@ -84,10 +84,6 @@ public class Market {
 				{
 					return product;
 				}
-				else 
-				{
-					return null;
-				}
 			}
 			
 		}
