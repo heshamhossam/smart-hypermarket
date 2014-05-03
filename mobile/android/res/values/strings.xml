@@ -9,13 +9,18 @@
     <string name="camera">Scan!</string>
     <string name="large_text">Large Text</string>
     <string name="add">Add</string>
-    <string name="price">Price</string>
     <string name="back">Back</string>
     <string name="Quantity">Quantity</string>
     <string name="ProductName">Name</string>
     <string name="QT">QT</string>
     <string name="fireorder">Fire Order</string>
     <string name="title_activity_dash_board">Home</string>
+    
+    <!-- Product details -->
+    <string name="price">Price</string>
+    <string name="description">Description</string>
+    <string name="weight">Weight</string>
+    <string name="brand">Brand</string>
     
     <!-- DashBoard -->
     <string name="title_scan">Scan</string>
