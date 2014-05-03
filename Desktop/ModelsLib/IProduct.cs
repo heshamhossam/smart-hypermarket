@@ -15,6 +15,8 @@ namespace DataEntryManager
         string Created_at { get; set; }
         string Updated_at { get; set; }
         string Category_id { get; set; }
+        string Description { get; set; }
+        string Weight { get; set; }
 
         //constructor
         //@name: string contains the name of the product
