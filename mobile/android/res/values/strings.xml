@@ -29,6 +29,13 @@
     <string name="title_cart">My Cart</string>
     <string name="title_browse">Browse</string>
     <string name="title_orders">Orders</string>
+    
+    <!-- Order details -->
+    <string name="orderId">Order Id</string>
+    <string name="confirmCode">Code</string>
+    <string name="state">State</string>
+    <string name="totalPrice">Total Price</string>
+    <string name="orderProducts">Products</string>
 
 
 </resources>

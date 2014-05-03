@@ -50,6 +50,15 @@ public class DashBoardActivity extends Activity {
 				
 			}
 		});
+        
+        StartOrders = (Button) findViewById(R.id.home_orders);
+        StartOrders.setOnClickListener(new OnClickListener() {
+        	
+        	@Override
+        	public void onClick(View v){
+        		startOrdersActivity();
+        	}
+        });
 	}
 
 	@Override
@@ -74,7 +83,8 @@ public class DashBoardActivity extends Activity {
 	}
 	
 	private void startOrdersActivity(){
-		
+		Intent intent = new Intent(DashBoardActivity.this, OrderActivity.class);
+		startActivity(intent);
 	}
 
 }
