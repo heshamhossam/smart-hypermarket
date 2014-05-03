@@ -1,0 +1,14 @@
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\DataEntryManagerTests3\bin\Debug\DataEntryManager.exe
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\DataEntryManagerTests3\bin\Debug\ModelsLib.dll
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\DataEntryManagerTests3\bin\Debug\FirstFloor.ModernUI.dll
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\DataEntryManagerTests3\bin\Debug\WpfCap.dll
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\DataEntryManagerTests3\bin\Debug\zxing.presentation.dll
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\DataEntryManagerTests3\bin\Debug\zxing.dll
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\DataEntryManagerTests3\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\DataEntryManagerTests3\bin\Debug\DataEntryManager.pdb
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\DataEntryManagerTests3\bin\Debug\ModelsLib.pdb
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\DataEntryManagerTests3\obj\Debug\DataEntryManagerTests.csprojResolveAssemblyReference.cache
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\DataEntryManagerTests3\bin\Debug\DataEntryManagerTests.dll
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\DataEntryManagerTests3\bin\Debug\DataEntryManagerTests.pdb
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\DataEntryManagerTests3\obj\Debug\DataEntryManagerTests.dll
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\DataEntryManagerTests3\obj\Debug\DataEntryManagerTests.pdb
