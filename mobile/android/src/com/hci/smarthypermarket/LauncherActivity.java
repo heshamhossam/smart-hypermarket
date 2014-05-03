@@ -29,9 +29,9 @@ public class LauncherActivity extends Activity {
 				market = new Market(this.getLocation())
 				{
 					@Override
-					protected void onMarketRetrieved() {
-						super.onMarketRetrieved();
-						shopper.setMarketId("" + this.getId());
+					protected void onMarketRetrieved(Market market) {
+						super.onMarketRetrieved(market);
+						shopper.setMarketId("" + market.getId());
 						if (!onLocationChangeCalled)
 						{
 							onLocationChangeCalled = true;

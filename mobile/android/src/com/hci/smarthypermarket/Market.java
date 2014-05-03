@@ -17,7 +17,7 @@ public class Market {
 
 	private String Name;
 	
-	protected void onMarketRetrieved()
+	protected void onMarketRetrieved(Market market)
 	{
 		;
 	}
@@ -39,7 +39,7 @@ public class Market {
 				// TODO Auto-generated method stub
 				super.onMarketDetected(market);
 				if (market != null)
-					onMarketRetrieved();
+					onMarketRetrieved(market);
 			}
 			
 		};

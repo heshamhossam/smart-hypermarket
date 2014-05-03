@@ -3,7 +3,6 @@ package com.hci.smarthypermarket;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.http.NameValuePair;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.impl.entity.LaxContentLengthStrategy;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
@@ -77,8 +76,8 @@ abstract class  SendOrderTask extends AsyncTask<Shopper,Integer, String>
 	final String TAG_ULName="last_name";
 	final String TAG_MNum ="mobile";
 	final String TAG_MID="market_id";
-	final String TAG_PID="product_ids[]";
-	final String TAG_PQUN="product_quantities[]";
+	final String TAG_PID="product_id";
+	final String TAG_PQUN="product_quantity";
 	private static final String url_order_details="http://zonlinegamescom.ipage.com/smarthypermarket/public/orders/create";
 	JSONParser jsonParser = new JSONParser();
 	@Override
@@ -91,14 +90,12 @@ abstract class  SendOrderTask extends AsyncTask<Shopper,Integer, String>
 			CParams.add(new BasicNameValuePair(TAG_MID, params[0].getMarketId()));
 			for(int i =0;i<params[0].getOrder().getProducts().size();i++)
 			{
-				CParams.add(new BasicNameValuePair(TAG_PID, params[0].getOrder().getProducts().get(i).getId()));
-				CParams.add(new BasicNameValuePair(TAG_PQUN, Integer.toString(params[0].getOrder().getProducts().get(i).getPurchasedQuantity())));
+			    CParams.add(new BasicNameValuePair(TAG_PID+Integer.toString(i), params[0].getOrder().getProducts().get(i).getId()));
+			    CParams.add(new BasicNameValuePair(TAG_PQUN+Integer.toString(i),Integer.toString(params[0].getOrder().getProducts().get(i).getPurchasedQuantity())));
 			}
 			
-			Log.d("hesham", CParams.toString());
-			
 			JSONObject json = jsonParser.makeHttpRequest(url_order_details,
-					"POST", CParams);
+					"GET", CParams);
 			
 				params[0].getOrder().setId(json.getString("id"));
 				params[0].getOrder().setConfirmationCode(json.getString("confirmation_code"));
@@ -211,12 +208,12 @@ public abstract class WebService implements IWebService {
 
 	@Override
 	public void postOrder(Shopper shopper) {
+		// TODO Auto-generated method stub
 		SendOrderTask sendOrderTask = new SendOrderTask() {
+		
 		};
 		sendOrderTask.execute(shopper);
-		
 	}
-	
 	
 
 }

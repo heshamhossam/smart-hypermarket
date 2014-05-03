@@ -123,7 +123,7 @@ public class CartActivity extends Activity implements ICartActivity {
 				shopper.setFirstName(fname.getText().toString());
 				shopper.setLastName(lname.getText().toString());
 				shopper.submitOrder();
-				Toast.makeText(getApplicationContext(), "Order Sent", Toast.LENGTH_LONG).show();
+				Toast.makeText(getApplicationContext(), "Order Sent to" + shopper.getMobile(), Toast.LENGTH_LONG).show();
 			    finish();
 				
 			}

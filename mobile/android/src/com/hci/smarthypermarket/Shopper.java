@@ -9,6 +9,9 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
+import java.lang.reflect.Method;
+
+
 
 abstract class PersonlocationListener implements LocationListener
 {
@@ -47,8 +50,10 @@ public class Shopper {
 	
 	public Shopper(Activity context) 
 	{
-		TelephonyManager tMgr = (TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE);
-		mobile = tMgr.getLine1Number();
+		TelephonyInfo telephonyInfo = TelephonyInfo.getInstance(context);
+	    mobile = telephonyInfo.getImeiSIM1();
+	    String mobile2 = telephonyInfo.getImeiSIM2();
+	    
 	}
 	
 	protected void onLocationChange()
