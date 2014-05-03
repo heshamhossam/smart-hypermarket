@@ -98,15 +98,14 @@ namespace StorageManager.Models
 
         public void update ()
         {
-
             string url = "http://zonlinegamescom.ipage.com/smarthypermarket/public/orders/edit?order_id=" + this._Id +"&state="+this._State;
-
-            System.Windows.MessageBox.Show(url);
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
 
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
+            if (response != null)
+                System.Windows.MessageBox.Show("Served sucessfuly");
         }
 
     }
