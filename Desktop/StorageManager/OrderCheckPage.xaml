@@ -15,19 +15,43 @@
             <ColumnDefinition Width="*"/>
 
         </Grid.ColumnDefinitions>
-        <StackPanel>
+        <StackPanel Margin="0,0,0,-41">
             <StackPanel Orientation="Vertical">
                 <Label FontSize="20" Content="Order ID" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" Height="30"/>
-                <TextBox Width="250" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20,19,0,19"/>
+                <TextBox Name="id" Width="250" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20,19,0,19"/>
             </StackPanel>
 
-            <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Vertical" Height="81">
                 <Label FontSize="20" Content="Confirmation Code" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" Height="30"/>
-                <TextBox Width="250" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20,19,0,19"/>
+                <TextBox Name="confirmationCode" Width="250" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20,19,0,19"/>
             </StackPanel>
 
-            <StackPanel Orientation="Vertical">
-                <Button Name="buttonOpenOrder" Content="Open Order" Width="127" HorizontalAlignment="Center" FontSize="16" VerticalAlignment="Center" Click="buttonOpenOrder_Click"/>
+            <StackPanel Orientation="Vertical" Height="97">
+                <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center" Height="62">
+                    <StackPanel Orientation="Horizontal" Margin="20,19,0,19">
+
+                        <Button x:Name="buttonDeliverOrder" Content="Deliver Order" Width="128" HorizontalAlignment="Center" FontSize="16" VerticalAlignment="Center" Click="buttonDeliverOrder_Click" Margin="76,0"/>
+
+                        <Button x:Name="buttonOpenOrder" Content="Open Order" Width="128" HorizontalAlignment="Center" FontSize="16" VerticalAlignment="Center" Click="buttonOpenOrder_Click" Margin="76,0"/>
+                    </StackPanel>
+                </StackPanel>
+                <Label x:Name="notification" FontSize="20" Content="" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" Height="30"/>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Height="93" Margin="61,0,55,0">
+                <StackPanel Orientation="Vertical">
+                    <Label Name="created_at_label"/>
+                    <Label Name="updated_at_label"/>
+                    <Label Name="market_label"/>
+                    <Label Name="user_label"/>
+
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label x:Name="created_at" />
+                    <Label x:Name="updated_at" />
+                    <Label x:Name="market_id" />
+                    <Label x:Name="user_id" />
+                </StackPanel>
             </StackPanel>
         </StackPanel>
     </Grid>

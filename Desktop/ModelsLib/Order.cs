@@ -101,7 +101,7 @@ namespace StorageManager.Models
 
             string url = "http://zonlinegamescom.ipage.com/smarthypermarket/public/orders/edit?order_id=" + this._Id +"&state="+this._State;
 
-            System.Windows.MessageBox.Show(url);
+            System.Windows.MessageBox.Show(url + this._Confirmation_code);
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
 

@@ -60,7 +60,7 @@ namespace StorageManager
 
         private void buttonServed_Click(object sender, RoutedEventArgs e)
         {
-            order.State = Order.WAITING;
+            order.State = Order.READY;
             order.update();
         }
     }
