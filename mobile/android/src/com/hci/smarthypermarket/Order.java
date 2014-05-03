@@ -15,7 +15,7 @@ public class Order {
 	private String id;
 	private String confirmationCode;
 	private String state;
-	
+	private float totalCost;
 	
 
 	public void setProducts(ArrayList<Product> products) {
@@ -89,6 +89,22 @@ public class Order {
 	public void setState(String state) {
 		this.state = state;
 	}
+
+
+	public float getTotalCost() {
+		
+		if (totalCost > 0)
+			return totalCost;
+		
+		totalCost = 0;
+		for (Product produt : products) {
+			totalCost += produt.price;
+		}
+		
+		return totalCost;
+	}
+	
+	
 
 
 
