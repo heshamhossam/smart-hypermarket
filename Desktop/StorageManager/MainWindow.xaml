@@ -9,7 +9,7 @@
         <mui:LinkGroup DisplayName="Navigation" >
             <mui:LinkGroup.Links>
                 <mui:Link DisplayName="Orders" Source="OrdersPage.xaml" />
-                <mui:Link DisplayName="Deliver" />
+                <mui:Link DisplayName="Open Order" Source="OrderCheckPage.xaml" />
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
     </mui:ModernWindow.MenuLinkGroups>

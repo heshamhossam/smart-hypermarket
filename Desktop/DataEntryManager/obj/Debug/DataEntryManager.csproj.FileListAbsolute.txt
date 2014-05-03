@@ -247,3 +247,6 @@ C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\DataEntryManager
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\bin\Debug\DataEntryManager.exe.config
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debug\DataEntryManager.exe
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debug\DataEntryManager.pdb
+C:\Users\Hesham\Documents\Visual Studio 2013\Projects\Desktop\DataEntryManager\bin\Debug\DataEntryManager.exe.config
+C:\Users\Hesham\Documents\Visual Studio 2013\Projects\Desktop\DataEntryManager\obj\Debug\DataEntryManager.exe
+C:\Users\Hesham\Documents\Visual Studio 2013\Projects\Desktop\DataEntryManager\obj\Debug\DataEntryManager.pdb

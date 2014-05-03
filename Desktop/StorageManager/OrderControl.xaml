@@ -13,7 +13,7 @@
                 <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Served" Name="buttonServed" HorizontalAlignment="Left" Margin="215,264,0,0" VerticalAlignment="Top" Width="75" Click="buttonServed_Click"/>
+        <Button Content="Ready" Name="buttonServed" HorizontalAlignment="Left" Margin="215,264,0,0" VerticalAlignment="Top" Width="75" Click="buttonServed_Click"/>
         
     </Grid>
 </UserControl>
