@@ -19,6 +19,7 @@ import android.widget.ListView;
 public class CartActivity extends Activity implements ICartActivity {
 	
 	private Shopper shopper = LauncherActivity.shopper;
+	private Button fireOrder;
 
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 	@SuppressLint("NewApi")
@@ -42,6 +43,14 @@ public class CartActivity extends Activity implements ICartActivity {
 		
 		//start the product activity and send the shopper in the intent
 		//startProductActivity(shopper);
+
+		fireOrder = (Button) findViewById(R.id.buttonFireOrder);
+		fireOrder.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v){
+				getUsersPaymentsDetails();
+			}
+		});
 		
 		
 	}
@@ -79,6 +88,48 @@ public class CartActivity extends Activity implements ICartActivity {
 		startActivity(intent);
 		
 	}
+
+	private void getUsersPaymentsDetails(){
+		final AlertDialog.Builder alert = new AlertDialog.Builder(this);
+		
+		LinearLayout linear = new LinearLayout(this);
+		linear.setOrientation(1); // 1 is for vertical orientation
+		final EditText fname = new EditText(this);
+		fname.setHint("First Name");
+		final EditText lname = new EditText(this);
+		lname.setHint("Last Name");
+		final EditText creditcard = new EditText(this);
+		creditcard.setHint("Credit Card");
+		linear.addView(fname);
+		linear.addView(lname);
+		linear.addView(creditcard);
+		
+		alert.setView(linear);
+		alert.setTitle("Payment Details");
+		
+		alert.setPositiveButton("Send", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				Toast.makeText(getApplicationContext(), "Cancel Done", Toast.LENGTH_LONG).show();
+			    finish();
+			}
+		});
+		
+		AlertDialog alertDialog = alert.create();
+		alertDialog.show();
+	}
+
 
 
 }
