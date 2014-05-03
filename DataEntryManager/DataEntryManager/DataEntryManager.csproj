@@ -44,6 +44,9 @@
     <Reference Include="Microsoft.Windows.Shell">
       <HintPath>..\..\..\..\Desktop\dlls\dlls\Microsoft.Windows.Shell.dll</HintPath>
     </Reference>
+    <Reference Include="ModelsLib">
+      <HintPath>..\ModelsLib\bin\Debug\ModelsLib.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Desktop\dlls\dlls\Newtonsoft.Json.dll</HintPath>
@@ -82,8 +85,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="DataBaseClasses\IMarket.cs" />
-    <Compile Include="DataBaseClasses\Market.cs" />
     <Compile Include="EditProduct.xaml.cs">
       <DependentUpon>EditProduct.xaml</DependentUpon>
     </Compile>
@@ -111,10 +112,6 @@
     </Compile>
     <Compile Include="BarcodeReading\BarcodeReader.cs" />
     <Compile Include="BarcodeReading\IBarcodeReader.cs" />
-    <Compile Include="DataBaseClasses\Category.cs" />
-    <Compile Include="DataBaseClasses\ICategory.cs" />
-    <Compile Include="DataBaseClasses\IProduct.cs" />
-    <Compile Include="DataBaseClasses\Product.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

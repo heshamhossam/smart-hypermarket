@@ -242,3 +242,5 @@ C:\Users\Hesham\Documents\Visual Studio 2013\Projects\DataEntryManager\DataEntry
 C:\Users\Hesham\Documents\Visual Studio 2013\Projects\DataEntryManager\DataEntryManager\obj\Debug\DataEntryManager.g.resources
 C:\Users\Hesham\Documents\Visual Studio 2013\Projects\DataEntryManager\DataEntryManager\obj\Debug\DataEntryManager.Properties.Resources.resources
 C:\Users\Hesham\Documents\Visual Studio 2013\Projects\DataEntryManager\DataEntryManager\obj\Debug\DataEntryManager.csproj.GenerateResource.Cache
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\DataEntryManager\bin\Debug\ModelsLib.dll
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\DataEntryManager\DataEntryManager\bin\Debug\ModelsLib.pdb
