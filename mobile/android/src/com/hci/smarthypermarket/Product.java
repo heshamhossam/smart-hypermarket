@@ -13,6 +13,8 @@ public class Product {
 	protected float price;
 	protected String categoryId;
 	protected int purchasedQuantity;
+	private String discription;
+	private String weight;
 	
 	public Product()
 	{
@@ -56,11 +58,13 @@ public class Product {
 		return categoryId;
 	}
 
-	public Product(String id, String name, String barcode, float price) {
+	public Product(String id, String name, String barcode, float price,String weight,String discription) {
 		this.id = id;
 		this.name = name;
 		this.barcode = barcode;
 		this.price = price;
+		this.discription= discription;
+		this.weight = weight;
 		//this.categoryId = categoryID;
 	}
 	
@@ -92,6 +96,22 @@ public class Product {
 	public float getTotalPrice()
 	{
 		return purchasedQuantity * price;
+	}
+
+	public String getDiscription() {
+		return discription;
+	}
+
+	public void setDiscription(String discription) {
+		this.discription = discription;
+	}
+
+	public String getWight() {
+		return weight;
+	}
+
+	public void setWight(String wight) {
+		this.weight = wight;
 	}
 	
 }
