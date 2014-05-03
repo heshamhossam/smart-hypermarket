@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -60,7 +60,7 @@ namespace DataEntryManager
         {
             if (CheckFields())
             {
-                Product p = new Product(name.Text, barcode.Text, float.Parse(price.Text), id);
+                Product p = new Product(name.Text, barcode.Text, float.Parse(price.Text), id, textboxWeight.Text, textboxDescription.Text);
                 Product product = p.save(market);
 
                 if (p != null)
@@ -102,7 +102,7 @@ namespace DataEntryManager
 
       private  bool CheckFields()
         {
-            if (name.Text == "" || barcode.Text == "" || price.Text == "" || category.SelectedItem == null)
+            if (name.Text == "" || barcode.Text == "" || price.Text == "" || category.SelectedItem == null || textboxDescription.Text=="" || textboxWeight.Text == "" )
             {
                 return false;
             }

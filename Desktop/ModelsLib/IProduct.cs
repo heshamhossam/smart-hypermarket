@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +15,8 @@ namespace DataEntryManager
         string Created_at { get; set; }
         string Updated_at { get; set; }
         string Category_id { get; set; }
+        string Description { get; set; }
+        string Weight { get; set; }
 
         //constructor
         //@name: string contains the name of the product
@@ -22,6 +24,9 @@ namespace DataEntryManager
         //@price: integer contains the price of the product in the market
         //@barcode: string contains the bar code of product
         //public IProduct(string name, int categoryId, int price, string barcode);
+        //Weight 
+        //Descreption
+
 
         /// <summary>
         /// Saves the current fields values into the database

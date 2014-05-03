@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,6 +31,19 @@ namespace DataEntryManager
         private string updated_at;
         private string category_id;
         private int quantity;
+        private string description;
+        private string weight;
+        public string Description
+            {
+            get {return description;}
+            set{description = value; }
+        }
+
+        public string Weight
+         {
+            get{return weight;}
+           set {weight = value;}
+        }
 
         public Product()
         {
@@ -133,12 +146,14 @@ namespace DataEntryManager
             }
         }
 
-        public Product(string name, string barcode, float price, string categoryId)
+        public Product(string name, string barcode, float price, string categoryId, string weight, string description)
         {
             this.Name = name;
             this.Barcode = barcode;
             this.Price = price;
             this.Category_id = categoryId;
+            this.weight = weight;
+            this.description = description;
         }
 
 
@@ -162,6 +177,10 @@ namespace DataEntryManager
                 formData["market_id"] = "1";
 
                 formData["price"] = price.ToString();
+
+                //formData["weight"] = weight;
+
+               //formData["description"] = description;
 
                 byte[] responseBytes = webClient.UploadValues(URL, "POST", formData);
 
@@ -195,6 +214,28 @@ namespace DataEntryManager
         }
 
         string IProduct.Name
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+        string IProduct.Weight
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+        string IProduct.Description
         {
             get
             {
@@ -332,6 +373,10 @@ namespace DataEntryManager
                 formData["category_id"] = Category_id;
 
                 formData["market_id"] = market.Id.ToString();
+
+                formData["weight"] = weight;
+
+                formData["description"] = description;
 
                 byte[] responseBytes = webClient.UploadValues(URL, "POST", formData);
 
