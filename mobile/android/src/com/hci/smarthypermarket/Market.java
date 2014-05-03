@@ -23,7 +23,10 @@ public class Market {
 	}
 	
 	
-	
+	protected void onCategoriesRetrieved(List<Category> list)
+	{
+		;
+	}
 
 	public Market(int id,String Name) {
 		this.id = id;
@@ -41,9 +44,16 @@ public class Market {
 				if (market != null)
 					onMarketRetrieved(market);
 			}
+			@Override
+			protected void onCategoriesDetected(List<Category> list)
+			{
+				categories= list;
+				onCategoriesRetrieved(list);
+			}
 			
 		};
-		
+		webservice.getCategories();
+
 		webservice.getMarket(location);
 	}
 	
@@ -65,6 +75,25 @@ public class Market {
 		this.categories = categories;
 	}
 	
+	Product findProduct(String barCode)
+	{
+		for (Category cat : this.categories) {
+			
+			for (Product product : cat.products) {
+				if(product.barcode==barCode)
+				{
+					return product;
+				}
+				else 
+				{
+					return null;
+				}
+			}
+			
+		}
+		return null;
+		
+	}
 	
 	
 
