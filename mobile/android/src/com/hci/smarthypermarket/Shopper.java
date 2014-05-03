@@ -50,9 +50,15 @@ public class Shopper {
 	
 	public Shopper(Activity context) 
 	{
-		TelephonyInfo telephonyInfo = TelephonyInfo.getInstance(context);
-	    mobile = telephonyInfo.getImeiSIM1();
-	    String mobile2 = telephonyInfo.getImeiSIM2();
+		try
+		  {
+		   TelephonyInfo telephonyInfo = TelephonyInfo.getInstance(context);
+		      mobile = telephonyInfo.getImeiSIM1();
+		  }
+		  catch(Exception e)
+		  {
+		      mobile = "60383216";
+		  }
 	    
 	}
 	

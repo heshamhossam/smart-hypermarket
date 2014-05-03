@@ -16,5 +16,7 @@ public interface IProductActivity {
 	
 	void onBuyingProduct();
 	
+	void startDashBoardActivity();
+	
 	
 }
