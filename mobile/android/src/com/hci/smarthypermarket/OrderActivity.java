@@ -2,9 +2,13 @@ package com.hci.smarthypermarket;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -37,6 +41,24 @@ public class OrderActivity extends Activity {
         textViewTotalPrice = (TextView) findViewById(R.id.totalPrice);
 	}
 	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		MenuInflater mif = getMenuInflater();
+		mif.inflate(R.menu.order_actionbar, menu);
+		return super.onCreateOptionsMenu(menu);
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item){
+		switch(item.getItemId()){
+		case R.id.home_icon:
+			startDashBoardActivity();
+		default:
+			return super.onOptionsItemSelected(item);
+		}
+	}
+	
 	public void showOrder(Order order)
 	{
 		textViewOrderId.setText(order.getId());
@@ -44,6 +66,11 @@ public class OrderActivity extends Activity {
 		textViewState.setText(order.getState());
 		textViewTotalPrice.setText(String.valueOf(order.getTotalCost()));
 		order.showProductsItems(OrderActivity.this, (ListView) findViewById(R.id.listViewOrderProducts));
+	}
+	
+	void startDashBoardActivity(){
+		Intent intent = new Intent(OrderActivity.this, DashBoardActivity.class);
+		startActivity(intent);
 	}
 
 }
