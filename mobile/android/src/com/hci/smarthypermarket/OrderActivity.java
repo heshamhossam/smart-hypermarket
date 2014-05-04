@@ -74,7 +74,7 @@ public class OrderActivity extends Activity {
 		textViewConfirmationCode.setText(order.getConfirmationCode());
 		textViewState.setText(order.getState());
 		textViewTotalPrice.setText(String.valueOf(order.getTotalCost()));
-		//order.showProductsItems(OrderActivity.this, (ListView) findViewById(R.id.listViewOrderProducts));
+		order.showProductsItems(OrderActivity.this, (ListView) findViewById(R.id.listViewOrderProducts));
 	}
 	
 	void startDashBoardActivity(){
