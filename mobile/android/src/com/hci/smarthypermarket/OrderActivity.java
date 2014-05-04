@@ -18,7 +18,7 @@ public class OrderActivity extends Activity {
 	private TextView textViewConfirmationCode;
 	private TextView textViewState;
 	private TextView textViewTotalPrice;
-
+	private Shopper shopper;
 	public OrderActivity() {
 		// TODO Auto-generated constructor stub
 	}
@@ -39,6 +39,15 @@ public class OrderActivity extends Activity {
         textViewConfirmationCode = (TextView) findViewById(R.id.confirmCode);
         textViewState = (TextView) findViewById(R.id.State);
         textViewTotalPrice = (TextView) findViewById(R.id.totalPrice);
+        
+        if (LauncherActivity.shopper != null)
+        	shopper = LauncherActivity.shopper;
+        
+        if (shopper.getOrder().getProducts().size() > 0)
+        {
+        	showOrder(shopper.getOrder());
+        }
+        
 	}
 	
 	@Override
@@ -65,7 +74,7 @@ public class OrderActivity extends Activity {
 		textViewConfirmationCode.setText(order.getConfirmationCode());
 		textViewState.setText(order.getState());
 		textViewTotalPrice.setText(String.valueOf(order.getTotalCost()));
-		order.showProductsItems(OrderActivity.this, (ListView) findViewById(R.id.listViewOrderProducts));
+		//order.showProductsItems(OrderActivity.this, (ListView) findViewById(R.id.listViewOrderProducts));
 	}
 	
 	void startDashBoardActivity(){

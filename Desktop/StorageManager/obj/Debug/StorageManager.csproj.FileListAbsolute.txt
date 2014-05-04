@@ -117,6 +117,11 @@ C:\Users\Hawex\Documents\GitHub\smart-hypermarket\Desktop\StorageManager\obj\Deb
 C:\Users\Hawex\Documents\GitHub\smart-hypermarket\Desktop\StorageManager\obj\Debug\StorageManager.g.resources
 C:\Users\Hawex\Documents\GitHub\smart-hypermarket\Desktop\StorageManager\obj\Debug\StorageManager.Properties.Resources.resources
 C:\Users\Hawex\Documents\GitHub\smart-hypermarket\Desktop\StorageManager\obj\Debug\StorageManager.csproj.GenerateResource.Cache
+<<<<<<< HEAD
 C:\Users\eslam\Documents\GitHub\smart-hypermarket\Desktop\StorageManager\bin\Debug\StorageManager.exe.config
 C:\Users\eslam\Documents\GitHub\smart-hypermarket\Desktop\StorageManager\obj\Debug\StorageManager.exe
 C:\Users\eslam\Documents\GitHub\smart-hypermarket\Desktop\StorageManager\obj\Debug\StorageManager.pdb
+=======
+C:\Users\Hesham\Documents\Visual Studio 2013\Projects\Desktop\StorageManager\obj\Debug\OrderWindow.baml
+C:\Users\Hesham\Documents\Visual Studio 2013\Projects\Desktop\StorageManager\obj\Debug\OrderWindow.g.cs
+>>>>>>> 2f2633aff34d354e5a8adc0d382204126c90276e

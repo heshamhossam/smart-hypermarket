@@ -10,22 +10,14 @@ public class BarCodeActivity extends Activity {
 	
 	private Shopper shopper = LauncherActivity.shopper;
 	public static String barcode = null;
+	private Market market = LauncherActivity.market;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-//		BarCodeIntentIntegrator Integrator = new BarCodeIntentIntegrator(this);
-//		Integrator.initiateScan();
-		shopper.setScannedProduct(new Product("3607214116")
-		{
-
-			@Override
-			protected void onProductRetrieved() {
-				startProductActivity();
-				super.onProductRetrieved();
-			}
-			
-		});
+		BarCodeIntentIntegrator Integrator = new BarCodeIntentIntegrator(this);
+		Integrator.initiateScan();
+		
 	}
 	
 	
@@ -35,16 +27,8 @@ public class BarCodeActivity extends Activity {
 			String barcode;
 			barcode = scanResult.getContents();
 			
-			shopper.setScannedProduct(new Product(barcode)
-			{
-
-				@Override
-				protected void onProductRetrieved() {
-					startProductActivity();
-					super.onProductRetrieved();
-				}
-				
-			});
+			shopper.setScannedProduct(market.findProduct(barcode));
+			startProductActivity();
 			
 			
 		}

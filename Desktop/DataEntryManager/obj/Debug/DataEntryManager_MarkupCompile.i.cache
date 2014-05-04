@@ -4,16 +4,28 @@
 winexe
 C#
 .cs
+<<<<<<< HEAD
 C:\Users\eslam\Documents\GitHub\smart-hypermarket\Desktop\DataEntryManager\obj\Debug\
+=======
+C:\Users\Hesham\Documents\Visual Studio 2013\Projects\Desktop\DataEntryManager\obj\Debug\
+>>>>>>> 2f2633aff34d354e5a8adc0d382204126c90276e
 DataEntryManager
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 C:\Users\eslam\Documents\GitHub\smart-hypermarket\Desktop\DataEntryManager\App.xaml
 4229345782
 
 141212282540
 21198831698
+=======
+C:\Users\Hesham\Documents\Visual Studio 2013\Projects\Desktop\DataEntryManager\App.xaml
+4229345782
+
+14-638232751
+21-56094777
+>>>>>>> 2f2633aff34d354e5a8adc0d382204126c90276e
 AddProduct.xaml;EditProduct.xaml;MainWindow.xaml;ShowProducts.xaml;
 
 True
