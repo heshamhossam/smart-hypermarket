@@ -7,7 +7,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d"
     Name="wnd"
-	Title="AddProduct" Background="White" Height="774.627" Width="700">
+	Title="AddProduct" Background="White" Height="774.627" Width="800">
     <Page.Resources>
         <l:ScaleConverter x:Key="conv"/>
     </Page.Resources>
@@ -18,29 +18,29 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="1">
             <StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Name" FontSize="30" Height="80" Width="160" VerticalAlignment="Center"/>
-                    <TextBox Height="80" Name="name" FontSize="30" TextWrapping="Wrap" VerticalAlignment="Center" Padding="10" TextAlignment="Center" Width="416" Margin="70,0,0,20" ></TextBox>
+                <StackPanel Orientation="Horizontal" Height="79">
+                    <TextBlock Text="Name" FontSize="30" Height="79" Width="160" VerticalAlignment="Center"/>
+                    <TextBox Height="79" Name="name" FontSize="30" TextWrapping="Wrap" VerticalAlignment="Center" Padding="10" TextAlignment="Center" Width="467" Margin="70,-5,0,5" ></TextBox>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Category" FontSize="30" Height="80" Width="160"/>
-                    <ComboBox Width="416" FontSize="30"  Name="category" Height="80" Margin="70,0,0,20" SelectionChanged="category_SelectionChanged" ></ComboBox>
+                <StackPanel Orientation="Horizontal" Height="79">
+                    <TextBlock Text="Category" FontSize="30" Height="79" Width="160"/>
+                    <ComboBox Width="468" FontSize="30"  x:Name="category" Height="79" Margin="70,0,0,0" SelectionChanged="category_SelectionChanged" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Price" Width="160" FontSize="30" Height="80"/>
-                    <TextBox Height="80" Name="price" FontSize="30" TextAlignment="Center" VerticalAlignment="Center"  Padding="10" Margin="70,0,0,20"  Width="416" ></TextBox>
+                    <TextBox Height="80" Name="price" FontSize="30" TextAlignment="Center" VerticalAlignment="Center"  Padding="10" Margin="70,0,0,0"  Width="130" ></TextBox>
+
+                    <TextBlock Text="Weight" Width="137" Margin="20,0,0,0" Padding="20" FontSize="30" Height="99"/>
+                    <TextBox Height="80" x:Name="textboxWeight" FontSize="30" TextAlignment="Center" VerticalAlignment="Center"  Padding="10" Margin="70,0,0,0"  Width="111" />
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Weight" Width="160" FontSize="30" Height="80"/>
-                    <TextBox Height="80" Name="textboxWeight" FontSize="30" TextAlignment="Center" VerticalAlignment="Center"  Padding="10" Margin="70,0,0,20"  Width="416" ></TextBox>
-                </StackPanel>
+
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Description" Width="160" FontSize="30" Height="80"/>
-                    <TextBox Height="80" Name="textboxDescription" FontSize="30" TextAlignment="Center" VerticalAlignment="Center"  Padding="10" Margin="70,0,0,20"  Width="416" ></TextBox>
+                    <TextBox Height="80" Name="textboxDescription" FontSize="30" TextAlignment="Center" VerticalAlignment="Center"  Padding="10" Margin="70,0,0,20"  Width="469" ></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Barcode" Width="160" Height="80" FontSize="30"/>
-                    <TextBox Name="barcode" Height="80" FontSize="30" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" TextAlignment="Center"   Margin="70,0,0,20" Padding="10"  Width="416"  ></TextBox>
+                    <TextBox Name="barcode" Height="80" FontSize="30" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" TextAlignment="Center"   Margin="70,0,0,20" Padding="10"  Width="467"  ></TextBox>
                 </StackPanel>
                 <StackPanel>
                     <Grid>
