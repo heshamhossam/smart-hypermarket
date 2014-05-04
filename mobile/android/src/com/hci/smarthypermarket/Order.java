@@ -11,6 +11,11 @@ import android.widget.ListView;
 
 public class Order {
 	
+	public static final String WAITING = "WAITING";
+	public static final String READY = "READY";
+	public static final String PREPARING = "PREPARING";
+	public static final String DONE = "DONE";
+	
 	private ArrayList<Product> products = new ArrayList<Product>();
 	private String id;
 	private String confirmationCode;

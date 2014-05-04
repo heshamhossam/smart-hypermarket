@@ -146,6 +146,9 @@ public class Shopper {
 		
 		webservice.postOrder(this);
 		
+		order.setState(Order.WAITING);
+		
+		
 	}
 	
 

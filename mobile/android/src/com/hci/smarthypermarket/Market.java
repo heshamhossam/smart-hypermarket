@@ -23,7 +23,7 @@ public class Market {
 	}
 	
 	
-	protected void onCategoriesRetrieved(List<Category> list)
+	protected void onCategoriesRetrieved(Market market)
 	{
 		;
 	}
@@ -35,6 +35,7 @@ public class Market {
 	}
 	
 	public Market(Location location) {
+		final Market myMarket = this;
 		WebService webservice = new WebService() {
 
 			@Override
@@ -42,19 +43,25 @@ public class Market {
 				// TODO Auto-generated method stub
 				super.onMarketDetected(market);
 				if (market != null)
+				{
+					id = market.getId();
+					Name = market.Name;
 					onMarketRetrieved(market);
+				}
 			}
+			
 			@Override
 			protected void onCategoriesDetected(List<Category> list)
 			{
 				categories= list;
-				onCategoriesRetrieved(list);
+				onCategoriesRetrieved(myMarket);
 			}
 			
 		};
-		webservice.getCategories();
+		
 
 		webservice.getMarket(location);
+		webservice.getCategories(this);
 	}
 	
 	public int getId() {
@@ -80,7 +87,7 @@ public class Market {
 		for (Category cat : this.categories) {
 			
 			for (Product product : cat.products) {
-				if(product.barcode==barCode)
+				if(product.getBarcode().equals(barCode))
 				{
 					return product;
 				}
