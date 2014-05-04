@@ -39,7 +39,7 @@
     </Reference>
     <Reference Include="ModelsLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\DataEntryManager\bin\Debug\ModelsLib.dll</HintPath>
+      <HintPath>..\..\DataEntryManager\DataEntryManager\bin\Debug\ModelsLib.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\DataEntryManager\bin\Debug\Newtonsoft.Json.dll</HintPath>

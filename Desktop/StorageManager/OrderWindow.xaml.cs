@@ -26,7 +26,7 @@ namespace StorageManager
             id.Text = order.Id;
             code.Text = order.Confirmation_code;
             state.Text = order.State;
-            //totalcost.Text = order.TotalCost;
+            totalcost.Text = order.TotalCost.ToString();
             productsList.ItemsSource = order.Products;
         
         }
