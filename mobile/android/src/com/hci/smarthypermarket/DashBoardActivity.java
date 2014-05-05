@@ -17,11 +17,14 @@ public class DashBoardActivity extends Activity {
 	Button StartCard;
 	Button StartBrowse;
 	Button StartOrders;
+	private Shopper shopper = LauncherActivity.shopper;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_dash_board);
+		
+		shopper.isConnectedToInternet(getApplicationContext());
 		
 		ActionBar ab = getActionBar(); 
         ColorDrawable colorDrawable = new ColorDrawable(Color.rgb(10, 73, 88));     

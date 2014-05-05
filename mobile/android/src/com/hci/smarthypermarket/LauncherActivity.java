@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class LauncherActivity extends Activity {
 	
@@ -24,8 +25,10 @@ public class LauncherActivity extends Activity {
 
 			@Override
 			protected void onLocationChange() {
-				if (!onLocationChangeCalled)
+				
+				if (!onLocationChangeCalled && this.isConnectedToInternet(getApplicationContext()))
 				{
+					
 					onLocationChangeCalled = true;
 					super.onLocationChange();
 					//create a mark object from the shopper location

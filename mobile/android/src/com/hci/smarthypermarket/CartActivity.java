@@ -56,7 +56,10 @@ public class CartActivity extends Activity implements ICartActivity {
 		fireOrder.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				getUsersPaymentsDetails();
+				if (shopper.isConnectedToInternet(getApplicationContext()))
+					getUsersPaymentsDetails();
+				else
+					Toast.makeText(getApplicationContext(), "Sorry Can't find Internet Access, Please check your Internet Connection", Toast.LENGTH_LONG).show();
 				
 			}
 		});

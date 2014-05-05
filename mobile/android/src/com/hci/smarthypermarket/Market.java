@@ -87,9 +87,15 @@ public class Market {
 		for (Category cat : this.categories) {
 			
 			for (Product product : cat.products) {
-				if(product.getBarcode().equals(barCode))
+				
+				try
 				{
-					return product;
+					if(product.getBarcode().toString().compareTo(barCode) == 0)
+						return product;
+				}
+				catch (Exception e)
+				{
+					return null;
 				}
 			}
 			

@@ -109,6 +109,7 @@ public class ProductActivity extends Activity implements IProductActivity {
 		  textViewProductName.setText(String.valueOf(product.getName()));
 		  textViewProductPrice.setText(String.valueOf(product.getPrice()));
 		  textVieewProductDescription.setText(String.valueOf(product.getDescription()));
+		  
 		  textViewProductBrand.setText(String.valueOf("Drinks"));
 		  textViewProductWeight.setText(String.valueOf(product.getWeight()));
 	 }

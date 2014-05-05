@@ -7,8 +7,12 @@ import android.content.Context;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
+import android.util.Log;
+
 import java.lang.reflect.Method;
 
 
@@ -149,6 +153,13 @@ public class Shopper {
 		order.setState(Order.WAITING);
 		
 		
+	}
+	
+	public Boolean isConnectedToInternet(Context context)
+	{
+		ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+		return (networkInfo != null && networkInfo.isConnected());
 	}
 	
 
