@@ -62,6 +62,16 @@ public class DashBoardActivity extends Activity {
         		startOrdersActivity();
         	}
         });
+        
+        StartBrowse = (Button) findViewById(R.id.home_browse);
+        StartBrowse.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				startBrowseActivity();
+				
+			}
+		});
 	}
 
 	@Override
@@ -82,7 +92,8 @@ public class DashBoardActivity extends Activity {
 	}
 	
 	private void startBrowseActivity(){
-		
+		Intent intent = new Intent(DashBoardActivity.this, BrowseActivity.class);
+		startActivity(intent);
 	}
 	
 	private void startOrdersActivity(){
