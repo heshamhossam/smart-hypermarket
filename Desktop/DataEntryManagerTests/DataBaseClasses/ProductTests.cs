@@ -13,10 +13,9 @@ namespace DataEntryManager.Tests
         [TestMethod()]
         public void saveTest()
         {
-////<<<<<<< HEAD
             //Arrange
             Market m = Market.getInstance();
-           // next test you should change the entry prameter
+            // next test you should change the entry prameter
             Product p = new Product("last test", "9684113119846196", (float)71.23, "1", "750", "this is description");
             p = p.save( m );
             int CatList_Size = 0;
@@ -43,27 +42,17 @@ namespace DataEntryManager.Tests
                 }
             };
 
-            //Assert
-                       
+            //Assert      
             Assert.AreNotEqual(CatList_Size, 0);
-          
-//=======
-//>>>>>>> eef45d079a3e3a62dc3612658845cb2135eccd54
         }
 
         [TestMethod()]
         public void updateTest()
         {
-//<<<<<< HEAD
             //Arrange
             Product Test_Prod = new Product("pepsi test", "123456789", 6, "1", "860", "this is discription again");
-          bool x= Test_Prod.update();
-          Assert.IsTrue(x);
-
-
-//=======
-            
-//>>>>>>> eef45d079a3e3a62dc3612658845cb2135eccd54
+            bool x= Test_Prod.update();
+            Assert.IsTrue(x);
         }
     }
 }
