@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataEntryManager;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 namespace DataEntryManager.Tests
 {
-    [TestClass()]
+    [TestFixture()]
     public class CategoryTests
     {
-        [TestMethod()]
+        [Test()]
         public void LoadCategoriesTest()
         {
             //Arrange
