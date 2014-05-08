@@ -108,9 +108,7 @@ namespace StorageManager.Models
 
             string data = sr.ReadToEnd();
 
-            List<Order> list = new List<Order>();
-            if(url != null)
-                list = JsonConvert.DeserializeObject<List<Order>>(data);
+            List<Order> list = JsonConvert.DeserializeObject<List<Order>>(data);
             
             return list;
         }

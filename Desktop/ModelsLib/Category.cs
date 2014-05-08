@@ -102,10 +102,7 @@ namespace DataEntryManager
 
             string data = sr.ReadToEnd();
 
-            List<Category> list = new List<Category>();
-
-            if(url != null)
-                list = JsonConvert.DeserializeObject<List<Category>>(data);
+            List<Category> list = JsonConvert.DeserializeObject<List<Category>>(data);
 
             return list;
         }

@@ -14,9 +14,9 @@ namespace DataEntryManager.Tests
         public void LoadCategoriesTest()
         {
             //Arrange
-            List<Category> ret = Category.LoadCategories(1, ""); //retrive categroies from market 1
+            List<Category> ret = Category.LoadCategories(1, "http://zonlinegamescom.ipage.com/smarthypermarket/public/mocks/categories/retrieve‎‎"); //retrive categroies from market 1
             //Assert
-            Assert.AreEqual("test", ret[0].Name);
+            Assert.AreEqual("Test", ret[0].Name);
         }
     }
 }

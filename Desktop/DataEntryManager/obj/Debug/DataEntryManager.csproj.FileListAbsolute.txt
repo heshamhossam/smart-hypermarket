@@ -307,7 +307,6 @@ C:\Users\eslam\Documents\GitHub\smart-hypermarket\Desktop\DataEntryManager\obj\D
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\bin\Debug\DataEntryManager.exe
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\bin\Debug\DataEntryManager.pdb
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\bin\Debug\Castle.Core.dll
-C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\bin\Debug\ModelsLib.dll
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\bin\Debug\TestStack.White.dll
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\bin\Debug\Castle.Core.xml
@@ -330,3 +329,4 @@ C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debu
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debug\DataEntryManager.g.resources
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debug\DataEntryManager.Properties.Resources.resources
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debug\DataEntryManager.csproj.GenerateResource.Cache
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\bin\Debug\ModelsLib.dll

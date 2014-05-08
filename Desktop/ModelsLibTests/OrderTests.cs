@@ -15,16 +15,16 @@ namespace StorageManager.Models.Tests
         public void LoadOrdersTest()
         {
             //Arrange
-            List<Order> ret = Order.LoadOrders(Market.getInstance(), Order.ALL, "");
+            List<Order> ret = Order.LoadOrders(Market.getInstance(), Order.ALL, "http://zonlinegamescom.ipage.com/smarthypermarket/public/orders/retrieve?market_id=1&filter=WAITING");
             //Assert
-            Assert.AreEqual("0", ret[0].Id);
+            Assert.AreEqual("24", ret[0].Id);
         }
 
         [Test()]
         public void updateTest()
         {
             Order order = new Order();
-            order.update("");
+            order.update("http://zonlinegamescom.ipage.com/smarthypermarket/public/mocks/true‎");
         }
     }
 }

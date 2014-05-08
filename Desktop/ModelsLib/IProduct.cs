@@ -34,11 +34,6 @@ namespace DataEntryManager
         bool update(string url);
 
         /// <summary>
-        /// Delete the whole product from database
-        /// </summary>
-        void delete(string url);
-
-        /// <summary>
         /// Save new Product to the database
         /// </summary>
         /// <param name="market">Market who are performing the saving</param>

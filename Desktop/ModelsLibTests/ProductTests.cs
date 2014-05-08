@@ -34,23 +34,17 @@ namespace DataEntryManager.Tests
         {
             //Arrange
             Product Test_Prod = new Product("pepsi test", "123456789", 6, "1", "1", "desc");
-            bool ret = Test_Prod.update("");
+            bool ret = Test_Prod.update("http://zonlinegamescom.ipage.com/smarthypermarket/public/mocks/true‎");
             //Assert
             Assert.IsTrue(ret);
         }
+
 
         [Test()]
         public void deleteTest()
         {
             Product product = new Product();
-            product.delete("");
-        }
-
-        [Test()]
-        public void deleteTest1()
-        {
-            Product product = new Product();
-            bool ret = product.delete(new Market(), "");
+            bool ret = product.delete(new Market(), "http://zonlinegamescom.ipage.com/smarthypermarket/public/mocks/true‎");
             Assert.IsTrue(ret);
         }
 
@@ -58,7 +52,7 @@ namespace DataEntryManager.Tests
         public void saveTest()
         {
             Product product = new Product();
-            Product ret = product.save(new Market(), "");
+            Product ret = product.save(new Market(), "http://zonlinegamescom.ipage.com/smarthypermarket/public/mocks/true‎");
             Assert.IsNotNull(ret);
         }
     }
