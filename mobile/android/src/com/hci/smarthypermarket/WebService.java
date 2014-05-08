@@ -3,8 +3,10 @@ package com.hci.smarthypermarket;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.http.NameValuePair;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.impl.entity.LaxContentLengthStrategy;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -14,6 +16,82 @@ import android.animation.ValueAnimator;
 import android.location.Location;
 import android.os.AsyncTask;
 import android.util.Log;
+abstract class RetriveCategoriesTask extends AsyncTask<Market, Integer,List<Category>>
+{
+//////////////////////Categories Tags/////////////////////
+	final String Tag_Categories="categories";
+	final String Tag_CategoryId="id";
+	final String Tag_CategoryName="name";
+/////////////////////Products Tags/////////////////////
+	final String TAG_PRODUCTS="products";
+	final String TAG_PID = "id";
+	final String TAG_NAME = "name";
+	final String TAG_BARCODE = "barcode";
+	final String TAG_PRICE = "price";
+	final String TAG_CATID = "category_id";
+	final String TAG_SUCCESS = "success";
+	final String TAG_PRODUCT = "product";
+	final String TAG_PDISC="description";
+	final String TAG_PWIGH="weight";
+	////////////////////////////////////
+	JSONArray products = null;
+	JSONArray categories=null;
+	ArrayList<Category> CategoriesR= new ArrayList<Category>();
+	JSONParser jsonParser= new JSONParser();
+	JSONParser jsonParser1= new JSONParser();
+	private static final String url_categories_detials="http://zonlinegamescom.ipage.com/smarthypermarket/public/categories/get";
+	private static final String url_products_ofcategory="http://zonlinegamescom.ipage.com/smarthypermarket/public/products/get";
+	@Override
+	protected List<Category> doInBackground(Market... params) {
+		 List<NameValuePair> params1 = new ArrayList<NameValuePair>();
+		 params1.add(new BasicNameValuePair("market_id", String.valueOf(params[0].getId())));
+		JSONObject json =jsonParser.makeHttpRequest(url_categories_detials, "GET", params1);
+		try {
+			categories =json.getJSONArray(Tag_Categories);
+			for(int i =0;i<categories.length();i++)
+			{
+				JSONObject c = categories.getJSONObject(i);
+				String CatId= c.getString(Tag_CategoryId);
+				String CatName=c.getString(Tag_CategoryName);
+				List<NameValuePair>params2 = new ArrayList<NameValuePair>();
+				Category cat = new Category(CatId,CatName);
+				ArrayList<Product>productL = new ArrayList<Product>();
+				params2.add(new BasicNameValuePair("market_id","1"));
+				params2.add(new BasicNameValuePair("category_id",CatId));
+				Log.d("catid", CatId);
+				JSONObject json2 = jsonParser1.makeHttpRequest(url_products_ofcategory,"GET", params2);
+				Log.d("products", json2.toString());
+				products = json2.getJSONArray(TAG_PRODUCTS);
+			
+				for(int j =0;j<products.length();j++)
+				{
+					JSONObject c2 = products.getJSONObject(j);
+					String id = c2.getString(TAG_PID);
+					String name = c2.getString(TAG_NAME);
+					String barcode = c2.getString(TAG_BARCODE);
+					float price = Float.parseFloat(c2.getString(TAG_PRICE));
+					String Discription = c2.getString(TAG_PDISC);
+					String Weight = c2.getString(TAG_PWIGH);
+					Product P =  new Product(id, name, barcode, price, Weight, Discription);
+					productL.add(P);
+				}
+				cat.setProducts(productL);
+				CategoriesR.add(cat);
+				
+				//Category category = new Category(id, name, createdAt, updatedAt, parentId)
+			}
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+		Log.d("categoriesSSSSSSS", Integer.toString(CategoriesR.size()));
+			params[0].setCategories(CategoriesR);
+			return CategoriesR;
+		
+	}
+	
+}
 
 abstract class RetrieveProductTask extends AsyncTask<String, Integer, Product> {
 
@@ -25,6 +103,8 @@ abstract class RetrieveProductTask extends AsyncTask<String, Integer, Product> {
 	final String TAG_CATID = "category_id";
 	final String TAG_SUCCESS = "success";
 	final String TAG_PRODUCT = "product";
+	final String TAG_PDISC="description";
+	final String TAG_PWIGH="weight";
 	// //////////////////////////////////
 
 	JSONParser jsonParser = new JSONParser();
@@ -56,9 +136,11 @@ abstract class RetrieveProductTask extends AsyncTask<String, Integer, Product> {
 				String name = productObj.getString(TAG_NAME);
 				String barcode = productObj.getString(TAG_BARCODE);
 				float price = Float.parseFloat(productObj.getString(TAG_PRICE));
+				String Discription = productObj.getString(TAG_PDISC);
+				String Weight = productObj.getString(TAG_PWIGH);
 			//	String categoryId = productObj.getString(TAG_CATID);
 				
-				p = new Product(id, name, barcode, price);
+				p = new Product(id, name, barcode, price ,Weight, Discription);
 				return p;
 			} else {
 			}
@@ -70,7 +152,7 @@ abstract class RetrieveProductTask extends AsyncTask<String, Integer, Product> {
 	}
 
 }
-abstract class  SendOrderTask extends AsyncTask<Shopper,Integer, String>
+abstract class  SendOrderTask extends AsyncTask<Shopper,Integer, Order>
 {
 	final String TAG_UFName="first_name";
 	final String TAG_ULName="last_name";
@@ -81,7 +163,7 @@ abstract class  SendOrderTask extends AsyncTask<Shopper,Integer, String>
 	private static final String url_order_details="http://zonlinegamescom.ipage.com/smarthypermarket/public/orders/create";
 	JSONParser jsonParser = new JSONParser();
 	@Override
-	protected String doInBackground(Shopper... params) {
+	protected Order doInBackground(Shopper... params) {
 		try {
 			List<NameValuePair> CParams = new ArrayList<NameValuePair>();
 			CParams.add(new BasicNameValuePair(TAG_UFName,params[0].getFirstName()));
@@ -90,9 +172,11 @@ abstract class  SendOrderTask extends AsyncTask<Shopper,Integer, String>
 			CParams.add(new BasicNameValuePair(TAG_MID, params[0].getMarketId()));
 			for(int i =0;i<params[0].getOrder().getProducts().size();i++)
 			{
-			    CParams.add(new BasicNameValuePair(TAG_PID+Integer.toString(i), params[0].getOrder().getProducts().get(i).getId()));
-			    CParams.add(new BasicNameValuePair(TAG_PQUN+Integer.toString(i),Integer.toString(params[0].getOrder().getProducts().get(i).getPurchasedQuantity())));
+				
+				CParams.add(new BasicNameValuePair(TAG_PID+Integer.toString(i), params[0].getOrder().getProducts().get(i).getId()));
+				CParams.add(new BasicNameValuePair(TAG_PQUN+Integer.toString(i),Integer.toString(params[0].getOrder().getProducts().get(i).getPurchasedQuantity())));
 			}
+			
 			
 			JSONObject json = jsonParser.makeHttpRequest(url_order_details,
 					"GET", CParams);
@@ -100,6 +184,8 @@ abstract class  SendOrderTask extends AsyncTask<Shopper,Integer, String>
 				params[0].getOrder().setId(json.getString("id"));
 				params[0].getOrder().setConfirmationCode(json.getString("confirmation_code"));
 				params[0].getOrder().setState(json.getString("state"));
+				
+				return params[0].getOrder();
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -187,7 +273,21 @@ public abstract class WebService implements IWebService {
 		retrieveProduct.execute(barcode);
 	}
 	
+	protected void onCategoriesDetected(List<Category> list)
+	{
+		
+	}
 	
+	public void getCategories(Market market)
+	{
+		RetriveCategoriesTask retriveCategoriesTask = new RetriveCategoriesTask() {
+			protected void onPostExecute(List<Category>list)
+			{
+				onCategoriesDetected(list);
+			}
+		};
+		retriveCategoriesTask.execute(market);
+	}
 	protected void onMarketDetected(Market market)
 	{
 		
@@ -208,12 +308,23 @@ public abstract class WebService implements IWebService {
 
 	@Override
 	public void postOrder(Shopper shopper) {
-		// TODO Auto-generated method stub
 		SendOrderTask sendOrderTask = new SendOrderTask() {
-		
+
+			@Override
+			protected void onPostExecute(Order order) {
+				onOrderSent(order);
+			}
+			
 		};
 		sendOrderTask.execute(shopper);
+		
 	}
+	
+	public void onOrderSent(Order order)
+	{
+		
+	}
+	
 	
 
 }

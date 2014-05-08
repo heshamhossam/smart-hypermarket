@@ -90,3 +90,38 @@ C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\StorageManager\obj\Debug\
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\StorageManager\obj\Debug\StorageManager.g.resources
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\StorageManager\obj\Debug\StorageManager.Properties.Resources.resources
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\StorageManager\obj\Debug\StorageManager.csproj.GenerateResource.Cache
+C:\Users\Hawex\Documents\GitHub\smart-hypermarket\Desktop\StorageManager\bin\Debug\StorageManager.exe.config
+C:\Users\Hawex\Documents\GitHub\smart-hypermarket\Desktop\StorageManager\obj\Debug\StorageManager.exe
+C:\Users\Hawex\Documents\GitHub\smart-hypermarket\Desktop\StorageManager\obj\Debug\StorageManager.pdb
+C:\Users\Hawex\Documents\GitHub\smart-hypermarket\Desktop\StorageManager\bin\Debug\StorageManager.exe
+C:\Users\Hawex\Documents\GitHub\smart-hypermarket\Desktop\StorageManager\bin\Debug\StorageManager.pdb
+C:\Users\Hawex\Documents\GitHub\smart-hypermarket\Desktop\StorageManager\bin\Debug\FirstFloor.ModernUI.dll
+C:\Users\Hawex\Documents\GitHub\smart-hypermarket\Desktop\StorageManager\bin\Debug\ModelsLib.dll
+C:\Users\Hawex\Documents\GitHub\smart-hypermarket\Desktop\StorageManager\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Hawex\Documents\GitHub\smart-hypermarket\Desktop\StorageManager\bin\Debug\FirstFloor.ModernUI.xml
+C:\Users\Hawex\Documents\GitHub\smart-hypermarket\Desktop\StorageManager\bin\Debug\ModelsLib.pdb
+C:\Users\Hawex\Documents\GitHub\smart-hypermarket\Desktop\StorageManager\obj\Debug\StorageManager.csprojResolveAssemblyReference.cache
+C:\Users\Hawex\Documents\GitHub\smart-hypermarket\Desktop\StorageManager\obj\Debug\MainWindow.baml
+C:\Users\Hawex\Documents\GitHub\smart-hypermarket\Desktop\StorageManager\obj\Debug\OrderCheckPage.baml
+C:\Users\Hawex\Documents\GitHub\smart-hypermarket\Desktop\StorageManager\obj\Debug\OrderControl.baml
+C:\Users\Hawex\Documents\GitHub\smart-hypermarket\Desktop\StorageManager\obj\Debug\OrdersPage.baml
+C:\Users\Hawex\Documents\GitHub\smart-hypermarket\Desktop\StorageManager\obj\Debug\OrderWindow.baml
+C:\Users\Hawex\Documents\GitHub\smart-hypermarket\Desktop\StorageManager\obj\Debug\App.baml
+C:\Users\Hawex\Documents\GitHub\smart-hypermarket\Desktop\StorageManager\obj\Debug\MainWindow.g.cs
+C:\Users\Hawex\Documents\GitHub\smart-hypermarket\Desktop\StorageManager\obj\Debug\OrderCheckPage.g.cs
+C:\Users\Hawex\Documents\GitHub\smart-hypermarket\Desktop\StorageManager\obj\Debug\OrderControl.g.cs
+C:\Users\Hawex\Documents\GitHub\smart-hypermarket\Desktop\StorageManager\obj\Debug\OrdersPage.g.cs
+C:\Users\Hawex\Documents\GitHub\smart-hypermarket\Desktop\StorageManager\obj\Debug\OrderWindow.g.cs
+C:\Users\Hawex\Documents\GitHub\smart-hypermarket\Desktop\StorageManager\obj\Debug\App.g.cs
+C:\Users\Hawex\Documents\GitHub\smart-hypermarket\Desktop\StorageManager\obj\Debug\StorageManager_MarkupCompile.cache
+C:\Users\Hawex\Documents\GitHub\smart-hypermarket\Desktop\StorageManager\obj\Debug\StorageManager.g.resources
+C:\Users\Hawex\Documents\GitHub\smart-hypermarket\Desktop\StorageManager\obj\Debug\StorageManager.Properties.Resources.resources
+C:\Users\Hawex\Documents\GitHub\smart-hypermarket\Desktop\StorageManager\obj\Debug\StorageManager.csproj.GenerateResource.Cache
+<<<<<<< HEAD
+C:\Users\eslam\Documents\GitHub\smart-hypermarket\Desktop\StorageManager\bin\Debug\StorageManager.exe.config
+C:\Users\eslam\Documents\GitHub\smart-hypermarket\Desktop\StorageManager\obj\Debug\StorageManager.exe
+C:\Users\eslam\Documents\GitHub\smart-hypermarket\Desktop\StorageManager\obj\Debug\StorageManager.pdb
+=======
+C:\Users\Hesham\Documents\Visual Studio 2013\Projects\Desktop\StorageManager\obj\Debug\OrderWindow.baml
+C:\Users\Hesham\Documents\Visual Studio 2013\Projects\Desktop\StorageManager\obj\Debug\OrderWindow.g.cs
+>>>>>>> 2f2633aff34d354e5a8adc0d382204126c90276e

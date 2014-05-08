@@ -12,6 +12,17 @@
             <Button Content="Edit" Height="38" HorizontalAlignment="Left" Name="buttonEditProduct" VerticalAlignment="Top" Width="98" Click="buttonEditProduct_Click" />
             <Button Content="Delete" Height="38" HorizontalAlignment="Left" Name="buttonDeleteProduct" VerticalAlignment="Top" Width="98" Click="buttonDeleteProduct_Click" />
         </StackPanel>
-        <DataGrid HorizontalAlignment="Left" Name="productsListGrid" VerticalAlignment="Top" />
+        <DataGrid Name="productsListGrid" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Price" Binding="{Binding Price}"/>
+                <DataGridTextColumn Header="Weight" Binding="{Binding Weight}"/>
+                <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
+                <DataGridTextColumn Header="Creation Date" Binding="{Binding Created_at}"/>
+                <DataGridTextColumn Header="Update Date" Binding="{Binding Updated_at}"/>
+                
+            </DataGrid.Columns>
+        </DataGrid>
     </StackPanel>
 </Page>

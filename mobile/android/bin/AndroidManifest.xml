@@ -40,6 +40,10 @@
             android:name="com.hci.smarthypermarket.DashBoardActivity"
             android:label="@string/title_activity_dash_board" >
         </activity>
+        <activity
+            android:name="com.hci.smarthypermarket.OrderActivity"
+            android:label="@string/title_activity_order" >
+        </activity>
     </application>
 
 </manifest>

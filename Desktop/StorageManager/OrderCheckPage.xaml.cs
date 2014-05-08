@@ -31,47 +31,17 @@ namespace StorageManager
         private void buttonOpenOrder_Click(object sender, RoutedEventArgs e)
         {
             Order order = Market.getInstance().Orders.Find((Order order2) => order2.Id == id.Text);
+            if (order.Confirmation_code == confirmationCode.Text)
+            {
+                OrderWindow orderPopup = new OrderWindow(order);
+                orderPopup.Show();
+
+            }
+
+            else MessageBox.Show("Invaild Confirmation Code!");
             
-            if (order != null)
-            {
-                if(order.State != Order.READY)
-                    notification.Content = "Order not ready yet or already delivered";
-                else if(confirmationCode.Text != order.Confirmation_code)
-                    notification.Content = "Wrong confirmtation code";
-                else
-                {
-                    created_at.Content = order.Created_at;
-                    updated_at.Content = order.Updated_at;
-                    market_id.Content = order.Market_id;
-                    user_id.Content = order.User_id;
-                    created_at_label.Content = "Created at : ";
-                    updated_at_label.Content = "Created at : ";
-                    market_label.Content = "Makret : ";
-                    user_label.Content = "User : ";
-                }
-            }
-            else
-                notification.Content = "No order with this id";
-        }
-
-        private void buttonDeliverOrder_Click(object sender, RoutedEventArgs e)
-        {
-            Market market = Market.getInstance();
-            Order order = market.Orders.Find(i => i.Id == id.Text);
-            if (order != null)
-            {
-                if (confirmationCode.Text != order.Confirmation_code)
-                    notification.Content = "Wrong confirmtation code";
-                else
-                {
-                    order.State = Order.DONE;
-                    order.update();
-                    notification.Content = "Order Delivered";
-                }
-
-            }
-            else
-                notification.Content = "No order with this id";
+            
+            
         }
     }
 }

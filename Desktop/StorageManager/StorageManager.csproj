@@ -37,7 +37,8 @@
     <Reference Include="FirstFloor.ModernUI">
       <HintPath>..\packages\ModernUI.WPF.1.0.5\lib\net45\FirstFloor.ModernUI.dll</HintPath>
     </Reference>
-    <Reference Include="ModelsLib">
+    <Reference Include="ModelsLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\DataEntryManager\DataEntryManager\bin\Debug\ModelsLib.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
@@ -86,6 +87,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="OrderWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="OrderCheckPage.xaml.cs">
@@ -96,6 +101,9 @@
     </Compile>
     <Compile Include="OrdersPage.xaml.cs">
       <DependentUpon>OrdersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OrderWindow.xaml.cs">
+      <DependentUpon>OrderWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

@@ -5,11 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class LauncherActivity extends Activity {
 	
 	public static Shopper shopper = null;
-	private Market market = null;
+	public static Market market = null;
 	private Boolean onLocationChangeCalled = false;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -24,22 +25,26 @@ public class LauncherActivity extends Activity {
 
 			@Override
 			protected void onLocationChange() {
-				super.onLocationChange();
-				//create a mark object from the shopper location
-				market = new Market(this.getLocation())
+				
+				if (!onLocationChangeCalled && this.isConnectedToInternet(getApplicationContext()))
 				{
-					@Override
-					protected void onMarketRetrieved(Market market) {
-						super.onMarketRetrieved(market);
-						shopper.setMarketId("" + market.getId());
-						if (!onLocationChangeCalled)
-						{
-							onLocationChangeCalled = true;
+					
+					onLocationChangeCalled = true;
+					super.onLocationChange();
+					//create a mark object from the shopper location
+					market = new Market(this.getLocation())
+					{
+
+						@Override
+						protected void onCategoriesRetrieved(Market market) {
+							// TODO Auto-generated method stub
+							super.onCategoriesRetrieved(market);
+							shopper.setMarketId("" + market.getId());
+							LauncherActivity.market = market;
 							startCartActivity();
 						}
-						
-					}
-				};
+					};
+				}
 				
 			}
 			

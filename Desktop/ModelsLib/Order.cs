@@ -70,6 +70,21 @@ namespace StorageManager.Models
             set { _Products = value; }
         }
 
+        private float _totalCost;
+        public float TotalCost {
+            get
+            {
+                if (_totalCost > 0)
+                    return _totalCost;
+
+                foreach(Product product in _Products)
+                {
+                    _totalCost += product.Price;
+                }
+
+                return _totalCost;
+            }
+        }
 
 
         public const string WAITING = "WAITING";

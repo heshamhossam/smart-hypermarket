@@ -2,6 +2,8 @@ package com.hci.smarthypermarket;
 
 import java.util.List;
 
+import android.util.Log;
+
 public class Category {
 	
 	protected String id;
@@ -15,13 +17,11 @@ public class Category {
 	
 
 
-	public Category(String id, String name, String createdAt, String updatedAt, String parentId)
+	public Category(String id, String name )
 	{
 		this.id = id;
 		this.name = name;
-		this.createdAt = createdAt;
-		this.updatedAt = updatedAt;
-		this.parentId = parentId;
+	
 	}
 	
 	

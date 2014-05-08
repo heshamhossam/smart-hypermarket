@@ -17,11 +17,14 @@ public class DashBoardActivity extends Activity {
 	Button StartCard;
 	Button StartBrowse;
 	Button StartOrders;
+	private Shopper shopper = LauncherActivity.shopper;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_dash_board);
+		
+		shopper.isConnectedToInternet(getApplicationContext());
 		
 		ActionBar ab = getActionBar(); 
         ColorDrawable colorDrawable = new ColorDrawable(Color.rgb(10, 73, 88));     
@@ -50,6 +53,15 @@ public class DashBoardActivity extends Activity {
 				
 			}
 		});
+        
+        StartOrders = (Button) findViewById(R.id.home_orders);
+        StartOrders.setOnClickListener(new OnClickListener() {
+        	
+        	@Override
+        	public void onClick(View v){
+        		startOrdersActivity();
+        	}
+        });
 	}
 
 	@Override
@@ -74,7 +86,8 @@ public class DashBoardActivity extends Activity {
 	}
 	
 	private void startOrdersActivity(){
-		
+		Intent intent = new Intent(DashBoardActivity.this, OrderActivity.class);
+		startActivity(intent);
 	}
 
 }

@@ -56,7 +56,10 @@ public class CartActivity extends Activity implements ICartActivity {
 		fireOrder.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				getUsersPaymentsDetails();
+				if (shopper.isConnectedToInternet(getApplicationContext()))
+					getUsersPaymentsDetails();
+				else
+					Toast.makeText(getApplicationContext(), "Sorry Can't find Internet Access, Please check your Internet Connection", Toast.LENGTH_LONG).show();
 				
 			}
 		});
@@ -123,7 +126,8 @@ public class CartActivity extends Activity implements ICartActivity {
 				shopper.setFirstName(fname.getText().toString());
 				shopper.setLastName(lname.getText().toString());
 				shopper.submitOrder();
-				Toast.makeText(getApplicationContext(), "Order Sent to" + shopper.getMobile(), Toast.LENGTH_LONG).show();
+				Toast.makeText(getApplicationContext(), "Order Sent", Toast.LENGTH_LONG).show();
+				startOrderActivity();
 			    finish();
 				
 			}
@@ -142,6 +146,14 @@ public class CartActivity extends Activity implements ICartActivity {
 		AlertDialog alertDialog = alert.create();
 		alertDialog.show();
 	}
+	
+	public void startOrderActivity() {
+		// TODO Auto-generated method stub
+		Intent intent = new Intent(CartActivity.this, OrderActivity.class);
+		startActivity(intent);
+		
+	}
+
 
 
 
