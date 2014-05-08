@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorageManager", "StorageMa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelsLib", "ModelsLib\ModelsLib.csproj", "{903ABF39-8D76-4C59-9447-30045B337608}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelsLibTests", "ModelsLibTests\ModelsLibTests.csproj", "{E23A549B-01C7-4B5C-AE5F-003E58AB8EDC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{903ABF39-8D76-4C59-9447-30045B337608}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{903ABF39-8D76-4C59-9447-30045B337608}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{903ABF39-8D76-4C59-9447-30045B337608}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E23A549B-01C7-4B5C-AE5F-003E58AB8EDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E23A549B-01C7-4B5C-AE5F-003E58AB8EDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E23A549B-01C7-4B5C-AE5F-003E58AB8EDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E23A549B-01C7-4B5C-AE5F-003E58AB8EDC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
