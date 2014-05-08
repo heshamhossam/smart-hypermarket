@@ -13,13 +13,20 @@ namespace DataEntryManager.Tests
         [Test()]
         public void ProductTest()
         {
-            Assert.Fail();
+            Product product = new Product();
+            Assert.IsNotNull(product);
         }
 
         [Test()]
         public void ProductTest1()
         {
-            Assert.Fail();
+            Product product = new Product("test", "test", 1, "test", "test", "test");
+            Assert.AreEqual(product.Name, "test");
+            Assert.AreEqual(product.Barcode, "test");
+            Assert.AreEqual(product.Price, 1);
+            Assert.AreEqual(product.Category_id, "test");
+            Assert.AreEqual(product.Weight, "test");
+            Assert.AreEqual(product.Description, "test");
         }
 
         [Test()]
@@ -27,57 +34,32 @@ namespace DataEntryManager.Tests
         {
             //Arrange
             Product Test_Prod = new Product("pepsi test", "123456789", 6, "1", "1", "desc");
-            bool x = Test_Prod.update();
+            bool ret = Test_Prod.update("");
             //Assert
-            Assert.IsTrue(x);
+            Assert.IsTrue(ret);
         }
 
         [Test()]
         public void deleteTest()
         {
-            Assert.Fail();
+            Product product = new Product();
+            product.delete("");
         }
 
         [Test()]
         public void deleteTest1()
         {
-            Assert.Fail();
+            Product product = new Product();
+            bool ret = product.delete(new Market(), "");
+            Assert.IsTrue(ret);
         }
 
         [Test()]
         public void saveTest()
         {
-            //Arrange
-            Market m = Market.getInstance();
-            // next test you should change the entry prameter
-            Product p = new Product("last test", "9684113119846196", (float)71.23, "1", "1", "desc");
-            p = p.save(m);
-            int CatList_Size = 0;
-
-            //Act
-            List<Category> List_Cat = Category.LoadCategories(1); //retrive categroies from market 1
-            List<Product> List_Prod = new List<Product>();
-            Product test_pro = new Product();
-
-            foreach (Category cat in List_Cat)
-            {
-                if (cat.Id == "1")
-                {
-                    List_Prod = cat.Products;
-                    CatList_Size = cat.Products.Count;
-                }
-            }
-
-            foreach (Product pro in List_Prod)
-            {
-                if (pro.Id == p.Id)
-                {
-                    Assert.AreSame(pro, p);
-                }
-            };
-
-            //Assert
-            Assert.AreNotEqual(CatList_Size, 0);
+            Product product = new Product();
+            Product ret = product.save(new Market(), "");
+            Assert.IsNotNull(ret);
         }
     }
 }

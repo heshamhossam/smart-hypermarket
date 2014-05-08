@@ -94,11 +94,13 @@ namespace StorageManager.Models
         public const string ALL = "ALL";
 
 
-        public static List<Order> LoadOrders (Market market, string filter)
+        public static List<Order> LoadOrders (Market market, string filter, string url)
         {
-            string url = "http://zonlinegamescom.ipage.com/smarthypermarket/public/orders/retrieve?market_id=" + market.Id + "&filter=" + filter;
+            string URL = "http://zonlinegamescom.ipage.com/smarthypermarket/public/orders/retrieve?market_id=" + market.Id + "&filter=" + filter;
+            if (url != null)
+                URL = url;
 
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(URL);
 
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
@@ -106,19 +108,21 @@ namespace StorageManager.Models
 
             string data = sr.ReadToEnd();
 
-            List<Order> list = JsonConvert.DeserializeObject<List<Order>>(data);
+            List<Order> list = new List<Order>();
+            if(url != null)
+                list = JsonConvert.DeserializeObject<List<Order>>(data);
             
             return list;
         }
 
-        public void update ()
+        public void update (string url)
         {
 
-            string url = "http://zonlinegamescom.ipage.com/smarthypermarket/public/orders/edit?order_id=" + this._Id +"&state="+this._State;
+            string URL = "http://zonlinegamescom.ipage.com/smarthypermarket/public/orders/edit?order_id=" + this._Id +"&state="+this._State;
+            if (url != null)
+                URL = url;
 
-            System.Windows.MessageBox.Show(url + this._Confirmation_code);
-
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(URL);
 
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 

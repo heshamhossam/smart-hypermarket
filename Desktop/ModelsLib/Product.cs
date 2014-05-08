@@ -23,7 +23,7 @@ namespace DataEntryManager
 
     public class Product : IProduct
     {
-        private string id;
+        private string id = "0";
         private string name;
         private string barcode;
         private float price;
@@ -34,15 +34,15 @@ namespace DataEntryManager
         private string description;
         private string weight;
         public string Description
-            {
-            get {return description;}
-            set{description = value; }
+        {
+            get { return description; }
+            set { description = value; }
         }
 
         public string Weight
-         {
-            get{return weight;}
-           set {weight = value;}
+        {
+            get { return weight; }
+            set { weight = value; }
         }
 
         public Product()
@@ -134,7 +134,7 @@ namespace DataEntryManager
             }
         }
 
-        public int Quantity 
+        public int Quantity
         {
             get
             {
@@ -157,12 +157,13 @@ namespace DataEntryManager
         }
 
 
-        public bool update()
+        public bool update(string url)
         {
             try
             {
-
                 string URL = "http://zonlinegamescom.ipage.com/smarthypermarket/public/products/edit";
+                if (url != null)
+                    URL = url;
 
                 WebClient webClient = new WebClient();
 
@@ -188,9 +189,9 @@ namespace DataEntryManager
 
                 webClient.Dispose();
 
-                if(responsefromserver == null)
+                if (responsefromserver == null)
                     return false;
-                else 
+                else
                     return true;
 
             }
@@ -307,17 +308,18 @@ namespace DataEntryManager
             }
         }
 
-        public void delete()
+        public void delete(string url)
         {
             try
             {
+                string URL = "http://zonlinegamescom.ipage.com/smarthypermarket/public/products/delete";
+                if (url != null)
+                    URL = url;
                 WebClient wb = new WebClient();
-                string url = "http://zonlinegamescom.ipage.com/smarthypermarket/public/products/delete";
                 var data = new NameValueCollection();
                 data["id"] = id;
 
-
-                var response = wb.UploadValues(url, "POST", data);
+                var response = wb.UploadValues(URL, "POST", data);
             }
             catch { MessageBox.Show("deleting error!"); }
 
@@ -325,18 +327,20 @@ namespace DataEntryManager
 
 
 
-        public bool delete(Market market)
+        public bool delete(Market market, string url)
         {
             try
             {
+                string URL = "http://zonlinegamescom.ipage.com/smarthypermarket/public/products/delete";
+                if (url != null)
+                    URL = url;
                 WebClient wb = new WebClient();
-                string url = "http://zonlinegamescom.ipage.com/smarthypermarket/public/products/delete";
                 var data = new NameValueCollection();
-                
+
                 data["market_id"] = market.Id.ToString();
                 data["id"] = id;
 
-                byte[] responseBytes = wb.UploadValues(url, "POST", data);
+                byte[] responseBytes = wb.UploadValues(URL, "POST", data);
 
                 string responsefromserver = Encoding.UTF8.GetString(responseBytes);
 
@@ -344,7 +348,7 @@ namespace DataEntryManager
                     return true;
 
                 return false;
-                
+
             }
             catch { return false; }
 
@@ -355,46 +359,47 @@ namespace DataEntryManager
 
 
 
-        public Product save(Market market)
+        public Product save(Market market, string url)
         {
+            string URL = "http://zonlinegamescom.ipage.com/smarthypermarket/public/products/create";
+            if (url != null)
+                URL = url;
 
-              string URL = "http://zonlinegamescom.ipage.com/smarthypermarket/public/products/create";
+            WebClient webClient = new WebClient();
 
-                WebClient webClient = new WebClient();
+            NameValueCollection formData = new NameValueCollection();
 
-                NameValueCollection formData = new NameValueCollection();
+            formData["name"] = name;
 
-                formData["name"] = name;
+            formData["barcode"] = barcode;
 
-                formData["barcode"] = barcode;
+            formData["price"] = price.ToString();
 
-                formData["price"] = price.ToString();
+            formData["category_id"] = Category_id;
 
-                formData["category_id"] = Category_id;
+            formData["market_id"] = market.Id.ToString();
 
-                formData["market_id"] = market.Id.ToString();
+            formData["weight"] = weight;
 
-                formData["weight"] = weight;
+            formData["description"] = description;
 
-                formData["description"] = description;
+            byte[] responseBytes = webClient.UploadValues(URL, "POST", formData);
 
-                byte[] responseBytes = webClient.UploadValues(URL, "POST", formData);
-
-                string responsefromserver = Encoding.UTF8.GetString(responseBytes);
+            string responsefromserver = Encoding.UTF8.GetString(responseBytes);
+            if (url != null)
+            {
                 Product p = JsonConvert.DeserializeObject<Product>(responsefromserver);
-
                 id = p.Id;
                 created_at = p.created_at;
                 updated_at = p.updated_at;
-                
-                webClient.Dispose();
-                if(responsefromserver!=null)
-                    return this;
-                else 
-                    return null;
             }
-           
-           
+
+            webClient.Dispose();
+            if (responsefromserver != null)
+                return this;
+            else
+                return null;
         }
     }
+}
 

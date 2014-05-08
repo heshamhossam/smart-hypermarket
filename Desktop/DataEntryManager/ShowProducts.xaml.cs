@@ -66,7 +66,7 @@ namespace DataEntryManager
 
             if (product != null)
             {
-                if (product.delete(market))
+                if (product.delete(market, null))
                 {
                     market.Products.Remove(product);
                     ((List<Product>)productsListGrid.ItemsSource).Remove(product);

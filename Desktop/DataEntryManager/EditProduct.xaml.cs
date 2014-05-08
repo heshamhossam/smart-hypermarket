@@ -47,7 +47,7 @@ namespace DataEntryManager
             //_product.Market_id = "1";
             _product.Price = float.Parse(price.Text);
 
-            bool updated = _product.update();
+            bool updated = _product.update(null);
 
             if (updated)
             {
