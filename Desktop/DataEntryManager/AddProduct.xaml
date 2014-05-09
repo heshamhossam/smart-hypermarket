@@ -24,7 +24,7 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Height="79">
                     <TextBlock Text="Category" FontSize="30" Height="79" Width="160"/>
-                    <ComboBox Width="468" FontSize="30"  x:Name="category" Height="79" Margin="70,0,0,0" SelectionChanged="category_SelectionChanged" />
+                    <ComboBox Width="468" FontSize="30"  x:Name="category" Height="79" Margin="70,0,0,0" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Price" Width="160" FontSize="30" Height="80"/>

@@ -111,7 +111,8 @@ namespace BarcodeReading
             webCamTimer.Interval = new TimeSpan(0, 0, 0, 0, 200);   //Assign interval of 200 milliseconds
             webCamTimer.Start();                                    //Start the timer
             //Fire OnBarcodeDetectedDelegate
-            onBarcodeDetected();
+            if(onBarcodeDetected != null)
+                onBarcodeDetected();
         }
         ~BarcodeReader() {
             _player.Dispose();

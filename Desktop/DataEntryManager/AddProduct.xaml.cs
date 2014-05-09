@@ -24,6 +24,8 @@ using System.IO;
 using Newtonsoft.Json;
 using System.Collections.Specialized;
 
+using Controllers = DataEntryManager.Controllers;
+
 namespace DataEntryManager
 {
     /// <summary>
@@ -31,104 +33,52 @@ namespace DataEntryManager
     /// </summary>
     public partial class AddProduct : Page
     {
-
-        string id;
         Market market;
-      
+        
+        /// <summary>
+        /// instaniate a market, load it's categoreis on category combolist and begin detection of barcode process
+        /// </summary>
         public AddProduct()
         {
             InitializeComponent();
             market = Market.getInstance();
 
             #region Bardetecting Example
-            OnBarcodeDetectedDelegate testD = testDelegateFunction; //Testing variable for OnBarcodeDetectedDelegate
+            //OnBarcodeDetectedDelegate testD = testDelegateFunction; //Testing variable for OnBarcodeDetectedDelegate
             BarcodeReading.BarcodeReader bcr = new BarcodeReading.BarcodeReader(ref barcode, ref player); //Testing variable for BarcodeReader class ( see constructor documentation )
-            bcr.onBarcodeDetected += testD; //Adding the delegate function to onBarcodeDetected variable at bcr to fire it after detecting barcode emplicitily
+            //bcr.onBarcodeDetected += testD; //Adding the delegate function to onBarcodeDetected variable at bcr to fire it after detecting barcode emplicitily
             //If camera opened successfully read barcode and fire onBarcodeDetected delegate
             //if (bcr.openCamera() == true)
             bcr.readBarcodes();
             #endregion
             
-            LoadComboxList();
-        }
-        public void testDelegateFunction()
-        {
-
+            Controllers.AddProduct.LoadComboxList(ref market, ref category);
         }
 
+        /// <summary>
+        /// Send the product data to be added to database and show messaging depending on the result of the process
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (CheckFields())
+            int result = Controllers.AddProduct.Add(ref market, ref name, ref barcode, ref price, ref category, ref textboxDescription, ref textboxWeight);
+            switch (result)
             {
-                Product p = new Product(name.Text, barcode.Text, float.Parse(price.Text), id, textboxWeight.Text, textboxDescription.Text);
-                Product product = p.save(market, null);
-
-                if (p != null)
-                {
-                    market.Products.Add(product);
-                    market.onProductsChangeHandler();
-
+                case 0:
                     MessageBox.Show("Product Added Successfully");
-
-                }
-                else
-                {
+                    Controllers.AddProduct.clearAddProductForm(ref name, ref barcode, ref category, ref price);
+                    break;
+                case 1:
                     MessageBox.Show("Problem Happen While Adding the Product");
-                }
-                name.Text = "";
-                barcode.Text = "";
-                category.SelectedIndex = -1;
-                price.Text = "";
-
-                //  Console.WriteLine(responsefromserver);
+                    break;
+                case 2:
+                    MessageBox.Show("You Must Fill All Fields");
+                    break;
+                default:
+                    MessageBox.Show("Unknown error");
+                    break;
             }
-            else
-            {
-                MessageBox.Show("You Mush Fill All Fields");
-            }
-           
-        }
-
-      
-        private void LoadComboxList()
-        {
-            
-            //add in the box
-            foreach (Category cat in market.Categories)
-            {
-                category.Items.Add(cat.Name);
-            }
-        }
-
-      private  bool CheckFields()
-        {
-            if (name.Text == "" || barcode.Text == "" || price.Text == "" || category.SelectedItem == null || textboxDescription.Text=="" || textboxWeight.Text == "" )
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-
-        }
-        private void category_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (category.SelectedIndex == -1)
-            { }
-            else
-            {
-                string sel = category.SelectedItem.ToString();
-                Category catselected = market.Categories.Find(i => i.Name == sel);
-                //   MessageBox.Show(catselected.CategoryID + "   " + catselected.CategoryName);
-                id = catselected.Id;
-            }
-
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 

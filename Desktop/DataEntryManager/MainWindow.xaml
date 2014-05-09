@@ -1,17 +1,30 @@
-﻿<mui:ModernWindow x:Class="DataEntryManager.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:mui="http://firstfloorsoftware.com/ModernUI"
-        ContentSource="ShowProducts.xaml"
-        Title="Data Entry" Height="655" Width="652">
-    
-    <mui:ModernWindow.MenuLinkGroups>
-        <mui:LinkGroup DisplayName="Data Entry" >
-            <mui:LinkGroup.Links>
-                <mui:Link DisplayName="Show Products" Source="ShowProducts.xaml" />
-                <mui:Link DisplayName="Add Product" Source="AddProduct.xaml" />
-            </mui:LinkGroup.Links>
-        </mui:LinkGroup>
-    </mui:ModernWindow.MenuLinkGroups>
+﻿<controls:MetroWindow x:Class="DataEntryManager.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+    Title="Administrator" 
+    Height="350" 
+    Width="525">
+    <controls:MetroWindow.WindowCommands>
+        <controls:WindowCommands>
+            <Button Content="Logout" Click="Logout_Click" />
+            <Button>
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="20" Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        
+                    </Rectangle>
+                    <TextBlock Margin="4 0 0 0"
+                   VerticalAlignment="Center"
+                   Text="deploy cupcakes" />
+                </StackPanel>
+            </Button>
+        </controls:WindowCommands>
+    </controls:MetroWindow.WindowCommands>
 
-</mui:ModernWindow>
+    <StackPanel>
+        <TabControl Name="tabControl">
+            <Frame Name="tabFrame"/>
+        </TabControl>
+    </StackPanel>
+</controls:MetroWindow>
