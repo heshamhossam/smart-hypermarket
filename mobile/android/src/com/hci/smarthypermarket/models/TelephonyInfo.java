@@ -1,4 +1,4 @@
-package com.hci.smarthypermarket;
+package com.hci.smarthypermarket.models;
 
 import java.lang.reflect.Method;
 

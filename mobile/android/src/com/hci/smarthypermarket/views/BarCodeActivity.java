@@ -1,5 +1,10 @@
-package com.hci.smarthypermarket;
+package com.hci.smarthypermarket.views;
 
+
+import com.hci.smarthypermarket.controllers.*;
+import com.hci.smarthypermarket.models.Market;
+import com.hci.smarthypermarket.models.Product;
+import com.hci.smarthypermarket.models.Shopper;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -16,20 +21,20 @@ public class BarCodeActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		BarCodeIntentIntegrator Integrator = new BarCodeIntentIntegrator(this);
-		Integrator.initiateScan();
-//		Product product = market.findProduct("6920652801883");
-//		if (product != null)
-//		{
-//			shopper.setScannedProduct(product);
-//			startProductActivity();
-//		}
-//		else
-//		{
-//			Toast toastError = Toast.makeText(getApplicationContext(), "Sorry Error Happened while capturing product!!", Toast.LENGTH_LONG);
-//			toastError.show();	
-//			startDashboardActivity();
-//		}
+//		BarCodeIntentIntegrator Integrator = new BarCodeIntentIntegrator(this);
+//		Integrator.initiateScan();
+ 		Product product = market.findProduct("6920652801883");
+		if (product != null)
+		{
+			shopper.setScannedProduct(product);
+			startProductActivity();
+		}
+		else
+		{
+			Toast toastError = Toast.makeText(getApplicationContext(), "Sorry Error Happened while capturing product!!", Toast.LENGTH_LONG);
+			toastError.show();	
+			startDashboardActivity();
+		}
 		
 	}
 	

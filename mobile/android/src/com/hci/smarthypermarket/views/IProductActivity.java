@@ -1,4 +1,6 @@
-package com.hci.smarthypermarket;
+package com.hci.smarthypermarket.views;
+
+import com.hci.smarthypermarket.models.Product;
 
 
 public interface IProductActivity {

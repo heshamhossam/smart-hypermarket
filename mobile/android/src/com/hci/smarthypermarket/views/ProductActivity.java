@@ -1,6 +1,13 @@
-package com.hci.smarthypermarket;
+package com.hci.smarthypermarket.views;
 
 import org.w3c.dom.Text;
+
+import com.hci.smarthypermarket.R;
+import com.hci.smarthypermarket.R.id;
+import com.hci.smarthypermarket.R.layout;
+import com.hci.smarthypermarket.R.menu;
+import com.hci.smarthypermarket.models.Product;
+import com.hci.smarthypermarket.models.Shopper;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;

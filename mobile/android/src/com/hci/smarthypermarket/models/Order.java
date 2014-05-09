@@ -1,15 +1,27 @@
-package com.hci.smarthypermarket;
+package com.hci.smarthypermarket.models;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.hci.smarthypermarket.views.CartListAdapter;
+
 
 import android.R.string;
 import android.app.Activity;
+import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class Order {
+
+
+public class Order extends Model {
 	
 	public static final String WAITING = "WAITING";
 	public static final String READY = "READY";

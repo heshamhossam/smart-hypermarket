@@ -1,5 +1,6 @@
-package com.hci.smarthypermarket;
+package com.hci.smarthypermarket.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
@@ -9,12 +10,63 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
 import java.lang.reflect.Method;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+
+
+abstract class  SendOrderTask extends AsyncTask<Shopper,Integer, Order>
+{
+	final String TAG_UFName="first_name";
+	final String TAG_ULName="last_name";
+	final String TAG_MNum ="mobile";
+	final String TAG_MID="market_id";
+	final String TAG_PID="product_id";
+	final String TAG_PQUN="product_quantity";
+	private static final String url_order_details= Model.linkServiceRoot + "/orders/create";
+	JSONParser jsonParser = new JSONParser();
+	@Override
+	protected Order doInBackground(Shopper... params) {
+		try {
+			List<NameValuePair> CParams = new ArrayList<NameValuePair>();
+			CParams.add(new BasicNameValuePair(TAG_UFName,params[0].getFirstName()));
+			CParams.add(new BasicNameValuePair(TAG_ULName, params[0].getLastName()));
+			CParams.add(new BasicNameValuePair(TAG_MNum,params[0].getMobile()));
+			CParams.add(new BasicNameValuePair(TAG_MID, params[0].getMarketId()));
+			for(int i =0;i<params[0].getOrder().getProducts().size();i++)
+			{
+				
+				CParams.add(new BasicNameValuePair(TAG_PID+Integer.toString(i), params[0].getOrder().getProducts().get(i).getId()));
+				CParams.add(new BasicNameValuePair(TAG_PQUN+Integer.toString(i),Integer.toString(params[0].getOrder().getProducts().get(i).getPurchasedQuantity())));
+			}
+			
+			
+			JSONObject json = jsonParser.makeHttpRequest(url_order_details,
+					"GET", CParams);
+			
+				params[0].getOrder().setId(json.getString("id"));
+				params[0].getOrder().setConfirmationCode(json.getString("confirmation_code"));
+				params[0].getOrder().setState(json.getString("state"));
+				
+				return params[0].getOrder();
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return null;
+	}
+	
+	
+}
 
 
 abstract class PersonlocationListener implements LocationListener
@@ -40,7 +92,7 @@ abstract class PersonlocationListener implements LocationListener
 	
 }
 
-public class Shopper {
+public class Shopper extends Model {
 	
 	
 	private Product scannedProduct;
@@ -52,7 +104,7 @@ public class Shopper {
 	private String LastName;
 	private static Shopper MainShopper;
 	
-	public Shopper(Activity context) 
+	public Shopper(Context context) 
 	{
 		try
 		  {
@@ -66,19 +118,14 @@ public class Shopper {
 	    
 	}
 	
-	protected void onLocationChange()
-	{
-		;
-	}
-	
-	public void trackPosition(Activity activity)
+	public void trackPosition(Context activity)
 	{
 		LocationManager locationManager = (LocationManager)activity.getSystemService(Context.LOCATION_SERVICE);
 		LocationListener locationListener = new PersonlocationListener() {
 			@Override
 			public void onLocationChanged(Location newLocation) {
 				location = newLocation;
-				onLocationChange();
+				modelHandler.OnModelLocationChange();
 			}
 		};
 		
@@ -94,15 +141,19 @@ public class Shopper {
 	public Location getLocation() {
 		return location;
 	}
+	
 	public Product getScannedProduct() {
 		return scannedProduct;
 	}
+	
 	public void setScannedProduct(Product scannedProduct) {
 		this.scannedProduct = scannedProduct;
 	}
+	
 	public Order getOrder() {
 		return order;
 	}
+	
 	public void setOrder(Order order) {
 		this.order = order;
 	}
@@ -145,12 +196,16 @@ public class Shopper {
 	
 	public void submitOrder()
 	{
-		WebService webservice = new WebService() {
+		SendOrderTask sendOrderTask = new SendOrderTask() {
+
+			@Override
+			protected void onPostExecute(Order order) {
+				setOrder(order);
+				modelHandler.OnModelSent();
+			}
+			
 		};
-		
-		webservice.postOrder(this);
-		
-		order.setState(Order.WAITING);
+		sendOrderTask.execute(this);
 		
 		
 	}

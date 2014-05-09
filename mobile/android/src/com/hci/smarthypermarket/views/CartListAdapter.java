@@ -1,6 +1,11 @@
-package com.hci.smarthypermarket;
+package com.hci.smarthypermarket.views;
 
 import java.util.List;
+
+import com.hci.smarthypermarket.R;
+import com.hci.smarthypermarket.R.id;
+import com.hci.smarthypermarket.R.layout;
+import com.hci.smarthypermarket.models.Product;
 
 import android.app.Activity;
 import android.view.View;

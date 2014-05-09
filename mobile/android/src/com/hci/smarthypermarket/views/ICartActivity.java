@@ -1,4 +1,4 @@
-package com.hci.smarthypermarket;
+package com.hci.smarthypermarket.views;
 
 public interface ICartActivity {
 	

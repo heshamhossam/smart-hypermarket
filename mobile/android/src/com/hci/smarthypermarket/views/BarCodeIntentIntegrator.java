@@ -1,4 +1,4 @@
-package com.hci.smarthypermarket;
+package com.hci.smarthypermarket.views;
 
 import java.util.Arrays;
 import java.util.Collection;

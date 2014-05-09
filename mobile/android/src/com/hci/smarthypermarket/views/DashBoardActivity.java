@@ -1,4 +1,7 @@
-package com.hci.smarthypermarket;
+package com.hci.smarthypermarket.views;
+
+import com.hci.smarthypermarket.R;
+import com.hci.smarthypermarket.models.Shopper;
 
 import android.os.Bundle;
 import android.app.ActionBar;
@@ -82,8 +85,8 @@ public class DashBoardActivity extends Activity {
 	}
 	
 	private void startBarCodeActivity(){
-		Intent intent = new Intent(DashBoardActivity.this, BarCodeActivity.class);
-		startActivity(intent);
+		Intent intentBarcode = new Intent(getApplicationContext(), BarCodeActivity.class);
+		startActivity(intentBarcode);
 	}
 	
 	private void startCartActivity(){
