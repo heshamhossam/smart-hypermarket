@@ -123,6 +123,15 @@ public class Product extends Model {
 		this.reviews = reviews;
 	}
 	
+	public Product(String id, String name, String barcode, float price,String weight,String discription) {
+		this.id = id;
+		this.name = name;
+		this.barcode = barcode;
+		this.price = price;
+		this.description= discription;
+		this.weight = weight;
+	}
+	
 	public void mirror(Product product)
 	{
 		id = product.getId();
