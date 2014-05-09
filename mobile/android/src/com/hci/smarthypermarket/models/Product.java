@@ -84,6 +84,7 @@ public class Product extends Model {
 	protected int purchasedQuantity;
 	private String description;
 	private String weight;
+	private List<Review> reviews;
 	
 	public Product()
 	{
@@ -112,14 +113,14 @@ public class Product extends Model {
 		return categoryId;
 	}
 
-	public Product(String id, String name, String barcode, float price,String weight,String discription) {
+	public Product(String id, String name, String barcode, float price,String weight,String discription, List<Review> reviews) {
 		this.id = id;
 		this.name = name;
 		this.barcode = barcode;
 		this.price = price;
 		this.description= discription;
 		this.weight = weight;
-		//this.categoryId = categoryID;
+		this.reviews = reviews;
 	}
 	
 	public void mirror(Product product)
@@ -177,6 +178,10 @@ public class Product extends Model {
 
 	public void setWight(String wight) {
 		this.weight = wight;
+	}
+
+	public List<Review> getReviews() {
+		return reviews;
 	}
 	
 	
