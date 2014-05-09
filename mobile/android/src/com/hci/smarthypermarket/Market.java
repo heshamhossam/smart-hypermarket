@@ -104,6 +104,8 @@ public class Market {
 		return null;
 		
 	}
+	
+	
 	List<Product> getproducts(){
 		for(Category cat : this.categories)
 		{

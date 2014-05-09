@@ -33,6 +33,7 @@ public class BrowseActivity extends Activity {
 	super.onCreate(savedInstanceState);
 	
     setContentView(R.layout.productslist);
+    
     Product productss[] = new Product[]{
 			new Product("123","eslam","3445",4,"long","djdj"),
 			new Product("124","es5atm","3445",4,"long","djdj"),
