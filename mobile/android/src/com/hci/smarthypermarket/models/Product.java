@@ -7,11 +7,13 @@ import java.util.List;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 
 abstract class RetrieveProductTask extends AsyncTask<String, Integer, Product> {
@@ -26,10 +28,24 @@ abstract class RetrieveProductTask extends AsyncTask<String, Integer, Product> {
 	final String TAG_PRODUCT = "product";
 	final String TAG_PDISC="description";
 	final String TAG_PWIGH="weight";
+	final String Tag_Review="reviews";
+	final String Tag_ReviewId="id";
+	final String Tag_ReviewBody="body";
+    final String Tag_User="user";
+    final String Tag_UserId="id";
+    final String Tag_UserFirstName="first_name";
+    final String Tag_UserLastName="last_name";
+    final String Tag_UserMobile="mobile";
+    final String Tag_ReviewCreateTime="created_at";
+    final String Tag_ReviewUpdateTime="updated_at";
+    
+	
+	
 	// //////////////////////////////////
 
 	JSONParser jsonParser = new JSONParser();
-
+	List<Review> reviewlist= new ArrayList<Review>();
+	JSONArray reviews = null;
 	private static final String url_product_detials = Model.linkServiceRoot + "/products/retrieve";
 
 	private Product p = new Product();
@@ -59,9 +75,27 @@ abstract class RetrieveProductTask extends AsyncTask<String, Integer, Product> {
 				float price = Float.parseFloat(productObj.getString(TAG_PRICE));
 				String Discription = productObj.getString(TAG_PDISC);
 				String Weight = productObj.getString(TAG_PWIGH);
+				reviews = productObj.getJSONArray(Tag_Review);
+				Log.d("reviews", reviews.toString());
+				for(int i =0;i<reviews.length();i++)
+				{
+					
+					JSONObject reviewobject=reviews.getJSONObject(i);
+					String reviewid=  reviewobject.getString(Tag_ReviewId);
+					String reviewbody = reviewobject.getString(Tag_ReviewBody);
+					JSONObject userobject=reviewobject.getJSONObject(Tag_User);
+					String userid=userobject.getString(Tag_UserId);
+					String userfirstName=userobject.getString(Tag_UserFirstName);
+					String userlaStringName=userobject.getString(Tag_UserLastName);
+					String mobilenumber=userobject.getString(Tag_UserMobile);
+					String rcreatedat=userobject.getString(Tag_ReviewCreateTime);
+					String rupdatedat=	userobject.getString(Tag_ReviewUpdateTime);
+					Review review = new Review(new Shopper(userfirstName,userlaStringName,mobilenumber),reviewid,reviewbody,rcreatedat,rupdatedat);
+					reviewlist.add(review);
+				}
 			//	String categoryId = productObj.getString(TAG_CATID);
-				
-				p = new Product(id, name, barcode, price ,Weight, Discription);
+				Log.d("reviewslength", Integer.toString(reviewlist.size()));
+				p = new Product(id, name, barcode, price ,Weight, Discription,reviewlist);
 				return p;
 			} else {
 			}
