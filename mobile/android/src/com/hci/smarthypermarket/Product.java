@@ -18,6 +18,7 @@ public class Product {
 	
 	public Product()
 	{
+		super();
 		
 	}
 	
@@ -61,6 +62,7 @@ public class Product {
 	}
 
 	public Product(String id, String name, String barcode, float price,String weight,String discription) {
+		super();
 		this.id = id;
 		this.name = name;
 		this.barcode = barcode;
@@ -68,6 +70,7 @@ public class Product {
 		this.description= discription;
 		this.weight = weight;
 		//this.categoryId = categoryID;
+		
 	}
 	
 	public String getName() {
@@ -114,6 +117,11 @@ public class Product {
 
 	public void setWight(String wight) {
 		this.weight = wight;
+	}
+	 @Override
+	public String toString(){
+		return this.name+"."+this.id;
+		
 	}
 	
 }

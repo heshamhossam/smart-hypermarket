@@ -10,6 +10,7 @@ public class Market {
 	private int id;
 	private Location location;
 	private List<Category> categories;
+	private List<Product> products;
 	
 	public Location getLocation() {
 		return location;
@@ -99,6 +100,17 @@ public class Market {
 				}
 			}
 			
+		}
+		return null;
+		
+	}
+	List<Product> getproducts(){
+		for(Category cat : this.categories)
+		{
+			for(Product product : cat.products)
+			{
+				products.add(product);
+			}
 		}
 		return null;
 		
