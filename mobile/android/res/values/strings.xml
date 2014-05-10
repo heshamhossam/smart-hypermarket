@@ -21,6 +21,7 @@
     <string name="title_activity_browse">Browse Products</string>
     <string name="title_activity_reviews">Product Reviews</string>
     <string name="expandCategory">Expand Category</string>
+    <string name="reviewBtn">Reviews</string>
     
     <!-- Product details -->
     <string name="price">Price</string>
