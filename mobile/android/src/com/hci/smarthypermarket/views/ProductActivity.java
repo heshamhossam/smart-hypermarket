@@ -103,11 +103,14 @@ public class ProductActivity extends Activity implements IProductActivity {
 		
 		LinearLayout linear = new LinearLayout(this);
 		linear.setOrientation(1);
-		final EditText Name = new EditText(this);
-		Name.setHint("Name");
+		final EditText fName = new EditText(this);
+		fName.setHint("First Name");
+		final EditText lName = new EditText(this);
+		lName.setHint("Last Name");
 		final EditText Review = new EditText(this);
 		Review.setHint("Write your review...");
-		linear.addView(Name);
+		linear.addView(fName);
+		linear.addView(lName);
 		linear.addView(Review);
 		
 		alert.setView(linear);
