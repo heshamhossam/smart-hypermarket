@@ -1,9 +1,11 @@
 package com.hci.smarthypermarket.views;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.hci.smarthypermarket.R;
 import com.hci.smarthypermarket.models.Category;
+import com.hci.smarthypermarket.models.Product;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -14,13 +16,19 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.view.View;
+import android.widget.ExpandableListView;
+import android.widget.ExpandableListView.OnGroupClickListener;
+import android.widget.ExpandableListView.OnGroupCollapseListener;
+import android.widget.ExpandableListView.OnGroupExpandListener;
+
 
 public class BrowseActivity extends Activity {
 	
-	private ListView CategoryList;
-	private List<Category> Values;
+	private ExpandableListView CategoryList;
+	private List<Category> CategoryValues;
+	private HashMap<Category, List<Product>> ProductValues = new HashMap<Category, List<Product>>();
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
@@ -32,10 +40,48 @@ public class BrowseActivity extends Activity {
        
         ab.setDisplayShowHomeEnabled(false);
 		
-		CategoryList = (ListView) findViewById(R.id.CategoryList);
-		Values = LauncherActivity.market.getCategories();
+		CategoryList = (ExpandableListView) findViewById(R.id.CategoryList);
+		CategoryValues = LauncherActivity.market.getCategories();
 		
-		showCategories(Values);
+		for(Category cat : this.CategoryValues)
+		{
+			List <Product>products = cat.getProducts();
+			ProductValues.put(cat, products);
+		}
+		
+		
+		showCategories(CategoryValues, ProductValues);
+		
+		CategoryList.setOnGroupClickListener(new OnGroupClickListener() {
+
+			@Override
+			public boolean onGroupClick(ExpandableListView arg0, View arg1,
+					int arg2, long arg3) {
+				// TODO Auto-generated method stub
+				return false;
+			}
+        });
+		
+		// Listview Group expanded listener
+        CategoryList.setOnGroupExpandListener(new OnGroupExpandListener() {
+ 
+            public void onGroupExpand(int groupPosition) {
+                /*Toast.makeText(getApplicationContext(),
+                		CategoryValues.get(groupPosition) + " Expanded",
+                        Toast.LENGTH_SHORT).show();*/
+            }
+        });
+        
+        // Listview Group collasped listener
+        CategoryList.setOnGroupCollapseListener(new OnGroupCollapseListener() {
+ 
+            public void onGroupCollapse(int groupPosition) {
+                /*Toast.makeText(getApplicationContext(),
+                		CategoryValues.get(groupPosition) + " Collapsed",
+                        Toast.LENGTH_SHORT).show();*/
+ 
+            }
+        });
 
 	}
 
@@ -43,10 +89,10 @@ public class BrowseActivity extends Activity {
 		
 	}
 	
-	public void showCategories(List<Category> categories)
-	{
-		ArrayAdapter<Category> adpater = new CategoryAdapter(this, categories);
-		CategoryList.setAdapter(adpater);
+	public void showCategories(List<Category> categories, HashMap<Category, List<Product>> products)
+	{	
+		CategoryAdapter adapter = new CategoryAdapter(this, CategoryValues, ProductValues);
+		CategoryList.setAdapter(adapter);
 	}
 	
 	@Override

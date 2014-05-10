@@ -148,7 +148,7 @@ public class BarCodeIntentIntegrator {
    *  {@link #startActivityForResult(Intent, int)} will be called on the {@link Fragment} instead
    *  of an {@link Activity}
    */
-  @SuppressLint("NewApi")
+  @SuppressWarnings("NewApi")
 public BarCodeIntentIntegrator(Fragment fragment) {
     this.activity = fragment.getActivity();
     this.fragment = fragment;
