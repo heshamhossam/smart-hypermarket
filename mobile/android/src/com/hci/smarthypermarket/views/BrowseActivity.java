@@ -25,7 +25,7 @@ import android.widget.ExpandableListView.OnGroupExpandListener;
 
 public class BrowseActivity extends Activity {
 	
-	private ExpandableListView CategoryList;
+	private ExpandableListView CategoryExpandableListView;
 	private List<Category> CategoryValues;
 	private HashMap<Category, List<Product>> ProductValues = new HashMap<Category, List<Product>>();
 	
@@ -35,24 +35,32 @@ public class BrowseActivity extends Activity {
 		setContentView(R.layout.activity_browse);
 		
 		ActionBar ab = getActionBar(); 
-        ColorDrawable colorDrawable = new ColorDrawable(Color.rgb(10, 73, 88));     
-        ab.setBackgroundDrawable(colorDrawable);
+                ColorDrawable colorDrawable = new ColorDrawable(Color.rgb(10, 73, 88));     
+                ab.setBackgroundDrawable(colorDrawable);
        
-        ab.setDisplayShowHomeEnabled(false);
+                ab.setDisplayShowHomeEnabled(false);
 		
-		CategoryList = (ExpandableListView) findViewById(R.id.CategoryList);
+                CategoryExpandableListView = (ExpandableListView) findViewById(R.id.CategoryList);
 		CategoryValues = LauncherActivity.market.getCategories();
+			
+		showCategories(CategoryValues);
+	}
+
+	public BrowseActivity() {
 		
+	}
+	
+	public void showCategories(List<Category> categories)
+	{	
 		for(Category cat : this.CategoryValues)
 		{
 			List <Product>products = cat.getProducts();
 			ProductValues.put(cat, products);
 		}
+		CategoryAdapter adapter = new CategoryAdapter(this, CategoryValues, ProductValues);
+		CategoryExpandableListView.setAdapter(adapter);
 		
-		
-		showCategories(CategoryValues, ProductValues);
-		
-		CategoryList.setOnGroupClickListener(new OnGroupClickListener() {
+		CategoryExpandableListView.setOnGroupClickListener(new OnGroupClickListener() {
 
 			@Override
 			public boolean onGroupClick(ExpandableListView arg0, View arg1,
@@ -60,12 +68,12 @@ public class BrowseActivity extends Activity {
 				// TODO Auto-generated method stub
 				return false;
 			}
-        });
+                 });
 		
 		// Listview Group expanded listener
-        CategoryList.setOnGroupExpandListener(new OnGroupExpandListener() {
+		CategoryExpandableListView.setOnGroupExpandListener(new OnGroupExpandListener() {
  
-            public void onGroupExpand(int groupPosition) {
+                   public void onGroupExpand(int groupPosition) {
                 /*Toast.makeText(getApplicationContext(),
                 		CategoryValues.get(groupPosition) + " Expanded",
                         Toast.LENGTH_SHORT).show();*/
@@ -73,7 +81,7 @@ public class BrowseActivity extends Activity {
         });
         
         // Listview Group collasped listener
-        CategoryList.setOnGroupCollapseListener(new OnGroupCollapseListener() {
+		CategoryExpandableListView.setOnGroupCollapseListener(new OnGroupCollapseListener() {
  
             public void onGroupCollapse(int groupPosition) {
                 /*Toast.makeText(getApplicationContext(),
@@ -83,16 +91,6 @@ public class BrowseActivity extends Activity {
             }
         });
 
-	}
-
-	public BrowseActivity() {
-		
-	}
-	
-	public void showCategories(List<Category> categories, HashMap<Category, List<Product>> products)
-	{	
-		CategoryAdapter adapter = new CategoryAdapter(this, CategoryValues, ProductValues);
-		CategoryList.setAdapter(adapter);
 	}
 	
 	@Override
