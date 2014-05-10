@@ -103,6 +103,7 @@ public final class R {
         public static final int main=0x7f070002;
         public static final int order_actionbar=0x7f070003;
         public static final int product_actionbar=0x7f070004;
+        public static final int reviews_actionbar=0x7f070005;
     }
     public static final class string {
         public static final int ProductName=0x7f05000c;
