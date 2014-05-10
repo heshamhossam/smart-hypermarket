@@ -113,7 +113,13 @@ public class Review extends Model {
 		this.product_id = product_id;
 	}
 	
+	public String getName(){
+		return reviewer.getFirstName();
+	}
 	
+	public String getBody(){
+		return body;
+	}
 	
 	
 

@@ -40,6 +40,7 @@ public class ProductActivity extends Activity implements IProductActivity {
 	private TextView textVieewProductDescription = null;
 	private TextView textViewProductBrand = null;
 	private Button buttonAddToOrder = null;
+	private Button buttonReview = null;
 	
 	private Shopper shopper = LauncherActivity.shopper;
 	
@@ -63,6 +64,14 @@ public class ProductActivity extends Activity implements IProductActivity {
 		textVieewProductDescription = (TextView) findViewById(R.id.itemDescription);
 		textViewProductBrand = (TextView) findViewById(R.id.itemBrand);
 		textViewProductWeight = (TextView) findViewById(R.id.itemWeight);
+		buttonReview = (Button) findViewById(R.id.reviewButton);
+		buttonReview.setOnClickListener(new OnClickListener(){
+			
+			@Override
+			public void onClick(View v) {
+				startReviewsActivity();
+			}
+		});
 		//set the layout
 		
 		if (shopper != null)
@@ -77,8 +86,7 @@ public class ProductActivity extends Activity implements IProductActivity {
 				
 				@Override
 				public void onClick(View v) {
-					showInputNumberPopup();
-					
+					showInputNumberPopup();	
 				}
 			});
 			
@@ -267,5 +275,10 @@ public class ProductActivity extends Activity implements IProductActivity {
 		shopper.getOrder().addProduct(shopper.getScannedProduct());
 		shopper.setScannedProduct(null);
 		startCartActivity();
+	}
+	
+	public void startReviewsActivity(){
+		Intent intent = new Intent(ProductActivity.this, ReviewsActivity.class);
+		startActivity(intent);
 	}
 }

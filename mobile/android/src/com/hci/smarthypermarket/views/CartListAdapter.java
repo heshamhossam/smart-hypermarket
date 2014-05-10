@@ -6,6 +6,7 @@ import com.hci.smarthypermarket.R;
 import com.hci.smarthypermarket.R.id;
 import com.hci.smarthypermarket.R.layout;
 import com.hci.smarthypermarket.models.Product;
+import com.hci.smarthypermarket.models.Review;
 
 import android.app.Activity;
 import android.view.View;
@@ -51,3 +52,4 @@ public class CartListAdapter extends ArrayAdapter<Product> {
 		return itemView;
 	}				
 }
+

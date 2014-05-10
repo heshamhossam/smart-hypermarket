@@ -4,11 +4,16 @@ import java.util.List;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
+import com.hci.smarthypermarket.R;
 import com.hci.smarthypermarket.models.Review;
-import com.hci.smarthypermarket.models.Shopper;
+
 
 public class ReviewsActivity extends Activity {
+	
+	private ListView ReviewsListView;
 
 	public ReviewsActivity() {
 		// TODO Auto-generated constructor stub
@@ -18,7 +23,9 @@ public class ReviewsActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_reviews);
 		
+		ReviewsListView = (ListView) findViewById(R.id.ReviewList);
 		
 		if (LauncherActivity.shopper.getScannedProduct() != null)
 		{
@@ -28,7 +35,8 @@ public class ReviewsActivity extends Activity {
 	
 	private void showReviews(List<Review> reviews)
 	{
-		//implement de yad
+		ArrayAdapter<Review> adapter = new ReviewsListAdapter(this, reviews);
+		ReviewsListView.setAdapter(adapter);
 	}
 
 }

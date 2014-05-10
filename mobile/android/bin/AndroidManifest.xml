@@ -50,6 +50,10 @@
             android:name="com.hci.smarthypermarket.views.BrowseActivity"
             android:label="@string/title_activity_browse" >
         </activity>
+        <activity
+            android:name="com.hci.smarthypermarket.views.ReviewsActivity"
+            android:label="@string/title_activity_reviews" >
+        </activity>
     </application>
 
 </manifest>

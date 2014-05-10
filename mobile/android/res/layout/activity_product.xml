@@ -137,21 +137,41 @@
                 android:layout_gravity="left"
                 android:textSize="16sp" />
         </TableRow>
-        
-        
+        <TableRow>
+            <View
+                android:layout_marginTop="15dp"
+                android:layout_span="2"
+                android:layout_width="wrap_content"
+                android:layout_height="0.5dp"
+                android:layout_weight="1"
+                android:background="#999" />
+        </TableRow>
+        <TableRow
+            android:layout_marginTop="15dp">
+            <Button
+                android:id="@+id/reviewButton"
+                style="@style/CustomStyleButton"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:layout_marginTop="100dp"
+                android:text="@string/reviewBtn"
+                android:textColor="#fff" />
+            <Button
+                 android:id="@+id/addButton"
+                 style="@style/CustomStyleButton"
+                 android:layout_width="130dp"
+                 android:layout_height="wrap_content"
+                 android:textStyle="bold"
+                 android:layout_marginTop="100dp"
+                 android:text="@string/add"
+                 android:textColor="#fff" />
+        </TableRow>
     </TableLayout>
     
-    <Button
-        android:id="@+id/addButton"
-        style="@style/CustomStyleButton"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:layout_marginTop="100dp"
-        android:text="@string/add"
-        android:textColor="#fff"
-        android:layout_gravity="center_horizontal"
-        />
+   
+    
+    
     
     
 
