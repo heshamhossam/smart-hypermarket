@@ -11,6 +11,9 @@ class MarketController extends BaseController {
     
     public function retrieveProduct()
     {
+//        $review = Review::find(1);
+//        //$review->user = $review->user();
+//        return $review->user;
         //@barcode: string contains bar code of the product to be retrieved
         $key = "barcode";
         $value = 0;
@@ -28,6 +31,8 @@ class MarketController extends BaseController {
         
         if ($market)
             $product = $market->findProduct(array("$key" => $value));
+        
+        
         
         if ($product)
         {
@@ -62,7 +67,7 @@ class MarketController extends BaseController {
         {
             $products = $category->getProducts($market);
             
-            return Response::json($products);
+            return Response::json(array("products" => $products));
         }
     }
     
@@ -101,6 +106,8 @@ class MarketController extends BaseController {
         
         $product->name = Input::get("name");
         $product->barcode = Input::get("barcode");
+        $product->weight = Input::get("weight");
+        $product->description = Input::get("description");
         
         $product->save();
         
@@ -208,8 +215,8 @@ class MarketController extends BaseController {
         if ($marketId)
         {
             $market = Market::find($marketId);
-            
-            return $market->categories;
+            $categories = $market->categories->toArray();
+            return Response::json(array("categories" => $categories));
         }
         
     }
@@ -224,6 +231,8 @@ class MarketController extends BaseController {
         $product = Product::find($product_id);
         $product->name = Input::has("name")? Input::get("name") : $product->name;
         $product->barcode = Input::has("barcode")? Input::get("barcode") : $product->barcode;
+        $product->description = Input::has("description")? Input::get("description") : $product->description;
+        $product->weight = Input::has("weight")? Input::get("weight") : $product->weight;
         $product->save();
         
         $market = Market::find(Input::get("market_id"));

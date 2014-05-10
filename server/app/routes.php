@@ -91,13 +91,38 @@ Route::get("/orders/create", array(
     "uses" => "ShopperController@createOrder"
 ));
 
+
+
+Route::get("/orders/get", array(
+    "as" => "orders-get",
+    "uses" => "ShopperController@getOrder"
+));
+
 Route::get("/orders/edit", array(
     "as" => "orders-edit-post",
     "uses" => "MarketController@editOrder"
+));
+
+Route::get("/reviews/create", array(
+    "as" => "reviews-create",
+    "uses" => "ShopperController@createReview"
 ));
 
 //Route::get("/orders/create", function()
 //{
 //    return View::make("createOrder");
 //});
+Route::get("/mocks/true", array(
+    "as" => "mocks-true",
+    "uses" => "MockController@getTrue"
+));
 
+Route::get("/mocks/false", array(
+    "as" => "mocks-false",
+    "uses" => "MockController@getFalse"
+));
+
+Route::get("mocks/categories/retrieve", array(
+    "as" => "mocks-categories-retrieve",
+    "uses" => "MockController@retrieveCategories"
+));

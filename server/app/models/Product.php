@@ -5,7 +5,12 @@ class Product extends Eloquent {
     protected $table = "products";
 
     //array of fields which can be filled
-    protected $fillable = array("name", "barcode");
+    protected $fillable = array("name", "barcode", "weight", "price");
+    
+    public function reviews()
+    {
+        return $this->hasMany("Review");
+    }
     
     public static function retrieve($market, $uniqueKeyValueArray)
     {
@@ -33,6 +38,10 @@ class Product extends Eloquent {
             }
             else
                 $product->price = 0;
+            
+            foreach($product->reviews as $review)
+                $review->user = $review->user;
+            
             
             return $product;
         }

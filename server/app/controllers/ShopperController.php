@@ -61,4 +61,48 @@ class ShopperController extends BaseController {
         
     }
     
+    public function getOrder()
+    {
+        $orderId = Input::has("id") ? Input::get("id") : 0;
+        $order = Order::find($orderId);
+        
+        if ($order)
+        {
+            $market = Market::find($order->market_id);
+            return $order;
+        }
+        
+        return "faail";
+        
+    }
+    
+    public function createReview()
+    {
+        $productId = Input::has("product_id") ? Input::get("product_id") : 0;
+        $body = Input::has("body") ? Input::get("body") : NULL;
+        $shopperMobile = Input::has("mobile") ? Input::get("mobile") : 0;
+        
+        //search for the user
+        $shoppers = User::where("mobile", "=", $shopperMobile);
+        
+        $product = Product::find($productId);
+        
+        if ($product && $shoppers->count())
+        {
+            $review = new Review();
+            $review->body = $body;
+            $review->product_id = $product->id;
+            $review->user_id = $shoppers->first()->id;
+            $review->save();
+            
+            if ($review)
+                return $review;
+        }
+        
+        return "faail";
+        
+        
+        
+        
+    }
 }

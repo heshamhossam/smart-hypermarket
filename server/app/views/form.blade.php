@@ -36,6 +36,20 @@ and open the template in the editor.
                 
                 <p>
                     <label>
+                        Weight: 
+                        <input type="text" name="weight" />
+                    </label>
+                </p>
+                
+                <p>
+                    <label>
+                        Description: 
+                        <input type="text" name="description" />
+                    </label>
+                </p>
+                
+                <p>
+                    <label>
                         Category: 
                         <select name="category_id">
                             @foreach(Category::all() as $category)

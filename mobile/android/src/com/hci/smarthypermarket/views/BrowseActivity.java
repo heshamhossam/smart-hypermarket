@@ -41,7 +41,7 @@ public class BrowseActivity extends Activity {
                 ab.setDisplayShowHomeEnabled(false);
 		
                 CategoryExpandableListView = (ExpandableListView) findViewById(R.id.CategoryList);
-		CategoryValues = LauncherActivity.market.getCategories();
+                CategoryValues = LauncherActivity.market.getCategories();
 			
 		showCategories(CategoryValues);
 	}
