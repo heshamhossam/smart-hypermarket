@@ -32,6 +32,19 @@ abstract class RetriveCategoriesTask extends AsyncTask<Market, Integer,List<Cate
 	final String TAG_PDISC="description";
 	final String TAG_PWIGH="weight";
 	////////////////////////////////////
+	final String Tag_Review="reviews";
+	final String Tag_ReviewId="id";
+	final String Tag_ReviewBody="body";
+    final String Tag_User="user";
+    final String Tag_UserId="id";
+    final String Tag_UserFirstName="first_name";
+    final String Tag_UserLastName="last_name";
+    final String Tag_UserMobile="mobile";
+    final String Tag_ReviewCreateTime="created_at";
+    final String Tag_ReviewUpdateTime="updated_at";
+    /////////////////////////////////////////////
+    List<Review> reviewlist= new ArrayList<Review>();
+	JSONArray reviews = null;
 	JSONArray products = null;
 	JSONArray categories=null;
 	ArrayList<Category> CategoriesR= new ArrayList<Category>();
@@ -70,8 +83,28 @@ abstract class RetriveCategoriesTask extends AsyncTask<Market, Integer,List<Cate
 					float price = Float.parseFloat(c2.getString(TAG_PRICE));
 					String Discription = c2.getString(TAG_PDISC);
 					String Weight = c2.getString(TAG_PWIGH);
-					Product P =  new Product(id, name, barcode, price, Weight, Discription);
+					reviews = c2.getJSONArray(Tag_Review);
+					Log.d("reviews", reviews.toString());
+					for(int t =0;t<reviews.length();t++)
+					{	
+						JSONObject reviewobject=reviews.getJSONObject(t);
+						String reviewid=  reviewobject.getString(Tag_ReviewId);
+						String reviewbody = reviewobject.getString(Tag_ReviewBody);
+						JSONObject userobject=reviewobject.getJSONObject(Tag_User);
+						String userid=userobject.getString(Tag_UserId);
+						String userfirstName=userobject.getString(Tag_UserFirstName);
+						String userlaStringName=userobject.getString(Tag_UserLastName);
+						String mobilenumber=userobject.getString(Tag_UserMobile);
+						String rcreatedat=userobject.getString(Tag_ReviewCreateTime);
+						String rupdatedat=	userobject.getString(Tag_ReviewUpdateTime);
+						Review review = new Review(new Shopper(userfirstName,userlaStringName,mobilenumber),reviewid,reviewbody,rcreatedat,rupdatedat);
+						reviewlist.add(review);
+					}
+				//	String categoryId = productObj.getString(TAG_CATID);
+					Log.d("reviewslength", Integer.toString(reviewlist.size()));
+					Product P =  new Product(id, name, barcode, price, Weight, Discription,reviewlist);
 					productL.add(P);
+					reviewlist= new ArrayList<Review>();
 				}
 				cat.setProducts(productL);
 				CategoriesR.add(cat);

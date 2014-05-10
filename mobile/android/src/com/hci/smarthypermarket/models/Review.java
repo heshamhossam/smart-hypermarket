@@ -24,6 +24,31 @@ public class Review extends Model {
 		
 	}
 	
+	protected void mirror(Review review)
+	{
+		this.id = review.id;
+		this.createdAt = review.createdAt;
+	}
+	
+	public void save()
+	{
+//		SendReviewTask sendReviewTask = new SendReviewTask() {
+//
+//			@Override
+//			protected void onPostExecute(Review result) {
+//				mirrior(result);
+//				modelHandler.OnModelSent();
+//			}
+//			
+//		};
+//		sendReviewTask.execute(this);
+		
+		
+		
+	}
+	
+	
+	
 	
 
 }

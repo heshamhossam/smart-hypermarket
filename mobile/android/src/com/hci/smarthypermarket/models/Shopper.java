@@ -117,6 +117,13 @@ public class Shopper extends Model {
 		  }
 	    
 	}
+	public Shopper(String fistName,String lastName,String mobile)
+	{
+		this.firstName=fistName;
+		this.LastName=lastName;
+		this.mobile=mobile;
+		
+	}
 	
 	public void trackPosition(Context activity)
 	{
