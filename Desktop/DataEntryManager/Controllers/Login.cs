@@ -16,10 +16,18 @@ namespace DataEntryManager.Controllers
         /// <returns>"storageManager", "dataEntryManager" or "admin" as a role and null if no user assigned with this data</returns>
         public static string userRole(string username, string password)
         {
+            if(username == "sm")
+                return "storageManager";
+            else if(username == "dem")
+                return "dataEntryManager";
+            else if(username == "admin")
+                return "admin";
+            else
+                return "storageManager";
             //if (notfound)
             //    return null;
             //else if (storage_mager)
-            return "storageManager";
+            //return "storageManager";
             //else if (data_entry_manager)
             //    return "dataEntryManager";
             //else if (admin)
