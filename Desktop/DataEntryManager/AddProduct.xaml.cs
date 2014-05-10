@@ -28,6 +28,7 @@ using Controllers = DataEntryManager.Controllers;
 
 namespace DataEntryManager
 {
+    enum Response { Added, Add_Failed, Empty_Fields, Unknown};
     /// <summary>
     /// Interaction logic for AddProduct.xaml
     /// </summary>
@@ -62,17 +63,17 @@ namespace DataEntryManager
         /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            int result = Controllers.AddProduct.Add(ref market, ref name, ref barcode, ref price, ref category, ref textboxDescription, ref textboxWeight);
+            Response result = Controllers.AddProduct.Add(ref market, ref name, ref barcode, ref price, ref category, ref textboxDescription, ref textboxWeight);
             switch (result)
             {
-                case 0:
+                case Response.Added:
                     MessageBox.Show("Product Added Successfully");
                     Controllers.AddProduct.clearAddProductForm(ref name, ref barcode, ref category, ref price);
                     break;
-                case 1:
+                case Response.Add_Failed:
                     MessageBox.Show("Problem Happen While Adding the Product");
                     break;
-                case 2:
+                case Response.Empty_Fields:
                     MessageBox.Show("You Must Fill All Fields");
                     break;
                 default:

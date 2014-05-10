@@ -33,7 +33,7 @@ namespace DataEntryManager.Controllers
         /// <param name="textboxDescription"></param>
         /// <param name="textboxWeight"></param>
         /// <returns>0 if success and 1 or 2 if failed</returns>
-        public static int Add(ref Market market, ref TextBox name, ref TextBox barcode, ref TextBox price, ref ComboBox category, ref TextBox textboxDescription, ref TextBox textboxWeight)
+        public static Response Add(ref Market market, ref TextBox name, ref TextBox barcode, ref TextBox price, ref ComboBox category, ref TextBox textboxDescription, ref TextBox textboxWeight)
         {
             if (CheckFields(ref name, ref barcode, ref price, ref category, ref textboxDescription, ref textboxWeight))
             {
@@ -46,13 +46,13 @@ namespace DataEntryManager.Controllers
                 {
                     market.Products.Add(product);
                     market.onProductsChangeHandler();
-                    return 0;
+                    return Response.Added;
                 }
                 else
-                    return 1;
+                    return Response.Add_Failed;
             }
             else
-                return 2;
+                return Response.Empty_Fields;
         }
 
         /// <summary>
