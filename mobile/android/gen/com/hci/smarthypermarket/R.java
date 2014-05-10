@@ -38,14 +38,14 @@ public final class R {
         public static final int CategoryList=0x7f080002;
         public static final int OrderId=0x7f08000d;
         public static final int State=0x7f08000f;
-        public static final int action_settings=0x7f080021;
+        public static final int action_settings=0x7f080022;
         public static final int addButton=0x7f080018;
         public static final int back_icon=0x7f080024;
         public static final int buttonFireOrder=0x7f08000c;
         public static final int confirmCode=0x7f08000e;
         public static final int db1_root=0x7f080003;
         public static final int home_browse=0x7f080006;
-        public static final int home_icon=0x7f080023;
+        public static final int home_icon=0x7f080021;
         public static final int home_mycart=0x7f080005;
         public static final int home_orders=0x7f080007;
         public static final int home_scan=0x7f080004;
@@ -60,7 +60,7 @@ public final class R {
         public static final int listViewProducts=0x7f080009;
         public static final int name=0x7f08001d;
         public static final int orderProducts=0x7f080011;
-        public static final int overflow_icon=0x7f080022;
+        public static final int overflow_icon=0x7f080023;
         public static final int pid=0x7f08001e;
         public static final int textView1=0x7f080000;
         public static final int textViewCategoryName=0x7f08001c;
@@ -87,10 +87,11 @@ public final class R {
         public static final int productslist=0x7f03000a;
     }
     public static final class menu {
-        public static final int dash_board=0x7f070000;
-        public static final int main=0x7f070001;
-        public static final int order_actionbar=0x7f070002;
-        public static final int product_actionbar=0x7f070003;
+        public static final int browse_actionbar=0x7f070000;
+        public static final int dash_board=0x7f070001;
+        public static final int main=0x7f070002;
+        public static final int order_actionbar=0x7f070003;
+        public static final int product_actionbar=0x7f070004;
     }
     public static final class string {
         public static final int ProductName=0x7f05000b;
