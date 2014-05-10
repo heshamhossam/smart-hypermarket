@@ -88,6 +88,18 @@ public class ProductActivity extends Activity implements IProductActivity {
 		
 	}
 	
+	public void showReviewForm()
+	{
+		//implement this function so you show a review form contains big text box which is the body of the review
+	}
+	
+	public void showReviews(Product product)
+	{
+		//implement this function to view three of the reviews
+		//product contains list of reviews use product.getReviews()
+		
+	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
