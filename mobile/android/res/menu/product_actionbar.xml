@@ -12,5 +12,11 @@
         android:icon="@drawable/ic_action_home"
         android:title="@string/home"
         android:showAsAction="always" />
+    
+    <item 
+        android:id="@+id/wrrite_icon"
+        android:icon="@drawable/ic_action_new_label"
+        android:title="@string/review"
+        android:showAsAction="always"/>
 
 </menu>

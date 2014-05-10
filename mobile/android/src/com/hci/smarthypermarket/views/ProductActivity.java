@@ -1,11 +1,7 @@
 package com.hci.smarthypermarket.views;
 
-import org.w3c.dom.Text;
 
 import com.hci.smarthypermarket.R;
-import com.hci.smarthypermarket.R.id;
-import com.hci.smarthypermarket.R.layout;
-import com.hci.smarthypermarket.R.menu;
 import com.hci.smarthypermarket.models.Product;
 import com.hci.smarthypermarket.models.Shopper;
 
@@ -26,6 +22,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
@@ -100,6 +97,45 @@ public class ProductActivity extends Activity implements IProductActivity {
 		
 	}
 	
+	public void writeReview()
+	{
+		final AlertDialog.Builder alert = new AlertDialog.Builder(this);
+		
+		LinearLayout linear = new LinearLayout(this);
+		linear.setOrientation(1);
+		final EditText Name = new EditText(this);
+		Name.setHint("Name");
+		final EditText Review = new EditText(this);
+		Review.setHint("Write your review...");
+		linear.addView(Name);
+		linear.addView(Review);
+		
+		alert.setView(linear);
+		alert.setTitle("Write Review");
+		
+		alert.setPositiveButton("Post", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				Toast.makeText(getApplicationContext(), "Review sent", Toast.LENGTH_LONG).show();
+			}
+		});
+		
+		alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				Toast.makeText(getApplicationContext(), "Cancel Done", Toast.LENGTH_LONG).show();
+			    finish();
+			}
+		});
+		
+		AlertDialog alertDialog = alert.create();
+		alertDialog.show();
+	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -116,6 +152,10 @@ public class ProductActivity extends Activity implements IProductActivity {
 			return true;
 		case R.id.home_icon:
 			startDashBoardActivity();
+			return true;
+		case R.id.wrrite_icon:
+			writeReview();
+			return true;
 		default:
 			return super.onOptionsItemSelected(item);
 		}
