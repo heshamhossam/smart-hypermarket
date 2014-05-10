@@ -20,20 +20,17 @@ namespace DataEntryManager.Controllers
 
         public static void Refresh(ref List<Order> ordersWaiting)
         {
-            while (true)
-            {
                 MyDelegate del = changeLinks;
                 int timer = 3000;
                 Thread.Sleep(timer);
                 Market.getInstance().refreshOrders();
                 ordersWaiting = Market.getInstance().Orders.FindAll((Order order) => order.State == Order.WAITING);
-            }
         }
 
         public static void changeLinks(List<Order> orders, ref LinkCollection links, ref ModernTab tabOrders)
         {
             links = new LinkCollection();
-
+            
             foreach (var order in orders)
             {
                 links.Add(new Link() { DisplayName = order.Id, Source = new Uri("OrderControl.xaml#" + order.Id, UriKind.Relative) });

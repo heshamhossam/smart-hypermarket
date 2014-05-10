@@ -24,3 +24,4 @@ C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\Administrator\bin\Debug\S
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\Administrator\bin\Debug\MahApps.Metro.xml
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\Administrator\obj\Debug\Administrator.exe
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\Administrator\obj\Debug\Administrator.pdb
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\Administrator\bin\Debug\DataEntryManager.pdb

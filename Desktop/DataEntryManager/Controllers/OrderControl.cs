@@ -10,14 +10,14 @@ namespace DataEntryManager.Controllers
 {
     class OrderControl
     {
-        public static void showOrder(string id, ref DataGrid productsList) {
+        public static void showOrder(string id, ref DataGrid productsList, ref Order order) {
             Market market = Market.getInstance();
-            Order order = market.Orders.Find(i => i.Id == id);
+            order = market.Orders.Find(i => i.Id == id);
             if(order != null)
                 show(order, ref productsList);
         }
 
-        private static void show(Order order, ref DataGrid productsList)
+        public static void show(Order order, ref DataGrid productsList)
         {
             productsList.ItemsSource = order.Products;
         }

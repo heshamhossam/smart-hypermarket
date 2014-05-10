@@ -34,12 +34,21 @@ namespace StorageManager
         private void buttonServed_Click(object sender, RoutedEventArgs e)
         {
             Controllers.OrderControl.changeToServed(ref order);
+            //order.State = Order.READY;
+            //order.update(null);
         }
 
         public void OnFragmentNavigation(FirstFloor.ModernUI.Windows.Navigation.FragmentNavigationEventArgs e)
         {
             string id = e.Fragment;
-            Controllers.OrderControl.showOrder(id, ref productsList);
+            Controllers.OrderControl.showOrder(id, ref productsList, ref order);
+            //Market market = Market.getInstance();
+            //order = market.Orders.Find(i => i.Id == id);
+            //if (order != null)
+            //{
+            //    Controllers.OrderControl.show(order, ref productsList);
+            //    //productsList.ItemsSource = order.Products;
+            //}
         }
 
         public void OnNavigatedFrom(FirstFloor.ModernUI.Windows.Navigation.NavigationEventArgs e)

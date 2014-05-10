@@ -340,10 +340,10 @@ C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debu
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debug\DataEntryManager.csproj.GenerateResource.Cache
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debug\DataEntryManager.exe
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debug\DataEntryManager.pdb
-C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debug\DataEntryManager.csprojResolveAssemblyReference.cache
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debug\Login.baml
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debug\Login.g.cs
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debug\ToBeDeleted\MainWindow3.baml
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debug\ToBeDeleted\MainWindow2.baml
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debug\ToBeDeleted\MainWindow3.g.cs
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debug\ToBeDeleted\MainWindow2.g.cs
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debug\DataEntryManager.csprojResolveAssemblyReference.cache
