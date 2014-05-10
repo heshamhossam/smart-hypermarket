@@ -56,7 +56,7 @@ abstract class SendReviewTask extends AsyncTask<Review, Integer, Review>
 
 
 public class Review extends Model {
-	
+
 	protected Shopper reviewer;
 	protected String id;
 	protected String body;
@@ -74,7 +74,13 @@ public class Review extends Model {
 		this.updatedAt = updatedAt;
 		
 	}
-
+	
+	
+	public Review(Shopper reviewer, String body) {
+		super();
+		this.reviewer = reviewer;
+		this.body = body;
+	}
 	
 
 	public Review() {
@@ -90,17 +96,21 @@ public class Review extends Model {
 	public void save()
 	{
 		SendReviewTask sendReviewTask = new SendReviewTask() {
-		@Override
-	protected void onPostExecute(Review result) {
-		mirror(result);
-		modelHandler.OnModelSent();
-	}
+			@Override
+			protected void onPostExecute(Review result) {
+				mirror(result);
+				modelHandler.OnModelSent();
+			}
 	
-};
-sendReviewTask.execute(this);
-		
-		
-		
+		};
+		sendReviewTask.execute(this);
+	
+	}
+
+
+
+	public void setProductId(String product_id) {
+		this.product_id = product_id;
 	}
 	
 	

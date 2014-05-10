@@ -1,10 +1,6 @@
 package com.hci.smarthypermarket.views;
 
 
-import com.hci.smarthypermarket.R;
-import com.hci.smarthypermarket.models.Product;
-import com.hci.smarthypermarket.models.Shopper;
-
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.ActionBar;
@@ -28,6 +24,12 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.hci.smarthypermarket.R;
+import com.hci.smarthypermarket.models.OnModelListener;
+import com.hci.smarthypermarket.models.Product;
+import com.hci.smarthypermarket.models.Review;
+import com.hci.smarthypermarket.models.Shopper;
 
 @SuppressLint("NewApi")
 public class ProductActivity extends Activity implements IProductActivity {
@@ -107,11 +109,11 @@ public class ProductActivity extends Activity implements IProductActivity {
 		fName.setHint("First Name");
 		final EditText lName = new EditText(this);
 		lName.setHint("Last Name");
-		final EditText Review = new EditText(this);
-		Review.setHint("Write your review...");
+		final EditText editTextReview = new EditText(this);
+		editTextReview.setHint("Write your review...");
 		linear.addView(fName);
 		linear.addView(lName);
-		linear.addView(Review);
+		linear.addView(editTextReview);
 		
 		alert.setView(linear);
 		alert.setTitle("Write Review");
@@ -120,8 +122,26 @@ public class ProductActivity extends Activity implements IProductActivity {
 			
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				// TODO Auto-generated method stub
-				Toast.makeText(getApplicationContext(), "Review sent", Toast.LENGTH_LONG).show();
+				if (shopper.isConnectedToInternet(getApplicationContext()))
+				{
+					shopper.setFirstName(fName.getText().toString());
+					shopper.setLastName(lName.getText().toString());
+					Review review = new Review(shopper, editTextReview.getText().toString());
+					review.setModelHandler(new OnModelListener() {
+						
+						@Override
+						public void OnModelSent() {
+							super.OnModelSent();
+							Toast.makeText(getApplicationContext(), "Review sent", Toast.LENGTH_LONG).show();
+						}
+					});
+					
+					shopper.getScannedProduct().makeReview(review);
+					
+					
+				}
+				else
+					Toast.makeText(getApplicationContext(), "No Internet Connection is available.", Toast.LENGTH_LONG).show();
 			}
 		});
 		

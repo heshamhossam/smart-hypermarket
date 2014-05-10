@@ -177,6 +177,14 @@ public class Product extends Model {
 //		categoryId = product.getCategoryId();
 	}
 	
+	public void makeReview(Review review)
+	{
+		review.setProductId(this.id);
+		review.save();
+		
+		reviews.add(review);
+	}
+	
 	public String getName() {
 		return name;
 	}

@@ -18,12 +18,17 @@ import android.widget.TextView;
 public class CategoryAdapter extends BaseExpandableListAdapter {
 	private Context context;
 	private List<Category> categories;
-	private HashMap<Category, List<Product>> products;
+	private HashMap<Category, List<Product>> products = new HashMap<Category, List<Product>>();;
 
-	public CategoryAdapter(Context context, List<Category> categories, HashMap<Category, List<Product>> products) {
+	public CategoryAdapter(Context context, List<Category> categories) {
 		this.context = context;
 		this.categories = categories;
-		this.products = products;
+		
+		for(Category cat : this.categories)
+		{
+			this.products.put(cat, cat.getProducts());
+		}
+		
 	}
 	
 

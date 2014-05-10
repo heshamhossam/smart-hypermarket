@@ -27,7 +27,6 @@ public class BrowseActivity extends Activity {
 	
 	private ExpandableListView CategoryExpandableListView;
 	private List<Category> CategoryValues;
-	private HashMap<Category, List<Product>> ProductValues = new HashMap<Category, List<Product>>();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
@@ -35,13 +34,13 @@ public class BrowseActivity extends Activity {
 		setContentView(R.layout.activity_browse);
 		
 		ActionBar ab = getActionBar(); 
-                ColorDrawable colorDrawable = new ColorDrawable(Color.rgb(10, 73, 88));     
-                ab.setBackgroundDrawable(colorDrawable);
-       
-                ab.setDisplayShowHomeEnabled(false);
-		
-                CategoryExpandableListView = (ExpandableListView) findViewById(R.id.CategoryList);
-                CategoryValues = LauncherActivity.market.getCategories();
+        ColorDrawable colorDrawable = new ColorDrawable(Color.rgb(10, 73, 88));     
+        ab.setBackgroundDrawable(colorDrawable);
+   
+        ab.setDisplayShowHomeEnabled(false);
+	
+        CategoryExpandableListView = (ExpandableListView) findViewById(R.id.CategoryList);
+        CategoryValues = LauncherActivity.market.getCategories();
 			
 		showCategories(CategoryValues);
 	}
@@ -52,12 +51,8 @@ public class BrowseActivity extends Activity {
 	
 	public void showCategories(List<Category> categories)
 	{	
-		for(Category cat : this.CategoryValues)
-		{
-			List <Product>products = cat.getProducts();
-			ProductValues.put(cat, products);
-		}
-		CategoryAdapter adapter = new CategoryAdapter(this, CategoryValues, ProductValues);
+		
+		CategoryAdapter adapter = new CategoryAdapter(this, categories);
 		CategoryExpandableListView.setAdapter(adapter);
 		
 		CategoryExpandableListView.setOnGroupClickListener(new OnGroupClickListener() {
