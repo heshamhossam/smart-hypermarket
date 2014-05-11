@@ -42,7 +42,14 @@ abstract class RetriveCategoriesTask extends AsyncTask<Market, Integer,List<Cate
     final String Tag_UserMobile="mobile";
     final String Tag_ReviewCreateTime="created_at";
     final String Tag_ReviewUpdateTime="updated_at";
-    /////////////////////////////////////////////
+    ////////////////////Bluetooth Tags/////////////////////////
+    final String Tag_Buletooth="bluetooth";
+    final String Tag_BuletoothId="id";
+    final String Tag_BluetoothName="name";
+    final String Tag_BuletoothAdress="address";
+    
+    
+    //////////////////////////////////////////////
     List<Review> reviewlist= new ArrayList<Review>();
 	JSONArray reviews = null;
 	JSONArray products = null;
@@ -64,6 +71,10 @@ abstract class RetriveCategoriesTask extends AsyncTask<Market, Integer,List<Cate
 				JSONObject c = categories.getJSONObject(i);
 				String CatId= c.getString(Tag_CategoryId);
 				String CatName=c.getString(Tag_CategoryName);
+				JSONObject blue = c.getJSONObject(Tag_Buletooth);
+				String bluename = blue.getString(Tag_BluetoothName);
+				String blueid=blue.getString(Tag_BuletoothId);
+				String blueaddress= blue.getString(Tag_BuletoothAdress);
 				List<NameValuePair>params2 = new ArrayList<NameValuePair>();
 				Category cat = new Category(CatId,CatName);
 				ArrayList<Product>productL = new ArrayList<Product>();
@@ -107,6 +118,8 @@ abstract class RetriveCategoriesTask extends AsyncTask<Market, Integer,List<Cate
 					reviewlist= new ArrayList<Review>();
 				}
 				cat.setProducts(productL);
+				Bluetooth bluetooth = new Bluetooth(bluename, blueaddress, blueid);
+				cat.setBluetooth(bluetooth);
 				CategoriesR.add(cat);
 				
 				//Category category = new Category(id, name, createdAt, updatedAt, parentId)
@@ -207,9 +220,12 @@ public class Category extends Model {
 	public Bluetooth getBluetooth() {
 		return bluetooth;
 	}
+   public void setBluetooth(Bluetooth bluetooth)
+   {
+	   this.bluetooth=bluetooth;
+   }
+	
 
-	
-	
 
 	
 	
