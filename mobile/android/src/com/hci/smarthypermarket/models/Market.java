@@ -13,7 +13,6 @@ import org.json.JSONObject;
 
 import android.location.Location;
 import android.os.AsyncTask;
-import android.util.Log;
 
 
 abstract class RetrieveMarketTask extends AsyncTask<Location, Integer, Market> {
@@ -175,5 +174,19 @@ public class Market extends Model {
 		
 	}
 	
+	
+	public Category findCategory(Bluetooth bluetooth){
+		
+		Category category = null;
+		
+		for(Category cat : this.getCategories()){
+			if(cat.getBluetooth().getName().compareTo(bluetooth.getName()) == 0) {
+				category = cat;
+				break;
+			}
+		}
+		
+		return category;
+	}
 
 }

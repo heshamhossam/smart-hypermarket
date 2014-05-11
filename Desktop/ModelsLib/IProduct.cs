@@ -31,20 +31,25 @@ namespace DataEntryManager
         /// <summary>
         /// Saves the current fields values into the database
         /// </summary>
-        bool update(string url);
+        bool update();
+
+        /// <summary>
+        /// Delete the whole product from database
+        /// </summary>
+        void delete();
 
         /// <summary>
         /// Save new Product to the database
         /// </summary>
         /// <param name="market">Market who are performing the saving</param>
-        Product save(Market market, string url);
+        Product save(Market market);
 
 
         // <summary>
         /// Delete the whole product in database related to the market
         /// </summary>
         /// <param name="market">Market to delete product from</param>
-        bool delete(Market market, string url);
+        bool delete(Market market);
 
     }
 }

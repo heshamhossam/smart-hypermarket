@@ -23,63 +23,82 @@ using System.Net;
 using System.IO;
 using Newtonsoft.Json;
 using System.Collections.Specialized;
-
-using Controllers = DataEntryManager.Controllers;
+using DataEntryManager.Controllers;
 
 namespace DataEntryManager
 {
-    enum Response { Added, Add_Failed, Empty_Fields, Unknown};
     /// <summary>
     /// Interaction logic for AddProduct.xaml
     /// </summary>
     public partial class AddProduct : Page
     {
-        Market market;
-        
-        /// <summary>
-        /// instaniate a market, load it's categoreis on category combolist and begin detection of barcode process
-        /// </summary>
+
+        string id;
+        private Market _market;
+        private ProductController _productController;
+      
         public AddProduct()
         {
             InitializeComponent();
-            market = Market.getInstance();
+            _market = Market.getInstance();
+            _productController = new ProductController();
 
-            #region Bardetecting Example
-            //OnBarcodeDetectedDelegate testD = testDelegateFunction; //Testing variable for OnBarcodeDetectedDelegate
-            BarcodeReading.BarcodeReader bcr = new BarcodeReading.BarcodeReader(ref barcode, ref player); //Testing variable for BarcodeReader class ( see constructor documentation )
-            //bcr.onBarcodeDetected += testD; //Adding the delegate function to onBarcodeDetected variable at bcr to fire it after detecting barcode emplicitily
-            //If camera opened successfully read barcode and fire onBarcodeDetected delegate
-            //if (bcr.openCamera() == true)
-            bcr.readBarcodes();
-            #endregion
+            //#region Bardetecting Example
+            ////OnBarcodeDetectedDelegate testD = testDelegateFunction; //Testing variable for OnBarcodeDetectedDelegate
+            //BarcodeReading.BarcodeReader bcr = new BarcodeReading.BarcodeReader(ref textBoxBarcode, ref player); //Testing variable for BarcodeReader class ( see constructor documentation )
+            ////bcr.onBarcodeDetected += testD; //Adding the delegate function to onBarcodeDetected variable at bcr to fire it after detecting barcode emplicitily
+            ////If camera opened successfully read barcode and fire onBarcodeDetected delegate
+            ////if (bcr.openCamera() == true)
+            //bcr.readBarcodes();
+            //#endregion
             
-            Controllers.AddProduct.LoadComboxList(ref market, ref category);
+            LoadComboxList();
         }
 
-        /// <summary>
-        /// Send the product data to be added to database and show messaging depending on the result of the process
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void buttonAddProduct_Click(object sender, RoutedEventArgs e)
         {
-            Response result = Controllers.AddProduct.Add(ref market, ref name, ref barcode, ref price, ref category, ref textboxDescription, ref textboxWeight);
-            switch (result)
+
+            Response response = _productController.createProduct(
+                new Input("barcode", textBoxBarcode.Text),  
+                new Input("description", textboxDescription.Text),
+                new Input("name", textBoxName.Text),
+                new Input("price", textBoxPrice.Text),
+                new Input("weight", textboxWeight.Text),
+                new Input("categoryId", getComboboxCategoriesId())
+            );
+
+            if (response.State == ResponseState.SUCCESS)
             {
-                case Response.Added:
-                    MessageBox.Show("Product Added Successfully");
-                    Controllers.AddProduct.clearAddProductForm(ref name, ref barcode, ref category, ref price);
-                    break;
-                case Response.Add_Failed:
-                    MessageBox.Show("Problem Happen While Adding the Product");
-                    break;
-                case Response.Empty_Fields:
-                    MessageBox.Show("You Must Fill All Fields");
-                    break;
-                default:
-                    MessageBox.Show("Unknown error");
-                    break;
+                MessageBox.Show("Product Added Successfuly");
             }
+            else
+                MessageBox.Show(response.Errors[0].ErrorMessage);
+        }
+
+      
+        private void clearInputs()
+        {
+            textBoxBarcode.Text = textboxDescription.Text = textBoxName.Text = textBoxPrice.Text = textboxWeight.Text = "";
+            comboBoxcategory.SelectedIndex = -1;
+        }
+
+        private void LoadComboxList()
+        {
+            foreach (Category cat in _market.Categories)
+                comboBoxcategory.Items.Add(cat.Name);
+        }
+        
+        private string getComboboxCategoriesId()
+        {
+            if (comboBoxcategory.SelectedIndex == -1)
+                return "";
+            else
+            {
+                string sel = comboBoxcategory.SelectedItem.ToString();
+                Category catselected = _market.Categories.Find(category => category.Name == sel);
+                return catselected.Id;
+            }
+
         }
     }
 

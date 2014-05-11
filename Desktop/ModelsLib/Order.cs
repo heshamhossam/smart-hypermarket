@@ -94,13 +94,11 @@ namespace StorageManager.Models
         public const string ALL = "ALL";
 
 
-        public static List<Order> LoadOrders (Market market, string filter, string url)
+        public static List<Order> LoadOrders (Market market, string filter)
         {
-            string URL = "http://zonlinegamescom.ipage.com/smarthypermarket/public/orders/retrieve?market_id=" + market.Id + "&filter=" + filter;
-            if (url != null)
-                URL = url;
+            string url = "http://zonlinegamescom.ipage.com/smarthypermarket/public/orders/retrieve?market_id=" + market.Id + "&filter=" + filter;
 
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(URL);
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
 
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
@@ -113,14 +111,14 @@ namespace StorageManager.Models
             return list;
         }
 
-        public void update (string url)
+        public void update ()
         {
 
-            string URL = "http://zonlinegamescom.ipage.com/smarthypermarket/public/orders/edit?order_id=" + this._Id +"&state="+this._State;
-            if (url != null)
-                URL = url;
+            string url = "http://zonlinegamescom.ipage.com/smarthypermarket/public/orders/edit?order_id=" + this._Id +"&state="+this._State;
 
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(URL);
+            System.Windows.MessageBox.Show(url + this._Confirmation_code);
+
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
 
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 

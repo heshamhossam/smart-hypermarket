@@ -3,8 +3,12 @@ package com.hci.smarthypermarket.models;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.app.Activity;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -12,10 +16,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.telephony.TelephonyManager;
-import android.util.Log;
-
-import java.lang.reflect.Method;
+import android.widget.Toast;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -103,6 +104,10 @@ public class Shopper extends Model {
 	private String firstName;
 	private String LastName;
 	private static Shopper MainShopper;
+	BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+	BroadcastReceiver mReceiver;
+	
+	private Bluetooth BluetoothObject;
 	
 	public Shopper(Context context) 
 	{
@@ -143,6 +148,33 @@ public class Shopper extends Model {
 			locationManager.requestLocationUpdates(providers.get(i), 0, 0, locationListener);
 		}
 		
+	}
+	
+	public void startBlutoothTracking(final Context activityContext, final OnBluetoothListener bluetoothListener)
+	{
+		
+		Toast.makeText(activityContext, "Searching In Market Sections...", Toast.LENGTH_LONG).show();
+		mBluetoothAdapter.startDiscovery();
+		/* Search for bluetooth */
+		mReceiver = new BroadcastReceiver(){
+			@Override
+			public void onReceive(Context context, Intent intent) {
+				String action = intent.getAction();
+				// Finding Devices
+				if(BluetoothDevice.ACTION_FOUND.equals(action)){
+					BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+					int bluetoothstrength = intent.getShortExtra(BluetoothDevice.EXTRA_RSSI,Short.MIN_VALUE);
+					
+					// Define bluetooth object
+					BluetoothObject = new Bluetooth(device.getName(), device.getAddress(), bluetoothstrength);
+					bluetoothListener.onBlutoothFound(BluetoothObject);
+				}
+			}
+			
+		};
+		
+		IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
+		activityContext.registerReceiver(mReceiver, filter);
 	}
 	
 	public Location getLocation() {
@@ -201,14 +233,14 @@ public class Shopper extends Model {
 		this.mobile = mobile;
 	}
 	
-	public void submitOrder()
+	public void submitOrder(final OnModelListener onModelHandler)
 	{
 		SendOrderTask sendOrderTask = new SendOrderTask() {
 
 			@Override
 			protected void onPostExecute(Order order) {
 				setOrder(order);
-				modelHandler.OnModelSent();
+				onModelHandler.OnModelSent();
 			}
 			
 		};

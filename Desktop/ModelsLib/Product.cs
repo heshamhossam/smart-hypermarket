@@ -23,7 +23,7 @@ namespace DataEntryManager
 
     public class Product : IProduct
     {
-        private string id = "0";
+        private string id;
         private string name;
         private string barcode;
         private float price;
@@ -34,15 +34,15 @@ namespace DataEntryManager
         private string description;
         private string weight;
         public string Description
-        {
-            get { return description; }
-            set { description = value; }
+            {
+            get {return description;}
+            set{description = value; }
         }
 
         public string Weight
-        {
-            get { return weight; }
-            set { weight = value; }
+         {
+            get{return weight;}
+           set {weight = value;}
         }
 
         public Product()
@@ -134,7 +134,7 @@ namespace DataEntryManager
             }
         }
 
-        public int Quantity
+        public int Quantity 
         {
             get
             {
@@ -157,16 +157,15 @@ namespace DataEntryManager
         }
 
 
-        public bool update(string url)
+        public bool update()
         {
-            string URL = "http://zonlinegamescom.ipage.com/smarthypermarket/public/products/edit";
-            if (url != null)
-                URL = url;
-
-            WebClient webClient = new WebClient();
-
-            if (url == null)
+            try
             {
+
+                string URL = "http://zonlinegamescom.ipage.com/smarthypermarket/public/products/edit";
+
+                WebClient webClient = new WebClient();
+
                 NameValueCollection formData = new NameValueCollection();
 
                 formData["id"] = id;
@@ -186,21 +185,20 @@ namespace DataEntryManager
                 byte[] responseBytes = webClient.UploadValues(URL, "POST", formData);
 
                 string responsefromserver = Encoding.UTF8.GetString(responseBytes);
-            }
-            else
-            {
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(URL);
 
-                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                webClient.Dispose();
 
-                if (response != null)
-                    return true;
-                else
+                if(responsefromserver == null)
                     return false;
-            }
-            webClient.Dispose();
+                else 
+                    return true;
 
-            return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
         }
 
         string IProduct.Id
@@ -309,42 +307,44 @@ namespace DataEntryManager
             }
         }
 
-
-
-
-
-        public bool delete(Market market, string url)
+        public void delete()
         {
             try
             {
-                string URL = "http://zonlinegamescom.ipage.com/smarthypermarket/public/products/delete";
-                if (url != null)
-                    URL = url;
                 WebClient wb = new WebClient();
-                if (url == null)
-                {
-                    var data = new NameValueCollection();
-                    data["market_id"] = market.Id.ToString();
-                    data["id"] = id;
+                string url = "http://zonlinegamescom.ipage.com/smarthypermarket/public/products/delete";
+                var data = new NameValueCollection();
+                data["id"] = id;
 
-                    byte[] responseBytes = wb.UploadValues(URL, "POST", data);
 
-                    string responsefromserver = Encoding.UTF8.GetString(responseBytes);
-                }
-                else
-                {
-                    HttpWebRequest request = (HttpWebRequest)WebRequest.Create(URL);
+                var response = wb.UploadValues(url, "POST", data);
+            }
+            catch { MessageBox.Show("deleting error!"); }
 
-                    HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+        }
 
-                    if (response != null)
-                        return true;
-                    else
-                        return false;
-                }
 
-                return true;
 
+        public bool delete(Market market)
+        {
+            try
+            {
+                WebClient wb = new WebClient();
+                string url = "http://zonlinegamescom.ipage.com/smarthypermarket/public/products/delete";
+                var data = new NameValueCollection();
+                
+                data["market_id"] = market.Id.ToString();
+                data["id"] = id;
+
+                byte[] responseBytes = wb.UploadValues(url, "POST", data);
+
+                string responsefromserver = Encoding.UTF8.GetString(responseBytes);
+
+                if (responsefromserver != null)
+                    return true;
+
+                return false;
+                
             }
             catch { return false; }
 
@@ -355,16 +355,13 @@ namespace DataEntryManager
 
 
 
-        public Product save(Market market, string url)
+        public Product save(Market market)
         {
-            string URL = "http://zonlinegamescom.ipage.com/smarthypermarket/public/products/create";
-            if (url != null)
-                URL = url;
 
-            WebClient webClient = new WebClient();
+              string URL = "http://zonlinegamescom.ipage.com/smarthypermarket/public/products/create";
 
-            if (url == null)
-            {
+                WebClient webClient = new WebClient();
+
                 NameValueCollection formData = new NameValueCollection();
 
                 formData["name"] = name;
@@ -385,23 +382,19 @@ namespace DataEntryManager
 
                 string responsefromserver = Encoding.UTF8.GetString(responseBytes);
                 Product p = JsonConvert.DeserializeObject<Product>(responsefromserver);
+
                 id = p.Id;
                 created_at = p.created_at;
                 updated_at = p.updated_at;
-            }
-            else
-            {
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(URL);
-
-                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
-                if (response != null)
+                
+                webClient.Dispose();
+                if(responsefromserver!=null)
                     return this;
-                else
+                else 
                     return null;
             }
-            return this;
+           
+           
         }
     }
-}
 

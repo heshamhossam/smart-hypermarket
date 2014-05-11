@@ -1,23 +1,28 @@
 package com.hci.smarthypermarket.views;
 
-import com.hci.smarthypermarket.R;
-import com.hci.smarthypermarket.R.layout;
-import com.hci.smarthypermarket.models.Market;
-import com.hci.smarthypermarket.models.OnModelListener;
-import com.hci.smarthypermarket.models.Shopper;
-
 import android.app.Activity;
+import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import com.hci.smarthypermarket.R;
+import com.hci.smarthypermarket.models.Bluetooth;
+import com.hci.smarthypermarket.models.Category;
+import com.hci.smarthypermarket.models.Market;
+import com.hci.smarthypermarket.models.OnBluetoothListener;
+import com.hci.smarthypermarket.models.OnModelListener;
+import com.hci.smarthypermarket.models.Shopper;
 
 public class LauncherActivity extends Activity {
 	
 	public static Shopper shopper = null;
 	public static Market market = null;
 	private Boolean onLocationChangeCalled = false;
+	
+	BluetoothAdapter mBluetoothAdapter;
+	Integer REQ_BT_ENABLE=1;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -41,6 +46,7 @@ public class LauncherActivity extends Activity {
 						@Override
 						public void OnModelRetrieved() {
 							shopper.setMarketId(market.getId());
+							
 							startDashboardActivity();
 							
 						}
@@ -60,5 +66,6 @@ public class LauncherActivity extends Activity {
 		startActivity(intent);
 		
 	}
-
+	
+	
 }

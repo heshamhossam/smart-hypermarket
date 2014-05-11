@@ -18,14 +18,12 @@ namespace DataEntryManager
         private static Market MyMarket;
         private List<Product> ProductList = new List<Product>();
         private List<Category> CategoryList = new List<Category>();
-        protected List<Order> orders = new List<Order>();
+        private List<Order> orders = new List<Order>();
 
-        public Market(bool test) { }
-
-        public Market()
+        private Market()
         {
-            CategoryList = Category.LoadCategories(1, null);
-            orders = Order.LoadOrders(this, Order.ALL, null);
+            CategoryList = Category.LoadCategories(1);
+            orders = Order.LoadOrders(this, Order.ALL);
             LoadProducts();
         }
 
@@ -97,7 +95,7 @@ namespace DataEntryManager
 
         public void refreshOrders()
         {
-            orders = Order.LoadOrders(this, Order.ALL, null);
+            orders = Order.LoadOrders(MyMarket, Order.ALL);
         }
     }
 }

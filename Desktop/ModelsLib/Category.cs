@@ -88,13 +88,11 @@ namespace DataEntryManager
             }
         }
 
-        public static List<Category> LoadCategories(int marketId, string url)
+        public static List<Category> LoadCategories(int marketId)
         {
-            string URL = "http://zonlinegamescom.ipage.com/smarthypermarket/public/categories/retrieve?market_id=" + marketId.ToString();
-            if(url != null)
-                URL = url;
-
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(URL);
+            string url = "http://zonlinegamescom.ipage.com/smarthypermarket/public/categories/retrieve?market_id=" + marketId.ToString();
+            
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
 
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
