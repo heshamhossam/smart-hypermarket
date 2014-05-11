@@ -176,14 +176,16 @@ public class Market extends Model {
 	
 	
 	public Category findCategory(Bluetooth bluetooth){
+		
 		Category category = null;
-		getCategories();
-		for(Category cat : this.categories){
-			if(cat.getBluetooth() == bluetooth){
+		
+		for(Category cat : this.getCategories()){
+			if(cat.getBluetooth().getName().compareTo(bluetooth.getName()) == 0) {
 				category = cat;
 				break;
 			}
 		}
+		
 		return category;
 	}
 

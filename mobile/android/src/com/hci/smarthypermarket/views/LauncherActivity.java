@@ -46,6 +46,7 @@ public class LauncherActivity extends Activity {
 						@Override
 						public void OnModelRetrieved() {
 							shopper.setMarketId(market.getId());
+							
 							startDashboardActivity();
 							
 						}
@@ -66,40 +67,5 @@ public class LauncherActivity extends Activity {
 		
 	}
 	
-	private void enableBlutooth()
-	{
-		/* Check if the device supports bluetooth or not */
-		mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-		if(mBluetoothAdapter == null){
-			Toast.makeText(getApplicationContext(), "Device doesn't support bluetooth", Toast.LENGTH_LONG).show();
-		}
-		else {
-			/* Enabling bluetooth if the bluetooth is disabled */
-			if(!mBluetoothAdapter.isEnabled()){
-				Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-			    startActivityForResult(enableBtIntent, REQ_BT_ENABLE);
-			    Toast.makeText(getApplicationContext(), "Enabling bluetooth", Toast.LENGTH_LONG).show();
-			}
-		}
-	}
 	
-	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		super.onActivityResult(requestCode, resultCode, data);
-		if(requestCode == REQ_BT_ENABLE){
-			if(resultCode == RESULT_OK){
-				shopper.startBlutoothTracking(new OnBluetoothListener(){
-					public void onBlutoothFound(Bluetooth bluetooth)
-					{
-						Category category = market.findCategory(bluetooth);
-					}
-				});
-			}
-			
-			if(resultCode == RESULT_CANCELED){
-				Toast.makeText(getApplicationContext(), "Error occured while enabling", Toast.LENGTH_LONG).show();
-			}
-		}
-	}
-
 }
