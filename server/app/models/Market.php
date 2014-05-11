@@ -24,6 +24,10 @@ class Market extends Eloquent {
             return $this->belongsToMany("Category");
         }
         
+        public function offers()
+        {
+            return $this->hasMany("Offer");
+        }
         
         public function findProduct($uniqueKeyValueArray)
         {
@@ -115,5 +119,35 @@ class Market extends Eloquent {
             
             return null;
             
+        }
+        
+        public function addOffer($offer, $productsArr)
+        {
+            $offer->market_id = $this->id;
+            $offer->save();
+            
+            
+            if ($offer)
+            {
+                $i = 0;
+                foreach ($productsArr as $product) {
+                    DB::table('offer_product')->insert(array('product_id' => $product->id, 'offer_id' => $offer->id, "product_quantity" => $product->quantity));
+                    $i++;
+                }
+                return true;
+            }
+            
+            return false;
+        }
+        
+        public function getOffers()
+        {
+            $offers = $this->offers;
+
+            foreach ($offers as $offer) {
+                $offer->products = $offer->getProducts();
+            }
+            
+            return $offers;
         }
 }

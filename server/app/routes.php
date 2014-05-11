@@ -86,6 +86,7 @@ Route::get("/orders/retrieve", array(
     "uses" => "MarketController@getOrders"
 ));
 
+
 Route::get("/orders/create", array(
     "as" => "orders-create-post",
     "uses" => "ShopperController@createOrder"
@@ -106,6 +107,26 @@ Route::get("/orders/edit", array(
 Route::get("/reviews/create", array(
     "as" => "reviews-create",
     "uses" => "ShopperController@createReview"
+));
+
+//Route::get("/offers/create", array(
+//    "as" => "offers-create",
+//    "uses" => "MarketController@getCreateOfferForm"
+//));
+
+Route::get("/offers/create", array(
+    "as" => "offers-create-post",
+    "uses" => "MarketController@createOffer"
+));
+
+Route::post("/offers/create", array(
+    "as" => "offers-create-post",
+    "uses" => "MarketController@createOffer"
+));
+
+Route::get("/offers/retrieve", array(
+    "as" => "offers-retrieve",
+    "uses" => "MarketController@retrieveOffers"
 ));
 
 //Route::get("/orders/create", function()

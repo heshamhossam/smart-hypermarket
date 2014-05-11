@@ -215,8 +215,13 @@ class MarketController extends BaseController {
         if ($marketId)
         {
             $market = Market::find($marketId);
-            $categories = $market->categories->toArray();
-            return Response::json(array("categories" => $categories));
+            
+            $categories = $market->categories;
+            foreach ($categories as $category) {
+                $category->bluetooth = $category->bluetooth;
+            }
+            
+            return Response::json(array("categories" => $categories->toArray()));
         }
         
     }
@@ -270,5 +275,65 @@ class MarketController extends BaseController {
             $order->state = Input::has("state") ? Input::get("state") : $order->state;
             $order->update();
         }
+    }
+
+    
+    public function createOffer()
+    {
+        $marketId = Input::has("market_id") ? Input::get("market_id") : 0;
+        //$productIds = Input::has("product_ids") ? Input::get("product_ids") : null;
+        //$productQuantities = Input::has("product_quantities") ? Input::get("product_quantities") : null;
+        $teaser = Input::has("teaser") ? Input::get("teaser") : null;
+        $name = Input::has("name") ? Input::get("name") : null;
+        $price = Input::has("price") ? Input::get("price") : null;
+        
+        $market = Market::find($marketId);
+        
+        
+        if ($market && $teaser && $name && $price)
+        {
+            $products = array();
+            $i = 0;
+            
+            $products = array();
+            $productIdKey = "product_id";
+            $productQunaityKey = "product_quantity";
+            while (Input::has($productIdKey . $i) && Input::has($productQunaityKey . $i))
+            {
+                $productId = Input::get($productIdKey . $i);
+                $productQuantity = Input::get($productQunaityKey . $i);
+                $products[$i] = Product::find($productId);
+                $products[$i]->quantity = $productQuantity;
+                $i++;
+            }
+            
+            $offer = new Offer();
+            $offer->teaser = $teaser;
+            $offer->name = $name;
+            $offer->price = $price;
+            
+            $market->addOffer($offer, $products);
+            
+            return $offer;
+        }
+        
+        return "fails";
+        
+    }
+    
+    public function retrieveOffers()
+    {
+        $marketId = Input::has("market_id") ? Input::get("market_id") : 0;
+        
+        $market = Market::find($marketId);
+        if ($market)
+        {
+            return $market->getOffers();
+        }
+    }
+    
+    public function getCreateOfferForm()
+    {
+        return View::make("createOffer");
     }
 }
