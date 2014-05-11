@@ -7,7 +7,10 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.hci.smarthypermarket.R;
+import com.hci.smarthypermarket.models.Bluetooth;
+import com.hci.smarthypermarket.models.Category;
 import com.hci.smarthypermarket.models.Market;
+import com.hci.smarthypermarket.models.OnBluetoothListener;
 import com.hci.smarthypermarket.models.OnModelListener;
 import com.hci.smarthypermarket.models.Shopper;
 
@@ -83,20 +86,20 @@ public class LauncherActivity extends Activity {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
-//		if(requestCode == REQ_BT_ENABLE){
-//			if(resultCode == RESULT_OK){
-//				shopper.startBlutoothTracking(new BlutoothListener(){
-//					onBlutoothFound(Bluetooth bluetooth)
-//					{
-//						Category category = market.findCategory(blutooth);
-//					}
-//				});
-//			}
-//			
-//			if(resultCode == RESULT_CANCELED){
-//				
-//			}
-//		}
+		if(requestCode == REQ_BT_ENABLE){
+			if(resultCode == RESULT_OK){
+				shopper.startBlutoothTracking(new OnBluetoothListener(){
+					public void onBlutoothFound(Bluetooth bluetooth)
+					{
+						Category category = market.findCategory(bluetooth);
+					}
+				});
+			}
+			
+			if(resultCode == RESULT_CANCELED){
+				Toast.makeText(getApplicationContext(), "Error occured while enabling", Toast.LENGTH_LONG).show();
+			}
+		}
 	}
 
 }

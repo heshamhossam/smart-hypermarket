@@ -134,6 +134,7 @@ public class Category extends Model {
 	protected String updatedAt;
 	protected String parentId;
 	protected Boolean fetched = false;
+	protected Bluetooth bluetooth;
 	protected static List<Category> allCategories;
 	
 	protected List<Product> products;
@@ -201,6 +202,10 @@ public class Category extends Model {
 		}
 		
 		return null;
+	}
+
+	public Bluetooth getBluetooth() {
+		return bluetooth;
 	}
 
 	
