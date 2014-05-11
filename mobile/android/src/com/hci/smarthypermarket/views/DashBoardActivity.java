@@ -50,10 +50,12 @@ public class DashBoardActivity extends Activity {
 			@Override
 			public void onBlutoothFound(Bluetooth bluetooth)
 			{
-				Toast.makeText(getApplicationContext(), "Welcome in " + bluetooth.getName() + " Section", Toast.LENGTH_LONG).show();
-//				Category category = LauncherActivity.market.findCategory(bluetooth);
-//				if (category != null)
-//					Toast.makeText(getApplicationContext(), "Welcome in " + category.getName() + " Section", Toast.LENGTH_LONG).show();
+				if (bluetooth.getStrength() > -60)
+				{
+					Category category = LauncherActivity.market.findCategory(bluetooth);
+					if (category != null)
+						Toast.makeText(getApplicationContext(), "Welcome in " + category.getName() + " Section", Toast.LENGTH_LONG).show();
+				}
 			}
 		});
         

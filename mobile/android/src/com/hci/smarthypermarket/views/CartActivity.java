@@ -4,6 +4,7 @@ import com.hci.smarthypermarket.R;
 import com.hci.smarthypermarket.R.id;
 import com.hci.smarthypermarket.R.layout;
 import com.hci.smarthypermarket.R.menu;
+import com.hci.smarthypermarket.models.OnModelListener;
 import com.hci.smarthypermarket.models.Shopper;
 
 import android.annotation.SuppressLint;
@@ -131,7 +132,13 @@ public class CartActivity extends Activity implements ICartActivity {
 			public void onClick(DialogInterface dialog, int which) {
 				shopper.setFirstName(fname.getText().toString());
 				shopper.setLastName(lname.getText().toString());
-				shopper.submitOrder();
+				shopper.submitOrder(new OnModelListener() {
+					@Override
+					public void OnModelSent() {
+						startOrderActivity();
+						super.OnModelSent();
+					}
+				});
 				Toast.makeText(getApplicationContext(), "Order Sent", Toast.LENGTH_LONG).show();
 				startOrderActivity();
 			    finish();

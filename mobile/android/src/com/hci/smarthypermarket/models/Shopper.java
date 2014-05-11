@@ -233,14 +233,14 @@ public class Shopper extends Model {
 		this.mobile = mobile;
 	}
 	
-	public void submitOrder()
+	public void submitOrder(final OnModelListener onModelHandler)
 	{
 		SendOrderTask sendOrderTask = new SendOrderTask() {
 
 			@Override
 			protected void onPostExecute(Order order) {
 				setOrder(order);
-				modelHandler.OnModelSent();
+				onModelHandler.OnModelSent();
 			}
 			
 		};
