@@ -72,6 +72,15 @@ abstract class RetriveCategoriesTask extends AsyncTask<Market, Integer,List<Cate
 				String CatId= c.getString(Tag_CategoryId);
 				String CatName=c.getString(Tag_CategoryName);
 				JSONObject blue = c.getJSONObject(Tag_Buletooth);
+				if(blue==null)
+				{
+					Log.d("Bluetooth", "not work");
+				}
+				else
+				{
+					Log.d("Bluetooth", blue.toString());
+				}
+				
 				String bluename = blue.getString(Tag_BluetoothName);
 				String blueid=blue.getString(Tag_BuletoothId);
 				String blueaddress= blue.getString(Tag_BuletoothAdress);
