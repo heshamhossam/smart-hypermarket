@@ -19,7 +19,7 @@ namespace StorageManager.Models
         string Created_at { get; set; }
         string Updated_at { get; set; }
         List<Product> Products { get; set; }
-
+        
         void update(string url);
     }
 }
