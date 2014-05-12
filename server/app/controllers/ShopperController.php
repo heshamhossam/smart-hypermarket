@@ -105,4 +105,22 @@ class ShopperController extends BaseController {
         
         
     }
+
+    
+    public function retrieveOffers()
+    {
+        $marketId = Input::has("market_id") ? Input::get("market_id") : 0;
+        
+        $market = Market::find($marketId);
+        $offers = array();
+        
+        if ($market)
+        {
+            
+            $offers = $market->getOffers()->toArray();
+            
+        }
+        
+        return Response::json(array("offers" => $offers));
+    }
 }

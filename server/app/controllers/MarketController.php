@@ -276,13 +276,14 @@ class MarketController extends BaseController {
             $order->update();
         }
     }
-
+    
+    
     
     public function createOffer()
     {
         $marketId = Input::has("market_id") ? Input::get("market_id") : 0;
-        //$productIds = Input::has("product_ids") ? Input::get("product_ids") : null;
-        //$productQuantities = Input::has("product_quantities") ? Input::get("product_quantities") : null;
+        $productIds = Input::has("product_ids") ? Input::get("product_ids") : null;
+        $productQuantities = Input::has("product_quantities") ? Input::get("product_quantities") : null;
         $teaser = Input::has("teaser") ? Input::get("teaser") : null;
         $name = Input::has("name") ? Input::get("name") : null;
         $price = Input::has("price") ? Input::get("price") : null;
@@ -290,22 +291,29 @@ class MarketController extends BaseController {
         $market = Market::find($marketId);
         
         
-        if ($market && $teaser && $name && $price)
+        if (!$productIds || !$productQuantities)
         {
-            $products = array();
-            $i = 0;
-            
-            $products = array();
             $productIdKey = "product_id";
             $productQunaityKey = "product_quantity";
-            while (Input::has($productIdKey . $i) && Input::has($productQunaityKey . $i))
+
+            $productIds = $this->changeInputsToArray($productIdKey);
+            $productQuantities = $this->changeInputsToArray($productQunaityKey);
+        }
+        
+        $products = array();
+        $i = 0;
+        foreach ($productIds as $productId) {
+            $product = Product::find($productId);
+            if ($product)
             {
-                $productId = Input::get($productIdKey . $i);
-                $productQuantity = Input::get($productQunaityKey . $i);
-                $products[$i] = Product::find($productId);
-                $products[$i]->quantity = $productQuantity;
+                $products[$i] = $product;
+                $products[$i]->quantity = $productQuantities[$i];
                 $i++;
             }
+        }
+        
+        if ($market && $teaser && $name && $price && (count($products) > 0) )
+        {
             
             $offer = new Offer();
             $offer->teaser = $teaser;
@@ -321,16 +329,20 @@ class MarketController extends BaseController {
         
     }
     
-    public function retrieveOffers()
+    public function changeInputsToArray($key)
     {
-        $marketId = Input::has("market_id") ? Input::get("market_id") : 0;
-        
-        $market = Market::find($marketId);
-        if ($market)
+        $values = array();
+        $i = 0;
+        while (Input::has($key . $i))
         {
-            return $market->getOffers();
+            $values[] = Input::get($key . $i);
+            $i++;
         }
+        
+        return $values;
     }
+    
+    
     
     public function getCreateOfferForm()
     {
