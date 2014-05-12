@@ -45,11 +45,5 @@ namespace DataEntryManager.Controllers
             Name = name;
             _value = value;
         }
-
-        public Input(string name, List<string> values)
-        {
-            Name = name;
-            _values = values;
-        }
     }
 }

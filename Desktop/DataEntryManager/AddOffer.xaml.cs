@@ -22,91 +22,80 @@ namespace DataEntryManager
     public partial class AddOffer : Page
     {
         private Market market;
-        List<Product> offerlist;
-        List<string> productid;
-        List<string> productquantatiy;
         private OfferController _offercontroller;
-        float totalofferprice = 0;
         
         public AddOffer()
         {
             InitializeComponent();
             market = Market.getInstance();
-            offerlist = new List<Product>();
-           // productsid = new List<String>();
-          //  productsquantatiy = new List<String>();
-            productid = new List<string>();
-            productquantatiy = new List<string>();
            
             LoadCategoriesList();
         }
+
         private void LoadCategoriesList()
         {
             foreach (Category cat in market.Categories)
-                categorylist.Items.Add(cat.Name);
+                comboBoxCategories.Items.Add(cat.Name);
         }
+
         private void LoadProductsList()
         {
-            Category cat = market.Categories.Where(x => x.Name==categorylist.SelectedItem.ToString()).ElementAt(0);
+            Category cat = market.Categories.Where(x => x.Name == comboBoxCategories.SelectedItem.ToString()).ElementAt(0);
             foreach(Product p in cat.Products)
             {
-                productlist.Items.Add(p.Name);
+                comboBoxProducts.Items.Add(p.Name);
             }
         }
 
         private void categorylist_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            productlist.Items.Clear();
+            comboBoxProducts.Items.Clear();
             LoadProductsList();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void buttonAddToOffer_Click(object sender, RoutedEventArgs e)
         {
-            productoffer.Items.Add(productlist.SelectedItem);
-            Category cat = market.Categories.Where(x => x.Name == categorylist.SelectedItem.ToString()).ElementAt(0);
-            foreach (Product p in cat.Products)
-            {
-               if(p.Name==productlist.SelectedItem.ToString())
-               {
-                  // p.Quantity = int.Parse(quantatiy.Text);
-               //    totalofferprice += p.Price*p.Quantity;
-                   totalprice.Text = totalofferprice.ToString();
-                   offerlist.Add(p);
-                   productid.Add(p.Id);
-                   productquantatiy.Add(quantatiy.ToString());
+           
 
-               }
-            }
-            
-        }
+            Product product = market.Products.Where(p => p.Name == comboBoxProducts.SelectedItem.ToString()).ElementAt(0);
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            Response response = _offercontroller.createOffer(
-                new Input("productsids",productid),
-                new Input("productsquantaties",productquantatiy),
-                new Input("teaser",textBoxTeaser.Text),
-                new Input("name",offername.Text),
-                new Input("offerprice",totalprice.Text)
-                );
-            if(response.State==ResponseState.SUCCESS)
+            Response response = _offercontroller.addToOffer(
+                new Input("productId", product.Id),
+                new Input("productQuantity", textBoxQuantity.Text)
+            );
+
+            if (response.State == ResponseState.SUCCESS)
             {
-                MessageBox.Show("Your Porduct Added Successfully");
+                //add product name to list box and its quantity
+                listBoxProductOffer.Items.Add(comboBoxProducts.SelectedItem + "(" + textBoxQuantity.Text + ")");
+                textBoxQuantity.Text = "";
             }
             else
-            {
                 MessageBox.Show(response.Errors[0].ErrorMessage);
-            }
+
         }
 
-     
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+
+        private void buttonSubmitOffer_Click(object sender, RoutedEventArgs e)
         {
-       //   Offer o;
-            Offer offer = new Offer(offerlist, textBoxTeaser.Text, offername.Text, int.Parse(totalprice.Text));
-            offer.save();
-           
-         
+            Response response = _offercontroller.createOffer(
+                new Input("name", textBoxName.Text),
+                new Input("price", textBoxOfferPrice.Text),
+                new Input("teaser", textBoxTeaser.Text)
+            );
+
+            if (response.State == ResponseState.SUCCESS)
+            {
+                clearInputs();
+                MessageBox.Show("Offer Added successfuly");
+            }
+            else
+                MessageBox.Show(response.Errors[0].ErrorMessage);
+        }
+
+        private void clearInputs()
+        {
+
         }
     }
 }
