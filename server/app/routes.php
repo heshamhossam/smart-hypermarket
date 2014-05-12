@@ -115,7 +115,7 @@ Route::get("/reviews/create", array(
 //));
 
 Route::get("/offers/create", array(
-    "as" => "offers-create-post",
+    "as" => "offers-create",
     "uses" => "MarketController@createOffer"
 ));
 
@@ -126,7 +126,7 @@ Route::post("/offers/create", array(
 
 Route::get("/offers/retrieve", array(
     "as" => "offers-retrieve",
-    "uses" => "MarketController@retrieveOffers"
+    "uses" => "ShopperController@retrieveOffers"
 ));
 
 //Route::get("/orders/create", function()
