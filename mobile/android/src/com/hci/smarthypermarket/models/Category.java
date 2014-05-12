@@ -227,22 +227,21 @@ public class Category extends Model {
 	}
 	
 	
-	public Boolean hasOffer(List<Offer> offer)
+	public Offer hasOffer(List<Offer> offer)
 	{
 		if(!offer.isEmpty()){
 			for(Offer ofer : offer){
 				for(Product product : ofer.getProducts()){
 					for(Product catProduct : this.getProducts()){
 						if(catProduct.getId().equals(product.getId())){
-							return true;
+							return ofer;
 						}
 					}
 				}
 			}
 		}
-		return false;
+		return null;
 	}
-	
 	
 	public Bluetooth getBluetooth() {
 		return bluetooth;
