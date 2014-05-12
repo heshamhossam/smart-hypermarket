@@ -12,7 +12,7 @@ namespace DataEntryManager
 {
     public class Offer
     {
-        private List<Product> _products;
+        private List<Product> _products = new List<Product>();
         private string _teaser;
         private string _name;
         private float _price;

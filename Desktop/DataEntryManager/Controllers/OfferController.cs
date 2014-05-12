@@ -23,7 +23,7 @@ namespace DataEntryManager.Controllers
                 respone.Errors.Add(new Error("Product ID can't be empty."));
             if(productQuantity == null || productQuantity.Value == "")
                 respone.Errors.Add(new Error("Product quantity can't be empty."));
-
+            
             if (respone.Errors.Count > 0)
                 respone.State = ResponseState.FAIL;
             else

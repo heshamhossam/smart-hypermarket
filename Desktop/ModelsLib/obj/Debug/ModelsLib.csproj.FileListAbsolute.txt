@@ -8,3 +8,4 @@ C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\ModelsLib\bin\Debug\Newto
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\ModelsLib\obj\Debug\ModelsLib.dll
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\ModelsLib\obj\Debug\ModelsLib.pdb
 C:\Users\Hesham\Documents\Visual Studio 2013\Projects\Desktop\ModelsLib\obj\Debug\ModelsLib.csprojResolveAssemblyReference.cache
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\ModelsLib\obj\Debug\ModelsLib.csprojResolveAssemblyReference.cache

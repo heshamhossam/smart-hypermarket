@@ -22,7 +22,7 @@ namespace DataEntryManager
     public partial class AddOffer : Page
     {
         private Market market;
-        private OfferController _offercontroller;
+        private OfferController _offercontroller = new OfferController();
         
         public AddOffer()
         {
