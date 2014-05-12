@@ -57,12 +57,7 @@
     <Compile Include="Order.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DataEntryManager\DataEntryManager.csproj">
-      <Project>{a9d30aba-57bf-40e4-aabf-ad151b84fb50}</Project>
-      <Name>DataEntryManager</Name>
-    </ProjectReference>
+    <Compile Include="WebClientExtension.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

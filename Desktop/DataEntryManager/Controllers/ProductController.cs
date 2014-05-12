@@ -61,6 +61,5 @@ namespace DataEntryManager.Controllers
 
             return response;
         }
-
     }
 }

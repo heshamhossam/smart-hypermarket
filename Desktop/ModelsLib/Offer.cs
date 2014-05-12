@@ -10,11 +10,8 @@ using System.Windows;
 
 namespace DataEntryManager
 {
-    
-
     public class Offer
     {
-
         private List<Product> _products;
         private string _teaser;
         private string _name;
@@ -65,6 +62,7 @@ namespace DataEntryManager
             }
             webClient.AddArray("product_ids", product_ids_values);
             webClient.AddArray("product_quantites", product_quantites_values);
+            //================================================================
 
             byte[] responseBytes = webClient.UploadValues(URL,"POST", formData);
             string responsefromserver = Encoding.UTF8.GetString(responseBytes);
@@ -77,7 +75,5 @@ namespace DataEntryManager
                 return null;
             //implement this ess
         }
-
-
     }
 }

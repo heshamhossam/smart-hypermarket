@@ -75,7 +75,6 @@ namespace DataEntryManager
 
         }
 
-
         private void buttonSubmitOffer_Click(object sender, RoutedEventArgs e)
         {
             Response response = _offercontroller.createOffer(

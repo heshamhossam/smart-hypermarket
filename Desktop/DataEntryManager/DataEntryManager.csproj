@@ -44,10 +44,6 @@
     <Reference Include="Microsoft.Windows.Shell">
       <HintPath>..\..\..\..\Desktop\dlls\dlls\Microsoft.Windows.Shell.dll</HintPath>
     </Reference>
-    <Reference Include="ModelsLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\ModelsLib\bin\Debug\ModelsLib.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Desktop\dlls\dlls\Newtonsoft.Json.dll</HintPath>
@@ -93,7 +89,6 @@
     <Compile Include="Controllers\OfferController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\Response.cs" />
-    <Compile Include="Controllers\WebClientExtension.cs" />
     <Compile Include="EditProduct.xaml.cs">
       <DependentUpon>EditProduct.xaml</DependentUpon>
     </Compile>
@@ -161,6 +156,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ModelsLib\ModelsLib.csproj">
+      <Project>{903abf39-8d76-4c59-9447-30045b337608}</Project>
+      <Name>ModelsLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

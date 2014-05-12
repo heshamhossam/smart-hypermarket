@@ -303,3 +303,4 @@ C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debu
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debug\DataEntryManager.g.resources
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debug\DataEntryManager.Properties.Resources.resources
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debug\DataEntryManager.csproj.GenerateResource.Cache
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\bin\Debug\ModelsLib.dll

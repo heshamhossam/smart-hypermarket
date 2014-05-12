@@ -20,7 +20,6 @@ using System.Collections.Specialized;
 
 namespace DataEntryManager
 {
-
     public class Product : IProduct
     {
         private string id;

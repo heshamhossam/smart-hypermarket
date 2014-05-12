@@ -12,7 +12,6 @@ namespace StorageManager.Models
 {
     public class Order : IOrder
     {
-
         private string _Id;
         public string Id
         {
