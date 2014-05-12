@@ -59,7 +59,7 @@ namespace DataEntryManager
 
             Product product = market.Products.Where(p => p.Name == comboBoxProducts.SelectedItem.ToString()).ElementAt(0);
 
-            Response response = _offercontroller.addToOffer(
+            Response response = _offercontroller.addProductToOffer(
                 new Input("productId", product.Id),
                 new Input("productQuantity", textBoxQuantity.Text)
             );

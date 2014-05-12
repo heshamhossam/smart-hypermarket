@@ -73,7 +73,6 @@ C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\StorageManager\bin\Debug\
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\StorageManager\bin\Debug\FirstFloor.ModernUI.dll
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\StorageManager\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\StorageManager\bin\Debug\FirstFloor.ModernUI.xml
-C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\StorageManager\bin\Debug\ModelsLib.pdb
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\StorageManager\obj\Debug\StorageManager.csprojResolveAssemblyReference.cache
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\StorageManager\obj\Debug\MainWindow.baml
 C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\StorageManager\obj\Debug\OrderCheckPage.baml
@@ -119,3 +118,5 @@ C:\Users\Hawex\Documents\GitHub\smart-hypermarket\Desktop\StorageManager\obj\Deb
 C:\Users\Hesham\Documents\Visual Studio 2013\Projects\Desktop\StorageManager\obj\Debug\OrderWindow.baml
 C:\Users\Hesham\Documents\Visual Studio 2013\Projects\Desktop\StorageManager\obj\Debug\OrderWindow.g.cs
 C:\Users\Hesham\Documents\Visual Studio 2013\Projects\Desktop\StorageManager\bin\Debug\ModelsLib.pdb
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\StorageManager\obj\Debug\OrderWindow.baml
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\StorageManager\obj\Debug\OrderWindow.g.cs

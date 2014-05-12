@@ -25,3 +25,6 @@ C:\Users\Hesham\Documents\Visual Studio 2013\Projects\Desktop\DataEntryManagerTe
 C:\Users\Hesham\Documents\Visual Studio 2013\Projects\Desktop\DataEntryManagerTests\bin\Debug\DataEntryManager.pdb
 C:\Users\Hesham\Documents\Visual Studio 2013\Projects\Desktop\DataEntryManagerTests\bin\Debug\ModelsLib.pdb
 C:\Users\Hesham\Documents\Visual Studio 2013\Projects\Desktop\DataEntryManagerTests\obj\Debug\DataEntryManagerTests.pdb
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManagerTests\obj\Debug\DataEntryManagerTests.csprojResolveAssemblyReference.cache
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManagerTests\obj\Debug\DataEntryManagerTests.dll
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManagerTests\obj\Debug\DataEntryManagerTests.pdb

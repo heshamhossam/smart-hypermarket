@@ -10,8 +10,7 @@ namespace DataEntryManager.Controllers
     {
         private Offer _offer = new Offer();
 
-
-        public Response addToOffer(params Input[] inputs)
+        public Response addProductToOffer(params Input[] inputs)
         {
             Response respone = new Response();
 
@@ -22,7 +21,7 @@ namespace DataEntryManager.Controllers
         
         public Response createOffer(params Input[] inputs)
         {
-            //implement this ya ess
+            
         }
     }
 }

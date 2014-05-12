@@ -93,6 +93,7 @@
     <Compile Include="Controllers\OfferController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\Response.cs" />
+    <Compile Include="Controllers\WebClientExtension.cs" />
     <Compile Include="EditProduct.xaml.cs">
       <DependentUpon>EditProduct.xaml</DependentUpon>
     </Compile>
