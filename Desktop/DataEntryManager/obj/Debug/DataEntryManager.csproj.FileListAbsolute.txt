@@ -276,3 +276,30 @@ C:\Users\Hesham\Documents\Visual Studio 2013\Projects\Desktop\DataEntryManager\o
 C:\Users\Hesham\Documents\Visual Studio 2013\Projects\Desktop\DataEntryManager\obj\Debug\DataEntryManager.csproj.GenerateResource.Cache
 C:\Users\Hesham\Documents\Visual Studio 2013\Projects\Desktop\DataEntryManager\obj\Debug\AddOffer.baml
 C:\Users\Hesham\Documents\Visual Studio 2013\Projects\Desktop\DataEntryManager\obj\Debug\AddOffer.g.cs
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debug\DataEntryManager.csprojResolveAssemblyReference.cache
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debug\AddOffer.baml
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debug\EditProduct.baml
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debug\MainWindow.baml
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debug\ShowProducts.baml
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debug\App.baml
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debug\AddOffer.g.cs
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debug\AddProduct.g.cs
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debug\EditProduct.g.cs
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debug\MainWindow.g.cs
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debug\ShowProducts.g.cs
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debug\App.g.cs
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debug\DataEntryManager_MarkupCompile.cache
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debug\DataEntryManager_MarkupCompile.lref
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\bin\Debug\DataEntryManager.exe
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\bin\Debug\DataEntryManager.pdb
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\bin\Debug\Castle.Core.dll
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\bin\Debug\TestStack.White.dll
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\bin\Debug\Castle.Core.xml
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\bin\Debug\ModelsLib.pdb
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\bin\Debug\TestStack.White.pdb
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debug\AddProduct.baml
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debug\DataEntryManager.g.resources
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debug\DataEntryManager.Properties.Resources.resources
+C:\Users\Yaser\Source\Repos\smart-hypermarket3\Desktop\DataEntryManager\obj\Debug\DataEntryManager.csproj.GenerateResource.Cache

@@ -8,9 +8,9 @@ namespace DataEntryManager.Controllers
 {
     class OfferController
     {
-        public Response createOffer(params Input[] inputs)
+        /*public Response createOffer(params Input[] inputs)
         {
             //implement this ya ess
-        }
+        }*/
     }
 }
