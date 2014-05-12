@@ -12,6 +12,10 @@ class Category extends Eloquent {
 		return $this->belongsToMany("Product");
 	}
         
+        public function bluetooth()
+        {
+            return $this->hasOne("Bluetooth");
+        }
         public function addProduct($product)
         {
             //save the product in the category
