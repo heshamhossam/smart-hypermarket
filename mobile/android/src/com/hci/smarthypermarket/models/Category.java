@@ -229,10 +229,14 @@ public class Category extends Model {
 	
 	public Boolean hasOffer(List<Offer> offer)
 	{
-		for(Offer ofer : offer){
-			for(Product product : ofer.getProducts()){
-				if(this.getProducts().contains(product)){
-					return true;
+		if(!offer.isEmpty()){
+			for(Offer ofer : offer){
+				for(Product product : ofer.getProducts()){
+					for(Product catProduct : this.getProducts()){
+						if(catProduct.getId().equals(product.getId())){
+							return true;
+						}
+					}
 				}
 			}
 		}
