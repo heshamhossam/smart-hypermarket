@@ -77,7 +77,7 @@ public class Market extends Model {
 	private String name;
 	private Location location;
 	private List<Category> categories;
-	
+	private List<Offer> offers;
 	
 
 	public Market(String id,String Name) {
