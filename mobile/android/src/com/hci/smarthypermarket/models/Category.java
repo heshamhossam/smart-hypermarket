@@ -229,8 +229,14 @@ public class Category extends Model {
 	
 	public Boolean hasOffer(List<Offer> offer)
 	{
-		//implement de ya zeft
-		return true;
+		for(Offer ofer : offer){
+			for(Product product : ofer.getProducts()){
+				if(this.getProducts().contains(product)){
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 	
 	
