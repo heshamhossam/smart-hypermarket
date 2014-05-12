@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataEntryManager.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,81 @@ namespace DataEntryManager
     /// </summary>
     public partial class AddOffer : Page
     {
+        private Market market;
+        private OfferController _offercontroller;
+        
         public AddOffer()
         {
             InitializeComponent();
+            market = Market.getInstance();
+           
+            LoadCategoriesList();
+        }
+
+        private void LoadCategoriesList()
+        {
+            foreach (Category cat in market.Categories)
+                comboBoxCategories.Items.Add(cat.Name);
+        }
+
+        private void LoadProductsList()
+        {
+            Category cat = market.Categories.Where(x => x.Name == comboBoxCategories.SelectedItem.ToString()).ElementAt(0);
+            foreach(Product p in cat.Products)
+            {
+                comboBoxProducts.Items.Add(p.Name);
+            }
+        }
+
+        private void categorylist_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            comboBoxProducts.Items.Clear();
+            LoadProductsList();
+        }
+
+        private void buttonAddToOffer_Click(object sender, RoutedEventArgs e)
+        {
+           
+
+            Product product = market.Products.Where(p => p.Name == comboBoxProducts.SelectedItem.ToString()).ElementAt(0);
+
+            Response response = _offercontroller.addToOffer(
+                new Input("productId", product.Id),
+                new Input("productQuantity", textBoxQuantity.Text)
+            );
+
+            if (response.State == ResponseState.SUCCESS)
+            {
+                //add product name to list box and its quantity
+                listBoxProductOffer.Items.Add(comboBoxProducts.SelectedItem + "(" + textBoxQuantity.Text + ")");
+                textBoxQuantity.Text = "";
+            }
+            else
+                MessageBox.Show(response.Errors[0].ErrorMessage);
+
+        }
+
+
+        private void buttonSubmitOffer_Click(object sender, RoutedEventArgs e)
+        {
+            Response response = _offercontroller.createOffer(
+                new Input("name", textBoxName.Text),
+                new Input("price", textBoxOfferPrice.Text),
+                new Input("teaser", textBoxTeaser.Text)
+            );
+
+            if (response.State == ResponseState.SUCCESS)
+            {
+                clearInputs();
+                MessageBox.Show("Offer Added successfuly");
+            }
+            else
+                MessageBox.Show(response.Errors[0].ErrorMessage);
+        }
+
+        private void clearInputs()
+        {
+
         }
     }
 }

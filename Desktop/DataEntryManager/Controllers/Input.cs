@@ -29,17 +29,21 @@ namespace DataEntryManager.Controllers
             {
                 return _value;
             }
+        }
 
-            set
+        List<string> _values;
+        public List<string> Values
+        {
+            get
             {
-                _value = value;
+                return _values;
             }
         }
 
         public Input(string name, string value)
         {
             Name = name;
-            Value = value;
+            _value = value;
         }
     }
 }
