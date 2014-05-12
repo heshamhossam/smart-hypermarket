@@ -92,9 +92,15 @@ public class Market extends Model {
 			protected void onPostExecute(Market market)
 			{
 				mirror(market);
-				Category.all(market);
 				
-				Category.setOnAllModelsRetrieved(new OnModelListener() {
+				Offer.all(market, new OnModelListener() {
+					@Override
+					public void OnModelRetrieved() {
+						offers = Offer.getAllOffers();
+					}
+				});
+
+				Category.all(market, new OnModelListener() {
 					
 					@Override
 					public void OnModelRetrieved() {
@@ -103,6 +109,9 @@ public class Market extends Model {
 						
 					}
 				});
+				
+				
+				
 			}
 		};
 		
@@ -187,6 +196,10 @@ public class Market extends Model {
 		}
 		
 		return category;
+	}
+
+	public List<Offer> getOffers() {
+		return offers;
 	}
 
 }

@@ -201,7 +201,7 @@ public class Category extends Model {
 		this.products = products;
 	}
 	
-	public static void all(Market market)
+	public static void all(Market market, final OnModelListener onCategoriesRetrieved)
 	{
 		
 		RetriveCategoriesTask retriveCategoriesTask = new RetriveCategoriesTask() {
@@ -209,7 +209,7 @@ public class Category extends Model {
 			{
 				isAllFetched = true;
 				allCategories = list;
-				OnAllModelsRetrieved.OnModelRetrieved();
+				onCategoriesRetrieved.OnModelRetrieved();
 			}
 		};
 		retriveCategoriesTask.execute(market);
@@ -225,7 +225,15 @@ public class Category extends Model {
 		
 		return null;
 	}
-
+	
+	
+	public Boolean hasOffer(List<Offer> offer)
+	{
+		//implement de ya zeft
+		return true;
+	}
+	
+	
 	public Bluetooth getBluetooth() {
 		return bluetooth;
 	}

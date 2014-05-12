@@ -102,7 +102,7 @@ public class Offer extends Model {
 	private String updatedAt;
 	private String offerprice;
 	private List<Product> products;
-	private List<Offer> allOffers;
+	private static List<Offer> allOffers;
 	
 	public Offer() {
 		
@@ -118,18 +118,29 @@ public class Offer extends Model {
 		
 	}
 	
-	public static void all(Market market)
+	public static void all(Market market, final OnModelListener onOffersRetrieved)
 	{
 		
-//		RetriveOffersTask retriveOffersTask = new RetriveOffersTask() {
-//			protected void onPostExecute(List<Offer>list)
-//			{
-//				isAllFetched = true;
-//				allOffers = list;
-//				OnAllModelsRetrieved.OnModelRetrieved();
-//			}
-//		};
-//		retriveOffersTask.execute(market);
+		RetriveOffersTask retriveOffersTask = new RetriveOffersTask() {
+			protected void onPostExecute(List<Offer>list)
+			{
+				isAllFetched = true;
+				allOffers = list;
+				onOffersRetrieved.OnModelRetrieved();
+			}
+		};
+		
+		retriveOffersTask.execute(market);
+	}
+	public List<Product> getProducts() {
+		return products;
+	}
+	public static List<Offer> getAllOffers() {
+		
+		if (isAllFetched)
+			return allOffers;
+		
+		return null;
 	}
 
 }

@@ -1,5 +1,7 @@
 package com.hci.smarthypermarket.views;
 
+import java.util.List;
+
 import android.app.ActionBar;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
@@ -10,6 +12,7 @@ import android.content.IntentFilter;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -19,6 +22,8 @@ import android.widget.Toast;
 import com.hci.smarthypermarket.R;
 import com.hci.smarthypermarket.models.Bluetooth;
 import com.hci.smarthypermarket.models.Category;
+import com.hci.smarthypermarket.models.Market;
+import com.hci.smarthypermarket.models.Offer;
 import com.hci.smarthypermarket.models.OnBluetoothListener;
 import com.hci.smarthypermarket.models.Shopper;
 
@@ -29,6 +34,7 @@ public class DashBoardActivity extends Activity {
 	Button StartBrowse;
 	Button StartOrders;
 	private Shopper shopper = LauncherActivity.shopper;
+	private Market market = LauncherActivity.market;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,23 +47,21 @@ public class DashBoardActivity extends Activity {
         ab.setBackgroundDrawable(colorDrawable);
         ab.setDisplayShowHomeEnabled(false);
         
-        Category category = LauncherActivity.market.findCategory(new Bluetooth("Electronics", "E Address", -67));
         
-        
-        enableBlutooth();
-        shopper.startBlutoothTracking(getApplicationContext(), new OnBluetoothListener(){
-			
-			@Override
-			public void onBlutoothFound(Bluetooth bluetooth)
-			{
-				if (bluetooth.getStrength() > -60)
-				{
-					Category category = LauncherActivity.market.findCategory(bluetooth);
-					if (category != null)
-						Toast.makeText(getApplicationContext(), "Welcome in " + category.getName() + " Section", Toast.LENGTH_LONG).show();
-				}
-			}
-		});
+//        enableBlutooth();
+//        shopper.startBlutoothTracking(getApplicationContext(), new OnBluetoothListener(){
+//			
+//			@Override
+//			public void onBlutoothFound(Bluetooth bluetooth)
+//			{
+//				if (bluetooth.getStrength() > -60)
+//				{
+//					Category category = LauncherActivity.market.findCategory(bluetooth);
+//					if (category != null)
+//						Toast.makeText(getApplicationContext(), "Welcome in " + category.getName() + " Section", Toast.LENGTH_LONG).show();
+//				}
+//			}
+//		});
         
 		
         
