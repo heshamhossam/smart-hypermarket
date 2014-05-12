@@ -59,9 +59,14 @@ public class DashBoardActivity extends Activity {
 //					Category category = LauncherActivity.market.findCategory(bluetooth);
 //					if (category != null)
 //						Toast.makeText(getApplicationContext(), "Welcome in " + category.getName() + " Section", Toast.LENGTH_LONG).show();
-//				}
+//				                if(category.hasOffer != null){
+//                                                  showOffer(category.hasOffer);
+//                                               }
+//                               }
 //			}
 //		});
+
+       
         
 		
         
@@ -167,6 +172,44 @@ public class DashBoardActivity extends Activity {
 	private void startOrdersActivity(){
 		Intent intent = new Intent(DashBoardActivity.this, OrderActivity.class);
 		startActivity(intent);
+	}
+	
+	private void showOffer(Offer offer){
+		final AlertDialog.Builder alert = new AlertDialog.Builder(this);
+		
+		LinearLayout linear = new LinearLayout(this);
+		linear.setOrientation(1);
+		final EditText offerTeaser = new EditText(this);
+		offerTeaser.setText(offer.getTeaser());
+		final EditText offerPrice = new EditText(this);
+		offerPrice.setText(offer.getPrice());
+		
+		linear.addView(offerTeaser);
+		linear.addView(offerPrice);
+		
+		alert.setView(linear);
+		alert.setTitle("Hot Offer \"" + offer.getName() + "\"");
+		
+		alert.setPositiveButton("See more", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		alert.setNegativeButton("Close", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				finish();
+			}
+		});
+		
+		AlertDialog alertDilaog = alert.create();
+		alertDilaog.show();
 	}
 
 }
