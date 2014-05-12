@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -66,6 +66,10 @@ namespace DataEntryManager.Controllers
                 respone.State = ResponseState.FAIL;
             else
             {
+                _offer.Name = name.Value;
+                _offer.Price = float.Parse(price.Value);
+                _offer.Teaser = teaser.Value;
+
                 Offer offerSaved = _offer.save(Market.getInstance());
 
                 if (offerSaved == null)
