@@ -165,6 +165,14 @@ public class Product extends Model {
 		this.description= discription;
 		this.weight = weight;
 	}
+	public Product(String id, String name, String barcode, int  purchasedQuantity ,String weight,String discription) {
+		this.id = id;
+		this.name = name;
+		this.barcode = barcode;
+		this.purchasedQuantity = purchasedQuantity;
+		this.description= discription;
+		this.weight = weight;
+	}
 	
 	public void mirror(Product product)
 	{
