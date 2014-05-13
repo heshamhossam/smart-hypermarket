@@ -1,22 +1,21 @@
 package com.hci.smarthypermarket.views;
 
-import java.util.List;
-
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothDevice;
-import android.content.BroadcastReceiver;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hci.smarthypermarket.R;
@@ -48,23 +47,25 @@ public class DashBoardActivity extends Activity {
         ab.setDisplayShowHomeEnabled(false);
         
         
-//        enableBlutooth();
-//        shopper.startBlutoothTracking(getApplicationContext(), new OnBluetoothListener(){
-//			
-//			@Override
-//			public void onBlutoothFound(Bluetooth bluetooth)
-//			{
-//				if (bluetooth.getStrength() > -60)
-//				{
-//					Category category = LauncherActivity.market.findCategory(bluetooth);
-//					if (category != null)
-//						Toast.makeText(getApplicationContext(), "Welcome in " + category.getName() + " Section", Toast.LENGTH_LONG).show();
-//				                if(category.hasOffer != null){
-//                                                  showOffer(category.hasOffer);
-//                                               }
-//                               }
-//			}
-//		});
+        enableBlutooth();
+        shopper.startBlutoothTracking(getApplicationContext(), new OnBluetoothListener(){
+			
+			@Override
+			public void onBlutoothFound(Bluetooth bluetooth)
+			{
+				if (bluetooth.getStrength() > -60)
+				{
+					Category category = LauncherActivity.market.findCategory(bluetooth);
+					if (category != null)
+					{
+						Toast.makeText(getApplicationContext(), "Welcome in " + category.getName() + " Section", Toast.LENGTH_LONG).show();
+		                Offer offer = category.hasOffer(market.getOffers());
+		                if (offer != null)
+		                	showOffer(offer);
+					}
+               }
+			}
+		});
 
        
         
@@ -179,9 +180,9 @@ public class DashBoardActivity extends Activity {
 		
 		LinearLayout linear = new LinearLayout(this);
 		linear.setOrientation(1);
-		final EditText offerTeaser = new EditText(this);
+		final TextView offerTeaser = new TextView(getApplicationContext());
 		offerTeaser.setText(offer.getTeaser());
-		final EditText offerPrice = new EditText(this);
+		final TextView offerPrice = new TextView(getApplicationContext());
 		offerPrice.setText(offer.getPrice());
 		
 		linear.addView(offerTeaser);
@@ -203,8 +204,7 @@ public class DashBoardActivity extends Activity {
 			
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				// TODO Auto-generated method stub
-				finish();
+				
 			}
 		});
 		
