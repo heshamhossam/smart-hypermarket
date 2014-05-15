@@ -1,0 +1,116 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".OfferActivity" >
+
+    <TextView
+        android:id="@+id/offerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_gravity="center"
+        android:textColor="#333"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center" />
+    
+    <TableLayout
+        android:id="@+id/offerTable"
+        android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:gravity="center_horizontal"
+            android:layout_below="@id/offerName">
+        <TableRow>
+            <View
+                android:layout_span="2"
+                android:layout_width="wrap_content"
+                android:layout_height="0.5dp"
+                android:layout_weight="1"
+                android:background="#999" />
+        </TableRow>
+        <TableRow
+            android:layout_marginTop="15dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="right"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:text="@string/offerPrice" />
+            <TextView
+                android:id="@+id/offerPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="left"
+                android:textSize="16sp" />
+        </TableRow>
+        <TableRow>
+            <View
+                android:layout_marginTop="15dp"
+                android:layout_span="2"
+                android:layout_width="wrap_content"
+                android:layout_height="0.5dp"
+                android:layout_weight="1"
+                android:background="#999" />
+        </TableRow>
+        <TableRow
+            android:layout_marginTop="15dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="right"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:text="@string/offerTeaser" />
+            <TextView
+                android:id="@+id/offerTeaser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="left"
+                android:textSize="16sp" />
+        </TableRow>
+        <TableRow>
+            <View
+                android:layout_marginTop="15dp"
+                android:layout_span="2"
+                android:layout_width="wrap_content"
+                android:layout_height="0.5dp"
+                android:layout_weight="1"
+                android:background="#999" />
+        </TableRow>
+        <TableRow
+            android:layout_marginTop="15dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="right"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:text="@string/offerProducts" />
+         </TableRow>
+    </TableLayout>
+    <ListView
+          android:id="@+id/listViewOfferProducts"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_below="@id/offerTable"
+          android:layout_marginTop="15dp"
+          android:layout_marginLeft="10dp"
+          android:layout_gravity="right">
+     </ListView>
+
+
+</RelativeLayout>

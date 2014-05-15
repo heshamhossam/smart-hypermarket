@@ -22,25 +22,30 @@
     <string name="title_activity_reviews">Product Reviews</string>
     <string name="expandCategory">Expand Category</string>
     <string name="reviewBtn">Reviews</string>
-    
+
     <!-- Product details -->
     <string name="price">Price</string>
     <string name="description">Description</string>
     <string name="weight">Weight</string>
     <string name="brand">Brand</string>
-    
+
     <!-- DashBoard -->
     <string name="title_scan">Scan</string>
     <string name="title_cart">My Cart</string>
     <string name="title_browse">Browse</string>
     <string name="title_orders">Orders</string>
-    
+
     <!-- Order details -->
     <string name="orderId">Order Id</string>
     <string name="confirmCode">Code</string>
     <string name="state">State</string>
     <string name="totalPrice">Total Price</string>
     <string name="orderProducts">Products</string>
-
+    <string name="title_activity_offer">OfferActivity</string>
+    
+    <!-- Offer details -->
+    <string name="offerPrice">Price</string>
+    <string name="offerTeaser">Teaser</string>
+    <string name="offerProducts">Products</string>
 
 </resources>
