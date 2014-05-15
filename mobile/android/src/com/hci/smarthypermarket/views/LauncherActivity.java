@@ -32,32 +32,46 @@ public class LauncherActivity extends Activity {
 		
 		shopper = new Shopper(getApplicationContext());
 		
-		shopper.setModelHandler(new OnModelListener() {
-			
-			@Override
-			public void OnModelLocationChange() {
+		if (shopper.isConnectedToInternet(getApplicationContext()))
+		{
+			shopper.setModelHandler(new OnModelListener() {
 				
-				if (!onLocationChangeCalled && shopper.isConnectedToInternet(getApplicationContext()))
-				{
-					onLocationChangeCalled = true;
-					market = new Market(shopper.getLocation());
-					market.setModelHandler(new OnModelListener() {
+				@Override
+				public void OnModelLocationChange() {
+					
+					if (!onLocationChangeCalled)
+					{
+						onLocationChangeCalled = true;
+						market = new Market(shopper.getLocation());
+						market.setModelHandler(new OnModelListener() {
+							
+							@Override
+							public void OnModelRetrieved() {
+								shopper.setMarketId(market.getId());
+								startDashboardActivity();
+								
+							}
+						});
 						
-						@Override
-						public void OnModelRetrieved() {
-							shopper.setMarketId(market.getId());
-							
-							startDashboardActivity();
-							
-						}
-					});
+						
+						
+					}
+					
 				}
-				
-			}
-		});
+			});
+			
+			shopper.trackPosition(getApplicationContext());
+			
+		}
+		else
+		{
+			market = new Market("1", "home", true);
+			startDashboardActivity();
+		}
+		
+		
 
 		
-		shopper.trackPosition(this);
 		
 	}
 	

@@ -34,12 +34,14 @@ public class DashBoardActivity extends Activity {
 	Button StartOrders;
 	private Shopper shopper = LauncherActivity.shopper;
 	private Market market = LauncherActivity.market;
+	private Boolean sectionFound;
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_dash_board);
-		
+		sectionFound = false;
 		
 		ActionBar ab = getActionBar(); 
         ColorDrawable colorDrawable = new ColorDrawable(Color.rgb(10, 73, 88));     
@@ -47,25 +49,38 @@ public class DashBoardActivity extends Activity {
         ab.setDisplayShowHomeEnabled(false);
         
         
-        enableBlutooth();
+        //enableBlutooth();
+        
         shopper.startBlutoothTracking(getApplicationContext(), new OnBluetoothListener(){
 			
 			@Override
 			public void onBlutoothFound(Bluetooth bluetooth)
 			{
-				if (bluetooth.getStrength() > -60)
+				if (!sectionFound && bluetooth.getStrength() > -70)
 				{
 					Category category = LauncherActivity.market.findCategory(bluetooth);
+					
 					if (category != null)
 					{
-						Toast.makeText(getApplicationContext(), "Welcome in " + category.getName() + " Section", Toast.LENGTH_LONG).show();
-		                Offer offer = category.hasOffer(market.getOffers());
+						sectionFound = true;
+						Toast.makeText(getApplicationContext(), "Welcome in " + category.getName() + " Section", Toast.LENGTH_SHORT).show();
+						
+						Offer offer = null;
+						
+						if (shopper.isConnectedToInternet(getApplicationContext()))
+							offer = category.hasOffer(market.getOffers());
+						else
+							offer = category.getOffer();
+		                
 		                if (offer != null)
 		                	showOffer(offer);
 					}
+					
+						
                }
 			}
 		});
+
 
        
         
@@ -182,11 +197,11 @@ public class DashBoardActivity extends Activity {
 		linear.setOrientation(1);
 		final TextView offerTeaser = new TextView(getApplicationContext());
 		offerTeaser.setText(offer.getTeaser());
-		final TextView offerPrice = new TextView(getApplicationContext());
-		offerPrice.setText(offer.getPrice());
+		offerTeaser.setTextColor(Color.RED);
+		
 		
 		linear.addView(offerTeaser);
-		linear.addView(offerPrice);
+		
 		
 		alert.setView(linear);
 		alert.setTitle("Hot Offer \"" + offer.getName() + "\"");

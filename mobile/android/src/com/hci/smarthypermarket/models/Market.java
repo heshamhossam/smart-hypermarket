@@ -76,13 +76,41 @@ public class Market extends Model {
 	private String id;
 	private String name;
 	private Location location;
-	private List<Category> categories;
+	private List<Category> categories = new ArrayList<Category>();
 	private List<Offer> offers;
 	
 
 	public Market(String id,String Name) {
 		this.id = id;
 		this.name= Name;
+		
+	}
+	
+	public Market(String id,String Name, Boolean isStatic) {
+		this.id = id;
+		this.name= Name;
+		
+		Category categorySoda = new Category("2", "Soda");
+		categorySoda.setBluetooth(new Bluetooth("Soda", "Soda", 0));
+		categorySoda.getProducts().add(new Product("12", "Pepsi", "3607214116", (float) 24.5, "700", "this is a soda drink"));
+		categorySoda.setOffer(new Offer("Drink All Soda you want, Get it Now", "12", "Buy Three Pepsi Cans and get one Shweps for free", "5-7-1993", "5-7-2014", null));
+		
+		
+		Category categoryElectronics = new Category("4", "Electronics");
+		categoryElectronics.setBluetooth(new Bluetooth("Electronics", "Electronics", 0));
+		categoryElectronics.getProducts().add(new Product("23", "Headphone", "6920652801883", (float) 35.5, "700", "A Very Bad Headphone will damage your ears"));
+		categoryElectronics.getProducts().add(new Product("27", "Kinect", "6920652801883", (float) 699, "450", "This is a device where you can use it with xBox to play or with D.Ayman to develop."));
+		categoryElectronics.setOffer(new Offer("Buy Kinect or I'll Kill You", "57", "Buy Kinect Device and take headphone for free, Hurry up before its finished!", "5-7-1993", "5-7-2014", null));
+		
+		Category categoryBooks = new Category("5", "Books");
+		categoryBooks.setBluetooth(new Bluetooth("Books", "Books", 0));
+		categoryBooks.getProducts().add(new Product("28", "Medical Imaging", "0819436232", (float) 80, "400", "this is a CS Book"));
+		categoryBooks.getProducts().add(new Product("29", "Digital Image Processing", "9780982085400", (float) 87, "982", " a CS Book related to image manipulations"));
+		categoryBooks.setOffer(new Offer("Never Stop Reading", "120", "Buy Medical Imaging book and take Digital Image Processing Book for free, Hurry up now before It's out of stock", "5-7-1993", "5-7-2014", null));
+		
+		categories.add(categorySoda);
+		categories.add(categoryElectronics);
+		categories.add(categoryBooks);
 		
 	}
 	
@@ -133,23 +161,25 @@ public class Market extends Model {
 	
 	public Product findProduct(String barCode)
 	{
-		for (Category cat : this.categories) {
-			
-			for (Product product : cat.products) {
+		try
+		{
+			for (Category cat : this.categories) {
 				
-				try
-				{
-					if(product.getBarcode().toString().compareTo(barCode) == 0)
-						return product;
+				for (Product product : cat.products) {
+					
+						if(product.getBarcode().toString().compareTo(barCode) == 0)
+							return product;
 				}
-				catch (Exception e)
-				{
-					return null;
-				}
+				
 			}
-			
 		}
+		catch (Exception ex)
+		{
+			return null;
+		}
+		
 		return null;
+		
 		
 	}
 	
@@ -187,11 +217,13 @@ public class Market extends Model {
 	public Category findCategory(Bluetooth bluetooth){
 		
 		Category category = null;
-		
-		for(Category cat : this.getCategories()){
-			if(cat.getBluetooth().getName().compareTo(bluetooth.getName()) == 0) {
-				category = cat;
-				break;
+		if (this.getCategories() != null)
+		{
+			for(Category cat : this.getCategories()) {
+				if(cat.getBluetooth().getName().compareTo(bluetooth.getName()) == 0) {
+					category = cat;
+					break;
+				}
 			}
 		}
 		
