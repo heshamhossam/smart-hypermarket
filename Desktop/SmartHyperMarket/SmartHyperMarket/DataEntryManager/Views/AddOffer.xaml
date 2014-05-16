@@ -7,35 +7,43 @@
 	Title="AddOffer" Height="391.489" Width="445.745">
 
     <Grid>
-        <StackPanel Orientation="Vertical">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Offer Name" FontSize="25"/>
-                <TextBox Name="textBoxName" Height="47"  Margin="0,0,0,20" Width="315"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Teaser" FontSize="25" Width="129"></TextBlock>
-                <TextBox HorizontalAlignment="Left" Height="47" Name="textBoxTeaser" Margin="0,0,0,20" TextWrapping="Wrap" VerticalAlignment="Top" Width="317"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Height="47">
-                <TextBlock Text="Category" Height="74" FontSize="25" Margin="0,0,0,-27" Width="129"></TextBlock>
-                <ComboBox Name="comboBoxCategories" Width="317" Margin="0,0,0,10" SelectionChanged="categorylist_SelectionChanged" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Product" Height="74" FontSize="25" Width="129"></TextBlock>
-                <ComboBox Name="comboBoxProducts" Height="47" Width="119" Margin="0,0,0,20"></ComboBox>
-                <TextBlock Text="Quantatiy" Margin="10,0,0,0" FontSize="25"/>
-                <TextBox Width="79" Height="46" Name="textBoxQuantity" Margin="0,0,0,20"></TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Vertical" Height="135" Margin="306,0,0,0">
-                <Button  Content="Add TO Offer" Name="buttonAddToOffer"  Click="buttonAddToOffer_Click" Width="138" Margin="0,2,2,0" Height="33" VerticalAlignment="Top" HorizontalAlignment="Right"/>
-                <Button Content="Submit Offer" Height="33" Margin="0,2,3,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="137" Name="buttonSubmitOffer" Click="buttonSubmitOffer_Click"/>
-                <StackPanel Orientation="Horizontal" Height="67">
-                    <TextBlock Text="Total Price  " FontSize="20" Margin="0,21,0,0" Width="101" Height="46" VerticalAlignment="Top"></TextBlock>
-                    <TextBox Text="0" FontSize="20" Name="textBoxOfferPrice" Width="51" Margin="0,21,0,0" Height="46" VerticalAlignment="Top"/>
+        <Grid Name="grid1">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Name="textBlockName" Text="Offer Name" FontSize="25"/>
+                    <TextBox Name="textBoxName" Height="47"  Margin="0,0,0,20" Width="315"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Height="68">
+                    <TextBlock Name="textBlockTeaser" Text="Teaser" FontSize="25" Width="129"></TextBlock>
+                    <TextBox HorizontalAlignment="Left" Height="47" Name="textBoxTeaser" Margin="0,0,0,20" TextWrapping="Wrap" VerticalAlignment="Top" Width="317"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" Height="67" Width="306">
+                    <TextBlock x:Name="textBlockOfferPrice" Text="Total Price  " FontSize="20" Margin="0,14,0,0" Width="101" Height="46" VerticalAlignment="Top"/>
+                    <TextBox Text="0" FontSize="20" x:Name="textBoxOfferPrice" Width="51" Margin="0,12,0,0" Height="46" VerticalAlignment="Top"/>
+                </StackPanel>
+                <Button Content="Submit Offer" Height="33" Margin="0,24,3,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="137" x:Name="buttonSubmitOffer" Click="buttonSubmitOffer_Click"/>
                 </StackPanel>
             </StackPanel>
-        </StackPanel>
-        <ListBox Name="listBoxProductOffer" Margin="0,257,238,0"/>
-
+        </Grid>
+        <Grid Name="grid2">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" Height="47">
+                    <TextBlock Text="Category" Height="74" FontSize="25" Margin="0,0,0,-27" Width="129"></TextBlock>
+                    <ComboBox Name="comboBoxCategories" Width="317" Margin="0,0,0,10" SelectionChanged="categorylist_SelectionChanged" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Product" Height="74" FontSize="25" Width="129"></TextBlock>
+                    <ComboBox Name="comboBoxProducts" Height="47" Width="119" Margin="0,0,0,20"></ComboBox>
+                    <TextBlock Text="Quantatiy" Margin="10,0,0,0" FontSize="25"/>
+                    <TextBox Width="79" Height="46" Name="textBoxQuantity" Margin="0,0,0,20"></TextBox>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Height="135" Margin="306,0,0,0">
+                <Button Content="Add TO Offer" Name="buttonAddToOffer"  Click="buttonAddToOffer_Click" Width="138" Margin="0,2,2,0" Height="33" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+                <Button Content="Create Offer" Name="buttoncreateOffer" Click="buttonCreateOffer_Click" Width="138" Margin="0,2,2,0" Height="33" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+            </StackPanel>
+            <ListBox Name="listBoxProductOffer" Margin="59,132,179,125"/>
+        </Grid>
     </Grid>
 </Page>

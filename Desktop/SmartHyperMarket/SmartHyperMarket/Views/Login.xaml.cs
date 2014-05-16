@@ -38,6 +38,10 @@ namespace SmartHyperMarket.Views
                 //load employee and check his role
                 List<Employee> employees = SmartHyperMarket.Common.Models.Market.getInstance().Employees;
                 Employee loginEmployee = employees.Find(employee => employee.authenticate(textBoxUsername.Text, passwordBoxPassword.SecurePassword.ToString()));
+                #region mock_employee
+                loginEmployee = new Employee();
+                loginEmployee.Role = EmployeeRole.DATA_ENTRY;
+                #endregion
                 if (loginEmployee == null)
                     MessageBox.Show("Employees database hasn't fully loaded into the application");
                 else if (!loginEmployee.hasRole())
