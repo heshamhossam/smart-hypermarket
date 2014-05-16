@@ -1,22 +1,21 @@
 package com.hci.smarthypermarket.views;
 
-import java.util.List;
-
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothDevice;
-import android.content.BroadcastReceiver;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hci.smarthypermarket.R;
@@ -35,12 +34,14 @@ public class DashBoardActivity extends Activity {
 	Button StartOrders;
 	private Shopper shopper = LauncherActivity.shopper;
 	private Market market = LauncherActivity.market;
+	private Boolean sectionFound;
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_dash_board);
-		
+		sectionFound = false;
 		
 		ActionBar ab = getActionBar(); 
         ColorDrawable colorDrawable = new ColorDrawable(Color.rgb(10, 73, 88));     
@@ -48,20 +49,40 @@ public class DashBoardActivity extends Activity {
         ab.setDisplayShowHomeEnabled(false);
         
         
-//        enableBlutooth();
-//        shopper.startBlutoothTracking(getApplicationContext(), new OnBluetoothListener(){
-//			
-//			@Override
-//			public void onBlutoothFound(Bluetooth bluetooth)
-//			{
-//				if (bluetooth.getStrength() > -60)
-//				{
-//					Category category = LauncherActivity.market.findCategory(bluetooth);
-//					if (category != null)
-//						Toast.makeText(getApplicationContext(), "Welcome in " + category.getName() + " Section", Toast.LENGTH_LONG).show();
-//				}
-//			}
-//		});
+        //enableBlutooth();
+        
+        shopper.startBlutoothTracking(getApplicationContext(), new OnBluetoothListener(){
+			
+			@Override
+			public void onBlutoothFound(Bluetooth bluetooth)
+			{
+				if (!sectionFound && bluetooth.getStrength() > -70)
+				{
+					Category category = LauncherActivity.market.findCategory(bluetooth);
+					
+					if (category != null)
+					{
+						sectionFound = true;
+						Toast.makeText(getApplicationContext(), "Welcome in " + category.getName() + " Section", Toast.LENGTH_SHORT).show();
+						
+						Offer offer = null;
+						
+						if (shopper.isConnectedToInternet(getApplicationContext()))
+							offer = category.hasOffer(market.getOffers());
+						else
+							offer = category.getOffer();
+		                
+		                if (offer != null)
+		                	showOffer(offer);
+					}
+					
+						
+               }
+			}
+		});
+
+
+       
         
 		
         
@@ -167,6 +188,43 @@ public class DashBoardActivity extends Activity {
 	private void startOrdersActivity(){
 		Intent intent = new Intent(DashBoardActivity.this, OrderActivity.class);
 		startActivity(intent);
+	}
+	
+	private void showOffer(Offer offer){
+		final AlertDialog.Builder alert = new AlertDialog.Builder(this);
+		
+		LinearLayout linear = new LinearLayout(this);
+		linear.setOrientation(1);
+		final TextView offerTeaser = new TextView(getApplicationContext());
+		offerTeaser.setText(offer.getTeaser());
+		offerTeaser.setTextColor(Color.RED);
+		
+		
+		linear.addView(offerTeaser);
+		
+		
+		alert.setView(linear);
+		alert.setTitle("Hot Offer \"" + offer.getName() + "\"");
+		
+		alert.setPositiveButton("See more", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		alert.setNegativeButton("Close", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				
+			}
+		});
+		
+		AlertDialog alertDilaog = alert.create();
+		alertDilaog.show();
 	}
 
 }

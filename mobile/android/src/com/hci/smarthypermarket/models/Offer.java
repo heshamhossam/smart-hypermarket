@@ -142,5 +142,17 @@ public class Offer extends Model {
 		
 		return null;
 	}
+	
+	public String getName(){
+		return name;
+	}
+	
+	public String getPrice(){
+		return offerprice;
+	}
+	
+	public String getTeaser(){
+		return teaser;
+	}
 
 }

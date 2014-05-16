@@ -9,7 +9,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -159,7 +158,8 @@ public class Category extends Model {
 	protected Bluetooth bluetooth;
 	protected static List<Category> allCategories;
 	
-	protected List<Product> products;
+	protected List<Product> products = new ArrayList<Product>();
+	protected Offer offer;
 	
 	
 	
@@ -172,6 +172,9 @@ public class Category extends Model {
 	{
 		this.id = id;
 		this.name = name;
+		
+		
+				
 	
 	}
 	
@@ -227,12 +230,25 @@ public class Category extends Model {
 	}
 	
 	
-	public Boolean hasOffer(List<Offer> offer)
+	public Offer hasOffer(List<Offer> offers)
 	{
-		//implement de ya zeft
-		return true;
+		
+		if(!offers.isEmpty()){
+			for(Offer offer : offers){
+				for(Product product : offer.getProducts()){
+					
+					for(Product catProduct : this.getProducts()){
+						if(catProduct.getId().equals(product.getId())){
+							return offer;
+						}
+					}
+					
+				}
+			}
+		}
+		
+		return null;
 	}
-	
 	
 	public Bluetooth getBluetooth() {
 		return bluetooth;
@@ -241,6 +257,14 @@ public class Category extends Model {
    {
 	   this.bluetooth=bluetooth;
    }
+
+public Offer getOffer() {
+	return offer;
+}
+
+public void setOffer(Offer offer) {
+	this.offer = offer;
+}
 	
 
 

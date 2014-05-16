@@ -80,7 +80,7 @@ abstract class PersonlocationListener implements LocationListener
 	}
 
 	@Override
-	public void onProviderEnabled(String provider) {
+	public void onProviderEnabled(String provider) { 
 		// TODO Auto-generated method stub
 		
 	}
@@ -153,28 +153,39 @@ public class Shopper extends Model {
 	public void startBlutoothTracking(final Context activityContext, final OnBluetoothListener bluetoothListener)
 	{
 		
-		Toast.makeText(activityContext, "Searching In Market Sections...", Toast.LENGTH_LONG).show();
-		mBluetoothAdapter.startDiscovery();
-		/* Search for bluetooth */
-		mReceiver = new BroadcastReceiver(){
-			@Override
-			public void onReceive(Context context, Intent intent) {
-				String action = intent.getAction();
-				// Finding Devices
-				if(BluetoothDevice.ACTION_FOUND.equals(action)){
-					BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
-					int bluetoothstrength = intent.getShortExtra(BluetoothDevice.EXTRA_RSSI,Short.MIN_VALUE);
-					
-					// Define bluetooth object
-					BluetoothObject = new Bluetooth(device.getName(), device.getAddress(), bluetoothstrength);
-					bluetoothListener.onBlutoothFound(BluetoothObject);
-				}
-			}
-			
-		};
 		
-		IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
-		activityContext.registerReceiver(mReceiver, filter);
+		try
+		{
+			Toast.makeText(activityContext, "Searching in Market Sections...", Toast.LENGTH_SHORT).show();
+			
+			mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+			
+			mBluetoothAdapter.startDiscovery();
+			/* Search for bluetooth */
+			mReceiver = new BroadcastReceiver(){
+				@Override
+				public void onReceive(Context context, Intent intent) {
+					String action = intent.getAction();
+					// Finding Devices
+					if(BluetoothDevice.ACTION_FOUND.equals(action)){
+						BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+						int bluetoothstrength = intent.getShortExtra(BluetoothDevice.EXTRA_RSSI,Short.MIN_VALUE);
+						
+						// Define bluetooth object
+						BluetoothObject = new Bluetooth(device.getName(), device.getAddress(), bluetoothstrength);
+						bluetoothListener.onBlutoothFound(BluetoothObject);
+					}
+				}
+				
+			};
+			
+			IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
+			activityContext.registerReceiver(mReceiver, filter);
+		}
+		catch(Exception e)
+		{
+			Toast.makeText(activityContext, "We wish you happy shpping!!", Toast.LENGTH_SHORT).show();
+		}
 	}
 	
 	public Location getLocation() {
