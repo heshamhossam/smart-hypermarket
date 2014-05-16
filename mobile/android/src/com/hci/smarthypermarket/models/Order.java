@@ -29,6 +29,8 @@ public class Order extends Model {
 	public static final String DONE = "DONE";
 	
 	private ArrayList<Product> products = new ArrayList<Product>();
+	private ArrayList<Offer> offers = new ArrayList<Offer>();
+	
 	private String id;
 	private String confirmationCode;
 	private String state;
@@ -119,6 +121,11 @@ public class Order extends Model {
 		}
 		
 		return totalCost;
+	}
+
+
+	public ArrayList<Offer> getOffers() {
+		return offers;
 	}
 	
 	
