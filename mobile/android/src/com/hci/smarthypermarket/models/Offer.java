@@ -138,6 +138,15 @@ public class Offer extends Model implements IShowableItem {
 	public List<Product> getProducts() {
 		return products;
 	}
+	
+	public List<IShowableItem> getShowableItems() {
+		List<IShowableItem> showableItems = new ArrayList<IShowableItem>();
+		for (Product product : this.products) {
+			showableItems.add(product);
+		}
+		return showableItems;
+	}
+	
 	public static List<Offer> getAllOffers() {
 		
 		if (isAllFetched)

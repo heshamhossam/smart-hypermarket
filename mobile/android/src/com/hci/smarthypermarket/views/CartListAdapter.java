@@ -14,12 +14,12 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-public class CartListAdapter extends ArrayAdapter<Product> {
+public class CartListAdapter extends ArrayAdapter<IShowableItem> {
 	
 	private Activity _actvitiy;
-	private List<Product> _products;
+	private List<IShowableItem> _products;
 	
-	public CartListAdapter(Activity activityContext, List<Product> products) {
+	public CartListAdapter(Activity activityContext, List<IShowableItem> products) {
 		super(activityContext, R.layout.item_cart, products);
 		_actvitiy=activityContext;
 		_products = products;
@@ -34,7 +34,7 @@ public class CartListAdapter extends ArrayAdapter<Product> {
 		}
 		
 		// Find the car to work with.
-		Product currentProduct = _products.get(position);
+		IShowableItem currentProduct = _products.get(position);
 		
 		
 		// Name:
@@ -44,11 +44,11 @@ public class CartListAdapter extends ArrayAdapter<Product> {
 		// PRICE:
 		TextView condionText = (TextView) itemView.findViewById(R.id.textViewProductPrice);
 		//condionText.setText(Double.toString(currentProduct.getTotalPrice()) + "$");
-		condionText.setText(String.valueOf(currentProduct.getTotalPrice() + "$"));
+		condionText.setText(String.valueOf(currentProduct.getPrice() + "$"));
 		
 		// Countity:
 		TextView Countity = (TextView) itemView.findViewById(R.id.textViewCountity);
-		Countity.setText(""+currentProduct.getPurchasedQuantity());
+		Countity.setText(""+currentProduct.getQuantity());
 		return itemView;
 	}				
 }

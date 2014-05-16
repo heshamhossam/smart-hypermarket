@@ -49,8 +49,8 @@ public class Order extends Model {
 
 
 	public void showProductsItems(Activity activity, ListView listProducts) {
-		ArrayAdapter<Product> adapter = new CartListAdapter(activity, products);
-		listProducts.setAdapter(adapter);
+//		ArrayAdapter<Product> adapter = new CartListAdapter(activity, products);
+//		listProducts.setAdapter(adapter);
 		
 	}
 
