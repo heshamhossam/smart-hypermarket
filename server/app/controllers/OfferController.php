@@ -86,6 +86,7 @@ class OfferController extends BaseController {
             $offer->name = Input::has("name") ? Input::get("name") : $offer->name;
             $offer->price = Input::has("price") ? Input::get("price") : $offer->price;
             $offer->teaser = Input::has("teaser") ? Input::get("teaser") : $offer->teaser;
+            $offer->update();
             return $offer;
         }
         else
