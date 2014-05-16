@@ -1,0 +1,25 @@
+﻿<Page x:Class="SmartHyperMarket.Views.Login"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+	Title="Login">
+
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Vertical">
+                <Label Content="Username" />
+                <TextBox Text="hesham" Name="textBoxUsername" ToolTip="Write your username to login" ></TextBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical">
+                <Label Content="Password" />
+                <PasswordBox Name="passwordBoxPassword" ToolTip="Write your password to login" />
+                
+            </StackPanel>
+            <Button Content="Log me In" Name="buttonLogin" Click="buttonLogin_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

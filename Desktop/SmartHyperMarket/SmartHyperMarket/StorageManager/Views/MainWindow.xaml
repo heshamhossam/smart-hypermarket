@@ -1,0 +1,17 @@
+﻿<mui:ModernWindow x:Class="SmartHyperMarket.StorageManager.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+  Title="MainWindow" Height="600" Width="800"
+  ContentSource="StorageManager/Views/OrdersListingPage.xaml">
+
+    <mui:ModernWindow.MenuLinkGroups>
+        <mui:LinkGroup DisplayName="Navigation" >
+            <mui:LinkGroup.Links>
+                <mui:Link DisplayName="Orders" Source="StorageManager/Views/OrdersListingPage.xaml" />
+                <mui:Link DisplayName="Open Order" Source="StorageManager/Views/OrderOpenPage.xaml" />
+            </mui:LinkGroup.Links>
+        </mui:LinkGroup>
+    </mui:ModernWindow.MenuLinkGroups>
+
+    </mui:ModernWindow>
