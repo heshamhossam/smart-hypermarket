@@ -40,3 +40,9 @@ C:\Users\Hesham\Documents\Visual Studio 2013\Projects\SmartHyperMarket\SmartHype
 C:\Users\Hesham\Documents\Visual Studio 2013\Projects\SmartHyperMarket\SmartHyperMarket\obj\Debug\StorageManager\Views\OrderDetailsWindow.g.cs
 C:\Users\Hesham\Documents\Visual Studio 2013\Projects\SmartHyperMarket\SmartHyperMarket\obj\Debug\Views\Login.baml
 C:\Users\Hesham\Documents\Visual Studio 2013\Projects\SmartHyperMarket\SmartHyperMarket\obj\Debug\Views\Login.g.cs
+C:\Users\Shafik\Documents\Visual Studio 2013\Projects\smart-hypermarket_2\Desktop\SmartHyperMarket\SmartHyperMarket\bin\Debug\SmartHyperMarket.exe.config
+C:\Users\Shafik\Documents\Visual Studio 2013\Projects\smart-hypermarket_2\Desktop\SmartHyperMarket\SmartHyperMarket\obj\Debug\SmartHyperMarket.exe
+C:\Users\Shafik\Documents\Visual Studio 2013\Projects\smart-hypermarket_2\Desktop\SmartHyperMarket\SmartHyperMarket\obj\Debug\SmartHyperMarket.pdb
+C:\Users\Shafik\Documents\Visual Studio 2013\Projects\smart-hypermarket\Desktop\SmartHyperMarket\SmartHyperMarket\bin\Debug\SmartHyperMarket.exe.config
+C:\Users\Shafik\Documents\Visual Studio 2013\Projects\smart-hypermarket\Desktop\SmartHyperMarket\SmartHyperMarket\obj\Debug\SmartHyperMarket.exe
+C:\Users\Shafik\Documents\Visual Studio 2013\Projects\smart-hypermarket\Desktop\SmartHyperMarket\SmartHyperMarket\obj\Debug\SmartHyperMarket.pdb
