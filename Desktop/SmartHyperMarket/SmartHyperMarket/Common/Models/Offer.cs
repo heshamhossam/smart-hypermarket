@@ -74,7 +74,10 @@ namespace SmartHyperMarket.Common.Models
             this._market = market;
         }
 
+        public Offer()
+        {
 
+        }
         
 
         public override bool update()
@@ -115,19 +118,11 @@ namespace SmartHyperMarket.Common.Models
 
         public static List<Offer> all(Market market)
         {
-            string url = WebserviceURLFull + "/retrieve?market_id=" + market.Id.ToString();
+            List<Offer> offers = new List<Offer>();
+                
+            //implemenet de ya shafik
 
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
-            StreamReader sr = new StreamReader(response.GetResponseStream());
-
-            string data = sr.ReadToEnd();
-
-            List<Offer> list = JsonConvert.DeserializeObject<List<Offer>>(data);
-
-            return list;
+            return offers;
         }
     }
 }

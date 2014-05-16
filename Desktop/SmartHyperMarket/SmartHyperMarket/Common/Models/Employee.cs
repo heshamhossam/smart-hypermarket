@@ -11,7 +11,7 @@ namespace SmartHyperMarket.Common.Models
         DATA_ENTRY, STORAGE, ADMIN
     }
 
-    class Employee : Model<Employee>
+    public class Employee : Model<Employee>
     {
         private string _firstName;
         private string _lastName;
