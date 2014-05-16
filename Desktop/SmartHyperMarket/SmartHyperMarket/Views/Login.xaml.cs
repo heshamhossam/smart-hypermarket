@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SmartHyperMarket.Common.Models;
 
 namespace SmartHyperMarket.Views
 {
@@ -35,10 +36,34 @@ namespace SmartHyperMarket.Views
             if (responseLogin.State == ResponseState.SUCCESS)
             {
                 //load employee and check his role
-                //then open the window you window you want and hide this one
-                SmartHyperMarket.DataEntryManager.Views.MainWindow dataEntryWindow = new DataEntryManager.Views.MainWindow();
-                dataEntryWindow.Show();
-                Application.Current.MainWindow.Visibility = System.Windows.Visibility.Hidden;
+                List<Employee> employees = SmartHyperMarket.Common.Models.Market.getInstance().Employees;
+                Employee loginEmployee = employees.Find(employee => employee.authenticate(textBoxUsername.Text, passwordBoxPassword.SecurePassword.ToString()));
+                if (loginEmployee == null)
+                    MessageBox.Show("Employees database hasn't fully loaded into the application");
+                else if (!loginEmployee.hasRole())
+                    MessageBox.Show("Employee has no role");
+                else
+                {
+                    //open the window related to Employee role and hide log in window
+                    switch (loginEmployee.Role)
+                    {
+                        case EmployeeRole.ADMIN:
+                            break;
+                        case EmployeeRole.DATA_ENTRY:
+                            SmartHyperMarket.DataEntryManager.Views.MainWindow dataEntryWindow = new DataEntryManager.Views.MainWindow();
+                            dataEntryWindow.Show();
+                            Application.Current.MainWindow.Visibility = System.Windows.Visibility.Hidden;
+                            break;
+                        case EmployeeRole.STORAGE:
+                            SmartHyperMarket.StorageManager.Views.MainWindow storageWindow = new StorageManager.Views.MainWindow();
+                            storageWindow.Show();
+                            Application.Current.MainWindow.Visibility = System.Windows.Visibility.Hidden;
+                            break;
+                        default:
+                            MessageBox.Show("Employee role is not defined to application system");
+                            break;
+                    }
+                }
             }
             else
                 MessageBox.Show(responseLogin.Errors[0].ErrorMessage);

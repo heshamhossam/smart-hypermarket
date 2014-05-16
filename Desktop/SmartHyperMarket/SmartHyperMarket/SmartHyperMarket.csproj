@@ -131,6 +131,7 @@
     <Compile Include="Common\Controllers\Input.cs" />
     <Compile Include="Common\Controllers\Response.cs" />
     <Compile Include="Common\Models\Category.cs" />
+    <Compile Include="Common\Models\Employee.cs" />
     <Compile Include="Common\Models\ICategory.cs" />
     <Compile Include="Common\Models\IMarket.cs" />
     <Compile Include="Common\Models\IOrder.cs" />

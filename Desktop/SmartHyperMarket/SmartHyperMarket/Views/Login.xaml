@@ -11,7 +11,7 @@
         <StackPanel Orientation="Vertical">
             <StackPanel Orientation="Vertical">
                 <Label Content="Username" />
-                <TextBox Text="hesham" Name="textBoxUsername" ToolTip="Write your username to login" ></TextBox>
+                <TextBox Name="textBoxUsername" ToolTip="Write your username to login" ></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Vertical">

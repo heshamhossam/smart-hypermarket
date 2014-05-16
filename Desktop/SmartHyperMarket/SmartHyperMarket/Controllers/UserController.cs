@@ -12,6 +12,7 @@ namespace SmartHyperMarket.Controllers
         public Response login(params Input[] inputs)
         {
             Response response = new Response();
+            
             response.State = ResponseState.SUCCESS;
             return response;
         }

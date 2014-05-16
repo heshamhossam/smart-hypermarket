@@ -11,13 +11,24 @@ namespace SmartHyperMarket.Common.Models
         DATA_ENTRY, STORAGE, ADMIN
     }
 
-    class Employee : Model<Employee>
+    public class Employee : Model<Employee>
     {
         private string _firstName;
         private string _lastName;
         private string _username;
         private string _password;
         private EmployeeRole _role;
+
+        internal EmployeeRole Role
+        {
+            get { return _role; }
+            set { _role = value; }
+        }
+
+        public bool hasRole()
+        {
+            return (_role == null ? false : true);
+        }
 
         public bool authenticate(string username, string password)
         {
