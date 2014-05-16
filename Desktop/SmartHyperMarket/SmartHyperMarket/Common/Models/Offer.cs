@@ -74,7 +74,10 @@ namespace SmartHyperMarket.Common.Models
             this._market = market;
         }
 
+        public Offer()
+        {
 
+        }
         
 
         public override bool update()

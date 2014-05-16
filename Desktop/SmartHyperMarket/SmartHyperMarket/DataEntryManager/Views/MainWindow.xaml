@@ -11,6 +11,7 @@
                 <mui:Link DisplayName="Show Products" Source="DataEntryManager/Views/ShowProducts.xaml" />
                 <mui:Link DisplayName="Add Product" Source="DataEntryManager/Views/AddProduct.xaml" />
                 <mui:Link DisplayName="Add Offer" Source="DataEntryManager/Views/AddOffer.xaml" />
+                <mui:Link DisplayName="Show Offers" Source="DataEntryManager/Views/ShowOffers.xaml" />
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
     </mui:ModernWindow.MenuLinkGroups>

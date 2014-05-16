@@ -1,10 +1,5 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
  * Description of ShopperController
@@ -107,20 +102,5 @@ class ShopperController extends BaseController {
     }
 
     
-    public function retrieveOffers()
-    {
-        $marketId = Input::has("market_id") ? Input::get("market_id") : 0;
-        
-        $market = Market::find($marketId);
-        $offers = array();
-        
-        if ($market)
-        {
-            
-            $offers = $market->getOffers()->toArray();
-            
-        }
-        
-        return Response::json(array("offers" => $offers));
-    }
+    
 }
