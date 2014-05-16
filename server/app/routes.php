@@ -111,22 +111,32 @@ Route::get("/reviews/create", array(
 
 //Route::get("/offers/create", array(
 //    "as" => "offers-create",
-//    "uses" => "MarketController@getCreateOfferForm"
+//    "uses" => "OfferController@getCreateOfferForm"
 //));
 
 Route::get("/offers/create", array(
     "as" => "offers-create",
-    "uses" => "MarketController@createOffer"
+    "uses" => "OfferController@create"
 ));
 
 Route::post("/offers/create", array(
     "as" => "offers-create-post",
-    "uses" => "MarketController@createOffer"
+    "uses" => "OfferController@create"
 ));
 
 Route::get("/offers/retrieve", array(
     "as" => "offers-retrieve",
-    "uses" => "ShopperController@retrieveOffers"
+    "uses" => "OfferController@retrieve"
+));
+
+Route::get("/offers/delete", array(
+    "as" => "offers-delete",
+    "uses" => "OfferController@delete"
+));
+
+Route::get("/offers/edit", array(
+    "as" => "offers-edit",
+    "uses" => "OfferController@edit"
 ));
 
 //Route::get("/orders/create", function()
