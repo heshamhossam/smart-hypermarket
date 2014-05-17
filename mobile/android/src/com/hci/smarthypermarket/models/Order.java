@@ -4,18 +4,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import com.hci.smarthypermarket.views.CartListAdapter;
+import com.hci.smarthypermarket.views.IShowableItem;
 
 
-import android.R.string;
 import android.app.Activity;
-import android.os.AsyncTask;
-import android.util.Log;
+
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -49,9 +43,8 @@ public class Order extends Model {
 
 
 	public void showProductsItems(Activity activity, ListView listProducts) {
-//		ArrayAdapter<Product> adapter = new CartListAdapter(activity, products);
-//		listProducts.setAdapter(adapter);
-		
+		ArrayAdapter<IShowableItem> adapter = new CartListAdapter(activity, this.getAllShowableItems());
+		listProducts.setAdapter(adapter);
 	}
 
 	public ArrayList<Product> getProducts() {
@@ -128,7 +121,16 @@ public class Order extends Model {
 		return offers;
 	}
 	
-	
+	public List<IShowableItem> getAllShowableItems(){
+		List<IShowableItem> showableItems = new ArrayList<IShowableItem>();
+		for(Product product : this.products){
+			showableItems.add(product);
+		}
+		for(Offer offer : this.offers){
+			showableItems.add(offer);
+		}
+		return showableItems;
+	}
 
 
 

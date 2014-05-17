@@ -3,10 +3,6 @@ package com.hci.smarthypermarket.views;
 import java.util.List;
 
 import com.hci.smarthypermarket.R;
-import com.hci.smarthypermarket.R.id;
-import com.hci.smarthypermarket.R.layout;
-import com.hci.smarthypermarket.models.Product;
-import com.hci.smarthypermarket.models.Review;
 
 import android.app.Activity;
 import android.view.View;
@@ -17,12 +13,12 @@ import android.widget.TextView;
 public class CartListAdapter extends ArrayAdapter<IShowableItem> {
 	
 	private Activity _actvitiy;
-	private List<IShowableItem> _products;
+	private List<IShowableItem> _items;
 	
-	public CartListAdapter(Activity activityContext, List<IShowableItem> products) {
-		super(activityContext, R.layout.item_cart, products);
+	public CartListAdapter(Activity activityContext, List<IShowableItem> items) {
+		super(activityContext, R.layout.item_cart, items);
 		_actvitiy=activityContext;
-		_products = products;
+		_items = items;
 	}
 
 	@Override
@@ -34,12 +30,12 @@ public class CartListAdapter extends ArrayAdapter<IShowableItem> {
 		}
 		
 		// Find the car to work with.
-		IShowableItem currentProduct = _products.get(position);
+		IShowableItem currentProduct = _items.get(position);
 		
 		
 		// Name:
 		TextView Name = (TextView) itemView.findViewById(R.id.textViewZeft);
-		Name.setText("" + currentProduct.getName());
+		Name.setText("" + currentProduct.getName().substring(0, 10)+"...");
 		
 		// PRICE:
 		TextView condionText = (TextView) itemView.findViewById(R.id.textViewProductPrice);
