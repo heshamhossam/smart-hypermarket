@@ -39,3 +39,4 @@ C:\Users\Shafik\Documents\Visual Studio 2013\Projects\smart-hypermarket\Desktop\
 C:\Users\Shafik\Documents\Visual Studio 2013\Projects\smart-hypermarket\Desktop\SmartHyperMarket\SmartHyperMarket\obj\Debug\SmartHyperMarket.csproj.GenerateResource.Cache
 C:\Users\Shafik\Documents\Visual Studio 2013\Projects\smart-hypermarket\Desktop\SmartHyperMarket\SmartHyperMarket\obj\Debug\SmartHyperMarket.exe
 C:\Users\Shafik\Documents\Visual Studio 2013\Projects\smart-hypermarket\Desktop\SmartHyperMarket\SmartHyperMarket\obj\Debug\SmartHyperMarket.pdb
+C:\Users\Shafik\Documents\Visual Studio 2013\Projects\smart-hypermarket\Desktop\SmartHyperMarket\SmartHyperMarket\obj\Debug\SmartHyperMarket.csprojResolveAssemblyReference.cache

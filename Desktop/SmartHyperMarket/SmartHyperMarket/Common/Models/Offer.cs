@@ -28,43 +28,43 @@ namespace SmartHyperMarket.Common.Models
 
 
 
-        public List<Product> products
+        public List<Product> Products
         {
             set { _products = value; }
             get { return _products; }
 
         }
-        public string name
+        public string Name
         {
             set { _name = value; }
             get { return _name; }
         }
-        public string price
+        public string Price
         {
             set { _price = value; }
             get { return _price; }
         }
-        public string id
+        public string Id
         {
             set { _id = value; }
             get { return _id; }
         }
-        public string teaser
+        public string Teaser
         {
             set { _teaser = value; }
             get { return _teaser; }
         }
-        public string market_id
+        public string Market_id
         {
             set { _market_id = value; }
             get { return _market_id; }
         }
-        public string created_at
+        public string Created_at
         {
             set { _created_at = value; }
             get { return _created_at; }
         }
-        public string updated_at
+        public string Updated_at
         {
             set { _updated_at = value; }
             get { return _updated_at; }
@@ -98,9 +98,9 @@ namespace SmartHyperMarket.Common.Models
 
         public override bool update()
         {
-            string tempt = this.teaser.Replace(" ", "%20");
-            string tempn = this.name.Replace(" ", "%20");
-            string url = WebserviceURLFull + "/edit?offer_id="+this.id+"&name="+tempn+"&teaser="+tempt+"&price="+this.price;
+            string tempt = this.Teaser.Replace(" ", "%20");
+            string tempn = this.Name.Replace(" ", "%20");
+            string url = WebserviceURLFull + "/edit?offer_id="+this.Id+"&name="+tempn+"&teaser="+tempt+"&price="+this.Price;
             
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
 
@@ -111,7 +111,7 @@ namespace SmartHyperMarket.Common.Models
 
         public override bool delete()
         {
-           string url = WebserviceURLFull + "/delete?offer_id=" + this.id;
+           string url = WebserviceURLFull + "/delete?offer_id=" + this.Id;
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
 
@@ -125,7 +125,7 @@ namespace SmartHyperMarket.Common.Models
         {
             string URL = WebserviceURLFull + "/create?";
 
-            URL = URL + "&teaser=" + teaser + "&name=" + name + "&price=" + price.ToString() + "&market_id=" + _market.Id;
+            URL = URL + "&teaser=" + Teaser + "&name=" + Name + "&price=" + Price.ToString() + "&market_id=" + _market.Id;
 
             for (int i = 0; i < _products.Count; i++)
             {

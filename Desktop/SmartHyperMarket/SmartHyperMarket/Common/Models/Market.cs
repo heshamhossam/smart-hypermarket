@@ -98,10 +98,10 @@ namespace SmartHyperMarket.Common.Models
             //search for offers in offers
             //if found update it with the new offer in the param and return true and fire the onofferchange event if not null
             //else return false
-            if (offers.Exists(o=> o.id == offer.id))
+            if (offers.Exists(o=> o.Id == offer.Id))
             {
                 offer.update();
-                offers[offers.FindIndex(ind => ind.id == offer.id)] = offer;
+                offers[offers.FindIndex(ind => ind.Id == offer.Id)] = offer;
                 onOffersChangeHandler();
                 return true;
             }
@@ -111,9 +111,9 @@ namespace SmartHyperMarket.Common.Models
 
         public bool deleteOffer(Offer offer)
         {
-            if (offers.Exists(o => o.id == offer.id))
+            if (offers.Exists(o => o.Id == offer.Id))
             {
-                int temp = offers.IndexOf(offers.Single(o => o.id == offer.id));
+                int temp = offers.IndexOf(offers.Single(o => o.Id == offer.Id));
                 offers.RemoveAt(temp);
                 offer.delete();
                 onOffersChangeHandler();
@@ -125,7 +125,7 @@ namespace SmartHyperMarket.Common.Models
 
         public bool addOffer(Offer offer)
         {
-            if (offers.Exists(o => o.id == offer.id))
+            if (offers.Exists(o => o.Id == offer.Id))
                 return false;
             else
             {
