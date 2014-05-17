@@ -72,9 +72,9 @@ namespace SmartHyperMarket.DataEntryManager.Controllers
                 _offer.price = (price.Value);
                 _offer.teaser = teaser.Value;
 
-                Offer offerSaved = _offer.save();
+                bool offerSaved = Market.getInstance().addOffer(_offer);
 
-                if (offerSaved == null)
+                if (!offerSaved)
                 {
                     
                     respone.Errors.Add(new Error("Unknown error happend while saving product, please try again later"));
@@ -88,6 +88,18 @@ namespace SmartHyperMarket.DataEntryManager.Controllers
 
             return respone;
         }
+        
+        public Response editOffer(params Input[] inputs)
+        {
+            Response respone = new Response();
+
+            respone.State = ResponseState.SUCCESS;
+
+
+
+            return respone;
+        }
+        
     }
 }
 
