@@ -20,8 +20,16 @@ namespace SmartHyperMarket.Common.Models
         private string _market_id;
         private string _created_at;
         private string _updated_at;
-        public List<Product> products;
+        private List<Product> _products;
 
+
+
+        public List<Product> products
+        {
+            set { _products = value; }
+            get { return _products; }
+
+        }
         public string name
         {
             set { _name = value; }
@@ -66,7 +74,7 @@ namespace SmartHyperMarket.Common.Models
         public Offer(List<Product> products, string teaser, string offername, string totalprice, Market market)
         {
 
-            this.products = products;
+            this._products = products;
             this._teaser = teaser;
             this._name = offername;
             this._price = totalprice;
@@ -86,8 +94,8 @@ namespace SmartHyperMarket.Common.Models
 
         public override bool update()
         {
-            string tempt = this.teaser.Replace(" ", "%");
-            string tempn = this.name.Replace(" ", "%");
+            string tempt = this.teaser.Replace(" ", "%20");
+            string tempn = this.name.Replace(" ", "%20");
             string url = WebserviceURLFull + "/edit?offer_id="+this.id+"&name="+tempn+"&teaser="+tempt+"&price="+this.price;
             
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
@@ -115,10 +123,10 @@ namespace SmartHyperMarket.Common.Models
 
             URL += "teaser=" + teaser + "&name=" + name + "&price=" + price.ToString() + "&market_id=" + _market.Id;
 
-            for (int i = 0; i < products.Count; i++)
+            for (int i = 0; i < _products.Count; i++)
             {
-                URL += "&product_id" + i.ToString() + "=" + products[i].Id;
-                URL += "&product_quantity" + i.ToString() + "=" + products[i].Quantity.ToString();
+                URL += "&product_id" + i.ToString() + "=" + _products[i].Id;
+                URL += "&product_quantity" + i.ToString() + "=" + _products[i].Quantity.ToString();
             }
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(URL);
@@ -145,12 +153,10 @@ namespace SmartHyperMarket.Common.Models
             StreamReader sr = new StreamReader(response.GetResponseStream());
 
             string data = sr.ReadToEnd();
-
-          List<Offer> list =new List<Offer>();
-
-        //    List<Offer> list = JsonConvert.DeserializeObject<List<Offer>>(data);
+            List<Offer> list = new List<Offer>();
+        // List<Offer> list = JsonConvert.DeserializeObject<List<Offer>>(data);
             Offer datalist = JsonConvert.DeserializeObject<Offer>(data);
-            MessageBox.Show(datalist.id);
+            MessageBox.Show(datalist.id);   
             return list;
         }
     }
