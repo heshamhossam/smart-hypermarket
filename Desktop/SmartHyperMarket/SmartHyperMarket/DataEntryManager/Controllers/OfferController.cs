@@ -41,7 +41,7 @@ namespace SmartHyperMarket.DataEntryManager.Controllers
                 else
                     respone.Errors.Add(new Error("ID isn't integer"));
 
-                _offer.Products.Add(product);
+                _offer.products.Add(product);
             }
 
             return respone;
@@ -68,9 +68,9 @@ namespace SmartHyperMarket.DataEntryManager.Controllers
                 respone.State = ResponseState.FAIL;
             else
             {
-                _offer.Name = name.Value;
-                _offer.Price = float.Parse(price.Value);
-                _offer.Teaser = teaser.Value;
+                _offer.name = name.Value;
+                _offer.price = (price.Value);
+                _offer.teaser = teaser.Value;
 
                 Offer offerSaved = _offer.save();
 

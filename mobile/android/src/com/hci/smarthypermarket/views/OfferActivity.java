@@ -1,9 +1,6 @@
 package com.hci.smarthypermarket.views;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.hci.smarthypermarket.R;
 import com.hci.smarthypermarket.models.Bluetooth;
 import com.hci.smarthypermarket.models.Category;
