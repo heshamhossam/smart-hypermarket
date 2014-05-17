@@ -31,7 +31,7 @@ namespace SmartHyperMarket.DataEntryManager.Views
             InitializeComponent();
             market = Market.getInstance();
            
-            LoadCategoriesList();
+            LoadCategoriesList();          
         }
 
         private void LoadCategoriesList()
