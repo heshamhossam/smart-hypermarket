@@ -29,9 +29,14 @@ namespace SmartHyperMarket.DataEntryManager.Views
         public AddOffer()
         {
             InitializeComponent();
+            grid1.Visibility = Visibility.Hidden;
             market = Market.getInstance();
+<<<<<<< HEAD
            
             LoadCategoriesList();          
+=======
+            LoadCategoriesList();
+>>>>>>> ce3ac63cb8de6c8c0a8ec148fb59ed93a481726d
         }
 
         private void LoadCategoriesList()
@@ -57,8 +62,6 @@ namespace SmartHyperMarket.DataEntryManager.Views
 
         private void buttonAddToOffer_Click(object sender, RoutedEventArgs e)
         {
-           
-
             Product product = market.Products.Where(p => p.Name == comboBoxProducts.SelectedItem.ToString()).ElementAt(0);
 
             Response response = _offercontroller.addProductToOffer(
@@ -97,6 +100,12 @@ namespace SmartHyperMarket.DataEntryManager.Views
         private void clearInputs()
         {
 
+        }
+
+        private void buttonCreateOffer_Click(object sender, RoutedEventArgs e)
+        {
+            grid2.Visibility = Visibility.Hidden;
+            grid1.Visibility = Visibility.Visible;
         }
     }
 }

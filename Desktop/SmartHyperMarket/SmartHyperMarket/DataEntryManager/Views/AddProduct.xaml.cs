@@ -45,14 +45,14 @@ namespace SmartHyperMarket.DataEntryManager.Views
             _market = Market.getInstance();
             _productController = new ProductController();
 
-            //#region Bardetecting Example
-            ////OnBarcodeDetectedDelegate testD = testDelegateFunction; //Testing variable for OnBarcodeDetectedDelegate
-            //BarcodeReading.BarcodeReader bcr = new BarcodeReading.BarcodeReader(ref textBoxBarcode, ref player); //Testing variable for BarcodeReader class ( see constructor documentation )
-            ////bcr.onBarcodeDetected += testD; //Adding the delegate function to onBarcodeDetected variable at bcr to fire it after detecting barcode emplicitily
-            ////If camera opened successfully read barcode and fire onBarcodeDetected delegate
-            ////if (bcr.openCamera() == true)
-            //bcr.readBarcodes();
-            //#endregion
+            #region Bardetecting Example
+            //OnBarcodeDetectedDelegate testD = testDelegateFunction; //Testing variable for OnBarcodeDetectedDelegate
+            BarcodeReading.BarcodeReader bcr = new BarcodeReading.BarcodeReader(ref textBoxBarcode, ref player); //Testing variable for BarcodeReader class ( see constructor documentation )
+            //bcr.onBarcodeDetected += testD; //Adding the delegate function to onBarcodeDetected variable at bcr to fire it after detecting barcode emplicitily
+            //If camera opened successfully read barcode and fire onBarcodeDetected delegate
+            //if (bcr.openCamera() == true)
+            bcr.readBarcodes();
+            #endregion
             
             LoadComboxList();
         }

@@ -122,7 +122,8 @@ public class DashBoardActivity extends Activity {
 			
 			@Override
 			public void onClick(View arg0) {
-				startBrowseActivity();
+				//startBrowseActivity();
+				startOfferActivity();
 				
 			}
 		});
@@ -187,6 +188,11 @@ public class DashBoardActivity extends Activity {
 	
 	private void startOrdersActivity(){
 		Intent intent = new Intent(DashBoardActivity.this, OrderActivity.class);
+		startActivity(intent);
+	}
+	
+	private void startOfferActivity(){
+		Intent intent = new Intent(DashBoardActivity.this, OfferActivity.class);
 		startActivity(intent);
 	}
 	

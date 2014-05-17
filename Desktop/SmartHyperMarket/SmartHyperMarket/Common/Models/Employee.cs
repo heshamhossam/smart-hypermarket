@@ -19,6 +19,17 @@ namespace SmartHyperMarket.Common.Models
         private string _password;
         private EmployeeRole _role;
 
+        internal EmployeeRole Role
+        {
+            get { return _role; }
+            set { _role = value; }
+        }
+
+        public bool hasRole()
+        {
+            return (_role == null ? false : true);
+        }
+
         public bool authenticate(string username, string password)
         {
             if (_username == username && _password == password)
