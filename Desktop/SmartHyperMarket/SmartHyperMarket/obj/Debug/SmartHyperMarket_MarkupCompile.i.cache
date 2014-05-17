@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\Shafik\Documents\Visual Studio 2013\Projects\smart-hypermarket\Desktop\SmartHyperMarket\SmartHyperMarket\obj\Debug\
+C:\Users\Yaser\Source\Repos\smart-hypermarket4\Desktop\SmartHyperMarket\SmartHyperMarket\obj\Debug\
 SmartHyperMarket
 none
 false
 DEBUG;TRACE
-C:\Users\Shafik\Documents\Visual Studio 2013\Projects\smart-hypermarket\Desktop\SmartHyperMarket\SmartHyperMarket\App.xaml
+C:\Users\Yaser\Source\Repos\smart-hypermarket4\Desktop\SmartHyperMarket\SmartHyperMarket\App.xaml
 12-321656514
 
-38-1803744678
-18563064351
+39-1601131961
+18687797489
 DataEntryManager\Views\AddOffer.xaml;DataEntryManager\Views\AddProduct.xaml;DataEntryManager\Views\EditProduct.xaml;DataEntryManager\Views\MainWindow.xaml;DataEntryManager\Views\ShowProducts.xaml;StorageManager\Views\MainWindow.xaml;StorageManager\Views\OrderDetailsWindow.xaml;StorageManager\Views\OrderProductsDetailsControl.xaml;StorageManager\Views\OrderOpenPage.xaml;StorageManager\Views\OrdersListingPage.xaml;Views\Login.xaml;Views\MainWindow.xaml;
 
 True
