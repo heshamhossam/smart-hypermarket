@@ -63,7 +63,7 @@
             android:label="@string/title_activity_reviews" >
         </activity>
         <activity
-            android:name="com.hci.smarthypermarket.OfferActivity"
+            android:name="com.hci.smarthypermarket.views.OfferActivity"
             android:label="@string/title_activity_offer" >
         </activity>
     </application>
