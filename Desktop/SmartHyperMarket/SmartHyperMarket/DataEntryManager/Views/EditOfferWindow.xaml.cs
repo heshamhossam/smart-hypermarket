@@ -22,29 +22,37 @@ namespace SmartHyperMarket.DataEntryManager.Views
     /// </summary>
     public partial class EditOfferWindow : Window
     {
-        private OfferController _offerController = new OfferController();
         private Offer _offer = new Offer();
+        private OfferController _offerController;
+        
 
         public EditOfferWindow(Offer offer)
         {
             InitializeComponent();
             _offer = offer;
+            _offerController = new OfferController(_offer);
+            
 
             ShowOffer(_offer);
         }
 
         public void ShowOffer(Offer offer)
         {
+            textBoxOfferName.Text = offer.Name;
+            textBoxOfferTeaser.Text = offer.Teaser;
+            textBoxOfferPrice.Text = offer.Price;
 
         }
 
         private void buttonOfferEdit_Click(object sender, RoutedEventArgs e)
         {
+
             Response response = _offerController.editOffer(
                 new Input("name", textBoxOfferName.Text),
                 new Input("teaser", textBoxOfferTeaser.Text),
                 new Input("price", textBoxOfferPrice.Text)
             );
+            
 
             if (response.State == ResponseState.SUCCESS)
             {

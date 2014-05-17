@@ -83,11 +83,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="DataEntryManager\Views\EditOfferWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="DataEntryManager\Views\EditProduct.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="DataEntryManager\Views\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DataEntryManager\Views\ShowOffers.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -152,11 +160,17 @@
     <Compile Include="DataEntryManager\Views\AddProduct.xaml.cs">
       <DependentUpon>AddProduct.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DataEntryManager\Views\EditOfferWindow.xaml.cs">
+      <DependentUpon>EditOfferWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DataEntryManager\Views\EditProduct.xaml.cs">
       <DependentUpon>EditProduct.xaml</DependentUpon>
     </Compile>
     <Compile Include="DataEntryManager\Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataEntryManager\Views\ShowOffers.xaml.cs">
+      <DependentUpon>ShowOffers.xaml</DependentUpon>
     </Compile>
     <Compile Include="DataEntryManager\Views\ShowProducts.xaml.cs">
       <DependentUpon>ShowProducts.xaml</DependentUpon>

@@ -102,7 +102,8 @@ namespace SmartHyperMarket.Common.Models
             {
                 offer.update();
                 offers[offers.FindIndex(ind => ind.Id == offer.Id)] = offer;
-                onOffersChangeHandler();
+                if (onOffersChangeHandler != null)
+                onOffersChangeHandler();               
                 return true;
             }
             else
@@ -116,7 +117,8 @@ namespace SmartHyperMarket.Common.Models
                 int temp = offers.IndexOf(offers.Single(o => o.Id == offer.Id));
                 offers.RemoveAt(temp);
                 offer.delete();
-                onOffersChangeHandler();
+                if (onOffersChangeHandler != null)
+                    onOffersChangeHandler();
                 return true;
             }
             else
@@ -129,10 +131,17 @@ namespace SmartHyperMarket.Common.Models
                 return false;
             else
             {
-                offer.save();
-                offers.Add(offer);
-                return true;
+                Offer offerSaved = offer.save();
+                if (offerSaved != null)
+                {
+                    offers.Add(offerSaved);
+                    onOffersChangeHandler();
+                    return true;
+                }
+
             }
+
+            return false;
         }
 
 

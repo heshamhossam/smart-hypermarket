@@ -13,6 +13,14 @@ namespace SmartHyperMarket.DataEntryManager.Controllers
     {
         private Offer _offer = new Offer(Market.getInstance());
 
+        public OfferController()
+        { }
+
+        public OfferController(Offer offer)
+        {
+            _offer = offer;
+        }
+
         public Response addProductToOffer(params Input[] inputs)
         {
             Response respone = new Response();
@@ -91,14 +99,72 @@ namespace SmartHyperMarket.DataEntryManager.Controllers
         
         public Response editOffer(params Input[] inputs)
         {
-            Response respone = new Response();
 
-            respone.State = ResponseState.SUCCESS;
+            
+            Response respone = new Response();
+            
+
+            Input name, price, teaser;
+            name = inputs.Where(input => input.Name == "name").ElementAt(0);
+            price = inputs.Where(input => input.Name == "price").ElementAt(0);
+            teaser = inputs.Where(input => input.Name == "teaser").ElementAt(0);
+
+
+            if (name == null || name.Value == "")
+                respone.Errors.Add(new Error("Offer name can't be empty."));
+            if (price == null || price.Value == "")
+                respone.Errors.Add(new Error("Offer price can't be empty."));
+            if (teaser == null || teaser.Value == "")
+                respone.Errors.Add(new Error("Offer teaser can't be empty."));
+
+            if (respone.Errors.Count > 0)
+                respone.State = ResponseState.FAIL;
+            else
+            {
+                _offer.Name = name.Value;
+                _offer.Price = (price.Value);
+                _offer.Teaser = teaser.Value;
+                bool offerSaved = Market.getInstance().editOffer(_offer);
+
+                if (!offerSaved)
+                {
+
+                    respone.Errors.Add(new Error("Unknown error happend while saving offer, please try again later"));
+                    respone.State = ResponseState.FAIL;
+                }
+                else
+                {
+                    respone.State = ResponseState.SUCCESS;
+                }
+            }
+
+            return respone;
+        }
+
+        public Response deleteOffer()
+        {
+            Response respone = new Response();
+            if (_offer == null)
+            {
+                respone.Errors.Add(new Error("Offer does not exist"));
+                respone.State = ResponseState.FAIL;
+            }
+
+            if (Market.getInstance().deleteOffer(_offer))
+                respone.State = ResponseState.SUCCESS;
+            else
+            {
+
+                respone.Errors.Add(new Error("Unknown error happend while saving offer, please try again later"));
+                respone.State = ResponseState.FAIL;
+            }
 
 
 
             return respone;
         }
+
+       
         
     }
 }

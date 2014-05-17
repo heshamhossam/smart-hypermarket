@@ -7,7 +7,20 @@
       d:DesignHeight="300" d:DesignWidth="300"
 	Title="ShowOffers">
 
-    <Grid>
-        
-    </Grid>
+    <StackPanel Background="White">
+        <StackPanel Background="White" Orientation="Horizontal">
+            <Button Content="Edit" Height="38" HorizontalAlignment="Left" Name="buttonEditOffer" VerticalAlignment="Top" Width="98" Click="buttonEditOffer_Click"   />
+            <Button Content="Delete" Height="38" HorizontalAlignment="Left" Name="buttonDeleteOffer" VerticalAlignment="Top" Width="98" Click="buttonDeleteOffer_Click"   />
+
+        </StackPanel>
+        <DataGrid Name="offersListGrid" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding  Name}"/>
+                <DataGridTextColumn Header="Teaser" Binding="{Binding Teaser}"/>
+                <DataGridTextColumn Header="Price" Binding="{Binding Price}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </StackPanel>
 </Page>
+
