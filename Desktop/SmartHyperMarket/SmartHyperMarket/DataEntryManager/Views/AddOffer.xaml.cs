@@ -31,7 +31,13 @@ namespace SmartHyperMarket.DataEntryManager.Views
             InitializeComponent();
             grid1.Visibility = Visibility.Hidden;
             market = Market.getInstance();
-            LoadCategoriesList();
+
+           
+            LoadCategoriesList();      
+    
+            List<Offer> a = Offer.all(Market.getInstance());
+
+
         }
 
         private void LoadCategoriesList()

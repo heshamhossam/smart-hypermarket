@@ -13,55 +13,67 @@ namespace SmartHyperMarket.Common.Models
 {
     public class Offer : Model<Offer>
     {
-        private List<Product> _products = new List<Product>();
-        private string _teaser;
         private string _name;
-        private float _price;
+        private string _price;
+        private string _id;
+        private string _teaser;
+        private string _market_id;
+        private string _created_at;
+        private string _updated_at;
+        private List<Product> _products;
 
-        public List<Product> Products
+
+
+        public List<Product> products
         {
-            get
-            {
-                return _products;
-            }
+            set { _products = value; }
+            get { return _products; }
+
         }
-        public string Teaser {
-            get
-            {
-                return _teaser;
-            }
-            set
-            {
-                _teaser = value;
-            }
+        public string name
+        {
+            set { _name = value; }
+            get { return _name; }
         }
-        public string Name {
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                _name = value;
-            }
+        public string price
+        {
+            set { _price = value; }
+            get { return _price; }
         }
-        public float Price {
-            get
-            {
-                return _price;
-            }
-            set
-            {
-                _price = value;
-            }
+        public string id
+        {
+            set { _id = value; }
+            get { return _id; }
         }
-        protected static string WebserviceURLFull
+        public string teaser
+        {
+            set { _teaser = value; }
+            get { return _teaser; }
+        }
+        public string market_id
+        {
+            set { _market_id = value; }
+            get { return _market_id; }
+        }
+        public string created_at
+        {
+            set { _created_at = value; }
+            get { return _created_at; }
+        }
+        public string updated_at
+        {
+            set { _updated_at = value; }
+            get { return _updated_at; }
+        }
+
+        private static string WebserviceURLFull
         {
             get { return Model<Offer>.webServiceParent + "/offers";  }
         }
         
-        public Offer(List<Product> products, string teaser, string offername, float totalprice, Market market)
+        public Offer(List<Product> products, string teaser, string offername, string totalprice, Market market)
         {
+
             this._products = products;
             this._teaser = teaser;
             this._name = offername;
@@ -82,12 +94,26 @@ namespace SmartHyperMarket.Common.Models
 
         public override bool update()
         {
-            return false;
+            string tempt = this.teaser.Replace(" ", "%20");
+            string tempn = this.name.Replace(" ", "%20");
+            string url = WebserviceURLFull + "/edit?offer_id="+this.id+"&name="+tempn+"&teaser="+tempt+"&price="+this.price;
+            
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+            return true;
         }
 
         public override bool delete()
         {
-            return false;
+           string url = WebserviceURLFull + "/delete?offer_id=" + this.id;
+
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+            return true;
         }
 
 
@@ -95,7 +121,7 @@ namespace SmartHyperMarket.Common.Models
         {
             string URL = WebserviceURLFull + "/create?";
 
-            URL += "teaser=" + _teaser + "&name=" + _name + "&price=" + _price.ToString() + "&market_id=" + _market.Id;
+            URL += "teaser=" + teaser + "&name=" + name + "&price=" + price.ToString() + "&market_id=" + _market.Id;
 
             for (int i = 0; i < _products.Count; i++)
             {
@@ -118,11 +144,20 @@ namespace SmartHyperMarket.Common.Models
 
         public static List<Offer> all(Market market)
         {
-            List<Offer> offers = new List<Offer>();
-                
-            //implemenet de ya shafik
+            string url = WebserviceURLFull + "/retrieve?market_id=" + market.Id.ToString();
 
-            return offers;
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+            StreamReader sr = new StreamReader(response.GetResponseStream());
+
+            string data = sr.ReadToEnd();
+            List<Offer> list = new List<Offer>();
+        // List<Offer> list = JsonConvert.DeserializeObject<List<Offer>>(data);
+            Offer datalist = JsonConvert.DeserializeObject<Offer>(data);
+            MessageBox.Show(datalist.id);   
+            return list;
         }
     }
 }

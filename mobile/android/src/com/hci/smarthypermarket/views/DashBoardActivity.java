@@ -13,7 +13,6 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -122,7 +121,8 @@ public class DashBoardActivity extends Activity {
 			
 			@Override
 			public void onClick(View arg0) {
-				startBrowseActivity();
+				//startBrowseActivity();
+				startOfferActivity();
 				
 			}
 		});
@@ -187,6 +187,11 @@ public class DashBoardActivity extends Activity {
 	
 	private void startOrdersActivity(){
 		Intent intent = new Intent(DashBoardActivity.this, OrderActivity.class);
+		startActivity(intent);
+	}
+	
+	private void startOfferActivity(){
+		Intent intent = new Intent(DashBoardActivity.this, OfferActivity.class);
 		startActivity(intent);
 	}
 	

@@ -11,6 +11,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.hci.smarthypermarket.views.IShowableItem;
+
 
 import android.os.AsyncTask;
 import android.util.Log;
@@ -108,7 +110,7 @@ abstract class RetrieveProductTask extends AsyncTask<String, Integer, Product> {
 
 }
 
-public class Product extends Model {
+public class Product extends Model implements IShowableItem {
 	
 	protected String id;
 	protected String name;
@@ -179,7 +181,7 @@ public class Product extends Model {
 		id = product.getId();
 		name = product.getName();
 		barcode = product.getBarcode();
-		price = product.getPrice();
+		price = Integer.parseInt(product.getPrice());
 		description = product.getDescription();
 		weight = product.getWeight();
 //		categoryId = product.getCategoryId();
@@ -193,9 +195,7 @@ public class Product extends Model {
 		reviews.add(review);
 	}
 	
-	public String getName() {
-		return name;
-	}
+	
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -205,15 +205,13 @@ public class Product extends Model {
 	public void setBarcode(String barcode) {
 		this.barcode = barcode;
 	}
-	public float getPrice() {
-		return price;
-	}
+	
+	
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	public int getPurchasedQuantity() {
-		return purchasedQuantity;
-	}
+	
+	
 	public void setPurchasedQuantity(int purchasedQuantity) {
 		this.purchasedQuantity = purchasedQuantity;
 	}
@@ -241,6 +239,27 @@ public class Product extends Model {
 
 	public List<Review> getReviews() {
 		return reviews;
+	}
+	
+	
+	
+	@Override
+	public String getQuantity() {
+		return String.valueOf(purchasedQuantity);
+	}
+
+	@Override
+	public String getPrice() {
+		return String.valueOf(price);
+	}
+	
+	@Override
+	public String getName() {
+		return name;
+	}
+
+	public int getPurchasedQuantity() {
+		return purchasedQuantity;
 	}
 	
 	

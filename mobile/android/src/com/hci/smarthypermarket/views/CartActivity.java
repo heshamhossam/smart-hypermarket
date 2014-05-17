@@ -1,9 +1,6 @@
 package com.hci.smarthypermarket.views;
 
 import com.hci.smarthypermarket.R;
-import com.hci.smarthypermarket.R.id;
-import com.hci.smarthypermarket.R.layout;
-import com.hci.smarthypermarket.R.menu;
 import com.hci.smarthypermarket.models.OnModelListener;
 import com.hci.smarthypermarket.models.Shopper;
 
@@ -18,7 +15,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;

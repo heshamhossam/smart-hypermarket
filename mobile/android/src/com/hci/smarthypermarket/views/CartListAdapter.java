@@ -3,10 +3,6 @@ package com.hci.smarthypermarket.views;
 import java.util.List;
 
 import com.hci.smarthypermarket.R;
-import com.hci.smarthypermarket.R.id;
-import com.hci.smarthypermarket.R.layout;
-import com.hci.smarthypermarket.models.Product;
-import com.hci.smarthypermarket.models.Review;
 
 import android.app.Activity;
 import android.view.View;
@@ -14,15 +10,15 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-public class CartListAdapter extends ArrayAdapter<Product> {
+public class CartListAdapter extends ArrayAdapter<IShowableItem> {
 	
 	private Activity _actvitiy;
-	private List<Product> _products;
+	private List<IShowableItem> _items;
 	
-	public CartListAdapter(Activity activityContext, List<Product> products) {
-		super(activityContext, R.layout.item_cart, products);
+	public CartListAdapter(Activity activityContext, List<IShowableItem> items) {
+		super(activityContext, R.layout.item_cart, items);
 		_actvitiy=activityContext;
-		_products = products;
+		_items = items;
 	}
 
 	@Override
@@ -34,21 +30,21 @@ public class CartListAdapter extends ArrayAdapter<Product> {
 		}
 		
 		// Find the car to work with.
-		Product currentProduct = _products.get(position);
+		IShowableItem currentProduct = _items.get(position);
 		
 		
 		// Name:
 		TextView Name = (TextView) itemView.findViewById(R.id.textViewZeft);
-		Name.setText("" + currentProduct.getName());
+		Name.setText("" + currentProduct.getName().substring(0, 10)+"...");
 		
 		// PRICE:
 		TextView condionText = (TextView) itemView.findViewById(R.id.textViewProductPrice);
 		//condionText.setText(Double.toString(currentProduct.getTotalPrice()) + "$");
-		condionText.setText(String.valueOf(currentProduct.getTotalPrice() + "$"));
+		condionText.setText(String.valueOf(currentProduct.getPrice() + "$"));
 		
 		// Countity:
 		TextView Countity = (TextView) itemView.findViewById(R.id.textViewCountity);
-		Countity.setText(""+currentProduct.getPurchasedQuantity());
+		Countity.setText(""+currentProduct.getQuantity());
 		return itemView;
 	}				
 }

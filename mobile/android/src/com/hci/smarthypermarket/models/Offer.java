@@ -9,6 +9,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.hci.smarthypermarket.views.IShowableItem;
+
 import android.os.AsyncTask;
 
 
@@ -94,13 +96,14 @@ abstract class RetriveOffersTask extends AsyncTask<Market,Integer,List<Offer>>
 	}
 	
 }
-public class Offer extends Model {
+public class Offer extends Model implements IShowableItem {
 
 	private String name;
 	private String teaser;
 	private String createdAt;
 	private String updatedAt;
 	private String offerprice;
+	private int quantity;	
 	private List<Product> products;
 	private static List<Offer> allOffers;
 	
@@ -135,6 +138,15 @@ public class Offer extends Model {
 	public List<Product> getProducts() {
 		return products;
 	}
+	
+	public List<IShowableItem> getShowableItems() {
+		List<IShowableItem> showableItems = new ArrayList<IShowableItem>();
+		for (Product product : this.products) {
+			showableItems.add(product);
+		}
+		return showableItems;
+	}
+	
 	public static List<Offer> getAllOffers() {
 		
 		if (isAllFetched)
@@ -143,15 +155,19 @@ public class Offer extends Model {
 		return null;
 	}
 	
-	public String getName(){
+	@Override
+	public String getName() {
 		return name;
 	}
-	
-	public String getPrice(){
+	@Override
+	public String getQuantity() {
+		return String.valueOf(quantity);
+	}
+	@Override
+	public String getPrice() {
 		return offerprice;
 	}
-	
-	public String getTeaser(){
+	public String getTeaser() {
 		return teaser;
 	}
 
