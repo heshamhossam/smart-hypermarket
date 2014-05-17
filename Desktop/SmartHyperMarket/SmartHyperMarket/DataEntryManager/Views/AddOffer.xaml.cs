@@ -34,7 +34,6 @@ namespace SmartHyperMarket.DataEntryManager.Views
 
            
             LoadCategoriesList();
-
         }
 
         private void LoadCategoriesList()

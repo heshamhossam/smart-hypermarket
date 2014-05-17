@@ -98,6 +98,14 @@ namespace SmartHyperMarket.Common.Models
             //search for offers in offers
             //if found update it with the new offer in the param and return true and fire the onofferchange event if not null
             //else return false
+            if (offers.Exists(o=> o.id == offer.id))
+            {
+                offer.update();
+                offers[offers.FindIndex(ind => ind.id == offer.id)] = offer;
+                onOffersChangeHandler();
+                return true;
+            }
+            else
             return false;
         }
 
