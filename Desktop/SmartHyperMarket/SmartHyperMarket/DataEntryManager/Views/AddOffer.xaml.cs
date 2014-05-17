@@ -108,5 +108,11 @@ namespace SmartHyperMarket.DataEntryManager.Views
             grid2.Visibility = Visibility.Hidden;
             grid1.Visibility = Visibility.Visible;
         }
+
+        private void buttonBack_Click(object sender, RoutedEventArgs e)
+        {
+            grid1.Visibility = Visibility.Hidden;
+            grid2.Visibility = Visibility.Visible;
+        }
     }
 }

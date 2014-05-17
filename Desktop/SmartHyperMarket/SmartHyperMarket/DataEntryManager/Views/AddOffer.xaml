@@ -22,7 +22,10 @@
                     <TextBlock x:Name="textBlockOfferPrice" Text="Total Price  " FontSize="20" Margin="0,14,0,0" Width="101" Height="46" VerticalAlignment="Top"/>
                     <TextBox Text="0" FontSize="20" x:Name="textBoxOfferPrice" Width="51" Margin="0,12,0,0" Height="46" VerticalAlignment="Top"/>
                 </StackPanel>
-                <Button Content="Submit Offer" Height="33" Margin="0,24,3,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="137" x:Name="buttonSubmitOffer" Click="buttonSubmitOffer_Click"/>
+                    <StackPanel Orientation="Vertical">
+                        <Button Content="Submit Offer" Height="33" VerticalAlignment="Top" HorizontalAlignment="Right" Width="137" x:Name="buttonSubmitOffer" Click="buttonSubmitOffer_Click"/>
+                        <Button Content="Back" Height="33" VerticalAlignment="Top" HorizontalAlignment="Right" Width="137" Click="buttonBack_Click"/>
+                    </StackPanel>
                 </StackPanel>
             </StackPanel>
         </Grid>
