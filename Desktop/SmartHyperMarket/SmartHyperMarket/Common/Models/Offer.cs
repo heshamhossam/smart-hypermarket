@@ -13,6 +13,10 @@ namespace SmartHyperMarket.Common.Models
 {
     public class Offer : Model<Offer>
     {
+        public class Offers
+    {
+        public List<Offer> offers { get; set; }
+    }
         private string _name;
         private string _price;
         private string _id;
@@ -153,11 +157,16 @@ namespace SmartHyperMarket.Common.Models
             StreamReader sr = new StreamReader(response.GetResponseStream());
 
             string data = sr.ReadToEnd();
-            List<Offer> list = new List<Offer>();
-        // List<Offer> list = JsonConvert.DeserializeObject<List<Offer>>(data);
-            Offer datalist = JsonConvert.DeserializeObject<Offer>(data);
-            MessageBox.Show(datalist.id);   
-            return list;
+
+          //  List<Offer> list = new List<Offer>();
+            Offers g = new Offers();
+
+
+            g = JsonConvert.DeserializeObject<Offers>(data);
+            //list = JsonConvert.DeserializeObject<List<Offer>>(data);
+            // Offer datalist = JsonConvert.DeserializeObject<Offer>(data);
+            //  MessageBox.Show(datalist.id);
+            return g.offers;
         }
     }
 }
