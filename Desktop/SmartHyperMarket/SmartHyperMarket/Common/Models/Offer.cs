@@ -24,7 +24,7 @@ namespace SmartHyperMarket.Common.Models
         private string _market_id;
         private string _created_at;
         private string _updated_at;
-        private List<Product> _products;
+        private List<Product> _products = new List<Product>();
 
 
 
@@ -125,7 +125,7 @@ namespace SmartHyperMarket.Common.Models
         {
             string URL = WebserviceURLFull + "/create?";
 
-            URL += "teaser=" + teaser + "&name=" + name + "&price=" + price.ToString() + "&market_id=" + _market.Id;
+            URL = URL + "&teaser=" + teaser + "&name=" + name + "&price=" + price.ToString() + "&market_id=" + _market.Id;
 
             for (int i = 0; i < _products.Count; i++)
             {

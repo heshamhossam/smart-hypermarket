@@ -111,13 +111,30 @@ namespace SmartHyperMarket.Common.Models
 
         public bool deleteOffer(Offer offer)
         {
-            return false;
+            if (offers.Exists(o => o.id == offer.id))
+            {
+                int temp = offers.IndexOf(offers.Single(o => o.id == offer.id));
+                offers.RemoveAt(temp);
+                offer.delete();
+                onOffersChangeHandler();
+                return true;
+            }
+            else
+                return false;
         }
 
         public bool addOffer(Offer offer)
         {
-            return false;
+            if (offers.Exists(o => o.id == offer.id))
+                return false;
+            else
+            {
+                offer.save();
+                offers.Add(offer);
+                return true;
+            }
         }
+
 
         private void LoadProducts()
         {
