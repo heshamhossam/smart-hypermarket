@@ -9,21 +9,25 @@ using System.Threading.Tasks;
 
 namespace SmartHyperMarket.Common.Models
 {
-    public delegate void OnProductsChange();
+    public delegate void OnModelChange();
 
     public class Market : IMarket
     {
-        public OnProductsChange onProductsChangeHandler;
+        public OnModelChange onProductsChangeHandler;
+        private OnModelChange onOffersChangeHandler;
+
         private static Market MyMarket;
         private List<Product> ProductList = new List<Product>();
         private List<Category> CategoryList = new List<Category>();
         private List<Order> orders = new List<Order>();
         private List<Employee> employees = new List<Employee>();
+        private List<Offer> offers = new List<Offer>();
 
         private Market()
         {
             CategoryList = Category.all(this);
             orders = Order.all(this, Order.ALL);
+            offers = Offer.all(this);
             LoadProducts();
         }
 
@@ -73,13 +77,74 @@ namespace SmartHyperMarket.Common.Models
             get { return employees; }
         }
 
+        public List<Offer> Offers
+        {
+            get { return offers; }
+        }
+
         public int Id
         {
             get { return 1; }
 
         }
 
-        
+        public OnModelChange OnOffersChange
+        {
+            set { onOffersChangeHandler = value; }
+        }
+
+        public bool editOffer(Offer offer)
+        {
+            //search for offers in offers
+            //if found update it with the new offer in the param and return true and fire the onofferchange event if not null
+            //else return false
+            if (offers.Exists(o=> o.Id == offer.Id))
+            {
+                offer.update();
+                offers[offers.FindIndex(ind => ind.Id == offer.Id)] = offer;
+                if (onOffersChangeHandler != null)
+                onOffersChangeHandler();               
+                return true;
+            }
+            else
+            return false;
+        }
+
+        public bool deleteOffer(Offer offer)
+        {
+            if (offers.Exists(o => o.Id == offer.Id))
+            {
+                int temp = offers.IndexOf(offers.Single(o => o.Id == offer.Id));
+                offers.RemoveAt(temp);
+                offer.delete();
+                if (onOffersChangeHandler != null)
+                    onOffersChangeHandler();
+                return true;
+            }
+            else
+                return false;
+        }
+
+        public bool addOffer(Offer offer)
+        {
+            if (offers.Exists(o => o.Id == offer.Id))
+                return false;
+            else
+            {
+                Offer offerSaved = offer.save();
+                if (offerSaved != null)
+                {
+                    offers.Add(offerSaved);
+                    onOffersChangeHandler();
+                    return true;
+                }
+
+            }
+
+            return false;
+        }
+
+
         private void LoadProducts()
         {
             

@@ -33,10 +33,9 @@ namespace SmartHyperMarket.DataEntryManager.Views
             market = Market.getInstance();
 
            
-            LoadCategoriesList();      
-    
-            List<Offer> a = Offer.all(Market.getInstance());
+            LoadCategoriesList();
 
+            Market a = Market.getInstance();
 
         }
 

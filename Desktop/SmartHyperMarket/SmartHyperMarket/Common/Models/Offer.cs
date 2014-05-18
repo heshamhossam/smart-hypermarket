@@ -13,6 +13,10 @@ namespace SmartHyperMarket.Common.Models
 {
     public class Offer : Model<Offer>
     {
+        public class Offers
+    {
+        public List<Offer> offers { get; set; }
+    }
         private string _name;
         private string _price;
         private string _id;
@@ -20,47 +24,47 @@ namespace SmartHyperMarket.Common.Models
         private string _market_id;
         private string _created_at;
         private string _updated_at;
-        private List<Product> _products;
+        private List<Product> _products = new List<Product>();
 
 
 
-        public List<Product> products
+        public List<Product> Products
         {
             set { _products = value; }
             get { return _products; }
 
         }
-        public string name
+        public string Name
         {
             set { _name = value; }
             get { return _name; }
         }
-        public string price
+        public string Price
         {
             set { _price = value; }
             get { return _price; }
         }
-        public string id
+        public string Id
         {
             set { _id = value; }
             get { return _id; }
         }
-        public string teaser
+        public string Teaser
         {
             set { _teaser = value; }
             get { return _teaser; }
         }
-        public string market_id
+        public string Market_id
         {
             set { _market_id = value; }
             get { return _market_id; }
         }
-        public string created_at
+        public string Created_at
         {
             set { _created_at = value; }
             get { return _created_at; }
         }
-        public string updated_at
+        public string Updated_at
         {
             set { _updated_at = value; }
             get { return _updated_at; }
@@ -94,9 +98,9 @@ namespace SmartHyperMarket.Common.Models
 
         public override bool update()
         {
-            string tempt = this.teaser.Replace(" ", "%20");
-            string tempn = this.name.Replace(" ", "%20");
-            string url = WebserviceURLFull + "/edit?offer_id="+this.id+"&name="+tempn+"&teaser="+tempt+"&price="+this.price;
+            string tempt = this.Teaser.Replace(" ", "%20");
+            string tempn = this.Name.Replace(" ", "%20");
+            string url = WebserviceURLFull + "/edit?offer_id="+this.Id+"&name="+tempn+"&teaser="+tempt+"&price="+this.Price;
             
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
 
@@ -107,7 +111,7 @@ namespace SmartHyperMarket.Common.Models
 
         public override bool delete()
         {
-           string url = WebserviceURLFull + "/delete?offer_id=" + this.id;
+           string url = WebserviceURLFull + "/delete?offer_id=" + this.Id;
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
 
@@ -121,7 +125,7 @@ namespace SmartHyperMarket.Common.Models
         {
             string URL = WebserviceURLFull + "/create?";
 
-            URL += "teaser=" + teaser + "&name=" + name + "&price=" + price.ToString() + "&market_id=" + _market.Id;
+            URL = URL + "&teaser=" + Teaser + "&name=" + Name + "&price=" + Price.ToString() + "&market_id=" + _market.Id;
 
             for (int i = 0; i < _products.Count; i++)
             {
@@ -153,11 +157,16 @@ namespace SmartHyperMarket.Common.Models
             StreamReader sr = new StreamReader(response.GetResponseStream());
 
             string data = sr.ReadToEnd();
-            List<Offer> list = new List<Offer>();
-        // List<Offer> list = JsonConvert.DeserializeObject<List<Offer>>(data);
-            Offer datalist = JsonConvert.DeserializeObject<Offer>(data);
-            MessageBox.Show(datalist.id);   
-            return list;
+
+          //  List<Offer> list = new List<Offer>();
+            Offers g = new Offers();
+
+
+            g = JsonConvert.DeserializeObject<Offers>(data);
+            //list = JsonConvert.DeserializeObject<List<Offer>>(data);
+            // Offer datalist = JsonConvert.DeserializeObject<Offer>(data);
+            //  MessageBox.Show(datalist.id);
+            return g.offers;
         }
     }
 }
