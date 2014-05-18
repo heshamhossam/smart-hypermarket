@@ -82,3 +82,4 @@ C:\Users\Yaser\Source\Repos\smart-hypermarket4\Desktop\SmartHyperMarket\SmartHyp
 C:\Users\Yaser\Source\Repos\smart-hypermarket4\Desktop\SmartHyperMarket\SmartHyperMarket\obj\Debug\SmartHyperMarket.g.resources
 C:\Users\Yaser\Source\Repos\smart-hypermarket4\Desktop\SmartHyperMarket\SmartHyperMarket\obj\Debug\SmartHyperMarket.Properties.Resources.resources
 C:\Users\Yaser\Source\Repos\smart-hypermarket4\Desktop\SmartHyperMarket\SmartHyperMarket\obj\Debug\SmartHyperMarket.csproj.GenerateResource.Cache
+C:\Users\Yaser\Source\Repos\smart-hypermarket4\Desktop\SmartHyperMarket\SmartHyperMarket\bin\Debug\SmartHyperMarket.XML
