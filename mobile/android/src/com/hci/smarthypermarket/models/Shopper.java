@@ -104,6 +104,7 @@ public class Shopper extends Model {
 	private String firstName;
 	private String LastName;
 	private static Shopper MainShopper;
+	private Offer currentOffer = new Offer();
 	BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 	BroadcastReceiver mReceiver;
 	
@@ -265,6 +266,12 @@ public class Shopper extends Model {
 		ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
 		return (networkInfo != null && networkInfo.isConnected());
+	}
+	public Offer getCurrentOffer() {
+		return currentOffer;
+	}
+	public void setCurrentOffer(Offer currentOffer) {
+		this.currentOffer = currentOffer;
 	}
 	
 

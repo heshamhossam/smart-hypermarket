@@ -23,6 +23,7 @@ import com.hci.smarthypermarket.models.Category;
 import com.hci.smarthypermarket.models.Market;
 import com.hci.smarthypermarket.models.Offer;
 import com.hci.smarthypermarket.models.OnBluetoothListener;
+import com.hci.smarthypermarket.models.Product;
 import com.hci.smarthypermarket.models.Shopper;
 
 public class DashBoardActivity extends Activity {
@@ -72,7 +73,9 @@ public class DashBoardActivity extends Activity {
 							offer = category.getOffer();
 		                
 		                if (offer != null)
+		                {
 		                	showOffer(offer);
+		                }
 					}
 					
 						
@@ -121,8 +124,8 @@ public class DashBoardActivity extends Activity {
 			
 			@Override
 			public void onClick(View arg0) {
-				//startBrowseActivity();
-				startOfferActivity();
+				startBrowseActivity();
+				
 				
 			}
 		});
@@ -195,7 +198,7 @@ public class DashBoardActivity extends Activity {
 		startActivity(intent);
 	}
 	
-	private void showOffer(Offer offer){
+	private void showOffer(final Offer offer){
 		final AlertDialog.Builder alert = new AlertDialog.Builder(this);
 		
 		LinearLayout linear = new LinearLayout(this);
@@ -215,7 +218,8 @@ public class DashBoardActivity extends Activity {
 			
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				// TODO Auto-generated method stub
+				shopper.setCurrentOffer(offer);
+				startOfferActivity();
 				
 			}
 		});

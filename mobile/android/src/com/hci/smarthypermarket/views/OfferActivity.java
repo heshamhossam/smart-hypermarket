@@ -6,6 +6,7 @@ import com.hci.smarthypermarket.models.Bluetooth;
 import com.hci.smarthypermarket.models.Category;
 import com.hci.smarthypermarket.models.Offer;
 import com.hci.smarthypermarket.models.Product;
+import com.hci.smarthypermarket.models.Shopper;
 
 import android.os.Bundle;
 import android.app.ActionBar;
@@ -33,6 +34,7 @@ public class OfferActivity extends Activity {
 	private TextView textViewOfferTeaser = null;
 	private ListView listViewOfferProducts = null;
 	private Button AddOfferButton = null;
+	private Shopper shopper = LauncherActivity.shopper;
 	
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -56,13 +58,15 @@ public class OfferActivity extends Activity {
         	}
         });
         
-        Category categoryBooks = new Category("5", "Books");
-		categoryBooks.setBluetooth(new Bluetooth("Books", "Books", 0));
-		categoryBooks.getProducts().add(new Product("28", "Medical Imaging", "0819436232", (float) 80, "400", "this is a CS Book"));
-		categoryBooks.getProducts().add(new Product("29", "Digital Image Processing", "9780982085400", (float) 87, "982", " a CS Book related to image manipulations"));
-		categoryBooks.setOffer(new Offer("Never Stop Reading", "120", "Buy Medical Imaging book and take Digital Image Processing Book for free, Hurry up now before It's out of stock", "5-7-1993", "5-7-2014", categoryBooks.getProducts()));
+//        Category categoryBooks = new Category("5", "Books");
+//		categoryBooks.setBluetooth(new Bluetooth("Books", "Books", 0));
+//		categoryBooks.getProducts().add(new Product("28", "Medical Imaging", "0819436232", (float) 80, "400", "this is a CS Book"));
+//		categoryBooks.getProducts().add(new Product("29", "Digital Image Processing", "9780982085400", (float) 87, "982", " a CS Book related to image manipulations"));
+//		categoryBooks.setOffer(new Offer("Never Stop Reading", "120", "Buy Medical Imaging book and take Digital Image Processing Book for free, Hurry up now before It's out of stock", "5-7-1993", "5-7-2014", categoryBooks.getProducts()));
         
-		showOffer(categoryBooks.getOffer());
+        if (shopper != null && shopper.getCurrentOffer() != null)
+        	showOffer(shopper.getCurrentOffer());
+        
         
 	}
 
@@ -74,13 +78,20 @@ public class OfferActivity extends Activity {
 	}
 
 	public void showOffer(Offer offer){
-		textViewOfferName.setText(offer.getName());
-		textViewOfferPrice.setText(offer.getPrice());
-		textViewOfferTeaser.setText(offer.getTeaser());
-		
-		
-		ArrayAdapter<IShowableItem> adapter = new CartListAdapter(this, offer.getShowableItems());
-		listViewOfferProducts.setAdapter(adapter);
+		try
+		{
+			textViewOfferName.setText(offer.getName());
+			textViewOfferPrice.setText(offer.getPrice());
+			textViewOfferTeaser.setText(offer.getTeaser());
+			
+			
+			ArrayAdapter<IShowableItem> adapter = new CartListAdapter(this, offer.getShowableItems());
+			listViewOfferProducts.setAdapter(adapter);
+		}
+		catch(Exception ex)
+		{
+			
+		}
 	}
 	
 	public void showInputNumberPopup() {
