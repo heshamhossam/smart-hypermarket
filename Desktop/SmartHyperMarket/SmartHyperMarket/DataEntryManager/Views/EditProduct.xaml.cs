@@ -45,7 +45,7 @@ namespace SmartHyperMarket.DataEntryManager.Views
 
         private void buttonProductEdit_Click(object sender, RoutedEventArgs e)
         {
-            Response response = _productController.editProduct(
+            Response response = _productController.editProduct(_product,
                 new Input("name", name.Text),
                 new Input("barcode", barcode.Text),
                 new Input("price", price.Text)

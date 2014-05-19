@@ -65,7 +65,7 @@ namespace SmartHyperMarket.DataEntryManager.Views
             
             Product product = (Product)productsListGrid.SelectedItem;
             _productController.Product = product;
-            Response response = _productController.deleteProduct();
+            Response response = _productController.deleteProduct(product);
 
             if (response.State == ResponseState.SUCCESS)
                 MessageBox.Show("Product deleted successfully");

@@ -74,16 +74,70 @@ namespace SmartHyperMarket.DataEntryManager.Controllers
             return response;
         }
     
-        public Response editProduct(params Input[] inputs)
+        public Response editProduct(Product product,params Input[] inputs)
         {
             Response response = new Response();
+            Input name, barcode, price;
+            name = inputs.Where(input => input.Name == "name").ElementAt(0);
+            barcode = inputs.Where(input => input.Name == "barcode").ElementAt(0);
+            price = inputs.Where(input => input.Name == "price").ElementAt(0);
+            if(name.Value=="")
+            {
+                response.Errors.Add(new Error("Please add the product name"));
+            }
+            if(barcode.Value=="")
+            {
+                response.Errors.Add(new Error("Please add the product barcode"));
+            }
+            if(price.Value=="")
+            {
+                response.Errors.Add(new Error("Please add the product price"));
+            }
+            if(response.Errors.Count>0)
+            {
+                response.State = ResponseState.FAIL;
+            }
+            else
+            {
+                response.State = ResponseState.SUCCESS;
+              bool check_productedit =  Market.getInstance().editProduct(product);  
+                if(check_productedit==false)
+                {
+                    response.Errors.Add(new Error("Error happen while editing a product please check later"));
+                    response.State = ResponseState.FAIL;
 
+
+                }
+                else
+                {
+                    response.State = ResponseState.SUCCESS;
+                }
+            }
             return response;
         }
 
-        public Response deleteProduct()
+        public Response deleteProduct(Product product)
         {
             Response response = new Response();
+            if(product!=null)
+            {
+             bool check_productdeleted =  Market.getInstance().deleteProduct(product);
+             if(check_productdeleted==true)
+             {
+                 response.State = ResponseState.SUCCESS;
+             }
+             else
+             {
+                 response.Errors.Add(new Error("Error Happen in the server please try later on"));
+                 response.State = ResponseState.FAIL; 
+             }
+            }
+            else
+            {
+                response.Errors.Add(new Error("There Is No Product Selected To Delete"));
+                response.State = ResponseState.FAIL;
+            }
+          
 
             return response;
         }
