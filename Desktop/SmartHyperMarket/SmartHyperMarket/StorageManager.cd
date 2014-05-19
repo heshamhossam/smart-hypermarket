@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SmartHyperMarket.StorageManager.Views.MainWindow" Collapsed="true">
+    <Position X="18.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>StorageManager\Views\MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartHyperMarket.StorageManager.Views.OrderDetailsWindow">
+    <Position X="16.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>StorageManager\Views\OrderDetailsWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartHyperMarket.StorageManager.Views.OrderOpenPage" Collapsed="true">
+    <Position X="18.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>StorageManager\Views\OrderOpenPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartHyperMarket.StorageManager.Views.OrderProductsDetailsControl" BaseTypeListCollapsed="true">
+    <Position X="13.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAQAAAAAAACAQAAAAAAAQABCAAAAAAAAA=</HashCode>
+      <FileName>StorageManager\Views\OrderProductsDetailsControl.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SmartHyperMarket.StorageManager.Views.OrdersListingPage">
+    <Position X="15" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAABAAAAABgAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>StorageManager\Views\OrdersListingPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartHyperMarket.Common.Controllers.Error">
+    <Position X="15" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Controllers\Error.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartHyperMarket.Common.Controllers.Input">
+    <Position X="20.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAIAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Common\Controllers\Input.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartHyperMarket.Common.Controllers.Response">
+    <Position X="18.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAQAAAAAACAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Common\Controllers\Response.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartHyperMarket.Common.Models.Market" BaseTypeListCollapsed="true">
+    <Position X="20.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAECCAAhAAAQAAAAEAAMAAAICAEAEgQAAAAECAAAAAQ=</HashCode>
+      <FileName>Common\Models\Market.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SmartHyperMarket.Controllers.UserController">
+    <Position X="18.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Controllers\UserController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartHyperMarket.Views.Login">
+    <Position X="16.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Login.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartHyperMarket.Views.MainWindow">
+    <Position X="13.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="SmartHyperMarket.Common.Models.ICategory">
+    <Position X="13.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAIAgAAAEAAAAAAQ=</HashCode>
+      <FileName>Common\Models\ICategory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SmartHyperMarket.Common.Models.IMarket">
+    <Position X="15" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAECAAAAAAAAAAAAAAAAAAAACAAAEAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Common\Models\IMarket.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SmartHyperMarket.Common.Models.IOrder">
+    <Position X="16.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACACAAAAAAAAAAAAAAAAEAAEAAAAAIAgAAAABAAAAAQ=</HashCode>
+      <FileName>Common\Models\IOrder.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SmartHyperMarket.Common.Models.IProduct">
+    <Position X="18.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQEgAAAAAAAAAAQAACAAAIAgAAAEAAAAAAA=</HashCode>
+      <FileName>Common\Models\IProduct.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="SmartHyperMarket.Common.Controllers.ResponseState">
+    <Position X="15" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Common\Controllers\Response.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SmartHyperMarket.Common.Models.EmployeeRole">
+    <Position X="13.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAQBAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Models\Employee.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Delegate Name="SmartHyperMarket.Common.Models.OnModelChange" Collapsed="true">
+    <Position X="16.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Models\Market.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

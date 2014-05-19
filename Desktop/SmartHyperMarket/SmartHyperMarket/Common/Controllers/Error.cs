@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace SmartHyperMarket.Common.Controllers
 {
+    /// <summary>
+    /// Handel errors of the application occured during runtime
+    /// </summary>
     class Error
     {
         protected string _errorMessage;
@@ -25,7 +28,5 @@ namespace SmartHyperMarket.Common.Controllers
         {
             ErrorMessage = errorMessage;
         }
-
-
     }
 }

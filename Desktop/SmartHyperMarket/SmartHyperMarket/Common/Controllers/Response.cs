@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 namespace SmartHyperMarket.Common.Controllers
 {
     public enum ResponseState { SUCCESS, FAIL };
-
-    
+    /// <summary>
+    /// A type which handels the end result of the function and keep track of errors occured during runtime of it
+    /// </summary>
     class Response
     {
         private ResponseState _state;

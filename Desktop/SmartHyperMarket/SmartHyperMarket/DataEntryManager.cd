@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SmartHyperMarket.DataEntryManager.BarcodeReading.BarcodeReader" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EIAAIAAAAAICAEBAAAAACEQAgAAAAAACECAASABUAAA=</HashCode>
+      <FileName>DataEntryManager\BarcodeReading\BarcodeReader.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SmartHyperMarket.DataEntryManager.Controllers.OfferController">
+    <Position X="9.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAIAAAAAAAAAAAAAAAAEAAAAAAgAAAAAEAAAAAAA=</HashCode>
+      <FileName>DataEntryManager\Controllers\OfferController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartHyperMarket.DataEntryManager.Controllers.ProductController">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataEntryManager\Controllers\ProductController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartHyperMarket.DataEntryManager.Views.AddOffer">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAACIEBAAAACAAAAAAAKIABAAAAAAAAAAA=</HashCode>
+      <FileName>DataEntryManager\Views\AddOffer.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartHyperMarket.DataEntryManager.Views.AddProduct">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAACAAAAAAgAIAAAAAAAAAAAAQQAAAAAgA=</HashCode>
+      <FileName>DataEntryManager\Views\AddProduct.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartHyperMarket.DataEntryManager.Views.ScaleConverter" BaseTypeListCollapsed="true">
+    <Position X="4" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataEntryManager\Views\AddProduct.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SmartHyperMarket.DataEntryManager.Views.EditOfferWindow">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAABAAAAAAAAAAAAAAAAAAAAAgAAAAAIAA=</HashCode>
+      <FileName>DataEntryManager\Views\EditOfferWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartHyperMarket.DataEntryManager.Views.EditProduct">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAABCAAAAAAAAAIAAAAEAAAA=</HashCode>
+      <FileName>DataEntryManager\Views\EditProduct.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartHyperMarket.DataEntryManager.Views.MainWindow">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataEntryManager\Views\MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartHyperMarket.DataEntryManager.Views.ShowOffers">
+    <Position X="2.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAACAAAAAAABAAAAAAAAAAQAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>DataEntryManager\Views\ShowOffers.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartHyperMarket.DataEntryManager.Views.ShowProducts">
+    <Position X="11" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAABAAAAAAAAAAQAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>DataEntryManager\Views\ShowProducts.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="SmartHyperMarket.DataEntryManager.BarcodeReading.IBarcodeReader">
+    <Position X="4" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>DataEntryManager\BarcodeReading\IBarcodeReader.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Delegate Name="SmartHyperMarket.DataEntryManager.BarcodeReading.OnBarcodeDetectedDelegate" Collapsed="true">
+    <Position X="5.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataEntryManager\BarcodeReading\BarcodeReader.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="SmartHyperMarket.DataEntryManager.Views.OnProductUpdate" Collapsed="true">
+    <Position X="5.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataEntryManager\Views\EditProduct.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

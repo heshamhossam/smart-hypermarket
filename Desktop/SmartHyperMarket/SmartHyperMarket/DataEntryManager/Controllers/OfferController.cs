@@ -9,6 +9,9 @@ using SmartHyperMarket.Common.Models;
 
 namespace SmartHyperMarket.DataEntryManager.Controllers
 {
+    /// <summary>
+    /// Handel the logic operations dealing with offers and it's related functionality
+    /// </summary>
     class OfferController
     {
         private Offer _offer = new Offer(Market.getInstance());
@@ -21,6 +24,11 @@ namespace SmartHyperMarket.DataEntryManager.Controllers
             _offer = offer;
         }
 
+        /// <summary>
+        /// Add new product with it's quantity to controller of the offer
+        /// </summary>
+        /// <param name="inputs">List of inputs : productID and productQuantity</param>
+        /// <returns>Result of runing the function</returns>
         public Response addProductToOffer(params Input[] inputs)
         {
             Response respone = new Response();
@@ -55,6 +63,11 @@ namespace SmartHyperMarket.DataEntryManager.Controllers
             return respone;
         }
         
+        /// <summary>
+        /// Create the controller offer constructed in the system
+        /// </summary>
+        /// <param name="inputs">List of inputs : name, price and teaser</param>
+        /// <returns>Result of runing the function</returns>
         public Response createOffer(params Input[] inputs)
         {
             Response respone = new Response();
@@ -97,18 +110,19 @@ namespace SmartHyperMarket.DataEntryManager.Controllers
             return respone;
         }
         
+        /// <summary>
+        /// Edit the offer of offer controller instance
+        /// </summary>
+        /// <param name="inputs">List of edited inputs : name, price and teaser</param>
+        /// <returns>Result of runing the function</returns>
         public Response editOffer(params Input[] inputs)
         {
-
-            
             Response respone = new Response();
-            
 
             Input name, price, teaser;
             name = inputs.Where(input => input.Name == "name").ElementAt(0);
             price = inputs.Where(input => input.Name == "price").ElementAt(0);
             teaser = inputs.Where(input => input.Name == "teaser").ElementAt(0);
-
 
             if (name == null || name.Value == "")
                 respone.Errors.Add(new Error("Offer name can't be empty."));
@@ -141,6 +155,10 @@ namespace SmartHyperMarket.DataEntryManager.Controllers
             return respone;
         }
 
+        /// <summary>
+        /// Delete the offer currently held by the offer controller
+        /// </summary>
+        /// <returns>Result of runing the function</returns>
         public Response deleteOffer()
         {
             Response respone = new Response();
@@ -159,13 +177,8 @@ namespace SmartHyperMarket.DataEntryManager.Controllers
                 respone.State = ResponseState.FAIL;
             }
 
-
-
             return respone;
         }
-
-       
-        
     }
 }
 

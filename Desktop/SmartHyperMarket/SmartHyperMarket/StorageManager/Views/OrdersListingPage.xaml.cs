@@ -68,11 +68,8 @@ namespace SmartHyperMarket.StorageManager.Views
 
         private void startOrdersCheckingThread()
         {
-
             Thread T = new Thread(Refresh);
             T.Start();
-
-
         }
     }
 }
