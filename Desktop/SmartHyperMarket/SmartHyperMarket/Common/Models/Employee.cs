@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SmartHyperMarket.Common.Models
 {
-    enum EmployeeRole
+    public enum EmployeeRole
     {
         DATA_ENTRY, STORAGE, ADMIN
     }
@@ -23,6 +23,15 @@ namespace SmartHyperMarket.Common.Models
         {
             get { return _role; }
             set { _role = value; }
+        }
+
+        public Employee() { }
+
+        public Employee(string username, string password, EmployeeRole role)
+        {
+            _username = username;
+            _password = password;
+            _role = role;
         }
 
         public bool hasRole()

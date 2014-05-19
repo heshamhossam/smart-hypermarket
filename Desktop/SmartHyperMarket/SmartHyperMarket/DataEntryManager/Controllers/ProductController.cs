@@ -9,8 +9,16 @@ using SmartHyperMarket.Common.Models;
 
 namespace SmartHyperMarket.DataEntryManager.Controllers
 {
+    /// <summary>
+    /// Handel of the logic operations related with product
+    /// </summary>
     class ProductController
     {
+        /// <summary>
+        /// Create new product in the system
+        /// </summary>
+        /// <param name="inputs">List of inputs : name, barcode, price, categoryId, weight and description</param>
+        /// <returns>Result of runing the function</returns>
         public Response createProduct(params Input[] inputs)
         {
             Response response = new Response();

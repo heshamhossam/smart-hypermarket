@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace SmartHyperMarket.Common.Controllers
 {
+    /// <summary>
+    /// Work as a container for diffirent inputss
+    /// </summary>
     class Input
     {
         string _name;

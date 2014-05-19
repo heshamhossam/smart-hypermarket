@@ -29,6 +29,9 @@ namespace SmartHyperMarket.Common.Models
             orders = Order.all(this, Order.ALL);
             offers = Offer.all(this);
             LoadProducts();
+            employees.Add(new Employee("dataentry", "dataentry", EmployeeRole.DATA_ENTRY));
+            employees.Add(new Employee("storage", "storage", EmployeeRole.STORAGE));
+            employees.Add(new Employee("admin", "admin", EmployeeRole.ADMIN));
         }
 
         /// <summary>

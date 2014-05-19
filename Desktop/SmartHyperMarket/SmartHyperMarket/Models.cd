@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SmartHyperMarket.Common.Models.Category">
+    <Position X="8.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACIAAAAACAAAAAAABAAQQAAAAAAICgAIAEAADEQgQ=</HashCode>
+      <FileName>Common\Models\Category.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SmartHyperMarket.Common.Models.Employee">
+    <Position X="4" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAUAAAAAAACAAAAAEAECAQAAAAACAAAAAAIBAAAEAAA=</HashCode>
+      <FileName>Common\Models\Employee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartHyperMarket.Common.Models.Model&lt;ModelType&gt;" Collapsed="true">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAgAQAAEAAAAAIAAAAAAAQEAAA=</HashCode>
+      <FileName>Common\Models\Model.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartHyperMarket.Common.Models.Offer">
+    <Position X="10.75" Y="1.75" Width="1.5" />
+    <NestedTypes>
+      <Class Name="SmartHyperMarket.Common.Models.Offer.Offers" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Common\Models\Offer.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AgAKIBAAAQCAAAAAAABAGQQAAAAAAICgAIAAAADEAgQ=</HashCode>
+      <FileName>Common\Models\Offer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartHyperMarket.Common.Models.Order">
+    <Position X="1.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACACAASQAACAAAQRAAAAEQAEQwAAAIQgABAABCKEAhQ=</HashCode>
+      <FileName>Common\Models\Order.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SmartHyperMarket.Common.Models.Product">
+    <Position X="6.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAQAAAQGgAAAAIAAAAQQAACAEAISgAACEgAAEAgA=</HashCode>
+      <FileName>Common\Models\Product.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
