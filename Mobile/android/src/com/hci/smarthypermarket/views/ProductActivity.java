@@ -20,6 +20,8 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
+import android.widget.RatingBar.OnRatingBarChangeListener;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
@@ -119,12 +121,25 @@ public class ProductActivity extends Activity implements IProductActivity {
 		lName.setHint("Last Name");
 		final EditText editTextReview = new EditText(this);
 		editTextReview.setHint("Write your review...");
+		final RatingBar ratingBar = new RatingBar(this);
+		ratingBar.setNumStars(5);
 		linear.addView(fName);
 		linear.addView(lName);
 		linear.addView(editTextReview);
+		linear.addView(ratingBar);
 		
 		alert.setView(linear);
 		alert.setTitle("Write Review");
+		
+		ratingBar.setOnRatingBarChangeListener(new OnRatingBarChangeListener(){
+			
+			@Override
+			public void onRatingChanged(RatingBar ratingBar, float rating,
+					boolean fromUser) {
+				// TODO Auto-generated method stub
+				String ratingBarValue = String.valueOf(rating);
+			}
+		});
 		
 		alert.setPositiveButton("Post", new DialogInterface.OnClickListener() {
 			
@@ -145,7 +160,6 @@ public class ProductActivity extends Activity implements IProductActivity {
 					});
 					
 					shopper.getScannedProduct().makeReview(review);
-					
 					
 				}
 				else
