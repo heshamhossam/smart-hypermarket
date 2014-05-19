@@ -9,7 +9,7 @@ namespace SmartHyperMarket.Common.Controllers
     /// <summary>
     /// Work as a container for diffirent inputss
     /// </summary>
-    class Input
+    public class Input
     {
         string _name;
         public string Name

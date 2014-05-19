@@ -12,7 +12,7 @@ namespace SmartHyperMarket.DataEntryManager.Controllers
     /// <summary>
     /// Handel the logic operations dealing with offers and it's related functionality
     /// </summary>
-    class OfferController
+    public class OfferController
     {
         private Offer _offer = new Offer(Market.getInstance());
 
