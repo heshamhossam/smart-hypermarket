@@ -9,7 +9,7 @@ namespace SmartHyperMarket.Common.Controllers
     /// <summary>
     /// Handel errors of the application occured during runtime
     /// </summary>
-    public class Error
+    class Error
     {
         protected string _errorMessage;
         public string ErrorMessage

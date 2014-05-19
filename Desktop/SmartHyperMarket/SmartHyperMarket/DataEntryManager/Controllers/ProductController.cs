@@ -14,6 +14,12 @@ namespace SmartHyperMarket.DataEntryManager.Controllers
     /// </summary>
     class ProductController
     {
+        private Product _product = new Product();
+
+        public Product Product 
+        {
+            set { _product = value; }
+        }
         /// <summary>
         /// Create new product in the system
         /// </summary>
@@ -53,7 +59,7 @@ namespace SmartHyperMarket.DataEntryManager.Controllers
                     name.Value, barcode.Value, float.Parse(price.Value), categoryId.Value, weight.Value, description.Value, Market.getInstance()
                 );
 
-                Product productSaved = product.save();
+                Product productSaved = Market.getInstance().addProduct(product);
 
                 if (productSaved == null)
                 {
@@ -61,13 +67,23 @@ namespace SmartHyperMarket.DataEntryManager.Controllers
                     response.State = ResponseState.FAIL;
                 }
                 else
-                {
-                    Market.getInstance().Products.Add(productSaved);
-                    Market.getInstance().onProductsChangeHandler();
                     response.State = ResponseState.SUCCESS;
-                }
 
             }
+
+            return response;
+        }
+    
+        public Response editProduct(params Input[] inputs)
+        {
+            Response response = new Response();
+
+            return response;
+        }
+
+        public Response deleteProduct()
+        {
+            Response response = new Response();
 
             return response;
         }
