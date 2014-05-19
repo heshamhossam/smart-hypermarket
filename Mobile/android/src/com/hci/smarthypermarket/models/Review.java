@@ -23,6 +23,7 @@ abstract class SendReviewTask extends AsyncTask<Review, Integer, Review>
 	final String Tag_Createdat="created_at";
 	final String Tag_ReviewID="id";
 	final String Tag_UserMobile="mobile";
+	final String Tag_Rating = "rating";
 	//////////////////////////////////////////
 	private static final String url_create_review=Model.linkServiceRoot + "/reviews/create";
 	JSONParser jsonParser = new JSONParser();
@@ -44,6 +45,7 @@ abstract class SendReviewTask extends AsyncTask<Review, Integer, Review>
 			params[0].createdAt=Createdat;
 			params[0].updatedAt=Updatedat;
 			params[0].id=ReviewId;
+			
 		} catch (JSONException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -63,15 +65,17 @@ public class Review extends Model {
 	protected String createdAt;
 	protected String updatedAt;
 	protected String product_id;
+	private int rating;
 	
 	
-	public Review(Shopper reviewer, String id, String body, String createdAt, String updatedAt) {
+	public Review(Shopper reviewer, String id, String body, String createdAt, String updatedAt,int rating) {
 		super();
 		this.reviewer = reviewer;
 		this.id = id;
 		this.body = body;
 		this.createdAt = createdAt;
 		this.updatedAt = updatedAt;
+		this.rating = rating;
 		
 	}
 	
@@ -120,6 +124,10 @@ public class Review extends Model {
 	public String getBody(){
 		return body;
 	}
+
+
+	
+
 	
 	
 

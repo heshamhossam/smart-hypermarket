@@ -41,6 +41,7 @@ abstract class RetriveCategoriesTask extends AsyncTask<Market, Integer,List<Cate
     final String Tag_UserMobile="mobile";
     final String Tag_ReviewCreateTime="created_at";
     final String Tag_ReviewUpdateTime="updated_at";
+    final String Tag_Rating="rating";
     ////////////////////Bluetooth Tags/////////////////////////
     final String Tag_Buletooth="bluetooth";
     final String Tag_BuletoothId="id";
@@ -115,8 +116,9 @@ abstract class RetriveCategoriesTask extends AsyncTask<Market, Integer,List<Cate
 						String userlaStringName=userobject.getString(Tag_UserLastName);
 						String mobilenumber=userobject.getString(Tag_UserMobile);
 						String rcreatedat=userobject.getString(Tag_ReviewCreateTime);
+						String rating = userobject.getString(Tag_Rating);
 						String rupdatedat=	userobject.getString(Tag_ReviewUpdateTime);
-						Review review = new Review(new Shopper(userfirstName,userlaStringName,mobilenumber),reviewid,reviewbody,rcreatedat,rupdatedat);
+						Review review = new Review(new Shopper(userfirstName,userlaStringName,mobilenumber),reviewid,reviewbody,rcreatedat,rupdatedat,Integer.parseInt(rating));
 						reviewlist.add(review);
 					}
 				//	String categoryId = productObj.getString(TAG_CATID);

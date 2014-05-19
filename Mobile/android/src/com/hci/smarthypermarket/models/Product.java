@@ -33,6 +33,7 @@ abstract class RetrieveProductTask extends AsyncTask<String, Integer, Product> {
 	final String Tag_Review="reviews";
 	final String Tag_ReviewId="id";
 	final String Tag_ReviewBody="body";
+	final String Tag_Rating ="rating";
     final String Tag_User="user";
     final String Tag_UserId="id";
     final String Tag_UserFirstName="first_name";
@@ -92,7 +93,8 @@ abstract class RetrieveProductTask extends AsyncTask<String, Integer, Product> {
 					String mobilenumber=userobject.getString(Tag_UserMobile);
 					String rcreatedat=userobject.getString(Tag_ReviewCreateTime);
 					String rupdatedat=	userobject.getString(Tag_ReviewUpdateTime);
-					Review review = new Review(new Shopper(userfirstName,userlaStringName,mobilenumber),reviewid,reviewbody,rcreatedat,rupdatedat);
+					String rating =userobject.getString(Tag_Rating);
+					Review review = new Review(new Shopper(userfirstName,userlaStringName,mobilenumber),reviewid,reviewbody,rcreatedat,rupdatedat,Integer.parseInt(rating));
 					reviewlist.add(review);
 				}
 			//	String categoryId = productObj.getString(TAG_CATID);
