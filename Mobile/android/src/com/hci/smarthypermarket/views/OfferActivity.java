@@ -2,30 +2,20 @@ package com.hci.smarthypermarket.views;
 
 
 import com.hci.smarthypermarket.R;
-import com.hci.smarthypermarket.models.Bluetooth;
-import com.hci.smarthypermarket.models.Category;
 import com.hci.smarthypermarket.models.Offer;
-import com.hci.smarthypermarket.models.Product;
 import com.hci.smarthypermarket.models.Shopper;
 
 import android.os.Bundle;
 import android.app.ActionBar;
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.view.Menu;
-import android.view.View;
-import android.view.View.OnClickListener;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.SeekBar.OnSeekBarChangeListener;
 
 public class OfferActivity extends Activity {
 	
@@ -33,7 +23,6 @@ public class OfferActivity extends Activity {
 	private TextView textViewOfferPrice = null;
 	private TextView textViewOfferTeaser = null;
 	private ListView listViewOfferProducts = null;
-	private Button AddOfferButton = null;
 	private Shopper shopper = LauncherActivity.shopper;
 	
     @Override
@@ -50,15 +39,9 @@ public class OfferActivity extends Activity {
         textViewOfferPrice = (TextView) findViewById(R.id.offerPrice);
         textViewOfferTeaser = (TextView) findViewById(R.id.offerTeaser);
         listViewOfferProducts = (ListView) findViewById(R.id.listViewOfferProducts);
-        AddOfferButton = (Button) findViewById(R.id.addOfferButton);
+
         
-        AddOfferButton.setOnClickListener(new OnClickListener(){
-        	public void onClick(View v){
-        		showInputNumberPopup();
-        	}
-        });
-        
-//        Category categoryBooks = new Category("5", "Books");
+//      Category categoryBooks = new Category("5", "Books");
 //		categoryBooks.setBluetooth(new Bluetooth("Books", "Books", 0));
 //		categoryBooks.getProducts().add(new Product("28", "Medical Imaging", "0819436232", (float) 80, "400", "this is a CS Book"));
 //		categoryBooks.getProducts().add(new Product("29", "Digital Image Processing", "9780982085400", (float) 87, "982", " a CS Book related to image manipulations"));
@@ -76,7 +59,17 @@ public class OfferActivity extends Activity {
 		getMenuInflater().inflate(R.menu.offer, menu);
 		return true;
 	}
-
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item){
+		switch(item.getItemId()){
+		case R.id.home_icon:
+			startDashBoardActivity();
+		default:
+			return super.onOptionsItemSelected(item);
+		}
+	}
+	
 	public void showOffer(Offer offer){
 		try
 		{
@@ -94,6 +87,12 @@ public class OfferActivity extends Activity {
 		}
 	}
 	
+	void startDashBoardActivity(){
+		Intent intent = new Intent(OfferActivity.this, DashBoardActivity.class);
+		startActivity(intent);
+	}
+	
+	/*
 	public void showInputNumberPopup() {
 		  // TODO Auto-generated method stub
 		  final AlertDialog.Builder alertdlg = new AlertDialog.Builder(this);
@@ -147,4 +146,5 @@ public class OfferActivity extends Activity {
 		  AlertDialog alertDialog = alertdlg.create();
 		  alertDialog.show();
 		  }
+		  */
 }

@@ -119,17 +119,5 @@
         android:layout_marginLeft="10dp"
         android:layout_gravity="right">
     </ListView>
-     <Button
-         android:id="@+id/addOfferButton"
-         style="@style/CustomStyleButton"
-         android:layout_below="@id/listViewOfferProducts"
-         android:layout_width="130dp"
-         android:layout_height="wrap_content"
-         android:textStyle="bold"
-         android:gravity="center"
-         android:layout_marginTop="50dp"
-         android:text="@string/add"
-         android:textColor="#fff" />
-
 
 </RelativeLayout>
