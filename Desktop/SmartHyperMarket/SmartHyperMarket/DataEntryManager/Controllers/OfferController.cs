@@ -175,7 +175,6 @@ namespace SmartHyperMarket.DataEntryManager.Controllers
                 respone.State = ResponseState.SUCCESS;
             else
             {
-
                 respone.Errors.Add(new Error("Unknown error happend while saving offer, please try again later"));
                 respone.State = ResponseState.FAIL;
             }

@@ -51,6 +51,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="DataEntryManager\Controllers\OfferControllerTests.cs" />
+    <Compile Include="DataEntryManager\Controllers\ProductControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

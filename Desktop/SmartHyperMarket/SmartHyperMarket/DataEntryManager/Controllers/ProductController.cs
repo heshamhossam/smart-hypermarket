@@ -12,7 +12,7 @@ namespace SmartHyperMarket.DataEntryManager.Controllers
     /// <summary>
     /// Handel of the logic operations related with product
     /// </summary>
-    class ProductController
+    public class ProductController
     {
         private Product _product = new Product();
 
