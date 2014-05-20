@@ -14,7 +14,7 @@ namespace SmartHyperMarket.Common.Models.Tests
     {
         public class MarketMock : Market
         {
-            public MarketMock() { }
+            public MarketMock() {}
         }
         [Test()]
         public void getInstanceTest()

@@ -6,19 +6,16 @@ using System.Threading.Tasks;
 using SmartHyperMarket.DataEntryManager.Controllers;
 using NUnit.Framework;
 using SmartHyperMarket.Common.Controllers;
-<<<<<<< HEAD
+
 using SmartHyperMarket.Common.StubModels;
-=======
 
-
->>>>>>> fb81b4ab29b73230c9784c41bc5f28d12fa10097
 namespace SmartHyperMarket.DataEntryManager.Controllers.Tests
 {
     [TestFixture()]
     public class ProductControllerTests
     {
 
-         [Test()]
+        [Test()]
         public void editProductTestNormalCase()
         {
             ProductController productcontroller = new ProductController();
@@ -97,10 +94,7 @@ namespace SmartHyperMarket.DataEntryManager.Controllers.Tests
             p.Price = 1.1f;
             Response response = productcontroller.deleteProduct(p);
             Assert.AreEqual(response.State, ResponseState.SUCCESS);
-
         }
-
-
 
         [Test()]
         public void createProductTestNormalCase()

@@ -133,35 +133,12 @@ namespace SmartHyperMarket.Common.StubModels
 
         public bool editProduct(Product product)
         {
-            if (!ProductList.Exists(p => p.Id == product.Id))
-                return false;
-
-            bool productUpdated = product.update();
-            if (productUpdated)
-            {
-                ProductList[ProductList.FindIndex(p => p.Id == product.Id)] = product;
-                if (onProductsChangeHandler != null)
-                    onProductsChangeHandler();
-            }
-
-            return productUpdated;
-
+            return true;
         }
 
         public bool deleteProduct(Product product)
         {
-            if (!ProductList.Exists(p => p.Id == product.Id))
-                return false;
-
-            bool productDeleted = product.delete();
-            if (productDeleted)
-            {
-                ProductList.RemoveAt(ProductList.FindIndex(p => p.Id == product.Id));
-                if (onProductsChangeHandler != null)
-                    onProductsChangeHandler();
-            }
-
-            return productDeleted;
+            return true;
         }
 
         private void LoadProducts()
