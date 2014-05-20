@@ -27,7 +27,7 @@ namespace SmartHyperMarket.Views
         public Login()
         {
             InitializeComponent();
-                   }
+        }
 
         private void buttonLogin_Click(object sender, RoutedEventArgs e)
         {

@@ -162,9 +162,18 @@ public class Order extends Model {
 		return showableItems;
 	}
 
-
-	public void refreshState(OnModelListener onModelListener) {
+	public Boolean isState(String checkableState)
+	{
+		if (state.compareTo(checkableState) == 0)
+			return true;
+		
+		return false;
+	}
+	
+	public void refreshState() {
 		//find online the state of this order and set the local state member by the new one online
+		RetrieveOrderState retrieveOrderState = new RetrieveOrderState(){ };
+		retrieveOrderState.execute(this);
 		
 	}
 

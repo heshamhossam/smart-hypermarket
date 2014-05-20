@@ -134,10 +134,11 @@ public class CartActivity extends Activity implements ICartActivity {
 						shopper.watchOrder(getApplicationContext(), new OnModelListener() {
 							@Override
 							public void OnModelRetrieved() {
-								// TODO Auto-generated method stub
+								startOrderActivity();
 								super.OnModelRetrieved();
 							}
 						});
+						
 						startOrderActivity();
 						super.OnModelSent();
 					}

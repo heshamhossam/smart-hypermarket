@@ -7,6 +7,7 @@ import com.hci.smarthypermarket.models.Shopper;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -76,6 +77,7 @@ public class OrderActivity extends Activity {
 	{
 		textViewOrderId.setText(order.getId());
 		textViewConfirmationCode.setText(order.getConfirmationCode());
+		textViewState.setTextColor(Color.RED);
 		textViewState.setText(order.getState());
 		textViewTotalPrice.setText(String.valueOf(order.getTotalCost()));
 		order.showProductsItems(OrderActivity.this, (ListView) findViewById(R.id.listViewOrderProducts));

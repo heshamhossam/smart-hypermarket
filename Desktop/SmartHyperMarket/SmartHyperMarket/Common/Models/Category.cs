@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace SmartHyperMarket.Common.Models
 {
@@ -95,13 +96,19 @@ namespace SmartHyperMarket.Common.Models
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
 
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            List<Category> list = new List<Category>();
 
-            StreamReader sr = new StreamReader(response.GetResponseStream());
-
-            string data = sr.ReadToEnd();
-
-            List<Category> list = JsonConvert.DeserializeObject<List<Category>>(data);
+            try
+            {
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                StreamReader sr = new StreamReader(response.GetResponseStream());
+                string data = sr.ReadToEnd();
+                list = JsonConvert.DeserializeObject<List<Category>>(data);
+            }
+            catch
+            {
+                MessageBox.Show("Server connection error.");
+            }
 
             return list;
         }

@@ -261,23 +261,35 @@ public class Shopper extends Model {
 		
 	}
 	
-	public void watchOrder(Context context, final OnModelListener onStateChanged)
+	public void watchOrder(final Context context, final OnModelListener onStateChanged)
 	{
-		//make a thread
-		if (this.isConnectedToInternet(context))
-		{
-			final String state = order.getState();
-			
-			this.order.refreshState(new OnModelListener() {
-				@Override
-				public void OnModelRetrieved() {
+		
+		Thread refreshingStateThread = new Thread() {
+			@Override
+			public void run() {
+				
+				try
+				{
+					while (isConnectedToInternet(context) && !order.isState(Order.READY))
+					{
+						order.refreshState();
+						Thread.sleep(2000);
+					}
 					
-					if (state.compareTo(state) != 0)
+					if (order.isState(Order.READY))
 						onStateChanged.OnModelRetrieved();
 					
 				}
-			});
-		}
+				catch(Exception e)
+				{
+					
+				}
+				super.run();
+			}
+		};
+		
+		refreshingStateThread.start();
+		
 	}
 	
 	public Boolean isConnectedToInternet(Context context)
@@ -286,9 +298,13 @@ public class Shopper extends Model {
 		NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
 		return (networkInfo != null && networkInfo.isConnected());
 	}
+	
+	
+	
 	public Offer getCurrentOffer() {
 		return currentOffer;
 	}
+	
 	public void setCurrentOffer(Offer currentOffer) {
 		this.currentOffer = currentOffer;
 	}

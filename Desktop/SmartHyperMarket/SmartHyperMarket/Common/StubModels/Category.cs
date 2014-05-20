@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace SmartHyperMarket.Common.StubModels
 {
@@ -92,17 +93,20 @@ namespace SmartHyperMarket.Common.StubModels
         public static List<Category> all(Market market)
         {
             string url = WebserviceURLFull + "/retrieve?market_id=" + market.Id.ToString();
-
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            List<Category> list = new List<Category>();
+            try
+            {
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                StreamReader sr = new StreamReader(response.GetResponseStream());
+                string data = sr.ReadToEnd();
+                list = JsonConvert.DeserializeObject<List<Category>>(data);
 
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
-            StreamReader sr = new StreamReader(response.GetResponseStream());
-
-            string data = sr.ReadToEnd();
-
-            List<Category> list = JsonConvert.DeserializeObject<List<Category>>(data);
-
+            }
+            catch
+            {
+                MessageBox.Show("Server connection error.");
+            }
             return list;
         }
 
