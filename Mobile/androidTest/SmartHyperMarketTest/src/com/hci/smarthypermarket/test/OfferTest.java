@@ -20,10 +20,7 @@ public class OfferTest extends AndroidTestCase {
 		
 		Offer offer = new Offer("Offer test", "Offer price","Offer teaser","Offer date","Offer date",products);
 		
-		String actual = offer.getName();
-		String expected = "Offer test";
-		
-		assertEquals(expected, actual);
+		assertNotNull(offer);
 	}
 
 	
