@@ -62,8 +62,15 @@ namespace SmartHyperMarket.DataEntryManager.Views
 
         private void buttonAddToOffer_Click(object sender, RoutedEventArgs e)
         {
-            Product product = market.Products.Where(p => p.Name == comboBoxProducts.SelectedItem.ToString()).ElementAt(0);
-
+            Product product = new Product();
+            try
+            {
+                product = market.Products.Where(p => p.Name == comboBoxProducts.SelectedItem.ToString()).ElementAt(0);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("You have to choose product first");
+            }
             Response response = _offercontroller.addProductToOffer(
                 new Input("productId", product.Id),
                 new Input("productQuantity", textBoxQuantity.Text)

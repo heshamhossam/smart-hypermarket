@@ -29,17 +29,12 @@ namespace SmartHyperMarket.StorageManager.Views
         private void buttonOpenOrder_Click(object sender, RoutedEventArgs e)
         {
             Order order = Market.getInstance().Orders.Find((Order order2) => order2.Id == id.Text);
-            if (order.Confirmation_code == confirmationCode.Text || true)
+            if (order != null && (order.Confirmation_code == confirmationCode.Text || true ))
             {
                 OrderDetailsWindow orderPopup = new OrderDetailsWindow(order);
                 orderPopup.Show();
-
             }
-
             else MessageBox.Show("Invaild Confirmation Code!");
-
-
-
         }
     }
 }

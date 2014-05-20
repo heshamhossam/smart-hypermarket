@@ -7,6 +7,7 @@ using SmartHyperMarket;
 using System.Net;
 using System.IO;
 using Newtonsoft.Json;
+using System.Windows;
 
 namespace SmartHyperMarket.Common.Models
 {
@@ -109,13 +110,19 @@ namespace SmartHyperMarket.Common.Models
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
 
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            List<Order> list = new List<Order>();
 
-            StreamReader sr = new StreamReader(response.GetResponseStream());
-
-            string data = sr.ReadToEnd();
-
-            List<Order> list = JsonConvert.DeserializeObject<List<Order>>(data);
+            try
+            {
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                StreamReader sr = new StreamReader(response.GetResponseStream());
+                string data = sr.ReadToEnd();
+                list = JsonConvert.DeserializeObject<List<Order>>(data);
+            }
+            catch
+            {
+                MessageBox.Show("Server connection error.");
+            }
 
             return list;
         }
@@ -124,13 +131,16 @@ namespace SmartHyperMarket.Common.Models
         public override bool update()
         {
             string url = WebserviceURLFull + "/edit?order_id=" + this._Id + "&state=" + this._State;
-
             System.Windows.MessageBox.Show(url + this._Confirmation_code);
-
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
+            try
+            {
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            }
+            catch
+            {
+                MessageBox.Show("Server connection error.");
+            }
             return true;
         }
 
