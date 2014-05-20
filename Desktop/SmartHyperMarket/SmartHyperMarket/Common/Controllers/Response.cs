@@ -13,6 +13,9 @@ namespace SmartHyperMarket.Common.Controllers
     public class Response
     {
         private ResponseState _state;
+
+        public Response() { _state = ResponseState.SUCCESS; }
+
         public ResponseState State
         {
             get
