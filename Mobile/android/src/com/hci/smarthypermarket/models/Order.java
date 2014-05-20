@@ -133,5 +133,10 @@ public class Order extends Model {
 	}
 
 
+	public void refreshState(OnModelListener onModelListener) {
+		//find online the state of this order and set the local state member by the new one online
+	}
+
+
 
 }

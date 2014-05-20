@@ -133,15 +133,6 @@ public class ProductActivity extends Activity implements IProductActivity {
 		alert.setView(linear);
 		alert.setTitle("Write Review");
 		
-		ratingBar.setOnRatingBarChangeListener(new OnRatingBarChangeListener(){
-			
-			@Override
-			public void onRatingChanged(RatingBar ratingBar, float rating,
-					boolean fromUser) {
-				// TODO Auto-generated method stub
-				String ratingBarValue = String.valueOf(rating);
-			}
-		});
 		
 		alert.setPositiveButton("Post", new DialogInterface.OnClickListener() {
 			
@@ -175,7 +166,6 @@ public class ProductActivity extends Activity implements IProductActivity {
 			public void onClick(DialogInterface dialog, int which) {
 				// TODO Auto-generated method stub
 				Toast.makeText(getApplicationContext(), "Cancel Done", Toast.LENGTH_LONG).show();
-			    finish();
 			}
 		});
 		

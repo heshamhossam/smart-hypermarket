@@ -261,6 +261,25 @@ public class Shopper extends Model {
 		
 	}
 	
+	public void watchOrder(Context context, final OnModelListener onStateChanged)
+	{
+		//make a thread
+		if (this.isConnectedToInternet(context))
+		{
+			final String state = order.getState();
+			
+			this.order.refreshState(new OnModelListener() {
+				@Override
+				public void OnModelRetrieved() {
+					
+					if (state.compareTo(state) != 0)
+						onStateChanged.OnModelRetrieved();
+					
+				}
+			});
+		}
+	}
+	
 	public Boolean isConnectedToInternet(Context context)
 	{
 		ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
