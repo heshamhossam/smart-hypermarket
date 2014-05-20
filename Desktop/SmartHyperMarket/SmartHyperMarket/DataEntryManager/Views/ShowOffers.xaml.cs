@@ -1,7 +1,7 @@
 ﻿using SmartHyperMarket.Common.Controllers;
 using SmartHyperMarket.DataEntryManager.Controllers;
-//using SmartHyperMarket.Common.Models;
-using SmartHyperMarket.Common.StubModels;
+using SmartHyperMarket.Common.Models;
+//using SmartHyperMarket.Common.StubModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,25 +25,16 @@ namespace SmartHyperMarket.DataEntryManager.Views
     public partial class ShowOffers : Page
     {
         Market market;  
-        private OfferController _offerController;
-
-
-        //public List<Offer> _offers = new List<Offer>();
-        //private List<Product> _products = new List<Product>();
-
-        //public void showOffers(List<Offer> offers)
-        //{
-
-        //}
+        private OfferController _offerController = new OfferController();
 
         public ShowOffers()
         {
 
             InitializeComponent();
             Application.Current.MainWindow.Activate();
-            market = Market.getInstance();
-            market.OnOffersChange = offerlist_onUpdate;
-            offersListGrid.ItemsSource = market.Offers;
+            Market.getInstance().OnOffersChange = offerlist_onUpdate;
+
+            _offerController.showOffers(this);
  
         }
 
@@ -53,7 +44,10 @@ namespace SmartHyperMarket.DataEntryManager.Views
             offersListGrid.Items.Refresh();
         }
 
-
+        public void show(List<Offer> offers)
+        {
+            offersListGrid.ItemsSource = offers;
+        }
         
 
 

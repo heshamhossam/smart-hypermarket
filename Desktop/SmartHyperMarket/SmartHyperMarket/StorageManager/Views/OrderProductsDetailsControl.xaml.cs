@@ -1,5 +1,7 @@
 ﻿using FirstFloor.ModernUI.Windows;
+using SmartHyperMarket.Common.Controllers;
 using SmartHyperMarket.Common.Models;
+using SmartHyperMarket.StorageManager.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +25,7 @@ namespace SmartHyperMarket.StorageManager.Views
     public partial class OrderProductsDetailsControl : UserControl, IContent
     {
         private Order _order = new Order(Market.getInstance());
+        private OrderController _orderController = new OrderController();
 
         public OrderProductsDetailsControl(Order order)
         {
@@ -70,8 +73,15 @@ namespace SmartHyperMarket.StorageManager.Views
 
         private void buttonServed_Click(object sender, RoutedEventArgs e)
         {
-            _order.State = Order.READY;
-            _order.update();
+            Response response = _orderController.updateOrderState(
+                _order,
+                new Input("state", Order.READY)
+            );
+
+            if (response.State == ResponseState.FAIL)
+                MessageBox.Show(response.Errors[0].ErrorMessage);
+            else
+                MessageBox.Show("Order State is changed to Ready.");
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using SmartHyperMarket.Common.Models;
+﻿using SmartHyperMarket.Common.Controllers;
+using SmartHyperMarket.Common.Models;
+using SmartHyperMarket.StorageManager.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +23,8 @@ namespace SmartHyperMarket.StorageManager.Views
     /// </summary>
     public partial class OrderOpenPage : Page
     {
+        private OrderController _orderController = new OrderController();
+
         public OrderOpenPage()
         {
             InitializeComponent();
@@ -28,13 +32,13 @@ namespace SmartHyperMarket.StorageManager.Views
 
         private void buttonOpenOrder_Click(object sender, RoutedEventArgs e)
         {
-            Order order = Market.getInstance().Orders.Find((Order order2) => order2.Id == id.Text);
-            if (order != null && (order.Confirmation_code == confirmationCode.Text || true ))
-            {
-                OrderDetailsWindow orderPopup = new OrderDetailsWindow(order);
-                orderPopup.Show();
-            }
-            else MessageBox.Show("Invaild Confirmation Code!");
+            Response response = _orderController.openOrder(
+                new Input("id", id.Text),
+                new Input("confirmationCode", confirmationCode.Text)
+            );
+
+            if (response.State == ResponseState.FAIL)
+                MessageBox.Show(response.Errors[0].ErrorMessage);
         }
     }
 }
