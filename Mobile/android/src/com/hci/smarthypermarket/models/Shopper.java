@@ -3,6 +3,10 @@ package com.hci.smarthypermarket.models;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.BroadcastReceiver;
@@ -16,12 +20,15 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
 import android.widget.Toast;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import com.hci.smarthypermarket.R;
 
 
 
@@ -261,23 +268,35 @@ public class Shopper extends Model {
 		
 	}
 	
-	public void watchOrder(Context context, final OnModelListener onStateChanged)
+	public void watchOrder(final Context context, final OnModelListener onStateChanged)
 	{
-		//make a thread
-		if (this.isConnectedToInternet(context))
-		{
-			final String state = order.getState();
-			
-			this.order.refreshState(new OnModelListener() {
-				@Override
-				public void OnModelRetrieved() {
+		
+		Thread refreshingStateThread = new Thread() {
+			@Override
+			public void run() {
+				
+				try
+				{
+					while (isConnectedToInternet(context) && !order.isState(Order.READY))
+					{
+						order.refreshState();
+						Thread.sleep(2000);
+					}
 					
-					if (state.compareTo(state) != 0)
+					if (order.isState(Order.READY))
 						onStateChanged.OnModelRetrieved();
 					
 				}
-			});
-		}
+				catch(Exception e)
+				{
+					
+				}
+				super.run();
+			}
+		};
+		
+		refreshingStateThread.start();
+		
 	}
 	
 	public Boolean isConnectedToInternet(Context context)
@@ -286,9 +305,28 @@ public class Shopper extends Model {
 		NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
 		return (networkInfo != null && networkInfo.isConnected());
 	}
+	
+	@SuppressLint("NewApi")
+	public void makeNotification(Context context, String title, String content)
+	{
+		
+		NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+		
+		NotificationCompat.Builder builder  = new NotificationCompat.Builder(context);
+		builder.setContentTitle(title)
+		.setContentText(content)
+		.setAutoCancel(true)
+		.setSmallIcon(R.drawable.ic_action_expand)
+		.setVibrate(new long[] { 1000, 1000, 1000, 1000, 1000 });
+		
+		
+		notificationManager.notify(0, builder.build());
+	}
+	
 	public Offer getCurrentOffer() {
 		return currentOffer;
 	}
+	
 	public void setCurrentOffer(Offer currentOffer) {
 		this.currentOffer = currentOffer;
 	}

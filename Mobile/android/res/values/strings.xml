@@ -41,7 +41,7 @@
     <string name="state">State</string>
     <string name="totalPrice">Total Price</string>
     <string name="orderProducts">Products</string>
-    <string name="title_activity_offer">OfferActivity</string>
+    <string name="title_activity_offer">Offer</string>
     
     <!-- Offer details -->
     <string name="offerPrice">Price</string>

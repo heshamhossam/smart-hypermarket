@@ -134,10 +134,11 @@ public class CartActivity extends Activity implements ICartActivity {
 						shopper.watchOrder(getApplicationContext(), new OnModelListener() {
 							@Override
 							public void OnModelRetrieved() {
-								// TODO Auto-generated method stub
+								shopper.makeNotification(getApplicationContext(),"Your Order is Ready", "Go to the Delivery Section and recieve your order.");
 								super.OnModelRetrieved();
 							}
 						});
+						
 						startOrderActivity();
 						super.OnModelSent();
 					}
@@ -161,11 +162,12 @@ public class CartActivity extends Activity implements ICartActivity {
 	}
 	
 	public void startOrderActivity() {
-		// TODO Auto-generated method stub
 		Intent intent = new Intent(CartActivity.this, OrderActivity.class);
 		startActivity(intent);
 		
 	}
+	
+	
 
 
 
