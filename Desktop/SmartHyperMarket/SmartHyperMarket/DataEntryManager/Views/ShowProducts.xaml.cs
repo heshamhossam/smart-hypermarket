@@ -17,9 +17,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using SmartHyperMarket.Common.Models;
 using SmartHyperMarket.DataEntryManager.Controllers;
 using SmartHyperMarket.Common.Controllers;
+//using SmartHyperMarket.Common.Models;
+using SmartHyperMarket.Common.StubModels;
 
 namespace SmartHyperMarket.DataEntryManager.Views
 {

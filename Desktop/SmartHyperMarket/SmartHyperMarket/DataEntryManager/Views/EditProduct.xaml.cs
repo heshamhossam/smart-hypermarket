@@ -11,9 +11,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using SmartHyperMarket.Common.Models;
 using SmartHyperMarket.DataEntryManager.Controllers;
 using SmartHyperMarket.Common.Controllers;
+//using SmartHyperMarket.Common.Models;
+using SmartHyperMarket.Common.StubModels;
 
 namespace SmartHyperMarket.DataEntryManager.Views
 {
@@ -24,7 +25,7 @@ namespace SmartHyperMarket.DataEntryManager.Views
     /// </summary>
     public partial class EditProduct : Window
     {
-        private Product _product;
+        private Product _product = new Product();
         private ProductController _productController = new ProductController();
         public OnProductUpdate OnProductChangeHandler = null;
 

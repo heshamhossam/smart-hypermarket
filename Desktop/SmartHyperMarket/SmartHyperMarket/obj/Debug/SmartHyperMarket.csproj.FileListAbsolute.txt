@@ -136,4 +136,3 @@ C:\Users\eslam\Documents\GitHub\smart-hypermarket\Desktop\SmartHyperMarket\Smart
 C:\Users\eslam\Documents\GitHub\smart-hypermarket\Desktop\SmartHyperMarket\SmartHyperMarket\bin\Debug\SmartHyperMarket.XML
 C:\Users\eslam\Documents\GitHub\smart-hypermarket\Desktop\SmartHyperMarket\SmartHyperMarket\obj\Debug\SmartHyperMarket.exe
 C:\Users\eslam\Documents\GitHub\smart-hypermarket\Desktop\SmartHyperMarket\SmartHyperMarket\obj\Debug\SmartHyperMarket.pdb
-C:\Users\Yaser\Source\Repos\smart-hypermarket4\Desktop\SmartHyperMarket\SmartHyperMarket\obj\Debug\SmartHyperMarket.csprojResolveAssemblyReference.cache
