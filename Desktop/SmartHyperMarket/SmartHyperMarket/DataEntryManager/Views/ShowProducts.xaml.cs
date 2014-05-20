@@ -19,8 +19,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using SmartHyperMarket.DataEntryManager.Controllers;
 using SmartHyperMarket.Common.Controllers;
-//using SmartHyperMarket.Common.Models;
-using SmartHyperMarket.Common.StubModels;
+using SmartHyperMarket.Common.Models;
+//using SmartHyperMarket.Common.StubModels;
 
 namespace SmartHyperMarket.DataEntryManager.Views
 {
@@ -30,18 +30,21 @@ namespace SmartHyperMarket.DataEntryManager.Views
     public partial class ShowProducts : Page
     {
         ProductController _productController = new ProductController();
-        Market market;
 
         public ShowProducts()
         {
 
             InitializeComponent();
             Application.Current.MainWindow.Activate();
-            market = Market.getInstance();
-            market.onProductsChangeHandler = productlist_onUpdate;
-            productsListGrid.ItemsSource = market.Products;
+            Market.getInstance().onProductsChangeHandler = productlist_onUpdate;
+
+            _productController.showProducts(this);
         }
         
+        public void show(List<Product> products)
+        {
+            productsListGrid.ItemsSource = products;
+        }
         
         public void productlist_onUpdate()
         {

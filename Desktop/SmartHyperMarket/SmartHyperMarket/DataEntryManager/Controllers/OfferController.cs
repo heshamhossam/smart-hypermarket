@@ -5,8 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using SmartHyperMarket.Common.Controllers;
-//using SmartHyperMarket.Common.Models;
-using SmartHyperMarket.Common.StubModels;
+using SmartHyperMarket.Common.Models;
+//using SmartHyperMarket.Common.StubModels;
+using SmartHyperMarket.DataEntryManager.Views;
 
 namespace SmartHyperMarket.DataEntryManager.Controllers
 {
@@ -179,6 +180,16 @@ namespace SmartHyperMarket.DataEntryManager.Controllers
                 respone.State = ResponseState.FAIL;
             }
             return respone;
+        }
+
+        public Response showOffers(ShowOffers showOffersPage)
+        {
+            Response response = new Response();
+
+            showOffersPage.show(Market.getInstance().Offers);
+
+            response.State = ResponseState.SUCCESS;
+            return response;
         }
     }
 }

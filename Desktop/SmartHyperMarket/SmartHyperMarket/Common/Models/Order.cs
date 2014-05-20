@@ -121,7 +121,7 @@ namespace SmartHyperMarket.Common.Models
             }
             catch
             {
-                MessageBox.Show("Server connection error.");
+                return null;
             }
 
             return list;
@@ -131,7 +131,7 @@ namespace SmartHyperMarket.Common.Models
         public override bool update()
         {
             string url = WebserviceURLFull + "/edit?order_id=" + this._Id + "&state=" + this._State;
-            System.Windows.MessageBox.Show(url + this._Confirmation_code);
+
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             try
             {
@@ -139,13 +139,28 @@ namespace SmartHyperMarket.Common.Models
             }
             catch
             {
-                MessageBox.Show("Server connection error.");
+                return false;
             }
             return true;
         }
 
         
+        public bool isAllowableState(string state)
+        {
+            switch (state)
+            {
+                case Order.READY:
+                case Order.PREPARING:
+                case Order.DONE:
+                case Order.WAITING:
+                    return true;
+                    break;
 
+                default:
+                    return false;
+                    break;
+            }
+        }
 
         public override Order save()
         {
