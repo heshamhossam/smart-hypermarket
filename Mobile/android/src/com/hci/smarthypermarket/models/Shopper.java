@@ -299,7 +299,10 @@ public class Shopper extends Model {
 		return (networkInfo != null && networkInfo.isConnected());
 	}
 	
-	
+	public void makeNotification(String tittle, String content)
+	{
+		
+	}
 	
 	public Offer getCurrentOffer() {
 		return currentOffer;
