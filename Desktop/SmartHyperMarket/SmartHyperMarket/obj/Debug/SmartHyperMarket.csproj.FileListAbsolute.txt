@@ -136,3 +136,7 @@ C:\Users\eslam\Documents\GitHub\smart-hypermarket\Desktop\SmartHyperMarket\Smart
 C:\Users\eslam\Documents\GitHub\smart-hypermarket\Desktop\SmartHyperMarket\SmartHyperMarket\bin\Debug\SmartHyperMarket.XML
 C:\Users\eslam\Documents\GitHub\smart-hypermarket\Desktop\SmartHyperMarket\SmartHyperMarket\obj\Debug\SmartHyperMarket.exe
 C:\Users\eslam\Documents\GitHub\smart-hypermarket\Desktop\SmartHyperMarket\SmartHyperMarket\obj\Debug\SmartHyperMarket.pdb
+C:\Users\Hawex\Documents\GitHub\smart-hypermarket\Desktop\SmartHyperMarket\SmartHyperMarket\bin\Debug\SmartHyperMarket.exe.config
+C:\Users\Hawex\Documents\GitHub\smart-hypermarket\Desktop\SmartHyperMarket\SmartHyperMarket\bin\Debug\SmartHyperMarket.XML
+C:\Users\Hawex\Documents\GitHub\smart-hypermarket\Desktop\SmartHyperMarket\SmartHyperMarket\obj\Debug\SmartHyperMarket.exe
+C:\Users\Hawex\Documents\GitHub\smart-hypermarket\Desktop\SmartHyperMarket\SmartHyperMarket\obj\Debug\SmartHyperMarket.pdb
