@@ -13,10 +13,6 @@ namespace SmartHyperMarket.Common.Models
 {
     public class Offer : Model<Offer>
     {
-        public class Offers
-    {
-        public List<Offer> offers { get; set; }
-    }
         private string _name;
         private string _price;
         private string _id;
@@ -25,9 +21,10 @@ namespace SmartHyperMarket.Common.Models
         private string _created_at;
         private string _updated_at;
         private List<Product> _products = new List<Product>();
-
-
-
+        public class Offers
+        {
+            public List<Offer> offers { get; set; }
+        }
         public List<Product> Products
         {
             set { _products = value; }

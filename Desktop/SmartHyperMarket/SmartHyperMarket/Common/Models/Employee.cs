@@ -43,7 +43,6 @@ namespace SmartHyperMarket.Common.Models
         {
             if (_username == username && _password == password)
                 return true;
-
             return false;
         }
 

@@ -50,6 +50,12 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="Common\Models\CategoryTests.cs" />
+    <Compile Include="Common\Models\EmployeeTests.cs" />
+    <Compile Include="Common\Models\MarketTests.cs" />
+    <Compile Include="Common\Models\OfferTests.cs" />
+    <Compile Include="Common\Models\OrderTests.cs" />
+    <Compile Include="Common\Models\ProductTests.cs" />
     <Compile Include="DataEntryManager\Controllers\OfferControllerTests.cs" />
     <Compile Include="DataEntryManager\Controllers\ProductControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

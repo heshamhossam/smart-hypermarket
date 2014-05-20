@@ -32,8 +32,6 @@ namespace SmartHyperMarket.Common.Models
         private int quantity;
         private string description;
         private string weight;
-
-
         public string Description
         {
             get { return description; }
