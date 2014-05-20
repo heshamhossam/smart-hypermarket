@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using SmartHyperMarket.Common.Controllers;
-using SmartHyperMarket.Common.Models;
+//using SmartHyperMarket.Common.Models;
+using SmartHyperMarket.Common.StubModels;
 
 namespace SmartHyperMarket.DataEntryManager.Controllers
 {
