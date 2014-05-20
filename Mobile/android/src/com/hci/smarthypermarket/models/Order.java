@@ -4,16 +4,46 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import com.hci.smarthypermarket.views.CartListAdapter;
 import com.hci.smarthypermarket.views.IShowableItem;
 
 
 import android.app.Activity;
 
+import android.os.AsyncTask;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 
+abstract class RetrieveOrderState extends AsyncTask<Order, Integer, Order>
+{
+	////Order State
+	final String Tag_OrderState="state";
+	final String Tag_OrderId="id";
+	
+	JSONParser jsonParser = new JSONParser();
+	private static final String order_details_url=Model.linkServiceRoot+"/orders/get";
+	@Override
+	protected Order doInBackground(Order... params) {
+		// TODO Auto-generated method stub
+		List<NameValuePair>Params = new ArrayList<NameValuePair>();
+		Params.add(new BasicNameValuePair(Tag_OrderId,params[0].getId()));
+		JSONObject jsonObject = jsonParser.makeHttpRequest(order_details_url, "GET", Params);
+		try {
+			String state = jsonObject.getString(Tag_OrderState);
+			params[0].setState(state);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return params[0];
+	}
+}
 
 public class Order extends Model {
 	
@@ -135,6 +165,7 @@ public class Order extends Model {
 
 	public void refreshState(OnModelListener onModelListener) {
 		//find online the state of this order and set the local state member by the new one online
+		
 	}
 
 
