@@ -43,6 +43,7 @@ public class ProductActivity extends Activity implements IProductActivity {
 	private TextView textViewProductBrand = null;
 	private Button buttonAddToOrder = null;
 	private Button buttonReview = null;
+	private RatingBar ratingBarProduct = null;
 	
 	private Shopper shopper = LauncherActivity.shopper;
 	
@@ -66,6 +67,7 @@ public class ProductActivity extends Activity implements IProductActivity {
 		textVieewProductDescription = (TextView) findViewById(R.id.itemDescription);
 		textViewProductBrand = (TextView) findViewById(R.id.itemBrand);
 		textViewProductWeight = (TextView) findViewById(R.id.itemWeight);
+		ratingBarProduct = (RatingBar) findViewById(R.id.productRatingBar);
 		buttonReview = (Button) findViewById(R.id.reviewButton);
 		buttonReview.setOnClickListener(new OnClickListener(){
 			
@@ -216,6 +218,8 @@ public class ProductActivity extends Activity implements IProductActivity {
 		  
 		  textViewProductBrand.setText(String.valueOf("Drinks"));
 		  textViewProductWeight.setText(String.valueOf(product.getWeight()));
+		  
+		  ratingBarProduct.setRating(product.getRating());
 	 }
 
 	@Override

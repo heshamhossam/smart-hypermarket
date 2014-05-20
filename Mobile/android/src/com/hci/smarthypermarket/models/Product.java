@@ -272,6 +272,8 @@ public class Product extends Model implements IShowableItem {
 		return purchasedQuantity;
 	}
 	
-	
+	public float getRating(){
+		return rating;
+	}
 	
 }
