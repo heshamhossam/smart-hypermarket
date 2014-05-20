@@ -1,0 +1,17 @@
+C:\Users\Yaser\Source\Repos\smart-hypermarket4\Desktop\SmartHyperMarket\SmartHyperMarketTests\bin\Debug\SmartHyperMarketTests.dll
+C:\Users\Yaser\Source\Repos\smart-hypermarket4\Desktop\SmartHyperMarket\SmartHyperMarketTests\bin\Debug\SmartHyperMarketTests.pdb
+C:\Users\Yaser\Source\Repos\smart-hypermarket4\Desktop\SmartHyperMarket\SmartHyperMarketTests\bin\Debug\nunit.framework.dll
+C:\Users\Yaser\Source\Repos\smart-hypermarket4\Desktop\SmartHyperMarket\SmartHyperMarketTests\bin\Debug\SmartHyperMarket.exe
+C:\Users\Yaser\Source\Repos\smart-hypermarket4\Desktop\SmartHyperMarket\SmartHyperMarketTests\bin\Debug\FirstFloor.ModernUI.dll
+C:\Users\Yaser\Source\Repos\smart-hypermarket4\Desktop\SmartHyperMarket\SmartHyperMarketTests\bin\Debug\WpfCap.dll
+C:\Users\Yaser\Source\Repos\smart-hypermarket4\Desktop\SmartHyperMarket\SmartHyperMarketTests\bin\Debug\zxing.presentation.dll
+C:\Users\Yaser\Source\Repos\smart-hypermarket4\Desktop\SmartHyperMarket\SmartHyperMarketTests\bin\Debug\zxing.dll
+C:\Users\Yaser\Source\Repos\smart-hypermarket4\Desktop\SmartHyperMarket\SmartHyperMarketTests\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Yaser\Source\Repos\smart-hypermarket4\Desktop\SmartHyperMarket\SmartHyperMarketTests\bin\Debug\SmartHyperMarket.pdb
+C:\Users\Yaser\Source\Repos\smart-hypermarket4\Desktop\SmartHyperMarket\SmartHyperMarketTests\bin\Debug\SmartHyperMarket.xml
+C:\Users\Yaser\Source\Repos\smart-hypermarket4\Desktop\SmartHyperMarket\SmartHyperMarketTests\bin\Debug\nunit.framework.xml
+C:\Users\Yaser\Source\Repos\smart-hypermarket4\Desktop\SmartHyperMarket\SmartHyperMarketTests\bin\Debug\FirstFloor.ModernUI.xml
+C:\Users\Yaser\Source\Repos\smart-hypermarket4\Desktop\SmartHyperMarket\SmartHyperMarketTests\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Yaser\Source\Repos\smart-hypermarket4\Desktop\SmartHyperMarket\SmartHyperMarketTests\obj\Debug\SmartHyperMarketTests.csprojResolveAssemblyReference.cache
+C:\Users\Yaser\Source\Repos\smart-hypermarket4\Desktop\SmartHyperMarket\SmartHyperMarketTests\obj\Debug\SmartHyperMarketTests.dll
+C:\Users\Yaser\Source\Repos\smart-hypermarket4\Desktop\SmartHyperMarket\SmartHyperMarketTests\obj\Debug\SmartHyperMarketTests.pdb

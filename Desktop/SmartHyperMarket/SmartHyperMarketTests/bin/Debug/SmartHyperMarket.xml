@@ -1,0 +1,370 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SmartHyperMarket</name>
+    </assembly>
+    <members>
+        <member name="T:SmartHyperMarket.App">
+            <summary>
+            Interaction logic for App.xaml
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:SmartHyperMarket.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:SmartHyperMarket.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:SmartHyperMarket.Common.Controllers.Error">
+            <summary>
+            Handel errors of the application occured during runtime
+            </summary>
+        </member>
+        <member name="T:SmartHyperMarket.Common.Controllers.Input">
+            <summary>
+            Work as a container for diffirent inputss
+            </summary>
+        </member>
+        <member name="T:SmartHyperMarket.Common.Controllers.Response">
+            <summary>
+            A type which handels the end result of the function and keep track of errors occured during runtime of it
+            </summary>
+        </member>
+        <member name="M:SmartHyperMarket.Common.Models.Market.getInstance">
+            <summary>
+            get instance of the static object market
+            </summary>
+            <returns>market object</returns>
+            
+        </member>
+        <member name="T:SmartHyperMarket.Controllers.UserController">
+            <summary>
+            Control user behavior and functionality
+            </summary>
+        </member>
+        <member name="M:SmartHyperMarket.Controllers.UserController.login(SmartHyperMarket.Common.Controllers.Input[])">
+            <summary>
+            Login user into server using his information
+            </summary>
+            <param name="inputs">List of inputs : username, password</param>
+            <returns>Result of runing the function</returns>
+        </member>
+        <member name="M:SmartHyperMarket.DataEntryManager.BarcodeReading.IBarcodeReader.openCamera">
+            <summary>
+            Opens the webcam of computer
+            </summary>
+            <returns>Boolean true if camera is open successfuly, false if some error happened and not open</returns>
+        </member>
+        <member name="M:SmartHyperMarket.DataEntryManager.BarcodeReading.IBarcodeReader.readBarcodes">
+            <summary>
+            Take a frame from camera and try to convert it into a barcode if succeeded then fire the onBarcodeDetected event
+            </summary>
+        </member>
+        <member name="M:SmartHyperMarket.DataEntryManager.BarcodeReading.BarcodeReader.#ctor(System.Windows.Controls.Label@,System.Windows.Controls.Label@,WpfCap.CapPlayer@)">
+            <summary>
+            Constructor of BarcodeReader class
+            </summary>
+            <param name="txtDecoderType">Referrence to a label which will hold the barcode detected type</param>
+            <param name="txtDecoderContent">Referrence to a label which will hold the barcode detected content (id number)</param>
+            <param name="pictureBox">Referrence to a PictureBox which will hold the Web Camera stream</param>
+        </member>
+        <member name="M:SmartHyperMarket.DataEntryManager.BarcodeReading.BarcodeReader.webCamTimer_Tick(System.Object,System.EventArgs)">
+            <summary>
+            Fired each tick to capture a frame and decode it
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:SmartHyperMarket.DataEntryManager.Controllers.OfferController">
+            <summary>
+            Handel the logic operations dealing with offers and it's related functionality
+            </summary>
+        </member>
+        <member name="M:SmartHyperMarket.DataEntryManager.Controllers.OfferController.addProductToOffer(SmartHyperMarket.Common.Controllers.Input[])">
+            <summary>
+            Add new product with it's quantity to controller of the offer
+            </summary>
+            <param name="inputs">List of inputs : productID and productQuantity</param>
+            <returns>Result of runing the function</returns>
+        </member>
+        <member name="M:SmartHyperMarket.DataEntryManager.Controllers.OfferController.createOffer(SmartHyperMarket.Common.Controllers.Input[])">
+            <summary>
+            Create the controller offer constructed in the system
+            </summary>
+            <param name="inputs">List of inputs : name, price and teaser</param>
+            <returns>Result of runing the function</returns>
+        </member>
+        <member name="M:SmartHyperMarket.DataEntryManager.Controllers.OfferController.editOffer(SmartHyperMarket.Common.Controllers.Input[])">
+            <summary>
+            Edit the offer of offer controller instance
+            </summary>
+            <param name="inputs">List of edited inputs : name, price and teaser</param>
+            <returns>Result of runing the function</returns>
+        </member>
+        <member name="M:SmartHyperMarket.DataEntryManager.Controllers.OfferController.deleteOffer">
+            <summary>
+            Delete the offer currently held by the offer controller
+            </summary>
+            <returns>Result of runing the function</returns>
+        </member>
+        <member name="T:SmartHyperMarket.DataEntryManager.Controllers.ProductController">
+            <summary>
+            Handel of the logic operations related with product
+            </summary>
+        </member>
+        <member name="M:SmartHyperMarket.DataEntryManager.Controllers.ProductController.createProduct(SmartHyperMarket.Common.Controllers.Input[])">
+            <summary>
+            Create new product in the system
+            </summary>
+            <param name="inputs">List of inputs : name, barcode, price, categoryId, weight and description</param>
+            <returns>Result of runing the function</returns>
+        </member>
+        <member name="T:SmartHyperMarket.DataEntryManager.Views.AddOffer">
+            <summary>
+            Interaction logic for AddOffer.xaml
+            </summary>
+            <summary>
+            AddOffer
+            </summary>
+        </member>
+        <member name="M:SmartHyperMarket.DataEntryManager.Views.AddOffer.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SmartHyperMarket.DataEntryManager.Views.AddProduct">
+            <summary>
+            Interaction logic for AddProduct.xaml
+            </summary>
+            <summary>
+            AddProduct
+            </summary>
+        </member>
+        <member name="M:SmartHyperMarket.DataEntryManager.Views.AddProduct.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SmartHyperMarket.DataEntryManager.Views.EditOfferWindow">
+            <summary>
+            Interaction logic for EditOfferWindow.xaml
+            </summary>
+            <summary>
+            EditOfferWindow
+            </summary>
+        </member>
+        <member name="M:SmartHyperMarket.DataEntryManager.Views.EditOfferWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SmartHyperMarket.DataEntryManager.Views.EditProduct">
+            <summary>
+            Interaction logic for EditProduct.xaml
+            </summary>
+            <summary>
+            EditProduct
+            </summary>
+        </member>
+        <member name="M:SmartHyperMarket.DataEntryManager.Views.EditProduct.#ctor(SmartHyperMarket.Common.Models.Product)">
+            <summary>
+            Constructor of edit product page
+            </summary>
+            <param name="product">the product to edit</param>
+        </member>
+        <member name="M:SmartHyperMarket.DataEntryManager.Views.EditProduct.showProduct(SmartHyperMarket.Common.Models.Product)">
+            <summary>
+            Show Product member fields in the textboxes and other input fields
+            </summary>
+            <param name="product">product to show</param>
+        </member>
+        <member name="M:SmartHyperMarket.DataEntryManager.Views.EditProduct.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SmartHyperMarket.DataEntryManager.Views.MainWindow">
+            <summary>
+            Interaction logic for MainWindow.xaml
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="M:SmartHyperMarket.DataEntryManager.Views.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SmartHyperMarket.DataEntryManager.Views.ShowOffers">
+            <summary>
+            Interaction logic for ShowOffers.xaml
+            </summary>
+            <summary>
+            ShowOffers
+            </summary>
+        </member>
+        <member name="M:SmartHyperMarket.DataEntryManager.Views.ShowOffers.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SmartHyperMarket.DataEntryManager.Views.ShowProducts">
+            <summary>
+            Interaction logic for Page1.xaml
+            </summary>
+            <summary>
+            ShowProducts
+            </summary>
+        </member>
+        <member name="M:SmartHyperMarket.DataEntryManager.Views.ShowProducts.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SmartHyperMarket.StorageManager.Views.MainWindow">
+            <summary>
+            Interaction logic for MainWindow.xaml
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="M:SmartHyperMarket.StorageManager.Views.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SmartHyperMarket.StorageManager.Views.OrderDetailsWindow">
+            <summary>
+            Interaction logic for OrderDetailsWindow.xaml
+            </summary>
+            <summary>
+            OrderDetailsWindow
+            </summary>
+        </member>
+        <member name="M:SmartHyperMarket.StorageManager.Views.OrderDetailsWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SmartHyperMarket.StorageManager.Views.OrderProductsDetailsControl">
+            <summary>
+            Interaction logic for OrderProductsDetailsControl.xaml
+            </summary>
+            <summary>
+            OrderProductsDetailsControl
+            </summary>
+        </member>
+        <member name="M:SmartHyperMarket.StorageManager.Views.OrderProductsDetailsControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SmartHyperMarket.StorageManager.Views.OrderOpenPage">
+            <summary>
+            Interaction logic for OrderOpenPage.xaml
+            </summary>
+            <summary>
+            OrderOpenPage
+            </summary>
+        </member>
+        <member name="M:SmartHyperMarket.StorageManager.Views.OrderOpenPage.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SmartHyperMarket.StorageManager.Views.OrdersListingPage">
+            <summary>
+            Interaction logic for OrdersListingPage.xaml
+            </summary>
+            <summary>
+            OrdersListingPage
+            </summary>
+        </member>
+        <member name="M:SmartHyperMarket.StorageManager.Views.OrdersListingPage.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SmartHyperMarket.Views.Login">
+            <summary>
+            Interaction logic for Login.xaml
+            </summary>
+            <summary>
+            Login
+            </summary>
+        </member>
+        <member name="M:SmartHyperMarket.Views.Login.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SmartHyperMarket.Views.MainWindow">
+            <summary>
+            Interaction logic for MainWindow.xaml
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="M:SmartHyperMarket.Views.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SmartHyperMarket.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:SmartHyperMarket.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:SmartHyperMarket.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
+        </member>
+    </members>
+</doc>
