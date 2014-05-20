@@ -134,7 +134,7 @@ public class CartActivity extends Activity implements ICartActivity {
 						shopper.watchOrder(getApplicationContext(), new OnModelListener() {
 							@Override
 							public void OnModelRetrieved() {
-								shopper.makeNotification("Your Order is Ready", "Go to the Delivery Section and recieve your order.");
+								shopper.makeNotification(getApplicationContext(),"Your Order is Ready", "Go to the Delivery Section and recieve your order.");
 								super.OnModelRetrieved();
 							}
 						});
