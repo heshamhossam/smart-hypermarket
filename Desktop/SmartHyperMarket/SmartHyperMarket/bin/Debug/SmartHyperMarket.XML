@@ -44,6 +44,13 @@
             <returns>market object</returns>
             
         </member>
+        <member name="M:SmartHyperMarket.Common.StubModels.Market.getInstance">
+            <summary>
+            get instance of the static object market
+            </summary>
+            <returns>market object</returns>
+            
+        </member>
         <member name="T:SmartHyperMarket.Controllers.UserController">
             <summary>
             Control user behavior and functionality

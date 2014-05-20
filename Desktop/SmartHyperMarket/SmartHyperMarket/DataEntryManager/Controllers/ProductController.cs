@@ -137,8 +137,6 @@ namespace SmartHyperMarket.DataEntryManager.Controllers
                 response.Errors.Add(new Error("There Is No Product Selected To Delete"));
                 response.State = ResponseState.FAIL;
             }
-          
-
             return response;
         }
     }

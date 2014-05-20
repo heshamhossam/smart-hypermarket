@@ -1,5 +1,6 @@
 ﻿using SmartHyperMarket.Common.Controllers;
-using SmartHyperMarket.Common.Models;
+//using SmartHyperMarket.Common.Models;
+using SmartHyperMarket.Common.StubModels;
 using SmartHyperMarket.DataEntryManager.Controllers;
 using System;
 using System.Collections.Generic;
@@ -53,7 +54,6 @@ namespace SmartHyperMarket.DataEntryManager.Views
                 new Input("price", textBoxOfferPrice.Text)
             );
             
-
             if (response.State == ResponseState.SUCCESS)
             {
                 MessageBox.Show("Offer is successfuly updated");

@@ -150,6 +150,17 @@
     <Compile Include="Common\Models\Offer.cs" />
     <Compile Include="Common\Models\Order.cs" />
     <Compile Include="Common\Models\Product.cs" />
+    <Compile Include="Common\StubModels\Category.cs" />
+    <Compile Include="Common\StubModels\Employee.cs" />
+    <Compile Include="Common\StubModels\ICategory.cs" />
+    <Compile Include="Common\StubModels\IMarket.cs" />
+    <Compile Include="Common\StubModels\IOrder.cs" />
+    <Compile Include="Common\StubModels\IProduct.cs" />
+    <Compile Include="Common\StubModels\Market.cs" />
+    <Compile Include="Common\StubModels\Model.cs" />
+    <Compile Include="Common\StubModels\Offer.cs" />
+    <Compile Include="Common\StubModels\Order.cs" />
+    <Compile Include="Common\StubModels\Product.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DataEntryManager\BarcodeReading\BarcodeReader.cs" />
     <Compile Include="DataEntryManager\BarcodeReading\IBarcodeReader.cs" />

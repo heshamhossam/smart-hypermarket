@@ -5,14 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using SmartHyperMarket.Common.Controllers;
-using SmartHyperMarket.Common.Models;
+//using SmartHyperMarket.Common.Models;
+using SmartHyperMarket.Common.StubModels;
 
 namespace SmartHyperMarket.DataEntryManager.Controllers
 {
     /// <summary>
     /// Handel the logic operations dealing with offers and it's related functionality
     /// </summary>
-    class OfferController
+    public class OfferController
     {
         private Offer _offer = new Offer(Market.getInstance());
 
@@ -55,7 +56,10 @@ namespace SmartHyperMarket.DataEntryManager.Controllers
                 if (int.TryParse(productQuantity.Value, out productQuantityInt) == true)
                     product.Quantity = productQuantityInt;
                 else
-                    respone.Errors.Add(new Error("ID isn't integer"));
+                {
+                    respone.Errors.Add(new Error("Quantity do not represent integer value."));
+                    respone.State = ResponseState.FAIL;
+                }
 
                 _offer.Products.Add(product);
             }
@@ -97,8 +101,7 @@ namespace SmartHyperMarket.DataEntryManager.Controllers
 
                 if (!offerSaved)
                 {
-                    
-                    respone.Errors.Add(new Error("Unknown error happend while saving product, please try again later"));
+                    respone.Errors.Add(new Error("Unknown error happend while saving product, please try again later."));
                     respone.State = ResponseState.FAIL;
                 }
                 else
@@ -176,7 +179,6 @@ namespace SmartHyperMarket.DataEntryManager.Controllers
                 respone.Errors.Add(new Error("Unknown error happend while saving offer, please try again later"));
                 respone.State = ResponseState.FAIL;
             }
-
             return respone;
         }
     }
