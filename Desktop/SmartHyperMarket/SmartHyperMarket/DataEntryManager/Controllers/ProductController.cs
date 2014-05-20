@@ -101,13 +101,11 @@ namespace SmartHyperMarket.DataEntryManager.Controllers
             else
             {
                 response.State = ResponseState.SUCCESS;
-              bool check_productedit =  Market.getInstance().editProduct(product);  
+                bool check_productedit =  Market.getInstance().editProduct(product);  
                 if(check_productedit==false)
                 {
                     response.Errors.Add(new Error("Error happen while editing a product please check later"));
                     response.State = ResponseState.FAIL;
-
-
                 }
                 else
                 {

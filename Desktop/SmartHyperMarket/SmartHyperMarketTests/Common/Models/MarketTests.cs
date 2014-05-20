@@ -12,22 +12,23 @@ namespace SmartHyperMarket.Common.Models.Tests
     [TestFixture()]
     public class MarketTests
     {
+        public class MarketMock : Market
+        {
+            public MarketMock() { }
+        }
         [Test()]
         public void getInstanceTest()
         {
-            Assert.Fail();
+            Assert.IsInstanceOf<Market>(Market.getInstance());
         }
-
-        [Test()]
-        public void getInstanceTest1()
-        {
-            Assert.Fail();
-        }
-
         [Test()]
         public void updateOfferTest()
         {
-            Assert.Fail();
+            Market market = new MarketMock();
+            Offer offer = new Offer();
+            offer.Id = "1";
+            market.Offers.Add(offer);
+            Assert.IsTrue(market.updateOffer(offer));
         }
 
         [Test()]
@@ -63,10 +64,10 @@ namespace SmartHyperMarket.Common.Models.Tests
         [Test()]
         public void refreshOrdersTest()
         {
-            Market market = Market.getInstance();
-            Assert.AreEqual(0, market.Orders.Count);
+            MarketMock market = new MarketMock();
+            Assert.IsNull(market.Orders);
             market.refreshOrders();
-            //Assert.AreNotEqual(0, testMarket.Orders.Count);
+            Assert.IsNotNull(market.Orders);
         }
     }
 }

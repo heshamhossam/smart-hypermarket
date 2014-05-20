@@ -129,7 +129,6 @@ namespace SmartHyperMarket.Common.StubModels
             }
 
             return null;
-
         }
 
         public bool editProduct(Product product)

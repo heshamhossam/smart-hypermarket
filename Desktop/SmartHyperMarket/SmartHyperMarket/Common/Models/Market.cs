@@ -23,10 +23,10 @@ namespace SmartHyperMarket.Common.Models
         private List<Employee> employees = new List<Employee>();
         private List<Offer> offers = new List<Offer>();
 
-        private Market()
+        protected Market()
         {
             CategoryList = Category.all(this);
-            //orders = Order.all(this, Order.ALL);
+            orders = Order.all(this, Order.ALL);
             offers = Offer.all(this);
             LoadProducts();
             employees.Add(new Employee("dataentry", "dataentry", EmployeeRole.DATA_ENTRY));
@@ -114,8 +114,7 @@ namespace SmartHyperMarket.Common.Models
                     onOffersChangeHandler();
                 return true;
             }
-            else
-            return false;
+            else   return false;
         }
 
         public bool deleteOffer(Offer offer)
