@@ -3,13 +3,14 @@ package com.hci.smarthypermarket.test;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.test.AndroidTestCase;
+
 import com.hci.smarthypermarket.models.Category;
 import com.hci.smarthypermarket.models.Offer;
 import com.hci.smarthypermarket.models.Product;
 
-import junit.framework.TestCase;
 
-public class CategoryTest extends TestCase {
+public class CategoryTest extends AndroidTestCase {
 
 	public void testCategory() {
 		Category category = new Category();
