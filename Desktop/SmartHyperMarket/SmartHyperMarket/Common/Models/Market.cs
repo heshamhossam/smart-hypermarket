@@ -96,17 +96,22 @@ namespace SmartHyperMarket.Common.Models
             set { onOffersChangeHandler = value; }
         }
 
-        public bool editOffer(Offer offer)
+        public OnModelChange OnProductsChange 
         {
-            //search for offers in offers
-            //if found update it with the new offer in the param and return true and fire the onofferchange event if not null
-            //else return false
+            set
+            {
+                onProductsChangeHandler = value;
+            }
+        }
+
+        public bool updateOffer(Offer offer)
+        {
             if (offers.Exists(o=> o.Id == offer.Id))
             {
                 offer.update();
                 offers[offers.FindIndex(ind => ind.Id == offer.Id)] = offer;
                 if (onOffersChangeHandler != null)
-                onOffersChangeHandler();               
+                    onOffersChangeHandler();
                 return true;
             }
             else
@@ -147,6 +152,56 @@ namespace SmartHyperMarket.Common.Models
             return false;
         }
 
+        public Product addProduct(Product product)
+        {
+            if (ProductList.Exists(p => p.Id == product.Id))
+                return null;
+            
+            Product savedProduct = product.save();
+            if (savedProduct != null)
+            {
+                ProductList.Add(savedProduct);
+                if (onProductsChangeHandler != null)
+                    onProductsChangeHandler();
+                return savedProduct;
+            }
+
+            return null;
+
+        }
+
+        public bool editProduct(Product product)
+        {
+            if (!ProductList.Exists(p => p.Id == product.Id))
+                return false;
+
+            bool productUpdated = product.update();
+            if (productUpdated)
+            {
+                ProductList[ProductList.FindIndex(p => p.Id == product.Id)] = product;
+                if (onProductsChangeHandler != null)
+                    onProductsChangeHandler();
+            }
+
+            return productUpdated;
+
+        }
+
+        public bool deleteProduct(Product product)
+        {
+            if (!ProductList.Exists(p => p.Id == product.Id))
+                return false;
+
+            bool productDeleted = product.delete();
+            if (productDeleted)
+            {
+                ProductList.RemoveAt(ProductList.FindIndex(p => p.Id == product.Id));
+                if (onProductsChangeHandler != null)
+                    onProductsChangeHandler();
+            }
+
+            return productDeleted;
+        }
 
         private void LoadProducts()
         {

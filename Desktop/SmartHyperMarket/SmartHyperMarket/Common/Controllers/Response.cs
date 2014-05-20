@@ -10,7 +10,7 @@ namespace SmartHyperMarket.Common.Controllers
     /// <summary>
     /// A type which handels the end result of the function and keep track of errors occured during runtime of it
     /// </summary>
-    public class Response
+    class Response
     {
         private ResponseState _state;
 

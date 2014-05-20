@@ -18,6 +18,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using SmartHyperMarket.Common.Models;
+using SmartHyperMarket.DataEntryManager.Controllers;
+using SmartHyperMarket.Common.Controllers;
 
 namespace SmartHyperMarket.DataEntryManager.Views
 {
@@ -26,7 +28,7 @@ namespace SmartHyperMarket.DataEntryManager.Views
     /// </summary>
     public partial class ShowProducts : Page
     {
-        //  private List<Product> _productsList = new List<Product>();
+        ProductController _productController = new ProductController();
         Market market;
 
         public ShowProducts()
@@ -52,8 +54,6 @@ namespace SmartHyperMarket.DataEntryManager.Views
             if (product != null)
             {
                 EditProduct editProductWindow = new EditProduct(product);
-                editProductWindow.OnProductChangeHandler = productlist_onUpdate;
-
                 editProductWindow.Show();
             }
             else
@@ -62,24 +62,16 @@ namespace SmartHyperMarket.DataEntryManager.Views
 
         private void buttonDeleteProduct_Click(object sender, RoutedEventArgs e)
         {
-
+            
             Product product = (Product)productsListGrid.SelectedItem;
+            _productController.Product = product;
+            Response response = _productController.deleteProduct(product);
 
-            if (product != null)
-            {
-                if (product.delete())
-                {
-                    market.Products.Remove(product);
-                    ((List<Product>)productsListGrid.ItemsSource).Remove(product);
-                    productsListGrid.Items.Refresh();
-
-                    MessageBox.Show("Product deleted successfully");
-                }
-                else
-                    MessageBox.Show("Can't Delete product at this time...");
-            }
+            if (response.State == ResponseState.SUCCESS)
+                MessageBox.Show("Product deleted successfully");
             else
-                MessageBox.Show("Please select a product first to delete");
+                MessageBox.Show("Can't Delete product at this time...");
+
 
         }
 

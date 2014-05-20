@@ -131,13 +131,18 @@ public class CartActivity extends Activity implements ICartActivity {
 				shopper.submitOrder(new OnModelListener() {
 					@Override
 					public void OnModelSent() {
+						shopper.watchOrder(getApplicationContext(), new OnModelListener() {
+							@Override
+							public void OnModelRetrieved() {
+								// TODO Auto-generated method stub
+								super.OnModelRetrieved();
+							}
+						});
 						startOrderActivity();
 						super.OnModelSent();
 					}
 				});
-				Toast.makeText(getApplicationContext(), "Order Sent", Toast.LENGTH_LONG).show();
-				startOrderActivity();
-			    finish();
+				Toast.makeText(getApplicationContext(), "Sending Order...", Toast.LENGTH_LONG).show();
 				
 			}
 		});
@@ -148,7 +153,6 @@ public class CartActivity extends Activity implements ICartActivity {
 			public void onClick(DialogInterface dialog, int which) {
 				// TODO Auto-generated method stub
 				Toast.makeText(getApplicationContext(), "Cancel Done", Toast.LENGTH_LONG).show();
-			    finish();
 			}
 		});
 		

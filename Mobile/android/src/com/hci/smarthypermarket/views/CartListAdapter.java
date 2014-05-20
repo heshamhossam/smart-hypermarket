@@ -35,7 +35,11 @@ public class CartListAdapter extends ArrayAdapter<IShowableItem> {
 		
 		// Name:
 		TextView Name = (TextView) itemView.findViewById(R.id.textViewZeft);
-		Name.setText("" + currentProduct.getName().substring(0, 10)+"...");
+		if(currentProduct.getName().length() > 10){
+			Name.setText("" + currentProduct.getName().substring(0, 10)+"...");
+		}else{
+			Name.setText("" + currentProduct.getName());
+		}
 		
 		// PRICE:
 		TextView condionText = (TextView) itemView.findViewById(R.id.textViewProductPrice);

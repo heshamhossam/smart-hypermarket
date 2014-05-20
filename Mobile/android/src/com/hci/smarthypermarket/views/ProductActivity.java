@@ -20,6 +20,8 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
+import android.widget.RatingBar.OnRatingBarChangeListener;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
@@ -41,6 +43,7 @@ public class ProductActivity extends Activity implements IProductActivity {
 	private TextView textViewProductBrand = null;
 	private Button buttonAddToOrder = null;
 	private Button buttonReview = null;
+	private RatingBar ratingBarProduct = null;
 	
 	private Shopper shopper = LauncherActivity.shopper;
 	
@@ -64,6 +67,7 @@ public class ProductActivity extends Activity implements IProductActivity {
 		textVieewProductDescription = (TextView) findViewById(R.id.itemDescription);
 		textViewProductBrand = (TextView) findViewById(R.id.itemBrand);
 		textViewProductWeight = (TextView) findViewById(R.id.itemWeight);
+		ratingBarProduct = (RatingBar) findViewById(R.id.productRatingBar);
 		buttonReview = (Button) findViewById(R.id.reviewButton);
 		buttonReview.setOnClickListener(new OnClickListener(){
 			
@@ -119,12 +123,16 @@ public class ProductActivity extends Activity implements IProductActivity {
 		lName.setHint("Last Name");
 		final EditText editTextReview = new EditText(this);
 		editTextReview.setHint("Write your review...");
+		final RatingBar ratingBar = new RatingBar(this);
+		ratingBar.setNumStars(5);
 		linear.addView(fName);
 		linear.addView(lName);
 		linear.addView(editTextReview);
+		linear.addView(ratingBar);
 		
 		alert.setView(linear);
 		alert.setTitle("Write Review");
+		
 		
 		alert.setPositiveButton("Post", new DialogInterface.OnClickListener() {
 			
@@ -134,7 +142,7 @@ public class ProductActivity extends Activity implements IProductActivity {
 				{
 					shopper.setFirstName(fName.getText().toString());
 					shopper.setLastName(lName.getText().toString());
-					Review review = new Review(shopper, editTextReview.getText().toString());
+					Review review = new Review(shopper, editTextReview.getText().toString(), ratingBar.getRating());
 					review.setModelHandler(new OnModelListener() {
 						
 						@Override
@@ -145,7 +153,6 @@ public class ProductActivity extends Activity implements IProductActivity {
 					});
 					
 					shopper.getScannedProduct().makeReview(review);
-					
 					
 				}
 				else
@@ -159,7 +166,6 @@ public class ProductActivity extends Activity implements IProductActivity {
 			public void onClick(DialogInterface dialog, int which) {
 				// TODO Auto-generated method stub
 				Toast.makeText(getApplicationContext(), "Cancel Done", Toast.LENGTH_LONG).show();
-			    finish();
 			}
 		});
 		
@@ -202,6 +208,8 @@ public class ProductActivity extends Activity implements IProductActivity {
 		  
 		  textViewProductBrand.setText(String.valueOf("Drinks"));
 		  textViewProductWeight.setText(String.valueOf(product.getWeight()));
+		  
+		  ratingBarProduct.setRating(product.getRating());
 	 }
 
 	@Override

@@ -12,7 +12,7 @@ namespace SmartHyperMarket.DataEntryManager.Controllers
     /// <summary>
     /// Handel the logic operations dealing with offers and it's related functionality
     /// </summary>
-    public class OfferController
+    class OfferController
     {
         private Offer _offer = new Offer(Market.getInstance());
 
@@ -138,7 +138,7 @@ namespace SmartHyperMarket.DataEntryManager.Controllers
                 _offer.Name = name.Value;
                 _offer.Price = (price.Value);
                 _offer.Teaser = teaser.Value;
-                bool offerSaved = Market.getInstance().editOffer(_offer);
+                bool offerSaved = Market.getInstance().updateOffer(_offer);
 
                 if (!offerSaved)
                 {

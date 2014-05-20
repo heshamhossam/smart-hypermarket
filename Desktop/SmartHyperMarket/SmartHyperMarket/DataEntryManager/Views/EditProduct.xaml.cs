@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using SmartHyperMarket.Common.Models;
+using SmartHyperMarket.DataEntryManager.Controllers;
+using SmartHyperMarket.Common.Controllers;
 
 namespace SmartHyperMarket.DataEntryManager.Views
 {
@@ -23,7 +25,7 @@ namespace SmartHyperMarket.DataEntryManager.Views
     public partial class EditProduct : Window
     {
         private Product _product;
-
+        private ProductController _productController = new ProductController();
         public OnProductUpdate OnProductChangeHandler = null;
 
         /// <summary>
@@ -43,25 +45,19 @@ namespace SmartHyperMarket.DataEntryManager.Views
 
         private void buttonProductEdit_Click(object sender, RoutedEventArgs e)
         {
-            _product.Name = name.Text;
-            _product.Barcode = barcode.Text;
-            //_product.Market_id = "1";
-            _product.Price = float.Parse(price.Text);
+            Response response = _productController.editProduct(_product,
+                new Input("name", name.Text),
+                new Input("barcode", barcode.Text),
+                new Input("price", price.Text)
+            );
 
-            bool updated = _product.update();
-
-            if (updated)
+            if (response.State == ResponseState.SUCCESS)
             {
                 MessageBox.Show("Product edited successfully.", "Confirmation message", MessageBoxButton.OK);
-                
-                OnProductChangeHandler();
-
                 this.Close();
             }
             else
-            {
                 MessageBox.Show("Error Happened while Editing your product, please try again later!!.", "Confirmation message", MessageBoxButton.OK);
-            }
 
             
         }
