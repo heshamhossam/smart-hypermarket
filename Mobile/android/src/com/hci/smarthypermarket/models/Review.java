@@ -34,14 +34,16 @@ abstract class SendReviewTask extends AsyncTask<Review, Integer, Review>
 		// TODO Auto-generated method stub
 		List<NameValuePair> CParms = new ArrayList<NameValuePair>();
 		
-		CParms.add(new BasicNameValuePair(Tag_ProductId, params[0].product_id));
-		CParms.add(new BasicNameValuePair(Tag_ReviewBody, params[0].body));
-		CParms.add(new BasicNameValuePair(Tag_UserMobile, params[0].reviewer.getMobile()));
+		CParms.add(new BasicNameValuePair(Tag_ProductId, params[0].getProductId()));
+		CParms.add(new BasicNameValuePair(Tag_ReviewBody, params[0].getBody()));
+		CParms.add(new BasicNameValuePair(Tag_Rating, String.valueOf( params[0].getRating() ) ));
+		CParms.add(new BasicNameValuePair(Tag_UserMobile, params[0].getReviewer().getMobile()));
 		JSONObject jsonObject = jsonParser.makeHttpRequest(url_create_review, "GET", CParms);
 		try {
 			String Createdat=jsonObject.getString(Tag_Createdat);
 			String  Updatedat=jsonObject.getString(Tag_Updatedat);
 			String ReviewId=jsonObject.getString(Tag_ReviewID);
+			
 			params[0].createdAt=Createdat;
 			params[0].updatedAt=Updatedat;
 			params[0].id=ReviewId;
@@ -65,10 +67,10 @@ public class Review extends Model {
 	protected String createdAt;
 	protected String updatedAt;
 	protected String product_id;
-	private int rating;
+	private float rating;
 	
 	
-	public Review(Shopper reviewer, String id, String body, String createdAt, String updatedAt,int rating) {
+	public Review(Shopper reviewer, String id, String body, String createdAt, String updatedAt,float rating) {
 		super();
 		this.reviewer = reviewer;
 		this.id = id;
@@ -80,10 +82,11 @@ public class Review extends Model {
 	}
 	
 	
-	public Review(Shopper reviewer, String body) {
+	public Review(Shopper reviewer, String body, float rating) {
 		super();
 		this.reviewer = reviewer;
 		this.body = body;
+		this.rating = rating;
 	}
 	
 
@@ -124,8 +127,21 @@ public class Review extends Model {
 	public String getBody(){
 		return body;
 	}
+	
+	public float getRating()
+	{
+		return rating;
+	}
+
+	public String getProductId()
+	{
+		return product_id;
+	}
 
 
+	public Shopper getReviewer() {
+		return reviewer;
+	}
 	
 
 	

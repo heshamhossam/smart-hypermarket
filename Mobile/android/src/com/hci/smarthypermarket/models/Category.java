@@ -116,7 +116,7 @@ abstract class RetriveCategoriesTask extends AsyncTask<Market, Integer,List<Cate
 						String userlaStringName=userobject.getString(Tag_UserLastName);
 						String mobilenumber=userobject.getString(Tag_UserMobile);
 						String rcreatedat=userobject.getString(Tag_ReviewCreateTime);
-						String rating = userobject.getString(Tag_Rating);
+						String rating = reviewobject.getString(Tag_Rating);
 						String rupdatedat=	userobject.getString(Tag_ReviewUpdateTime);
 						Review review = new Review(new Shopper(userfirstName,userlaStringName,mobilenumber),reviewid,reviewbody,rcreatedat,rupdatedat,Integer.parseInt(rating));
 						reviewlist.add(review);

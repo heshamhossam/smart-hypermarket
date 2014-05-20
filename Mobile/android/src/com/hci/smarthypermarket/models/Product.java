@@ -123,6 +123,7 @@ public class Product extends Model implements IShowableItem {
 	private String description;
 	private String weight;
 	private List<Review> reviews;
+	private float rating = 0;
 	
 	public Product()
 	{
@@ -159,6 +160,13 @@ public class Product extends Model implements IShowableItem {
 		this.description= discription;
 		this.weight = weight;
 		this.reviews = reviews;
+		
+		for (Review review : reviews) {
+			this.rating += review.getRating();
+		}
+		
+		this.rating /= this.reviews.size();
+		
 	}
 	
 	public Product(String id, String name, String barcode, float price,String weight,String discription) {

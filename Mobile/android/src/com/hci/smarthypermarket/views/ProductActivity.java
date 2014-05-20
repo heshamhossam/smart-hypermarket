@@ -149,7 +149,7 @@ public class ProductActivity extends Activity implements IProductActivity {
 				{
 					shopper.setFirstName(fName.getText().toString());
 					shopper.setLastName(lName.getText().toString());
-					Review review = new Review(shopper, editTextReview.getText().toString());
+					Review review = new Review(shopper, editTextReview.getText().toString(), ratingBar.getRating());
 					review.setModelHandler(new OnModelListener() {
 						
 						@Override

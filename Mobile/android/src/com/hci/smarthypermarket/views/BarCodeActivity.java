@@ -21,20 +21,20 @@ public class BarCodeActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		BarCodeIntentIntegrator Integrator = new BarCodeIntentIntegrator(this);
-		Integrator.initiateScan();
-// 		Product product = market.findProduct("6920652801883");
-//		if (product != null)
-//		{
-//			shopper.setScannedProduct(product);
-//			startProductActivity();
-//		}
-//		else
-//		{
-//			Toast toastError = Toast.makeText(getApplicationContext(), "Sorry Error Happened while capturing product!!", Toast.LENGTH_LONG);
-//			toastError.show();	
-//			startDashboardActivity();
-//		}
+//		BarCodeIntentIntegrator Integrator = new BarCodeIntentIntegrator(this);
+//		Integrator.initiateScan();
+ 		Product product = market.findProduct("6920652801883");
+		if (product != null)
+		{
+			shopper.setScannedProduct(product);
+			startProductActivity();
+		}
+		else
+		{
+			Toast toastError = Toast.makeText(getApplicationContext(), "Product wasn't found!!", Toast.LENGTH_LONG);
+			toastError.show();	
+			startDashboardActivity();
+		}
 		
 	}
 	
