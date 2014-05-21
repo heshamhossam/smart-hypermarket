@@ -102,7 +102,7 @@ namespace SmartHyperMarket.DataEntryManager.Controllers
 
                 if (!offerSaved)
                 {
-                    respone.Errors.Add(new Error("Unknown error happend while saving product, please try again later."));
+                    respone.Errors.Add(new Error("Unknown error happend while saving Offer, please try again later."));
                     respone.State = ResponseState.FAIL;
                 }
                 else
@@ -176,7 +176,7 @@ namespace SmartHyperMarket.DataEntryManager.Controllers
                 respone.State = ResponseState.SUCCESS;
             else
             {
-                respone.Errors.Add(new Error("Unknown error happend while saving offer, please try again later"));
+                respone.Errors.Add(new Error("Unknown error happend while Deleting offer, please try again later"));
                 respone.State = ResponseState.FAIL;
             }
             return respone;

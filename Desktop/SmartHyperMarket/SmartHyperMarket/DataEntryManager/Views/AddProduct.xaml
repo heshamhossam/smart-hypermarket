@@ -18,29 +18,29 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="1">
             <StackPanel>
-                <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" Height="68">
                     <TextBlock Text="Name" FontSize="30" Height="80" Width="160" VerticalAlignment="Center"/>
-                    <TextBox Height="80" Name="textBoxName" FontSize="30" TextWrapping="Wrap" VerticalAlignment="Center" Padding="10" TextAlignment="Center" Width="416" Margin="70,0,0,20" ></TextBox>
+                    <TextBox Height="42" x:Name="textBoxName" FontSize="30" TextWrapping="Wrap" VerticalAlignment="Center" Padding="10" TextAlignment="Center" Width="416" Margin="70,0,0,20" />
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" Height="75">
                     <TextBlock Text="Category" FontSize="30" Height="80" Width="160"/>
-                    <ComboBox Width="416" FontSize="30"  Name="comboBoxcategory" Height="80" Margin="70,0,0,20" ></ComboBox>
+                    <ComboBox Width="416" FontSize="30"  Name="comboBoxcategory" Height="50" Margin="70,0,0,20" ></ComboBox>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" Height="72">
                     <TextBlock Text="Price" Width="160" FontSize="30" Height="80"/>
-                    <TextBox Height="80" Name="textBoxPrice" FontSize="30" TextAlignment="Center" VerticalAlignment="Center"  Padding="10" Margin="70,0,0,20"  Width="416" ></TextBox>
+                    <TextBox Height="37" x:Name="textBoxPrice" FontSize="30" TextAlignment="Center" VerticalAlignment="Center"  Padding="10" Margin="70,3,0,32"  Width="416" />
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" Height="67">
                     <TextBlock Text="Weight" Width="160" FontSize="30" Height="80"/>
-                    <TextBox Height="80" Name="textboxWeight" FontSize="30" TextAlignment="Center" VerticalAlignment="Center"  Padding="10" Margin="70,0,0,20"  Width="416" ></TextBox>
+                    <TextBox Height="38" Name="textboxWeight" FontSize="30" TextAlignment="Center" VerticalAlignment="Center"  Padding="10" Margin="70,0,0,20"  Width="416" ></TextBox>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" Height="73">
                     <TextBlock Text="Description" Width="160" FontSize="30" Height="80"/>
-                    <TextBox Height="80" Name="textboxDescription" FontSize="30" TextAlignment="Center" VerticalAlignment="Center"  Padding="10" Margin="70,0,0,20"  Width="416" ></TextBox>
+                    <TextBox Height="44" Name="textboxDescription" FontSize="30" TextAlignment="Center" VerticalAlignment="Center"  Padding="10" Margin="70,0,0,20"  Width="416" ></TextBox>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" Height="74">
                     <TextBlock Text="Barcode" Width="160" Height="80" FontSize="30"/>
-                    <TextBox Name="textBoxBarcode" Height="80" FontSize="30" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" TextAlignment="Center"   Margin="70,0,0,20" Padding="10"  Width="416"  ></TextBox>
+                    <TextBox x:Name="textBoxBarcode" Height="46" FontSize="30" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" TextAlignment="Center"   Margin="70,0,0,20" Padding="10"  Width="416"  />
                 </StackPanel>
                 <StackPanel>
                     <Grid>
