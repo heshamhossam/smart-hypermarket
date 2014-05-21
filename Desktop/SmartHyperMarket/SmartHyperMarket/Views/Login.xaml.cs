@@ -27,6 +27,16 @@ namespace SmartHyperMarket.Views
         public Login()
         {
             InitializeComponent();
+
+            SmartHyperMarket.DataEntryManager.Views.MainWindow dataEntryWindow = new DataEntryManager.Views.MainWindow();
+            dataEntryWindow.Show();
+
+            SmartHyperMarket.StorageManager.Views.MainWindow storageWindow = new StorageManager.Views.MainWindow();
+            storageWindow.Show();
+
+            Application.Current.MainWindow.Visibility = System.Windows.Visibility.Hidden;
+
+
         }
 
         private void buttonLogin_Click(object sender, RoutedEventArgs e)

@@ -188,6 +188,7 @@
     <Compile Include="DataEntryManager\Views\ShowProducts.xaml.cs">
       <DependentUpon>ShowProducts.xaml</DependentUpon>
     </Compile>
+    <Compile Include="StorageManager\Controllers\OrderController.cs" />
     <Compile Include="StorageManager\Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -242,9 +243,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="StorageManager\Controllers\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>

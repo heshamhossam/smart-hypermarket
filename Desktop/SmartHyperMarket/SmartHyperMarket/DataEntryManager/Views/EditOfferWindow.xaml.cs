@@ -1,6 +1,6 @@
 ﻿using SmartHyperMarket.Common.Controllers;
-//using SmartHyperMarket.Common.Models;
-using SmartHyperMarket.Common.StubModels;
+using SmartHyperMarket.Common.Models;
+//using SmartHyperMarket.Common.StubModels;
 using SmartHyperMarket.DataEntryManager.Controllers;
 using System;
 using System.Collections.Generic;

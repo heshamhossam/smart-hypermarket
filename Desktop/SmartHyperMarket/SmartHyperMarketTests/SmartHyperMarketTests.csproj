@@ -59,6 +59,7 @@
     <Compile Include="DataEntryManager\Controllers\OfferControllerTests.cs" />
     <Compile Include="DataEntryManager\Controllers\ProductControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StorageManager\Controllers\OrderControllerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

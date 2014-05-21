@@ -5,8 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using SmartHyperMarket.Common.Controllers;
-//using SmartHyperMarket.Common.Models;
-using SmartHyperMarket.Common.StubModels;
+using SmartHyperMarket.Common.Models;
+//using SmartHyperMarket.Common.StubModels;
+using SmartHyperMarket.DataEntryManager.Views;
 
 namespace SmartHyperMarket.DataEntryManager.Controllers
 {
@@ -75,7 +76,7 @@ namespace SmartHyperMarket.DataEntryManager.Controllers
             return response;
         }
     
-        public Response editProduct(Product product,params Input[] inputs)
+        public Response updateProduct(Product product,params Input[] inputs)
         {
             Response response = new Response();
             Input name, barcode, price;
@@ -100,7 +101,10 @@ namespace SmartHyperMarket.DataEntryManager.Controllers
             }
             else
             {
-                response.State = ResponseState.SUCCESS;
+                product.Barcode = barcode.Value;
+                product.Name = name.Value;
+                product.Price = float.Parse(price.Value);
+
                 bool check_productedit =  Market.getInstance().editProduct(product);  
                 if(check_productedit==false)
                 {
@@ -138,5 +142,16 @@ namespace SmartHyperMarket.DataEntryManager.Controllers
             }
             return response;
         }
+
+        public Response showProducts(ShowProducts showProducts)
+        {
+            Response response = new Response();
+
+            showProducts.show(Market.getInstance().Products);
+
+            response.State = ResponseState.SUCCESS;
+            return response;
+        }
+
     }
 }

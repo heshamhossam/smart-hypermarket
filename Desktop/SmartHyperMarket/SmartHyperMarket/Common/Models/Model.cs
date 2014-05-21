@@ -15,7 +15,7 @@ namespace SmartHyperMarket.Common.Models
         {
             get
             {
-                return _webserviceMockURLParent;
+                return _webserviceURLParent;
             }
         }
         abstract public ModelType save();
