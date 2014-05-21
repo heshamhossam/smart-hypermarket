@@ -180,13 +180,13 @@
             EditProduct
             </summary>
         </member>
-        <member name="M:SmartHyperMarket.DataEntryManager.Views.EditProduct.#ctor(SmartHyperMarket.Common.StubModels.Product)">
+        <member name="M:SmartHyperMarket.DataEntryManager.Views.EditProduct.#ctor(SmartHyperMarket.Common.Models.Product)">
             <summary>
             Constructor of edit product page
             </summary>
             <param name="product">the product to edit</param>
         </member>
-        <member name="M:SmartHyperMarket.DataEntryManager.Views.EditProduct.showProduct(SmartHyperMarket.Common.StubModels.Product)">
+        <member name="M:SmartHyperMarket.DataEntryManager.Views.EditProduct.showProduct(SmartHyperMarket.Common.Models.Product)">
             <summary>
             Show Product member fields in the textboxes and other input fields
             </summary>

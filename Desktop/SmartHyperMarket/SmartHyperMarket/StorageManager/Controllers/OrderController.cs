@@ -11,7 +11,7 @@ using System.Windows.Threading;
 
 namespace SmartHyperMarket.StorageManager.Controllers
 {
-    class OrderController
+    public class OrderController
     {
         private OrdersListingPage _orderListingPage;
 
