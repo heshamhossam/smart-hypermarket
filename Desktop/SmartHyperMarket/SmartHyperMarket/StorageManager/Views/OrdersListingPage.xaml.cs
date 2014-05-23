@@ -1,5 +1,4 @@
 ﻿using FirstFloor.ModernUI.Presentation;
-using SmartHyperMarket.Common.Models;
 using SmartHyperMarket.StorageManager.Controllers;
 using System;
 using System.Collections.Generic;
@@ -17,6 +16,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using SmartHyperMarket.Common.Models;
+//using SmartHyperMarket.Common.StubModels;
 
 namespace SmartHyperMarket.StorageManager.Views
 {

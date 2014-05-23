@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 using SmartHyperMarket.DataEntryManager.Controllers;
 using NUnit.Framework;
 using SmartHyperMarket.Common.Controllers;
-
-using SmartHyperMarket.Common.StubModels;
+using SmartHyperMarket.Common.Models;
+//using SmartHyperMarket.Common.StubModels;
 
 namespace SmartHyperMarket.DataEntryManager.Controllers.Tests
 {
@@ -23,7 +23,7 @@ namespace SmartHyperMarket.DataEntryManager.Controllers.Tests
             p.Name = "test";
             p.Barcode = "1";
             p.Price = 1.1f;
-            Response response = productcontroller.editProduct(p,
+            Response response = productcontroller.updateProduct(p,
                 new Input("name", "test"),
                 new Input("barcode", "1"),
                 new Input("price", "1,1"));
@@ -38,7 +38,7 @@ namespace SmartHyperMarket.DataEntryManager.Controllers.Tests
              p.Name = "";
              p.Barcode = "1";
              p.Price = 1.1f;
-             Response response = productcontroller.editProduct(p,
+             Response response = productcontroller.updateProduct(p,
                  new Input("name", ""),
                 new Input("price", "1.0"),
                 new Input("barcode", "1")
@@ -55,7 +55,7 @@ namespace SmartHyperMarket.DataEntryManager.Controllers.Tests
             p.Name = "test";
             p.Barcode = "1";
             p.Price = 0;
-            Response response = productcontroller.editProduct(p,
+            Response response = productcontroller.updateProduct(p,
                 new Input("name", ""),
                new Input("price", ""),
                new Input("barcode", "1")
@@ -73,7 +73,7 @@ namespace SmartHyperMarket.DataEntryManager.Controllers.Tests
             p.Name = "test";
             p.Barcode = "";
             p.Price = 1.1f;
-            Response response = productcontroller.editProduct(p,
+            Response response = productcontroller.updateProduct(p,
                 new Input("name", ""),
                new Input("price", "1.0"),
                new Input("barcode", "")
@@ -163,7 +163,6 @@ namespace SmartHyperMarket.DataEntryManager.Controllers.Tests
                 );
             Assert.AreEqual(response.State, ResponseState.FAIL);
             Assert.Greater(response.Errors.Count(error => error.ErrorMessage == "Product Price can't be empty."), 0);
-
         }
 
 

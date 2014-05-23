@@ -41,7 +41,11 @@ namespace SmartHyperMarket.Common.StubModels
         /// 
         public static Market getInstance()
         {
-            return new Market();
+            if (MyMarket == null)
+            {
+                MyMarket = new Market();
+            }
+            return MyMarket;
         }
 
         public List<Category> Categories
@@ -116,19 +120,7 @@ namespace SmartHyperMarket.Common.StubModels
 
         public Product addProduct(Product product)
         {
-            if (ProductList.Exists(p => p.Id == product.Id))
-                return null;
-            
-            Product savedProduct = product.save();
-            if (savedProduct != null)
-            {
-                ProductList.Add(savedProduct);
-                if (onProductsChangeHandler != null)
-                    onProductsChangeHandler();
-                return savedProduct;
-            }
-
-            return null;
+            return product;
         }
 
         public bool editProduct(Product product)
